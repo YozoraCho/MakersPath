@@ -61,7 +61,7 @@ A secondary window listing all characters on your account.
 
 ---
 
-## 💬 Credits
+## Credits
 
 **Author:** [YozoraCho](https://github.com/YozoraCho)  
 **Inspiration:** The Crafted-Only community. Players who forge their own path.  
@@ -70,7 +70,7 @@ Crafted with love for those who build rather than buy, and who find joy in progr
 
 ---
 
-## ⚖️ License
+## License
 
 **All Rights Reserved**  
 © 2025 YozoraCho.  
@@ -80,7 +80,7 @@ See [`LICENSE.txt`](./LICENSE.txt) for details.
 
 ---
 
-## 🧭 Links
+## Links
 
 - 🔗 [CurseForge Addon Page](https://www.curseforge.com/wow/addons) *(insert your URL once approved)*
 - 💡 [Issue Tracker](../../issues)
