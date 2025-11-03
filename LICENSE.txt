@@ -1,0 +1,13 @@
+All Rights Reserved
+
+Copyright (c) 2025 YozoraCho
+
+This software and its accompanying assets are the intellectual property of the author.
+You may not copy, modify, merge, publish, distribute, sublicense, or sell any portion
+of this project without express written permission from the copyright holder.
+
+This repository is provided for transparency, portfolio, and version-tracking purposes only.
+Redistribution or modification of the contents is prohibited.
+
+For usage permissions or collaboration inquiries, contact:
+discord: YozoraCho
