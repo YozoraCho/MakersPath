@@ -329,7 +329,7 @@ end
 -- “Best next” window (cap)
 -- ==============================
 local function FutureCap()
-  return (MakersPath and MakersPath.FutureWindow) or 3
+  return (MakersPath and MakersPath.FutureWindow) or 1
 end
 
 local function RealRequiredLevel(entry)
