@@ -5,6 +5,9 @@ local Filters = MakersPath and MakersPath.Filters
 
 local GearFinder = {}
 MakersPath.GearFinder = GearFinder
+local STRICT_UPGRADES_ONLY = false
+MakersPath.Config = MakersPath.Config or {}
+local PREF_NATIVE_ARMOR = (MakersPath.Config.PREF_NATIVE_ARMOR ~= false) -- default: true
 
 -- ==============================
 -- Per-character session (avoid cross-character bleed)
@@ -112,30 +115,169 @@ end
 local ARMOR_COEF = 0.020
 local DPS_COEF   = 0.600
 
+local function StatsAreEmpty(stats)
+  if not stats then return true end
+  for _, v in pairs(stats) do
+    if type(v) == "number" and v > 0 then
+      return false
+    end
+  end
+  return true
+end
+
+local function PickArmor(stats)
+  if not stats then return 0 end
+
+  local keys = { "RESISTANCE0_NAME", "ITEM_MOD_ARMOR_SHORT", "ITEM_MOD_ARMOR" }
+  local best = 0
+  for _, k in ipairs(keys) do
+    local v = stats[k]
+    if type(v) == "number" and v > best then
+      best = v
+    end
+  end
+  --Fallback
+  if best == 0 then
+    for k, v in pairs(stats) do
+      if type(v) == "number" and v > 0 and k and k:find("ARMOR", 1, true) then
+        if v > best then best = v end
+      end
+    end
+  end
+  return best
+end
+
+local function PickDPS(stats)
+  local keys = { "DPS", "DAMAGE_PER_SECOND", "ITEM_MOD_DAMAGE_PER_SECOND_SHORT" }
+  local best = 0
+  for _, k in ipairs(keys) do
+    local v = stats and stats[k]
+    if type(v) == "number" and v > best then best =v end
+  end
+  return best
+end
+
 local function GetItemScore_ByStats(itemID)
   if not itemID then return 0, false end
-  local link = select(2, GetItemInfo(itemID))
-  if not link then 
-    if C_Item and C_Item.RequestLoadItemDataByID then
-      C_Item.RequestLoadItemDataByID(itemID)
-    end
-    return 0, true 
-  end
-  local stats = GetItemStats(link) or {}
-  local score = ScoreFromStats(stats)
-  local armor = stats["RESISTANCE0_NAME"] or stats["ITEM_MOD_ARMOR_SHORT"] or stats["ITEM_MOD_ARMOR"] or 0
-  if armor and armor > 0 then score = score + (armor * ARMOR_COEF) end
 
-  local dps = stats["DPS"] or stats["DAMAGE_PER_SECOND"] or stats["ITEM_MOD_DAMAGE_PER_SECOND_SHORT"] or 0
-  if dps and dps > 0 then score = score + (dps * DPS_COEF) end
+  local link = select(2, GetItemInfo(itemID))
+  if not link then
+    if C_Item and C_Item.RequestLoadItemDataByID then C_Item.RequestLoadItemDataByID(itemID) end
+    return 0, true
+  end
+
+  local stats = GetItemStats(link)
+  if StatsAreEmpty(stats) then
+    if C_Item and C_Item.RequestLoadItemDataByID then C_Item.RequestLoadItemDataByID(itemID) end
+    return 0, true
+  end
+
+  local score = ScoreFromStats(stats or {})
+
+  local armor = PickArmor(stats)
+  if armor > 0 then score = score + (armor * ARMOR_COEF) end
+  local dps = PickDPS(stats)
+  if dps > 0 then score = score + (dps * DPS_COEF) end
 
   return score, false
+end
+
+local ArmorTokenFromInfo
+local ArmorBias
+local WeaponBias
+local ProfessionBias
+local GatherBias
+
+-- ==============================
+-- Debug + scoring breakdown
+-- ==============================
+MakersPath.Config = MakersPath.Config or {}
+local DEBUG_GF = MakersPath.Config.DEBUG_GF == false
+
+local function _say(...)
+  local parts = {}
+  for i = 1, select("#", ...) do
+    parts[#parts+1] = tostring(select(i, ...))
+  end
+  local msg = table.concat(parts, " ")
+  if DEFAULT_CHAT_FRAME then
+    DEFAULT_CHAT_FRAME:AddMessage("|cff66ccff[Maker'sPath:GF]|r "..msg)
+  else
+    print("[Maker'sPath:GF] "..msg)
+  end
+end
+
+local function DBG(...)
+  if DEBUG_GF then
+    _say(...)
+  end
+end
+
+local function _ArmorTokenForItemID(iid)
+  local itemType, itemSubType = select(6, GetItemInfo(iid))
+  if not itemType then
+    if C_Item and C_Item.RequestLoadItemDataByID then C_Item.RequestLoadItemDataByID(iid) end
+    return nil
+  end
+  return ArmorTokenFromInfo(itemType, itemSubType)
+end
+
+-- Returns: totalScore, pending, breakdownTable
+local function ScoreItemWithBreakdown(iid, slotName, preKnownArmorTok, preKnownInvType)
+  if not iid then return 0, false, {reason="no-iid"} end
+
+  local link = select(2, GetItemInfo(iid))
+  if not link then
+    if C_Item and C_Item.RequestLoadItemDataByID then C_Item.RequestLoadItemDataByID(iid) end
+    return 0, true, {reason="link-pending"}
+  end
+
+  local stats = GetItemStats(link)
+  if StatsAreEmpty(stats) then
+    if C_Item and C_Item.RequestLoadItemDataByID then C_Item.RequestLoadItemDataByID(iid) end
+    return 0, true, {reason="stats-pending"}
+  end
+
+  local baseStatsScore = ScoreFromStats(stats or {})
+
+  local armorVal = PickArmor(stats) or 0
+  local armorAdd = armorVal * ARMOR_COEF
+
+  local dpsVal = PickDPS(stats) or 0
+  local dpsAdd = dpsVal * DPS_COEF
+
+  local invType = preKnownInvType or select(9, GetItemInfo(iid)) or ""
+  local armorTok = preKnownArmorTok or _ArmorTokenForItemID(iid)
+
+  local entryShim = { itemID = iid, invType = invType, armor = armorTok }
+  local biasArmor  = ArmorBias(entryShim)
+  local biasWeap   = WeaponBias(entryShim)
+  local biasProf   = ProfessionBias(entryShim)
+  local biasGather = GatherBias(entryShim)
+
+  local total = (baseStatsScore or 0) + armorAdd + dpsAdd + biasArmor + biasWeap + biasProf + biasGather
+
+  return total, false, {
+    iid       = iid,
+    base      = baseStatsScore or 0,
+    armor     = armorVal or 0,
+    armorAdd  = armorAdd or 0,
+    dps       = dpsVal or 0,
+    dpsAdd    = dpsAdd or 0,
+    biasArmor = biasArmor or 0,
+    biasWeap  = biasWeap or 0,
+    biasProf  = biasProf or 0,
+    biasGather= biasGather or 0,
+    invType   = invType,
+    armorTok  = armorTok,
+    slot      = slotName,
+  }
 end
 
 -- ==============================
 -- Armor / Weapon bias
 -- ==============================
-local function ArmorTokenFromInfo(itemType, itemSubType)
+function ArmorTokenFromInfo(itemType, itemSubType)
   local ARMOR = GetItemClassInfo and GetItemClassInfo(4) or "Armor"
   if itemType ~= ARMOR then return nil end
   if itemSubType == (GetItemSubClassInfo and GetItemSubClassInfo(4,1) or "Cloth")   then return "CLOTH" end
@@ -180,17 +322,29 @@ end
 
 local function ShouldSkipLighterArmor(slotName, candidateArmorTok, eqArmorTok, eqScore, candScore)
   if not candidateArmorTok or not eqArmorTok then return false end
+  if not PREF_NATIVE_ARMOR then return false end
   local candOrd = ARMOR_ORDER[candidateArmorTok] or 0
   local eqOrd = ARMOR_ORDER[eqArmorTok] or 0
-  if candOrd < eqOrd then
-    local THRESH = 0.75
-    return (candScore or 0) < (eqScore + THRESH)
+  if candOrd >= eqOrd then return false end
+
+  local lvl = UnitLevel("player") or 1
+  local THRESH
+  if lvl < 20 then
+    THRESH = 0.75
+  elseif lvl < 40 then
+    THRESH = 0.25
+  else
+    THRESH = 0.0
   end
-  return false
+  if (candScore or 0) > (eqScore or 0) and (eqScore or 0) < 0.6 then
+    return false
+  end
+  return (candScore or 0) < (eqScore + THRESH)
 end
 
-local function ArmorBias(entry)
+function ArmorBias(entry)
   if not entry or not entry.armor then return 0 end
+  if not PREF_NATIVE_ARMOR then return 0 end
   local _, class = UnitClass("player")
   if class == "ROGUE" or class == "DRUID" then
     return (entry.armor == "LEATHER") and 1.5 or 0
@@ -209,7 +363,7 @@ local function ArmorBias(entry)
   return 0
 end
 
-local function WeaponBias(entry)
+function WeaponBias(entry)
   if not entry or not entry.invType then return 0 end
   if not (entry.invType:find("WEAPON") or entry.invType:find("RANGED") or entry.invType=="INVTYPE_SHIELD" or entry.invType=="INVTYPE_HOLDABLE") then
     return 0
@@ -406,7 +560,7 @@ local function withinCap(entry)
   local me  = UnitLevel("player") or 1
   local cap = FutureCap()
   local req = RealRequiredLevel(entry)
-  if req <= 0 then return false end
+  if req <= 0 then return true end
   return req <= (me + cap)
 end
 
@@ -426,7 +580,12 @@ local function _ItemStats(iid)
     if C_Item and C_Item.RequestLoadItemDataByID then C_Item.RequestLoadItemDataByID(iid) end
     return nil
   end
-  return GetItemStats(link) or {}
+  local stats = GetItemStats(link)
+  if StatsAreEmpty(stats) then
+    if C_Item and C_Item.RequestLoadItemDataByID then C_Item.RequestLoadItemDataByID(iid) end
+    return nil
+  end
+  return stats
 end
 
 local function HasAnyPrimaryStat(stats)
@@ -441,18 +600,17 @@ local function HasValueForSlot(slotName, iid)
   if slotName == "AmmoSlot" then return true end
 
   local stats = _ItemStats(iid)
-  if not stats then return false end
+  if not stats then return true end
 
-  local armor = stats["RESISTANCE0_NAME"] or stats["ITEM_MOD_ARMOR_SHORT"] or stats["ITEM_MOD_ARMOR"] or 0
-  local dps   = stats["DPS"] or stats["DAMAGE_PER_SECOND"] or stats["ITEM_MOD_DAMAGE_PER_SECOND_SHORT"] or 0
+  local armor = PickArmor(stats)
+  local dps   = PickDPS(stats)
   local any   = HasAnyPrimaryStat(stats)
 
   if slotName == "MainHandSlot" or slotName == "SecondaryHandSlot" or slotName == "RangedSlot" then
     return (tonumber(dps) or 0) > 0
   end
 
-  if slotName == "NeckSlot" or slotName == "Finger0Slot" or slotName == "Finger1Slot"
-     or slotName == "Trinket0Slot" or slotName == "Trinket1Slot" then
+  if slotName == "NeckSlot" or slotName == "Finger0Slot" or slotName == "Finger1Slot" or slotName == "Trinket0Slot" or slotName == "Trinket1Slot" then
     return any
   end
 
@@ -466,10 +624,11 @@ local function GetEquippedScore(slotName)
   local cache = GearFinder._equippedScoreCache or {}
   GearFinder._equippedScoreCache = cache
   if cache[slotName] then
-    return cache[slotName].score, cache[slotName].ids, cache[slotName].pending
+    return cache[slotName].score, cache[slotName].ids, cache[slotName].pending, cache[slotName].dbg --Debug
   end
 
   local equippedIDs, best, pending = {}, 0, false
+  local dbglist = {} -- Debug
   local function pushByToken(token)
     local slotId = GetInventorySlotInfo(token)
     if not slotId then return end
@@ -490,13 +649,14 @@ local function GetEquippedScore(slotName)
   end
 
   for iid in pairs(equippedIDs) do
-    local s, p = GetItemScore_ByStats(iid)
-    if p then pending = true end
-    if s > best then best = s end
+    local total, pend, breakdown = ScoreItemWithBreakdown(iid, slotName)
+    if pend then pending = true end
+    dbglist[#dbglist+1] = { kind="equipped", total = total, br = breakdown}
+    if total > best then best = total end
   end
 
-  cache[slotName] = { score = best, ids = equippedIDs, pending = pending }
-  return best, equippedIDs, pending
+  cache[slotName] = { score = best, ids = equippedIDs, pending = pending, dbg = dbglist }
+  return best, equippedIDs, pending, dbglist
 end
 
 -- ==============================
@@ -520,21 +680,26 @@ end
 
 local function CraftSourceMakesSense(entry)
   if not entry then return false end
+  if entry.source == "crafted" or entry.isCrafted then
+    return true
+  end
+
   local pid = tonumber(entry.reqSkill or entry.profId or 0) or 0
   if pid <= 0 then return false end
-
-  local inv   = entry.invType or select(9, GetItemInfo(entry.itemID)) or ""
+  local inv = entry.invType or select(9, GetItemInfo(entry.itemID)) or ""
   local armor = entry.armor
+
   if armor then
     return (pid == 197) or (pid == 165) or (pid == 164) or (pid == 202)
   end
+
   if inv:find("WEAPON") or inv:find("RANGED") or inv == "INVTYPE_SHIELD" or inv == "INVTYPE_HOLDABLE" then
     return (pid == 164) or (pid == 202) or (pid == 333)
   end
   return true
 end
 
-local function ProfessionBias(entry)
+function ProfessionBias(entry)
   local pmap = MakersPath.Util and MakersPath.Util.CurrentProfMap() or {}
   local pid  = tonumber(entry.reqSkill or entry.profId or 0) or 0
   if pid ~= 0 then
@@ -545,7 +710,7 @@ local function ProfessionBias(entry)
   return 0
 end
 
-local function GatherBias(entry)
+function GatherBias(entry)
   local pmap = MakersPath.Util and MakersPath.Util.CurrentProfMap() or {}
   local has = function(spellID) return pmap[spellID] ~= nil end
   local T = {
@@ -630,6 +795,7 @@ function GearFinder:GetBestCraftable(slotName)
     end)
     return nil, 0, 0
   end
+  local candPendingAny = false
 
   local function consider_entry(entry, wantStrictUpgrade, curBestScore)
     if not (withinCap(entry) and IsCraftedLike(entry) and CraftSourceMakesSense(entry) and not LooksBogus(entry) and WeaponSkillAllows(entry)) then
@@ -654,24 +820,29 @@ function GearFinder:GetBestCraftable(slotName)
 
     AugmentNeedHave(entry)
 
-    local s, candPending = GetItemScore_ByStats(entry.itemID)
-    if candPending then
+    local total, pend, br = ScoreItemWithBreakdown(entry.itemID, slotName, entry.armor, entry.invType)
+    if pend then
+      candPendingAny = true
       return nil
     end
-    s = (s or 0) + ArmorBias(entry) + WeaponBias(entry) + ProfessionBias(entry) + GatherBias(entry)
 
     do
       local eqTok = EquippedArmorForSlot(slotName)
       local candTok = entry.armor
-      if ShouldSkipLighterArmor(slotName, candTok, eqTok, eqScore, s) then
+      if ShouldSkipLighterArmor(slotName, candTok, eqTok, eqScore, total) then
+        DBG("skip lighter", entry.itemID, "total", string.format("%.2f", total), "eq", string.format("%.2f", eqScore or 0))
         return nil
       end
     end
 
-    if wantStrictUpgrade then
-      if s <= (eqScore + EPS) then return nil end
+    if wantStrictUpgrade or STRICT_UPGRADES_ONLY then
+      if total <= (eqScore + EPS) then
+        return nil
+      end
     end
-    return s
+
+    entry.__dbg = { kind="candidate", total=total, br=br }
+    return total
   end
 
   local best, bestScore = nil, nil
@@ -683,18 +854,24 @@ function GearFinder:GetBestCraftable(slotName)
       end
     end
   end
-  if best then return best, bestScore or 0, eqScore or 0 end
+
+  if best then 
+    return best, bestScore or 0, eqScore or 0
+  end
 
   local futureBest, futureBestScore = nil, nil
   for _, entry in ipairs(CandidatesForSlot(slotName)) do
     if (not Filters or not Filters.IsAllowed or Filters:IsAllowed(entry)) then
-      local s = consider_entry(entry, false, futureBestScore)
+      local s = consider_entry(entry, false)
       if s and (not futureBestScore or s > futureBestScore or (s == futureBestScore and betterTiebreak(entry, futureBest))) then
         futureBest, futureBestScore = entry, s
       end
     end
   end
-  return futureBest, futureBestScore or 0, eqScore or 0
+  if futureBest and (futureBestScore or 0) > (eqScore or 0) + EPS then
+    return futureBest, futureBestScore or 0, eqScore or 0
+  end
+  return nil, 0, eqScore or 0
 end
 
 -- ==============================
@@ -745,5 +922,76 @@ MakersPath.GearFinderScan = MakersPath.GearFinderScan or function()
       local id = candidates[i].itemID
       if id then GetItemInfo(id) end
     end
+  end
+end
+
+-- ==============================
+-- Debug dump
+-- ==============================
+SLASH_MPGF1 = "/mpgf"
+SlashCmdList["MPGF"] = function(msg)
+  local arg = msg and msg:lower():match("^%s*(%S+)")
+  local slots = {
+    HeadSlot="HeadSlot", NeckSlot="NeckSlot", ShoulderSlot="ShoulderSlot", BackSlot="BackSlot",
+    ChestSlot="ChestSlot", WristSlot="WristSlot", HandsSlot="HandsSlot", WaistSlot="WaistSlot",
+    LegsSlot="LegsSlot", FeetSlot="FeetSlot", Finger0Slot="Finger0Slot", Finger1Slot="Finger1Slot",
+    Trinket0Slot="Trinket0Slot", Trinket1Slot="Trinket1Slot",
+    MainHandSlot="MainHandSlot", SecondaryHandSlot="SecondaryHandSlot", RangedSlot="RangedSlot", AmmoSlot="AmmoSlot",
+  }
+
+  local function dumpFor(slotName)
+    _say("=== Slot:", slotName, "===")
+    local eqScore, eqIDs, eqPending, dbgEquipped = GetEquippedScore(slotName)
+    if eqPending then _say("equipped pending data; rerun shortly") end
+    _say("equipped total:", string.format("%.2f", eqScore or 0))
+    if dbgEquipped then
+      for _,row in ipairs(dbgEquipped) do
+        local br = row.br or {}
+        local name = select(1, GetItemInfo(br.iid or 0)) or ("item:"..tostring(br.iid))
+        DBG("  EQ", name, "tot=", string.format("%.2f", row.total or 0),
+            " base=", string.format("%.2f", br.base or 0),
+            " +armor=", string.format("%.2f", br.armorAdd or 0),
+            " +dps=", string.format("%.2f", br.dpsAdd or 0),
+            " +bias[a,w,p,g]=", string.format("%.2f", br.biasArmor or 0)..","..
+                                string.format("%.2f", br.biasWeap or 0)..","..
+                                string.format("%.2f", br.biasProf or 0)..","..
+                                string.format("%.2f", br.biasGather or 0),
+            " tok=", tostring(br.armorTok), "inv=", tostring(br.invType))
+      end
+    end
+
+    local best, bestScore = MakersPath.GearFinder:GetBestCraftable(slotName)
+    if not best then
+      _say("no craftable upgrade for", slotName)
+      return
+    end
+    local bname = best.name or (GetItemInfo(best.itemID) or ("item:"..tostring(best.itemID)))
+    local br = (best.__dbg and best.__dbg.br) or {}
+
+    _say("BEST", bname, "tot=", string.format("%.2f", bestScore or 0), "vs eq=", string.format("%.2f", eqScore or 0))
+    DBG("   base=", string.format("%.2f", br.base or 0), " +armor=", string.format("%.2f", br.armorAdd or 0),
+      " +dps=", string.format("%.2f", br.dpsAdd or 0), " +bias[a,w,p,g]=", string.format("%.2f", br.biasArmor or 0)..","..
+      string.format("%.2f", br.biasWeap or 0)..",".. string.format("%.2f", br.biasProf or 0)..",".. string.format("%.2f", br.biasGather or 0),
+      " tok=", tostring(br.armorTok), "inv=", tostring(br.invType))
+  end
+
+  if arg == "all" or arg == nil then
+    for _,sn in ipairs({
+      "HeadSlot","NeckSlot","ShoulderSlot","BackSlot","ChestSlot","WristSlot",
+      "HandsSlot","WaistSlot","LegsSlot","FeetSlot",
+      "Finger0Slot","Finger1Slot","Trinket0Slot","Trinket1Slot",
+      "MainHandSlot","SecondaryHandSlot","RangedSlot","AmmoSlot",
+    }) do dumpFor(sn) end
+  else
+
+    local map = {
+      head="HeadSlot", neck="NeckSlot", shoulder="ShoulderSlot", back="BackSlot",
+      chest="ChestSlot", wrist="WristSlot", hands="HandsSlot", waist="WaistSlot",
+      legs="LegsSlot", feet="FeetSlot", finger0="Finger0Slot", finger1="Finger1Slot",
+      trinket0="Trinket0Slot", trinket1="Trinket1Slot", mainhand="MainHandSlot",
+      offhand="SecondaryHandSlot", secondary="SecondaryHandSlot", ranged="RangedSlot", ammo="AmmoSlot"
+    }
+    local sn = slots[arg] or map[arg]
+    if sn then dumpFor(sn) else DBG("unknown slot:", arg) end
   end
 end
