@@ -202,6 +202,23 @@ local function WeaponBias(entry)
   return 0
 end
 
+local function WeaponSkillAllows(entry)
+  if not entry or not entry.itemID then return true end
+  local invType = entry.invType or select(9, GetItemInfo(entry.itemID)) or ""
+  if not (invType:find("WEAPON") or invType:find("RANGED")) then
+    return true
+  end
+  local _, _, _, _, _, _, itemSubType = GetItemInfo(entry.itemID)
+  if not itemSubType then
+    if C_Item and C_Item.RequestLoadItemDataByID then C_Item.RequestLoadItemDataByID(entry.itemID) end
+    return true
+  end
+  if MakersPath and MakersPath.Util and MakersPath.Util.CanUseItemSubType then
+    return MakersPath.Util.CanUseItemSubType(itemSubType)
+  end
+  return true
+end
+
 -- ==============================
 -- Slot mapping (includes Ammo)
 -- ==============================
@@ -556,7 +573,7 @@ function GearFinder:GetBestCraftable(slotName)
   local best, bestScore = nil, nil
 
   for _, entry in ipairs(CandidatesForSlot(slotName)) do
-    if withinCap(entry) and IsCraftedLike(entry) and CraftSourceMakesSense(entry) and not LooksBogus(entry) then
+    if withinCap(entry) and IsCraftedLike(entry) and CraftSourceMakesSense(entry) and not LooksBogus(entry) and WeaponSkillAllows(entry) then
       if not (equippedIDs and equippedIDs[entry.itemID]) then
         if (not Filters or not Filters.IsAllowed or Filters:IsAllowed(entry)) and HasValueForSlot(slotName, entry.itemID) then
           if not entry.armor then
@@ -581,7 +598,7 @@ function GearFinder:GetBestCraftable(slotName)
 
   local futureBest, futureBestScore = nil, nil
   for _, entry in ipairs(CandidatesForSlot(slotName)) do
-    if withinCap(entry) and IsCraftedLike(entry) and CraftSourceMakesSense(entry) and not LooksBogus(entry) then
+    if withinCap(entry) and IsCraftedLike(entry) and CraftSourceMakesSense(entry) and not LooksBogus(entry) and WeaponSkillAllows(entry) then
       if not (equippedIDs and equippedIDs[entry.itemID]) then
         if (not Filters or not Filters.IsAllowed or Filters:IsAllowed(entry)) and HasValueForSlot(slotName, entry.itemID) then
           if not entry.armor then

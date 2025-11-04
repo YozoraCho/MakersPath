@@ -40,6 +40,78 @@ local function ItemIsOkForPlayerClass(itemID)
   return true
 end
 
+local HARD_NEVER = {
+  MAGE = {
+    ["One-Handed Maces"]=true, ["Two-Handed Maces"]=true,
+    ["One-Handed Axes"]=true,  ["Two-Handed Axes"]=true,
+    ["Two-Handed Swords"]=true,
+    ["Polearms"]=true, ["Fist Weapons"]=true, ["Shields"]=true,
+    ["Bows"]=true, ["Guns"]=true, ["Crossbows"]=true, ["Thrown"]=true,
+  },
+  PRIEST = {
+    ["One-Handed Swords"]=true, ["Two-Handed Swords"]=true,
+    ["One-Handed Axes"]=true,   ["Two-Handed Axes"]=true,
+    ["Two-Handed Maces"]=true,
+    ["Polearms"]=true, ["Fist Weapons"]=true, ["Shields"]=true,
+    ["Bows"]=true, ["Guns"]=true, ["Crossbows"]=true, ["Thrown"]=true,
+  },
+  WARLOCK = {
+    ["One-Handed Maces"]=true, ["Two-Handed Maces"]=true,
+    ["One-Handed Axes"]=true,  ["Two-Handed Axes"]=true,
+    ["Two-Handed Swords"]=true,
+    ["Polearms"]=true, ["Fist Weapons"]=true, ["Shields"]=true,
+    ["Bows"]=true, ["Guns"]=true, ["Crossbows"]=true, ["Thrown"]=true,
+  },
+  ROGUE = {
+    ["Two-Handed Swords"]=true, ["Two-Handed Axes"]=true, ["Two-Handed Maces"]=true,
+    ["Polearms"]=true, ["Staves"]=true, ["Shields"]=true, ["Wands"]=true,
+  },
+  HUNTER = {
+    ["One-Handed Maces"]=true, ["Two-Handed Maces"]=true,
+    ["Shields"]=true, ["Wands"]=true, ["Fist Weapons"]=true,
+  },
+  PALADIN = {
+    ["Daggers"]=true, ["Fist Weapons"]=true, ["Staves"]=true, ["Wands"]=true,
+    ["Bows"]=true, ["Guns"]=true, ["Crossbows"]=true, ["Thrown"]=true,
+    ["One-Handed Axes"]=true, ["Two-Handed Axes"]=true,
+  },
+  SHAMAN = {
+    ["One-Handed Swords"]=true, ["Two-Handed Swords"]=true,
+    ["Wands"]=true, ["Bows"]=true, ["Guns"]=true, ["Crossbows"]=true, ["Thrown"]=true,
+  },
+  DRUID = {
+    ["One-Handed Swords"]=true, ["Two-Handed Swords"]=true,
+    ["One-Handed Axes"]=true,   ["Two-Handed Axes"]=true,
+    ["Polearms"]=true,
+    ["Wands"]=true, ["Bows"]=true, ["Guns"]=true, ["Crossbows"]=true, ["Thrown"]=true, ["Shields"]=true,
+    ["Fist Weapons"]=true,
+  },
+  WARRIOR = {
+    ["Wands"]=true,
+  },
+}
+
+local function HardNeverForClass(entry)
+  if not entry or not entry.itemID then return false end
+  local _, class = UnitClass("player")
+  local never = HARD_NEVER[class]
+  if not never then return false end
+
+  local _, _, _, _, _, _, itemSubType = GetItemInfo(entry.itemID)
+  if not itemSubType or itemSubType == "" then
+    if C_Item and C_Item.RequestLoadItemDataByID then C_Item.RequestLoadItemDataByID(entry.itemID) end
+    return false
+  end
+
+  local equipLoc = entry.invType or select(9, GetItemInfo(entry.itemID))
+  if equipLoc == "INVTYPE_SHIELD" then
+    if never["Shields"] then return true end
+  end
+
+  return never[itemSubType] == true
+end
+
+
 -- ================= Armor & Shield Gating =================
 local function allowedArmorFor(class, lvl)
   local allow = { CLOTH = true }  -- everyone can wear cloth in Classic
@@ -187,6 +259,41 @@ local function WeaponOkForClass(entry)
   return true
 end
 
+local WEAPONLINE_FROM_SUBTYPE = (MakersPath.Util and (MakersPath.Util.WEAPONLINE_FROM_SUBTYPE or MakersPath.Util.WEAPON_LINE_FROM_SUBTYPE)) or {}
+local SHIELD_OK = { WARRIOR=true, PALADIN=true, SHAMAN=true }
+
+local function WeaponProficiencyOk(entry)
+  if not entry or not entry.itemID then return true end
+
+  local inv = entry.invType or select(9, GetItemInfo(entry.itemID))
+  if not inv then return true end
+  if not (inv:find("WEAPON") or inv:find("RANGED") or inv == "INVTYPE_SHIELD" or inv == "INVTYPE_HOLDABLE") then
+    return true
+  end
+
+  if inv == "INVTYPE_SHIELD" then
+    local _, class = UnitClass("player")
+    return SHIELD_OK[class] or false
+  end
+
+  if inv == "INVTYPE_HOLDABLE" then
+    return true
+  end
+
+  local _, _, _, _, _, _, itemSubType = GetItemInfo(entry.itemID)
+  if not itemSubType or itemSubType == "" then
+    if C_Item and C_Item.RequestLoadItemDataByID then C_Item.RequestLoadItemDataByID(entry.itemID) end
+    return true
+  end
+
+  local needLine = WEAPONLINE_FROM_SUBTYPE[itemSubType]
+  if not needLine then return false end
+
+  local weps = MakersPath.Util.CurrentWeaponMap()
+  local rank = weps[needLine]
+  return (rank and rank > 0) or false
+end
+
 -- ================= Level Window =================
 function F:LevelOk(entry)
   local me = UnitLevel("player") or 1
@@ -214,8 +321,10 @@ end
 -- ================= Master Gate =================
 function F:IsAllowed(entry)
   if not entry then return false end
+  if HardNeverForClass(entry) then return false end
   if not RangedOkForClass(entry) then return false end
   if not WeaponOkForClass(entry) then return false end
+  if not WeaponProficiencyOk(entry) then return false end
   if not self:ArmorOkForClass(entry) then return false end
   if not self:LevelOk(entry) then return false end
   if entry.itemID and not ItemIsOkForPlayerClass(entry.itemID) then return false end

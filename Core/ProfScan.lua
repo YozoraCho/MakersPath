@@ -22,6 +22,24 @@ local SECONDARY = {
   COOKING=true, FISHING=true, FIRSTAID=true,
 }
 
+local WEAPON_LINE_NORMALIZE = {
+  ["One-Handed Swords"] = "One-Handed Swords", ["Two-Handed Swords"] = "Two-Handed Swords", ["One-Handed Axes"] = "One-Handed Axes",
+  ["Two-Handed Axes"] = "Two-Handed Axes", ["One-Handed Maces"] = "One-Handed Maces", ["Two-Handed Maces"] = "Two-Handed Maces",
+  ["Daggers"] = "Daggers", ["Fist Weapons"] = "Fist Weapons", ["Polearms"] = "Polearms", ["Staves"] = "Staves",
+  ["Bows"] = "Bows", ["Guns"] = "Guns", ["Crossbows"] = "Crossbows", ["Thrown"] = "Thrown", ["Wands"] = "Wands",
+}
+
+local function isWeaponSkillLine(skillName)
+  return WEAPON_LINE_NORMALIZE[skillName] ~= nil
+end
+
+local SUBTYPE_TO_WEAPONLINE = {
+  ["One-Handed Swords"] = "One-Handed Swords", ["Two-Handed Swords"] = "Two-Handed Swords", ["One-Handed Axes"] = "One-Handed Axes",
+  ["Two-Handed Axes"] = "Two-Handed Axes", ["One-Handed Maces"] = "One-Handed Maces", ["Two-Handed Maces"] = "Two-Handed Maces",
+  ["Daggers"] = "Daggers", ["Fist Weapons"] = "Fist Weapons", ["Polearms"] = "Polearms", ["Staves"] = "Staves",
+  ["Bows"] = "Bows", ["Guns"] = "Guns", ["Crossbows"] = "Crossbows", ["Thrown"] = "Thrown", ["Wands"] = "Wands",
+}
+
 local function norm(s) return (tostring(s or "")):upper():gsub("%s+"," ") end
 
 local function charKey()
@@ -34,7 +52,7 @@ local function doScan()
   MakersPathDB = MakersPathDB or {}
   MakersPathDB.chars = MakersPathDB.chars or {}
   local key = charKey()
-  local out = {}
+  local outProfs, outWeps = {}, {}
 
   local num = GetNumSkillLines and GetNumSkillLines() or 0
   for i = 1, num do
@@ -43,20 +61,24 @@ local function doScan()
       local token = NAME_TO_TOKEN[norm(skillName)]
       if token and PROF[token] then
         if not (EXCLUDE_SECONDARIES and SECONDARY[token]) then
-          out[PROF[token]] = tonumber(skillRank) or 1
+          outProfs[PROF[token]] = tonumber(skillRank) or 1
         end
+      elseif isWeaponSkillLine(skillName) then
+        outWeps[WEAPON_LINE_NORMALIZE[skillName]] = tonumber(skillRank) or 1
       end
     end
   end
 
-  MakersPathDB.chars[key] = MakersPathDB.chars[key] or {}
-  local rec = MakersPathDB.chars[key]
-  rec.profs = out
+  local rec = MakersPathDB.chars[key] or {}
+  rec.profs = outProfs
+  rec.weps = outWeps
 
   local _, classTag = UnitClass("player")
   rec.class = classTag
   rec.level = UnitLevel("player") or nil
   rec.seen  = time()
+
+  MakersPathDB.chars[key] = rec
 end
 
 local pending = false
@@ -135,6 +157,25 @@ function MakersPath.Util.GetAllChars()
     return (a.name or "") < (b.name or "")
   end)
   return out
+end
+
+MakersPath.Util.WEAPON_LINE_FROM_SUBTYPE = SUBTYPE_TO_WEAPONLINE
+
+function MakersPath.Util.CanUseItemSubType(itemSubType)
+  if not itemSubType or itemSubType == "" then return true end
+  local weps = MakersPath.Util.CurrentWeaponSkills()
+  local line = SUBTYPE_TO_WEAPONLINE[itemSubType]
+  if not line then return true end
+  return weps[line] ~= nil
+end
+
+function MakersPath.Util.CurrentWeaponMap()
+  local key = charKey()
+  return (MakersPathDB and MakersPathDB.chars and MakersPathDB.chars[key] and MakersPathDB.chars[key].weps) or {}
+end
+
+function MakersPath.Util.CurrentWeaponSkills()
+  return MakersPath.Util.CurrentWeaponMap()
 end
 
 -- Events
