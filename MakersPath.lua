@@ -465,6 +465,10 @@ frame:SetScript("OnEvent", function(_, event, arg1)
   end
 end)
 
+if MakersPath and MakersPath.GearFinder and MakersPath.GearFinder._equippedScoreCache then
+  wipe(MakersPath.GearFinder._equippedScoreCache)
+end
+
 -- ===================== Slash (user-facing only) =====================
 -- Toggle
 SLASH_MAKERSPATH1 = "/mp"

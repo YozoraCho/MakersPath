@@ -113,20 +113,23 @@ local ARMOR_COEF = 0.020
 local DPS_COEF   = 0.600
 
 local function GetItemScore_ByStats(itemID)
-  if not itemID then return 0 end
+  if not itemID then return 0, false end
   local link = select(2, GetItemInfo(itemID))
-  if not link then return 0 end
+  if not link then 
+    if C_Item and C_Item.RequestLoadItemDataByID then
+      C_Item.RequestLoadItemDataByID(itemID)
+    end
+    return 0, true 
+  end
   local stats = GetItemStats(link) or {}
-
   local score = ScoreFromStats(stats)
-
   local armor = stats["RESISTANCE0_NAME"] or stats["ITEM_MOD_ARMOR_SHORT"] or stats["ITEM_MOD_ARMOR"] or 0
   if armor and armor > 0 then score = score + (armor * ARMOR_COEF) end
 
   local dps = stats["DPS"] or stats["DAMAGE_PER_SECOND"] or stats["ITEM_MOD_DAMAGE_PER_SECOND_SHORT"] or 0
   if dps and dps > 0 then score = score + (dps * DPS_COEF) end
 
-  return score
+  return score, false
 end
 
 -- ==============================
@@ -140,6 +143,50 @@ local function ArmorTokenFromInfo(itemType, itemSubType)
   if itemSubType == (GetItemSubClassInfo and GetItemSubClassInfo(4,3) or "Mail")    then return "MAIL" end
   if itemSubType == (GetItemSubClassInfo and GetItemSubClassInfo(4,4) or "Plate")   then return "PLATE" end
   return nil
+end
+
+local ARMOR_ORDER = { CLOTH=1, LEATHER=2, MAIL=3, PLATE=4 }
+
+local function EquippedArmorForSlot(slotName)
+  local bestToken, bestOrder = nil, 0
+  local function check(token)
+    local slotID = GetInventorySlotInfo(token)
+    if not slotID then return end
+    local link = GetInventoryItemLink("player", slotID)
+    if not link then return end
+    local iid = GetItemInfoInstant(link)
+    if not iid then return end
+    
+    local itemType, itemSubType = select(6, GetItemInfo(iid))
+    if not itemType then
+      if C_Item and C_Item.RequestLoadItemDataByID then C_Item.RequestLoadItemDataByID(iid) end
+      return
+    end
+
+    local tok = ArmorTokenFromInfo(itemType, itemSubType)
+    local ord = tok and ARMOR_ORDER[tok] or 0
+    if ord > bestOrder then
+      bestOrder, bestToken = ord, tok
+    end
+  end
+
+  if slotName == "Finger0Slot" or slotName == "Finger1Slot" or slotName == "Trinket0Slot" or slotName == "Trinket1Slot" then
+    return nil
+  end
+
+  check(slotName)
+  return bestToken
+end
+
+local function ShouldSkipLighterArmor(slotName, candidateArmorTok, eqArmorTok, eqScore, candScore)
+  if not candidateArmorTok or not eqArmorTok then return false end
+  local candOrd = ARMOR_ORDER[candidateArmorTok] or 0
+  local eqOrd = ARMOR_ORDER[eqArmorTok] or 0
+  if candOrd < eqOrd then
+    local THRESH = 0.75
+    return (candScore or 0) < (eqScore + THRESH)
+  end
+  return false
 end
 
 local function ArmorBias(entry)
@@ -300,6 +347,7 @@ local function CandidatesForSlot(slotName)
         local id = row.itemID or row.id
         if id and not seen[id] then
           seen[id] = true
+          row.invType = row.invType or invType
           out[#out+1] = row
         end
       end
@@ -418,10 +466,10 @@ local function GetEquippedScore(slotName)
   local cache = GearFinder._equippedScoreCache or {}
   GearFinder._equippedScoreCache = cache
   if cache[slotName] then
-    return cache[slotName].score, cache[slotName].ids
+    return cache[slotName].score, cache[slotName].ids, cache[slotName].pending
   end
 
-  local equippedIDs = {}
+  local equippedIDs, best, pending = {}, 0, false
   local function pushByToken(token)
     local slotId = GetInventorySlotInfo(token)
     if not slotId then return end
@@ -441,14 +489,14 @@ local function GetEquippedScore(slotName)
     pushByToken(slotName)
   end
 
-  local best = 0
   for iid in pairs(equippedIDs) do
-    local s = GetItemScore_ByStats(iid) or 0
+    local s, p = GetItemScore_ByStats(iid)
+    if p then pending = true end
     if s > best then best = s end
   end
 
-  cache[slotName] = { score = best, ids = equippedIDs }
-  return best, equippedIDs
+  cache[slotName] = { score = best, ids = equippedIDs, pending = pending }
+  return best, equippedIDs, pending
 end
 
 -- ==============================
@@ -568,29 +616,70 @@ end
 local EPS = 0.01
 
 function GearFinder:GetBestCraftable(slotName)
-  local eqScore, equippedIDs = GetEquippedScore(slotName)
+  local eqScore, equippedIDs, eqPending = GetEquippedScore(slotName)
+
+  if eqPending then
+    if self._equippedScoreCache then
+      self._equippedScoreCache[slotName] = nil
+    end
+    C_Timer.After(0.15, function()
+      if MakersPath and MakersPath.GearFinderScan then MakersPath.GearFinderScan() end
+      if MakersPathFrame and MakersPathFrame:IsShown() and RefreshList then
+        RefreshList()
+      end
+    end)
+    return nil, 0, 0
+  end
+
+  local function consider_entry(entry, wantStrictUpgrade, curBestScore)
+    if not (withinCap(entry) and IsCraftedLike(entry) and CraftSourceMakesSense(entry) and not LooksBogus(entry) and WeaponSkillAllows(entry)) then
+      return nil
+    end
+    if equippedIDs and equippedIDs[entry.itemID] then
+      return nil
+    end
+    if not HasValueForSlot(slotName, entry.itemID) then
+      return nil
+    end
+
+    if not entry.invType or not entry.armor then
+      local itemType, itemSubType, equipLoc = select(6, GetItemInfo(entry.itemID))
+      if not itemType then
+        if C_Item and C_Item.RequestLoadItemDataByID then C_Item.RequestLoadItemDataByID(entry.itemID) end
+        return nil
+      end
+      entry.invType = entry.invType or equipLoc
+      entry.armor = entry.armor or ArmorTokenFromInfo(itemType, itemSubType)
+    end
+
+    AugmentNeedHave(entry)
+
+    local s, candPending = GetItemScore_ByStats(entry.itemID)
+    if candPending then
+      return nil
+    end
+    s = (s or 0) + ArmorBias(entry) + WeaponBias(entry) + ProfessionBias(entry) + GatherBias(entry)
+
+    do
+      local eqTok = EquippedArmorForSlot(slotName)
+      local candTok = entry.armor
+      if ShouldSkipLighterArmor(slotName, candTok, eqTok, eqScore, s) then
+        return nil
+      end
+    end
+
+    if wantStrictUpgrade then
+      if s <= (eqScore + EPS) then return nil end
+    end
+    return s
+  end
 
   local best, bestScore = nil, nil
-
   for _, entry in ipairs(CandidatesForSlot(slotName)) do
-    if withinCap(entry) and IsCraftedLike(entry) and CraftSourceMakesSense(entry) and not LooksBogus(entry) and WeaponSkillAllows(entry) then
-      if not (equippedIDs and equippedIDs[entry.itemID]) then
-        if (not Filters or not Filters.IsAllowed or Filters:IsAllowed(entry)) and HasValueForSlot(slotName, entry.itemID) then
-          if not entry.armor then
-            local _, _, _, _, _, itemType, itemSubType, _, equipLoc = GetItemInfo(entry.itemID)
-            entry.invType = entry.invType or equipLoc
-            entry.armor   = entry.armor or ArmorTokenFromInfo(itemType, itemSubType)
-          end
-          AugmentNeedHave(entry)
-          local s = (GetItemScore_ByStats(entry.itemID) or 0)
-                    + ArmorBias(entry) + WeaponBias(entry)
-                    + ProfessionBias(entry) + GatherBias(entry)
-          if s > (eqScore + EPS) then
-            if not bestScore or s > bestScore or (s == bestScore and betterTiebreak(entry, best)) then
-              best, bestScore = entry, s
-            end
-          end
-        end
+    if (not Filters or not Filters.IsAllowed or Filters:IsAllowed(entry)) then
+      local s = consider_entry(entry, true, bestScore)
+      if s and (not bestScore or s > bestScore or (s == bestScore and betterTiebreak(entry, best))) then
+        best, bestScore = entry, s
       end
     end
   end
@@ -598,26 +687,13 @@ function GearFinder:GetBestCraftable(slotName)
 
   local futureBest, futureBestScore = nil, nil
   for _, entry in ipairs(CandidatesForSlot(slotName)) do
-    if withinCap(entry) and IsCraftedLike(entry) and CraftSourceMakesSense(entry) and not LooksBogus(entry) and WeaponSkillAllows(entry) then
-      if not (equippedIDs and equippedIDs[entry.itemID]) then
-        if (not Filters or not Filters.IsAllowed or Filters:IsAllowed(entry)) and HasValueForSlot(slotName, entry.itemID) then
-          if not entry.armor then
-            local _, _, _, _, _, itemType, itemSubType, _, equipLoc = GetItemInfo(entry.itemID)
-            entry.invType = entry.invType or equipLoc
-            entry.armor   = entry.armor or ArmorTokenFromInfo(itemType, itemSubType)
-          end
-          AugmentNeedHave(entry)
-          local s = (GetItemScore_ByStats(entry.itemID) or 0)
-                    + ArmorBias(entry) + WeaponBias(entry)
-                    + ProfessionBias(entry) + GatherBias(entry)
-          if not futureBestScore or s > futureBestScore or (s == futureBestScore and betterTiebreak(entry, futureBest)) then
-            futureBest, futureBestScore = entry, s
-          end
-        end
+    if (not Filters or not Filters.IsAllowed or Filters:IsAllowed(entry)) then
+      local s = consider_entry(entry, false, futureBestScore)
+      if s and (not futureBestScore or s > futureBestScore or (s == futureBestScore and betterTiebreak(entry, futureBest))) then
+        futureBest, futureBestScore = entry, s
       end
     end
   end
-
   return futureBest, futureBestScore or 0, eqScore or 0
 end
 
