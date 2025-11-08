@@ -4,14 +4,6 @@ MakersPath = MakersPath or {}
 -- =====================================================================
 -- Globals / DB shape
 -- =====================================================================
--- MakersPathGlobalDB = {
---   itemRecords = { [itemID] = { prof="Tailoring", profId=197, equipLoc="INVTYPE_HEAD",
---                                minLevel=10, armor="CLOTH", source="crafted", name="..." } },
---   buckets     = { [equipLoc] = { {itemID=xxxx}, ... } },         -- legacy mirror
---   items       = { [invType] = {                                  -- GearFinder source
---                    { itemID=..., name="...", invType="INVTYPE_HEAD", source="crafted",
---                      reqSkill=197, reqSkillLevel=0, reqLevel=10, armor="CLOTH" }, ... } },
--- }
 MakersPath.CraftDB = MakersPath.CraftDB or {}
 
 -- =====================================================================
@@ -24,19 +16,24 @@ local function EnsureGlobals()
   MakersPathGlobalDB.items       = MakersPathGlobalDB.items       or {}
 end
 
-local PROF_ID_BY_NAME = {
-  ["Blacksmithing"]  = 164,
-  ["Leatherworking"] = 165,
-  ["Tailoring"]      = 197,
-  ["Engineering"]    = 202,
-}
+local C = MakersPath.Const
 
-local function ArmorToken(itemType, itemSubType)
-  if itemType == "Armor" then
-    if itemSubType == "Cloth"   then return "CLOTH"
-    elseif itemSubType == "Leather" then return "LEATHER"
-    elseif itemSubType == "Mail"    then return "MAIL"
-    elseif itemSubType == "Plate"   then return "PLATE"
+local PROF_SKILLLINE_BY_NAME = setmetatable({}, {
+  __index = function(t, k)
+    for skillLineID, spellID in pairs(C.SKILLLINE_TO_SPELL or {}) do
+      local name = GetSpellInfo(spellID)
+      if name then rawset(t, name, skillLineID) end
+    end
+    return rawget(t, k)
+  end
+})
+
+local function ArmorTokenByIDs(classID, subClassID)
+  if classID == C.CLASS_ARMOR then
+    if subClassID == C.ARMOR_SUB.CLOTH   then return "CLOTH"
+    elseif subClassID == C.ARMOR_SUB.LEATHER then return "LEATHER"
+    elseif subClassID == C.ARMOR_SUB.MAIL    then return "MAIL"
+    elseif subClassID == C.ARMOR_SUB.PLATE   then return "PLATE"
     end
   end
   return nil
@@ -85,18 +82,19 @@ end
 -- Cache & fan-out into DBs
 -- =====================================================================
 local function CacheAndBucket(itemID, profName)
-  local name, _, _, _, reqLevel, itemType, itemSubType, _, equipLoc = GetItemInfo(itemID)
+  local _, _, _, equipLoc, _, classID, subClassID = GetItemInfoInstant(itemID)
+  local name, _, _, _, reqLevel = GetItemInfo(itemID)
   if not equipLoc or equipLoc == "" then
     C_Timer.After(0.2, function() CacheAndBucket(itemID, profName) end)
     return
   end
 
-  local armor  = ArmorToken(itemType, itemSubType)
-  local profId = PROF_ID_BY_NAME[profName] or 0
+  local profSkillLine = PROF_SKILLLINE_BY_NAME[profName] or 0
+  local armor = ArmorTokenByIDs(classID, subClassID)
 
   MakersPathGlobalDB.itemRecords[itemID] = {
     prof     = profName,
-    profId   = profId,
+    profId   = profSkillLine,
     equipLoc = equipLoc,
     minLevel = reqLevel or 0,
     armor    = armor,
@@ -109,7 +107,7 @@ local function CacheAndBucket(itemID, profName)
     name           = name,
     invType        = equipLoc,
     source         = "crafted",
-    reqSkill       = profId,
+    reqSkill       = profSkillLine,
     reqSkillLevel  = 0,
     reqLevel       = reqLevel or 0,
     armor          = armor,
@@ -117,7 +115,7 @@ local function CacheAndBucket(itemID, profName)
 
   BucketInsertLegacy(equipLoc, itemID, {
     prof     = profName,
-    profId   = profId,
+    profId   = profSkillLine,
     minLevel = reqLevel or 0,
     armor    = armor,
   })
@@ -141,7 +139,7 @@ local function ScanCurrentTrade()
     local _, skillType = GetTradeSkillInfo(i)
     if skillType ~= "header" then
       local link = GetTradeSkillItemLink(i)
-      if link and link:find("^|c") and link:find("|Hitem:") then
+      if link and link:find("|Hitem:") then
         local itemID = tonumber(link:match("item:(%d+)"))
         if itemID then
           if not MakersPathGlobalDB.itemRecords[itemID] then
@@ -182,14 +180,16 @@ local function RebuildRuntimeBuckets()
   for equipLoc, list in pairs(MakersPathGlobalDB.buckets or {}) do
     for _, e in ipairs(list) do
       local rec = MakersPathGlobalDB.itemRecords[e.itemID]
-      MakersPath.CraftDB[equipLoc] = MakersPath.CraftDB[equipLoc] or {}
-      table.insert(MakersPath.CraftDB[equipLoc], {
-        itemID   = e.itemID,
-        prof     = rec and rec.prof or nil,
-        profId   = rec and rec.profId or 0,
-        minLevel = rec and rec.minLevel or 0,
-        armor    = rec and rec.armor or nil,
-      })
+      if rec then  -- guard
+        MakersPath.CraftDB[equipLoc] = MakersPath.CraftDB[equipLoc] or {}
+        table.insert(MakersPath.CraftDB[equipLoc], {
+          itemID   = e.itemID,
+          prof     = rec.prof,
+          profId   = rec.profId or 0,
+          minLevel = rec.minLevel or 0,
+          armor    = rec.armor,
+        })
+      end
     end
   end
 end
@@ -206,6 +206,10 @@ f:RegisterEvent("GET_ITEM_INFO_RECEIVED")
 f:SetScript("OnEvent", function(_, event, arg1)
   if event == "ADDON_LOADED" and arg1 == ADDON then
     EnsureGlobals()
+    for skillLineID, spellID in pairs(C.SKILLLINE_TO_SPELL or {}) do
+      local name = GetSpellInfo(spellID)
+      if name then PROF_SKILLLINE_BY_NAME[name] = skillLineID end
+    end
   elseif event == "PLAYER_LOGIN" then
     EnsureGlobals()
     RebuildRuntimeBuckets()

@@ -2,11 +2,16 @@ local ADDON, MakersPath = ...
 MakersPath = MakersPath or {}
 MakersPath.UI = MakersPath.UI or {}
 
+-- ===== Locale & Consts =====
+local C = MakersPath.Const or {}
+local L = LibStub("AceLocale-3.0"):GetLocale("MakersPath")
+
 -- =================== Styling ===================
-local NAME_W   = 180
-local META_W   = 110  -- "Lv 11  MAGE"
-local ROWS     = 12
-local ROW_H    = 22
+local NAME_W       = 180
+local ROWS         = 12
+local ROW_H        = 22
+local LEVEL_COL_W  = 52
+local GAP_BETWEEN  = 8
 
 local function SetReadableFont(fs, size)
   local ok = fs:SetFont(STANDARD_TEXT_FONT, size or 13, "OUTLINE")
@@ -33,19 +38,27 @@ local PROF_COLOR = {
   Skin = "ffffe8c0",  -- leather
 }
 
+local SHORT_TAG_BY_SPELL = {
+  [C.SKILLLINE_TO_SPELL and C.SKILLLINE_TO_SPELL[165] or 2108] = "LW",
+  [C.SKILLLINE_TO_SPELL and C.SKILLLINE_TO_SPELL[164] or 2018] = "BS",
+  [C.SKILLLINE_TO_SPELL and C.SKILLLINE_TO_SPELL[202] or 4036] = "Eng",
+  [C.SKILLLINE_TO_SPELL and C.SKILLLINE_TO_SPELL[333] or 7411] = "Ench",
+  [C.SKILLLINE_TO_SPELL and C.SKILLLINE_TO_SPELL[197] or 3908] = "Tail",
+  [C.SKILLLINE_TO_SPELL and C.SKILLLINE_TO_SPELL[171] or 2259] = "Alc",
+  [C.SKILLLINE_TO_SPELL and C.SKILLLINE_TO_SPELL[182] or 2366] = "Herb",
+  [C.SKILLLINE_TO_SPELL and C.SKILLLINE_TO_SPELL[186] or 2575] = "Mine",
+  [C.SKILLLINE_TO_SPELL and C.SKILLLINE_TO_SPELL[393] or 8613] = "Skin",
+  [C.SKILLLINE_TO_SPELL and C.SKILLLINE_TO_SPELL[185] or 2550] = "Cook",
+  [C.SKILLLINE_TO_SPELL and C.SKILLLINE_TO_SPELL[356] or 7620] = "Fish",
+  [C.SKILLLINE_TO_SPELL and C.SKILLLINE_TO_SPELL[129] or 3273] = "FA",
+}
+
 local SHORT_PROF_FROM_SPELL = setmetatable({}, {
   __index = function(t, spellID)
-    local name = GetSpellInfo(spellID) or "?"
-    local short = name
-      :gsub("Leatherworking","LW")
-      :gsub("Blacksmithing","BS")
-      :gsub("Engineering","Eng")
-      :gsub("Enchanting","Ench")
-      :gsub("Tailoring","Tail")
-      :gsub("Alchemy","Alc")
-      :gsub("Herbalism","Herb")
-      :gsub("Mining","Mine")
-      :gsub("Skinning","Skin")
+    local short = SHORT_TAG_BY_SPELL[spellID]
+    if not short then
+      short = GetSpellInfo(spellID) or "?"
+    end
     rawset(t, spellID, short)
     return short
   end
@@ -56,16 +69,13 @@ local function ColorizeProf(short, rank)
   return string.format("|c%s%s %d|r", hex, short, rank or 0)
 end
 
-local function ClassTokenColored(class, level)
-  if not class and not level then return "" end
-  local cls = class or ""
-  local lvl = level and ("Lv "..tostring(level).."  ") or ""
-  local c = RAID_CLASS_COLORS and RAID_CLASS_COLORS[cls:upper()]
-  local clsText = cls
+local function ClassColored(class)
+  if not class or class == "" then return "" end
+  local c = RAID_CLASS_COLORS and RAID_CLASS_COLORS[class:upper()]
   if c then
-    clsText = string.format("|cFF%02X%02X%02X%s|r", c.r*255, c.g*255, c.b*255, cls)
+    return string.format("|cFF%02X%02X%02X%s|r", c.r*255, c.g*255, c.b*255, class)
   end
-  return (lvl or "") .. clsText
+  return class
 end
 
 local function FallbackGetAllChars()
@@ -115,7 +125,7 @@ else
   frame.title:SetPoint("TOP", frame, "TOP", 0, -10)
 end
 frame.title:SetJustifyH("CENTER")
-frame.title:SetText("Maker's Path — Profession Book")
+frame.title:SetText(L["PROFBOOK_TITLE"])
 SetReadableFont(frame.title, 14)
 
 -- Movable + remember position
@@ -164,7 +174,7 @@ frame:HookScript("OnMouseWheel", function(self, delta)
   local cur = (MakersPathDB and MakersPathDB.ui and MakersPathDB.ui.profbookScale) or self:GetScale() or 1.0
   local new = cur + (delta > 0 and BOOK_STEP or -BOOK_STEP)
   ApplyBookScale(new)
-  UIErrorsFrame:AddMessage(string.format("Maker's Path Book scale: %.2f", new), 0.2, 0.8, 1.0)
+  UIErrorsFrame:AddMessage(string.format(L["BOOK_SCALE_CHANGED"], new), 0.2, 0.8, 1.0)
 end)
 
 function MakersPath.UI.ToggleProfBook()
@@ -199,16 +209,31 @@ local function createRow(i)
   row.name:SetJustifyH("LEFT")
   SetReadableFont(row.name, 13)
 
-  row.meta = row:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
-  row.meta:SetPoint("LEFT", row.name, "RIGHT", 10, 0)
-  row.meta:SetWidth(META_W)
-  row.meta:SetJustifyH("LEFT")
-  SetReadableFont(row.meta, 13)
+  row.level = row:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+  row.level:SetPoint("LEFT", row.name, "RIGHT", 10, 0)
+  row.level:SetWidth(LEVEL_COL_W)
+  row.level:SetJustifyH("LEFT")
+  row.level:SetWordWrap(false)
+  row.level:SetNonSpaceWrap(false)
+  row.level:SetMaxLines(1)
+  SetReadableFont(row.level, 13)
+
+  row.class = row:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+  row.class:ClearAllPoints()
+  row.class:SetPoint("LEFT", row.level, "RIGHT", GAP_BETWEEN, 0)
+  row.class:SetJustifyH("LEFT")
+  row.class:SetWordWrap(false)
+  row.class:SetNonSpaceWrap(true)
+  row.class:SetMaxLines(1)
+  SetReadableFont(row.class, 13)
 
   row.profs = row:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
-  row.profs:SetPoint("LEFT", row.meta, "RIGHT", 12, 0)
+  row.profs:SetPoint("LEFT", row.class, "RIGHT", 12, 0)
   row.profs:SetPoint("RIGHT", row, "RIGHT", -6, 0)
   row.profs:SetJustifyH("LEFT")
+  row.profs:SetWordWrap(false)
+  row.profs:SetNonSpaceWrap(true)
+  row.profs:SetMaxLines(1)
   SetReadableFont(row.profs, 12)
 
   row.btn = CreateFrame("Button", nil, row)
@@ -218,21 +243,21 @@ local function createRow(i)
 
   row.btn:SetScript("OnEnter", function(self)
     GameTooltip:SetOwner(self, "ANCHOR_TOPRIGHT")
-    GameTooltip:AddLine("Shift + Right-click to remove this character from the list", 1, 1, 1)
+    GameTooltip:AddLine(L["ROW_HINT_FORGET"], 1, 1, 1)
     GameTooltip:Show()
   end)
   row.btn:SetScript("OnLeave", function() GameTooltip:Hide() end)
 
   row.btn:SetScript("OnClick", function()
     if not IsShiftKeyDown() then
-      UIErrorsFrame:AddMessage("Hold |cffffd200SHIFT|r and right-click to forget.", 1, 0.82, 0, 1)
+      UIErrorsFrame:AddMessage(L["ROW_HINT_FORGET_ERR"], 1, 0.82, 0, 1)
       return
     end
     if row._key then
       MakersPathDB = MakersPathDB or {}; MakersPathDB.chars = MakersPathDB.chars or {}
       if MakersPathDB.chars[row._key] then
         MakersPathDB.chars[row._key] = nil
-        print("|cff00ccff[Maker's Path]|r removed " .. row._key .. " from roster.")
+        print("|cff00ccff[Maker's Path]|r " .. string.format(L["REMOVED_FROM_ROSTER"], row._key))
         MakersPath.UI.RefreshProfBook()
       end
     end
@@ -240,7 +265,6 @@ local function createRow(i)
 
   return row
 end
-
 
 for i=1,ROWS do rows[i] = createRow(i) end
 
@@ -263,7 +287,8 @@ function MakersPath.UI.RefreshProfBook()
       r:Show()
       r._key = rec.key
       r.name:SetText(rec.name or rec.key or "?")
-      r.meta:SetText(ClassTokenColored(rec.class, rec.level))
+      r.level:SetText(rec.level and (L["LEVEL_PREFIX"] .. " " .. tostring(rec.level)) or "")
+      r.class:SetText(ClassColored(rec.class))
 
       local parts = {}
       for spellID, rank in pairs(rec.profs or {}) do
@@ -276,7 +301,7 @@ function MakersPath.UI.RefreshProfBook()
       if #parts > 0 then
         r.profs:SetText(table.concat(parts, "  |  "))
       else
-        r.profs:SetText("|cff888888(no professions recorded)|r")
+        r.profs:SetText("|cff888888" .. L["NO_PROFS"] .. "|r")
       end
     else
       r:Hide()
@@ -294,7 +319,7 @@ end)
 local rescan = CreateFrame("Button", nil, frame, "UIPanelButtonTemplate")
 rescan:SetSize(120, 22)
 rescan:SetPoint("BOTTOMLEFT", frame, "BOTTOMLEFT", 12, 12)
-rescan:SetText("Rescan Current")
+rescan:SetText(L["BTN_RESCAN"])
 rescan:SetScript("OnClick", function()
   if MakersPath.ScanProfessions then MakersPath.ScanProfessions() end
   MakersPath.UI.RefreshProfBook()
@@ -303,7 +328,7 @@ end)
 local close = CreateFrame("Button", nil, frame, "UIPanelButtonTemplate")
 close:SetSize(80, 22)
 close:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", -12, 12)
-close:SetText("Close")
+close:SetText(L["BTN_CLOSE"])
 close:SetScript("OnClick", function() frame:Hide() end)
 
 do
@@ -320,14 +345,15 @@ end
 -- Slash
 SLASH_MPBOOK1 = "/mpbook"
 SlashCmdList["MPBOOK"] = function() MakersPath.UI.ToggleProfBook() end
+
 SLASH_MPBOOKSCALE1 = "/mpbookscale"
 SlashCmdList["MPBOOKSCALE"] = function(msg)
   local v = tonumber(msg)
   if not v then
-    print(string.format("|cff00ccff[Maker's Path]|r usage: |cffffcc00/mpbookscale <0.70–1.40>|r  (current: %.2f)",
-      (MakersPathDB and MakersPathDB.ui and MakersPathDB.ui.profbookScale) or (frame:GetScale() or 1.0)))
+    local cur = (MakersPathDB and MakersPathDB.ui and MakersPathDB.ui.profbookScale) or (frame:GetScale() or 1.0)
+    print(string.format(L["BOOK_SCALE_USAGE"], 0.70, 1.40, cur))
     return
   end
   ApplyBookScale(v)
-  print(string.format("|cff00ccff[Maker's Path]|r Book scale set to |cffffcc00%.2f|r", v))
+  print(string.format(L["BOOK_SCALE_SET"], v))
 end

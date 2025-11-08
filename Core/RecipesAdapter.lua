@@ -4,6 +4,7 @@ MakersPath.Professions       = MakersPath.Professions or {}
 MakersPath.Static            = MakersPath.Static or {}
 MakersPath.Static.Craftables = MakersPath.Static.Craftables or {}
 
+local C = MakersPath.Const or {}
 local P = MakersPath.Professions
 
 -- =======================
@@ -11,14 +12,41 @@ local P = MakersPath.Professions
 -- =======================
 local function toNum(x) return type(x)=="number" and x or tonumber(x) or 0 end
 
-local function armorTag(itemType, itemSubType)
-  local ARMOR = GetItemClassInfo and GetItemClassInfo(4) or "Armor"
-  if itemType ~= ARMOR then return nil end
-  if itemSubType == (GetItemSubClassInfo and GetItemSubClassInfo(4,1) or "Cloth")   then return "CLOTH" end
-  if itemSubType == (GetItemSubClassInfo and GetItemSubClassInfo(4,2) or "Leather") then return "LEATHER" end
-  if itemSubType == (GetItemSubClassInfo and GetItemSubClassInfo(4,3) or "Mail")    then return "MAIL" end
-  if itemSubType == (GetItemSubClassInfo and GetItemSubClassInfo(4,4) or "Plate")   then return "PLATE" end
+local function armorTagByIDs(classID, subClassID)
+  if not classID then return nil end
+  if classID ~= C.CLASS_ARMOR then return nil end
+  if subClassID == C.ARMOR_SUB.CLOTH   then return "CLOTH"  end
+  if subClassID == C.ARMOR_SUB.LEATHER then return "LEATHER" end
+  if subClassID == C.ARMOR_SUB.MAIL    then return "MAIL"   end
+  if subClassID == C.ARMOR_SUB.PLATE   then return "PLATE"  end
   return nil
+end
+
+local function armorTagFallbackStrings(itemType, itemSubType)
+  local armorName = GetItemClassInfo and GetItemClassInfo(4) or nil
+  if not armorName or itemType ~= armorName then return nil end
+
+  local cloth   = GetItemSubClassInfo and GetItemSubClassInfo(4, 1) or nil
+  local leather = GetItemSubClassInfo and GetItemSubClassInfo(4, 2) or nil
+  local mail    = GetItemSubClassInfo and GetItemSubClassInfo(4, 3) or nil
+  local plate   = GetItemSubClassInfo and GetItemSubClassInfo(4, 4) or nil
+
+  if cloth   and itemSubType == cloth   then return "CLOTH"   end
+  if leather and itemSubType == leather then return "LEATHER" end
+  if mail    and itemSubType == mail    then return "MAIL"    end
+  if plate   and itemSubType == plate   then return "PLATE"   end
+  return nil
+end
+
+local function armorTag(itemID, itemType, itemSubType)
+  local _, _, _, _, _, _, _, _, _, _, _, classID, subClassID = GetItemInfo(itemID)
+  if not classID and C_Item and C_Item.GetItemInfoInstant then
+    local _, _, _, _, _, _classID, _subClassID = C_Item.GetItemInfoInstant(itemID)
+    classID, subClassID = _classID, _subClassID
+  end
+  local token = armorTagByIDs(classID, subClassID)
+  if token then return token end
+  return armorTagFallbackStrings(itemType, itemSubType)
 end
 
 local function looksBogusName(name)
@@ -96,6 +124,8 @@ local function bucketStaticItem(itemID, profId, learnedAt)
     return true
   end
 
+  local tag = armorTag(itemID, itemType, itemSubType)
+
   local row = {
     itemID         = itemID,
     name           = name,
@@ -103,7 +133,7 @@ local function bucketStaticItem(itemID, profId, learnedAt)
     reqLevel       = toNum(reqLevel),
     reqSkill       = toNum(profId),
     reqSkillLevel  = toNum(learnedAt),
-    armor          = armorTag(itemType, itemSubType),
+    armor          = tag,
     source         = "crafted",
     isCrafted      = true,
   }

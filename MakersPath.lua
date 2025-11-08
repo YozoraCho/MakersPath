@@ -2,14 +2,23 @@ local ADDON_NAME, MakersPath = ...
 
 MakersPath = MakersPath or {}
 MakersPath.name = ADDON_NAME
-MakersPath.version = "1.0"
+MakersPath.version = "1.1"
+
+MakersPath.Config = MakersPath.Config or {}
+
+-- ===================== Localization shim =====================
+local L = LibStub("AceLocale-3.0"):GetLocale("MakersPath")
 
 -- ===================== SavedVariables =====================
 local DB
 
+local MIN_W, MIN_H   = 610, 470
+local MAX_W, MAX_H   = 900, 700
+
 -- ===================== Panel =====================
 local panel = CreateFrame("Frame", "MakersPathFrame", UIParent, "BasicFrameTemplateWithInset")
-panel:SetSize(400, 300)
+panel:SetSize(MIN_W, MIN_H)
+panel:SetResizeBounds(MIN_W, MIN_H, MAX_W, MAX_H)
 panel:SetPoint("CENTER")
 panel:Hide()
 
@@ -26,6 +35,17 @@ panel:SetScript("OnDragStop", function(self)
   end
 end)
 
+MakersPath.UI = MakersPath.UI or {}
+function MakersPath.UI.EnsureMainPanelSize()
+  if not MakersPathFrame then return end
+  local w, h = MakersPathFrame:GetSize()
+  local newW = math.max(MIN_W, math.min(w or MIN_W, MAX_W))
+  local newH = math.max(MIN_H, math.min(h or MIN_H, MAX_H))
+  if newW ~= w or newH ~= h then
+    MakersPathFrame:SetSize(newW, newH)
+  end
+end
+
 -- Title
 panel.title = panel:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
 panel.title:ClearAllPoints()
@@ -36,12 +56,12 @@ else
   panel.title:SetPoint("TOP", panel, "TOP", 0, -10) -- fallback
 end
 panel.title:SetJustifyH("CENTER")
-panel.title:SetText("Maker's Path")
+panel.title:SetText(L["ADDON_NAME"])
 
 -- Status line
 panel.status = panel:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
 panel.status:SetPoint("TOPLEFT", panel, "TOPLEFT", 12, -34)
-panel.status:SetText("Indexed craftables: 0")
+panel.status:SetText(L["INDEXED_CRAFTABLES_FMT"]:format(0))
 
 -- ===================== Accessors =====================
 local function GF()
@@ -52,14 +72,12 @@ local function RefreshStatus()
   if not panel.status then return end
   local gf = GF()
   local count = gf and gf.GetIndexedCount and gf:GetIndexedCount() or 0
-  panel.status:SetText(("Indexed craftables: %d"):format(count))
+  panel.status:SetText(L["INDEXED_CRAFTABLES_FMT"]:format(count))
 end
 
 panel:HookScript("OnShow", RefreshStatus)
 
 -- ============ Resize / Scale Helpers ============
-local MIN_W, MIN_H   = 610, 470
-local MAX_W, MAX_H   = 900, 700
 local MIN_SCALE, MAX_SCALE = 0.7, 1.4
 local SCALE_STEP     = 0.05
 
@@ -99,6 +117,11 @@ else
   end)
 end
 
+panel:HookScript("OnShow", function(self)
+  MakersPath.UI.EnsureMainPanelSize()
+end)
+
+
 -- Resize grip
 local sizer = CreateFrame("Button", nil, panel)
 sizer:SetPoint("BOTTOMRIGHT", panel, "BOTTOMRIGHT", -2, 2)
@@ -123,7 +146,7 @@ panel:HookScript("OnMouseWheel", function(self, delta)
   local cur = (DB and DB.scale) or self:GetScale() or 1.0
   local new = cur + (delta > 0 and SCALE_STEP or -SCALE_STEP)
   ApplyPanelScale(new)
-  UIErrorsFrame:AddMessage(string.format("Maker's Path scale: %.2f", new), 0.2, 0.8, 1.0)
+  UIErrorsFrame:AddMessage(L["MAIN_SCALE_FMT"]:format(new), 0.2, 0.8, 1.0)
 end)
 
 -- Restore / Reset
@@ -228,7 +251,7 @@ local function CreateRow(i)
     if link then
       GameTooltip:SetHyperlink(link)
     else
-      GameTooltip:SetText("Item "..id)
+      GameTooltip:SetText(L["ITEM_ID_FMT"]:format(id))
     end
     GameTooltip:Show()
   end)
@@ -254,21 +277,32 @@ end
 for i=1,ROWS do rows[i] = CreateRow(i) end
 
 local SLOT_LABEL = {
-  HeadSlot="Head", NeckSlot="Neck", ShoulderSlot="Shoulders", BackSlot="Back",
-  ChestSlot="Chest", WristSlot="Wrist", HandsSlot="Hands", WaistSlot="Waist",
-  LegsSlot="Legs", FeetSlot="Feet",
-  Finger0Slot="Ring 1", Finger1Slot="Ring 2",
-  Trinket0Slot="Trinket 1", Trinket1Slot="Trinket 2",
-  MainHandSlot="Main Hand", SecondaryHandSlot="Off Hand", RangedSlot="Ranged",
-  AmmoSlot="Ammo",
+  HeadSlot          = _G.HEADSLOT or L["HEAD"],
+  NeckSlot          = _G.NECKSLOT or L["NECK"],
+  ShoulderSlot      = _G.SHOULDERSLOT or L["SHOULDER"],
+  BackSlot          = _G.BACKSLOT or L["BACK"],
+  ChestSlot         = _G.CHESTSLOT or L["CHEST"],
+  WristSlot         = _G.WRISTSLOT or L["WRIST"],
+  HandsSlot         = _G.HANDSSLOT or L["HANDS"],
+  WaistSlot         = _G.WAISTSLOT or L["WAIST"],
+  LegsSlot          = _G.LEGSSLOT or L["LEGS"],
+  FeetSlot          = _G.FEETSLOT or L["FEET"],
+  Finger0Slot       = ("%s %d"):format(_G.INVTYPE_FINGER or L["RING"], 1),
+  Finger1Slot       = ("%s %d"):format(_G.INVTYPE_FINGER or L["RING"], 2),
+  Trinket0Slot      = ("%s %d"):format(_G.INVTYPE_TRINKET or L["TRINKET"], 1),
+  Trinket1Slot      = ("%s %d"):format(_G.INVTYPE_TRINKET or L["TRINKET"], 2),
+  MainHandSlot      = _G.MAINHANDSLOT or L["MAIN_HAND"],
+  SecondaryHandSlot = _G.SECONDARYHANDSLOT or L["OFF_HAND"],
+  RangedSlot        = _G.RANGEDSLOT or L["RANGED"],
+  AmmoSlot          = _G.AMMOSLOT or L["AMMO"],
 }
 
 local function ProfShort(id)
-  if id == 164 then return "BS"
-  elseif id == 165 then return "LW"
-  elseif id == 197 then return "Tailor"
-  elseif id == 202 then return "Eng"
-  elseif id == 333 then return "Ench"
+  if id == 164 then return L["BS"]     or "BS"
+  elseif id == 165 then return L["LW"] or "LW"
+  elseif id == 197 then return L["Tailor"] or "Tailor"
+  elseif id == 202 then return L["Eng"]    or "Eng"
+  elseif id == 333 then return L["Ench"]   or "Ench"
   else return tostring(id or "?")
   end
 end
@@ -300,7 +334,7 @@ RefreshList = function()
       if data.best then
         local iid = data.best.itemID
         local link = iid and select(2, GetItemInfo(iid)) or nil
-        local shown = link or (data.best.name or ("Item "..(iid or "")))
+        local shown = link or (data.best.name or L["ITEM_ID_FMT"]:format(iid or 0))
         row.itemText:SetText(shown)
 
         local icon = iid and GetItemIcon(iid) or "Interface\\ICONS\\INV_Misc_QuestionMark"
@@ -323,11 +357,11 @@ RefreshList = function()
         local reqL   = ResolveRequiredLevel(iid, tonumber(data.best.reqLevel or 0) or 0)
         local diff   = (data.bestScore or 0) - (data.eqScore or 0)
 
-        local meta = string.format("[%s %d", prof, need)
-        if delta > 0 then meta = meta .. string.format(" (+%d)", delta) end
-        meta = meta .. "]"
-        if reqL > 0 then meta = meta .. string.format(" (req lvl %d)", reqL) end
-        if diff and diff ~= 0 then meta = meta .. string.format("  |cff00ff00%+.2f|r", diff) end
+        local meta = L["META_PREFIX_FMT"]:format(prof, need)
+        if delta > 0 then meta = meta .. L["META_DELTA_FMT"]:format(delta) end
+        meta = meta .. L["META_CLOSE"]
+        if reqL > 0 then meta = meta .. L["META_REQ_LVL_FMT"]:format(reqL) end
+        if diff and diff ~= 0 then meta = meta .. ("  |cff00ff00"..L["SIGNED_FLOAT_FMT"].."|r"):format(diff) end
         row.srcText:SetText(meta)
 
         if iid and not link and C_Item and C_Item.RequestLoadItemDataByID then
@@ -337,7 +371,7 @@ RefreshList = function()
           end)
         end
       else
-        row.itemText:SetText("|cff888888(no craftable upgrade)|r")
+        row.itemText:SetText("|cff888888"..L["NO_CRAFT_UPGRADE"].."|r")
         row.iconTex:Hide()
         row.itemBtn.itemID = nil
         row.srcText:SetText("")
@@ -354,7 +388,7 @@ end
 local emptyHint = MakersPathFrame:CreateFontString(nil, "OVERLAY", "GameFontDisable")
 emptyHint:SetPoint("TOPLEFT", MakersPathFrame, "TOPLEFT", 12, -50)
 emptyHint:SetJustifyH("LEFT")
-emptyHint:SetText("|cffaaaaaaTip: Open a profession window to index craftables, then click Refresh.|r")
+emptyHint:SetText("|cffaaaaaa"..L["EMPTY_HINT"].."|r")
 emptyHint:Hide()
 
 MakersPathFrame:HookScript("OnSizeChanged", function(self, w)
@@ -371,11 +405,11 @@ end
 local refreshBtn = CreateFrame("Button", nil, MakersPathFrame, "UIPanelButtonTemplate")
 refreshBtn:SetSize(90, 22)
 refreshBtn:SetPoint("BOTTOMRIGHT", MakersPathFrame, "BOTTOMRIGHT", -12, 12)
-refreshBtn:SetText("Refresh")
+refreshBtn:SetText(L["BTN_REFRESH"])
 refreshBtn:SetScript("OnClick", function(self)
   self:SetEnabled(false)
   self._oldText = self._oldText or self:GetText()
-  self:SetText("Refreshing...")
+  self:SetText(L["BTN_REFRESHING"])
 
   if GF() and GF().BeginSession then GF():BeginSession() end
   if MakersPath and MakersPath.GearFinderScan then MakersPath.GearFinderScan() end
@@ -385,7 +419,7 @@ refreshBtn:SetScript("OnClick", function(self)
     RefreshStatus()
     if MakersPathFrame:IsShown() and RefreshList then RefreshList() end
     if self then
-      self:SetText(self._oldText or "Refresh")
+      self:SetText(self._oldText or L["BTN_REFRESH"])
       self:SetEnabled(true)
     end
   end)
@@ -395,7 +429,7 @@ end)
 local profBookBtn = CreateFrame("Button", nil, MakersPathFrame, "UIPanelButtonTemplate")
 profBookBtn:SetSize(110, 22)
 profBookBtn:SetPoint("BOTTOMLEFT", MakersPathFrame, "BOTTOMLEFT", 12, 12)
-profBookBtn:SetText("Prof Book")
+profBookBtn:SetText(L["BTN_PROF_BOOK"])
 profBookBtn:SetScript("OnClick", function()
   if MakersPath and MakersPath.UI and MakersPath.UI.ToggleProfBook then
     MakersPath.UI.ToggleProfBook()
@@ -414,7 +448,7 @@ MakersPathFrame:HookScript("OnShow", function()
   local finder = GF()
   local count = finder and finder.GetIndexedCount and finder:GetIndexedCount() or 0
   if MakersPathFrame.status then
-    MakersPathFrame.status:SetText(("Indexed craftables: %d"):format(count))
+    MakersPathFrame.status:SetText(L["INDEXED_CRAFTABLES_FMT"]:format(count))
   end
   UpdateEmptyHint()
   SafeRefresh(0.10)
@@ -469,6 +503,74 @@ if MakersPath and MakersPath.GearFinder and MakersPath.GearFinder._equippedScore
   wipe(MakersPath.GearFinder._equippedScoreCache)
 end
 
+-- ===================== Character Panel Button =====================
+local function _CreateCharPanelButton()
+  if not CharacterFrame then return end
+  if MakersPathCharBtn then return end
+
+  local btn = CreateFrame("Button", "MakersPathCharBtn", CharacterFrame)
+  btn:SetSize(26, 26)
+
+  if CharacterFrameCloseButton then
+    btn:SetPoint("TOPRIGHT", CharacterFrameCloseButton, "BOTTOMRIGHT", -20, -4)
+  else
+    btn:SetPoint("TOPRIGHT", CharacterFrame, "TOPRIGHT", -42, -32)
+  end
+
+  btn:SetFrameStrata(CharacterFrame:GetFrameStrata())
+  btn:SetFrameLevel(CharacterFrame:GetFrameLevel() + 5)
+
+  local tex = btn:CreateTexture(nil, "ARTWORK", nil, 1)
+  tex:SetTexture("Interface\\AddOns\\MakersPath\\Art\\makerspathmm")
+  tex:SetSize(32, 32)
+  tex:SetPoint("CENTER", btn, "CENTER", 0, 0)
+  btn.tex = tex
+
+  btn:SetScript("OnMouseDown", function(self)
+    tex:SetVertexColor(0.8, 0.8, 0.8)
+  end)
+  btn:SetScript("OnMouseUp", function(self)
+    tex:SetVertexColor(2.0, 2.0, 2.0)
+  end)
+
+  btn:SetScript("OnEnter", function(self)
+    GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+    GameTooltip:AddLine("|cff00ccff"..L["ADDON_NAME"].."|r", 0.2, 0.8, 1)
+    GameTooltip:AddLine(L["LEFTCLICK_OPEN"], 1,1,1)
+    GameTooltip:AddLine(L["RIGHTCLICK_BOOK"], 1,1,1)
+    GameTooltip:Show()
+  end)
+  btn:SetScript("OnLeave", function() GameTooltip:Hide() end)
+
+  btn:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+  btn:SetScript("OnClick", function(_, b)
+    if b == "RightButton" then
+      if MakersPath and MakersPath.UI and MakersPath.UI.ToggleProfBook then
+        MakersPath.UI.ToggleProfBook()
+      end
+    else
+      if MakersPathFrame and MakersPathFrame:IsShown() then
+        MakersPathFrame:Hide()
+      else
+        if MakersPath and MakersPath.GearFinder and MakersPath.GearFinder.BeginSession then
+          MakersPath.GearFinder:BeginSession()
+        end
+        if MakersPathFrame then MakersPathFrame:Show() end
+      end
+    end
+  end)
+end
+-- Paperdoll
+do
+  local w = CreateFrame("Frame")
+  w:RegisterEvent("ADDON_LOADED")
+  w:RegisterEvent("PLAYER_LOGIN")
+  w:RegisterEvent("PLAYER_ENTERING_WORLD")
+  w:SetScript("OnEvent", function(_, ev, name)
+    if ev == "ADDON_LOADED" and name ~= ADDON_NAME then return end
+    if CharacterFrame then _CreateCharPanelButton() end
+  end)
+end
 -- ===================== Slash (user-facing only) =====================
 -- Toggle
 SLASH_MAKERSPATH1 = "/mp"
@@ -479,7 +581,6 @@ SlashCmdList["MAKERSPATH"] = function()
     panel:Show()
   end
 end
-
 -- Reset panel position/size/scale
 SLASH_MAKERSPATHRESET1 = "/mpreset"
 SlashCmdList["MAKERSPATHRESET"] = function() ResetPanelPosition() end
@@ -493,13 +594,23 @@ SlashCmdList["MAKERSPATHSCALE"] = function(msg)
   DB.scale = s
   panel:SetScale(s)
 end
-
-SLASH_MAKERSPATHCAP1 = "/mpcap"
-SlashCmdList["MAKERSPATHCAP"] = function(msg)
-  local n = tonumber(msg)
-  if not n then return end
-  MakersPath = MakersPath or {}
-  MakersPath.FutureWindow = math.max(0, math.floor(n))
-  if GF() and GF().BeginSession then GF():BeginSession() end
-  SafeRefresh(0.05)
+-- Change Future Look
+SLASH_MPCAP1 = "/mpcap"
+SlashCmdList["MPCAP"] = function(msg)
+  local raw = tostring(msg or "")
+  local t = raw:match("^%s*(.-)%s*$") or ""
+  local maxToken = Ls("CMD_MAX")
+  local isMax = (maxToken and t:lower() == maxToken:lower()) or false
+  local v = tonumber(t)
+  if isMax then
+    MakersPath.FutureWindow = 60
+  elseif v then
+    MakersPath.FutureWindow = math.max(0, math.floor(v))
+  else
+    print("|cff66ccff["..Ls("ADDON_NAME").."]|r "..Ls("USAGE_MPCAP"))
+    return
+  end
+  print("|cff66ccff["..Ls("ADDON_NAME").."]|r "..Ls("FUTUREWINDOW_SET"):format(MakersPath.FutureWindow))
+  if MakersPath and MakersPath.GearFinderScan then MakersPath.GearFinderScan() end
+  if MakersPathFrame and MakersPathFrame:IsShown() and RefreshList then RefreshList() end
 end
