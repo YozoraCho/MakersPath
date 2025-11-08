@@ -82,7 +82,7 @@ See [`LICENSE.txt`](./LICENSE.txt) for details.
 
 ## Links
 
-- 🔗 [CurseForge Addon Page](https://www.curseforge.com/wow/addons) *(insert your URL once approved)*
+- 🔗 [CurseForge Addon Page](https://www.curseforge.com/wow/addons/makers-path)
 - 💡 [Issue Tracker](../../issues)
 - 📦 [Releases](../../releases)
 
