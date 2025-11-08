@@ -8,6 +8,7 @@ MakersPath.Config = MakersPath.Config or {}
 
 -- ===================== Localization shim =====================
 local L = LibStub("AceLocale-3.0"):GetLocale("MakersPath")
+local function Ls(key) return (L and L[key]) or key end
 
 -- ===================== SavedVariables =====================
 local DB
