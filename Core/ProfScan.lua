@@ -20,6 +20,7 @@ do
     end
   end
 end
+PROF_NAME_TO_SPELL["Herbalism"] = (C.SKILLLINE_TO_SPELL and C.SKILLLINE_TO_SPELL[182]) or 2366
 
 local function _sanitizeRoster()
   MakersPathDB = MakersPathDB or {}; MakersPathDB.chars = MakersPathDB.chars or {}
