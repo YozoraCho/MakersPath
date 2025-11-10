@@ -10,15 +10,27 @@ MakersPath.GearFinder = GearFinder
 local STRICT_UPGRADES_ONLY = false
 MakersPath.Config = MakersPath.Config or {}
 local PREF_NATIVE_ARMOR = (MakersPath.Config.PREF_NATIVE_ARMOR ~= false) -- default: true
-local IGNORE_FILTERS = false
+local function GetIgnoreFilters()
+  return MakersPath.Config.IGNORE_FILTERS == true
+end
+local function SetIgnoreFilters(v)
+  MakersPath.Config.IGNORE_FILTERS = (v == true)
+end
 local ONLY_STATS_WEAPONS = (MakersPath.Config.ONLY_STATS_WEAPONS == true)
 local _pendingKick = _pendingKick or {}
 
 -- temp: slash to toggle filter gating at runtime
 SLASH_MPIGN1 = "/mpignorefilters"
 SlashCmdList["MPIGN"] = function(msg)
-  IGNORE_FILTERS = not IGNORE_FILTERS
-  print("|cff66ccff[Maker'sPath]|r IGNORE_FILTERS = "..tostring(IGNORE_FILTERS))
+  msg = (msg or ""):lower():match("^%s*(%S*)") or ""
+  if msg == "on" or msg == "true" or msg == "1" then
+    SetIgnoreFilters(true)
+  elseif msg == "off" or msg == "false" or msg == "0" then
+    SetIgnoreFilters(false)
+  else
+    SetIgnoreFilters(not GetIgnoreFilters())
+  end
+  print("|cff66ccff[Maker'sPath]|r IGNORE_FILTERS = "..tostring(GetIgnoreFilters()))
   if MakersPath and MakersPath.GearFinderScan then MakersPath.GearFinderScan() end
   if MakersPathFrame and MakersPathFrame:IsShown() and RefreshList then RefreshList() end
 end
@@ -236,11 +248,7 @@ end
 -- Crafted/bogus guards
 -- ==============================
 local function IsCraftedLike(entry)
-  if not entry then return false end
-  if entry.source == "crafted" or entry.isCrafted == true then
-    return true
-  end
-  return false
+  return entry and (entry.isCrafted == true or entry.source == "crafted")
 end
 
 local function IsEngineeringOnlyTool(entry)
@@ -698,7 +706,9 @@ local function CandidatesForSlot(slotName)
           row.reqLevel = row.reqLevel or row.minLevel or 0
           row.source   = row.source or "crafted"
           row.armor    = row.armor or MakersPath.Util.ArmorTokenForItemID(row.itemID)
-          out[#out+1]  = row
+          if IsCraftedLike(row) then
+            out[#out+1] = row
+          end
         end
       end
     end
@@ -711,15 +721,19 @@ local function CandidatesForSlot(slotName)
         if id and not seen[id] then
           seen[id]=true
           local rec = db.itemRecords[id]
-          out[#out+1] = {
+          local cand = {
             itemID   = id,
             name     = rec and rec.name or nil,
             invType  = invType,
             reqLevel = (rec and (rec.reqLevel or rec.minLevel)) or 0,
             reqSkill = (rec and (rec.profId or rec.reqSkill)) or 0,
             armor    = rec and rec.armor or nil,
-            source   = (rec and rec.source) or "crafted",
+            source   = rec and rec.source or nil,
+            isCrafted = rec and rec.isCrafted or nil,
           }
+          if IsCraftedLike(cand) then
+            out[#out+1] = cand
+          end
         end
       end
     end
@@ -1090,7 +1104,7 @@ function GearFinder:GetBestCraftable(slotName)
       return nil
     end
 
-    if not IGNORE_FILTERS and Filters and Filters.IsAllowed then
+    if (not GetIgnoreFilters()) and Filters and Filters.IsAllowed then
       if not Filters:IsAllowed(entry) then
         return nil
       end
@@ -1304,4 +1318,37 @@ SlashCmdList["MPGFLIST"] = function(arg)
       if count >= limit then break end
     end
   end
+end
+SLASH_MPCLEAN1 = "/mpclean"
+SlashCmdList["MPCLEAN"] = function()
+  local db = MakersPathGlobalDB or {}
+  local changed = 0
+
+  if db.items then
+    for inv, list in pairs(db.items) do
+      if type(list) == "table" then
+        for i=#list,1,-1 do
+          local r = list[i]
+          if r and not IsCraftedLike(r) then
+            table.remove(list, i); changed = changed + 1
+          end
+        end
+      end
+    end
+  end
+  if db.buckets then
+    for inv, list in pairs(db.buckets) do
+      if type(list) == "table" then
+        for i=#list,1,-1 do
+          local e = list[i]
+          local rec = db.itemRecords and db.itemRecords[e.itemID] or nil
+          local tmp = { itemID = e.itemID, source = rec and rec.source, isCrafted = rec and rec.isCrafted }
+          if not IsCraftedLike(tmp) then
+            table.remove(list, i); changed = changed + 1
+          end
+        end
+      end
+    end
+  end
+  print("|cff66ccff[Maker's Path]|r cleaned "..changed.." non-crafted entries. /reload recommended.")
 end

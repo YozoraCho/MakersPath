@@ -3,7 +3,10 @@ MakersPath             = MakersPath or {}
 MakersPath.Config      = MakersPath.Config or {}
 MakersPath.Filters     = MakersPath.Filters or {}
 local F                = MakersPath.Filters
-local FILTER_PROF_REQUIRED = (MakersPath.Config.FILTER_EQUIP_PROF_REQUIRED ~= true) --default true
+local FILTER_PROF_REQUIRED = true
+if MakersPath and MakersPath.Config and type(MakersPath.Config.FILTER_EQUIP_PROF_REQUIRED) == "boolean" then
+  FILTER_PROF_REQUIRED = MakersPath.Config.FILTER_EQUIP_PROF_REQUIRED
+end
 local C = MakersPath.Const or {}
 
 
@@ -460,12 +463,18 @@ end
 function F:LevelOk(entry)
   local me = UnitLevel("player") or 1
   local base = (MakersPath and MakersPath.FutureWindow) or 1
-  local req = tonumber(entry and (entry.reqLevel or entry.minLevel) or 0) or 0
+  local req = tonumber(entry and (entry.reqLevel or entry.minLevel)) or 0
   if entry and entry.itemID then
     local _, _, _, _, reqLevel = GetItemInfo(entry.itemID)
-    if type(reqLevel)=="number" then req=reqLevel end
+    if type(reqLevel)=="number" and reqLevel > 0 then
+      req = reqLevel
+    else
+      if C_Item and C_Item.RequestLoadItemDataByID then
+        C_Item.RequestLoadItemDataByID(entry.itemID)
+      end
+      req = (req > 0) and req or 999
+    end
   end
-  if req==0 then return true end
   return req <= (me + base)
 end
 
