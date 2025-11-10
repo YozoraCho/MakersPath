@@ -292,12 +292,40 @@ end
 -- ==============================
 -- SavedVariables access (runtime)
 -- ==============================
-local function GDB()
-  MakersPathGlobalDB = MakersPathGlobalDB or {}
+function GDB()
   MakersPathGlobalDB.items       = MakersPathGlobalDB.items       or {}
   MakersPathGlobalDB.buckets     = MakersPathGlobalDB.buckets     or {}
   MakersPathGlobalDB.itemRecords = MakersPathGlobalDB.itemRecords or {}
-  return MakersPathGlobalDB
+
+  local db = MakersPathGlobalDB
+  db.factionLocks = db.factionLocks or {}
+  db.factionLocks.items = db.factionLocks.items or {}
+
+  local defaults = {
+    [4455] = "HORDE",     -- Raptor Hide Harness
+    [7929] = "HORDE", -- Orcish War Leggings
+    [7916] = "HORDE", -- Barbaric Iron Boots
+    [7914] = "HORDE", -- Barbaric Iron Breastplate
+    [7917] = "HORDE", -- Barbaric Iron Gloves
+    [7915] = "HORDE", -- Barbaric Iron Helm
+    [7913] = "HORDE", -- Barbaric Iron Shoulders
+    [4456] = "ALLIANCE",  -- Raptor Hide Belt
+    [9366] = "ALLIANCE",  -- Golden Scale Gauntlets
+    [6731] = "ALLIANCE",  -- Iron Forged Breastplate
+    [7283] = "ALLIANCE",  -- Black Whelp Cloak
+    [20575] = "ALLIANCE", -- Black Whelp Tunic
+    [7349] = "ALLIANCE",  -- Herbalist's Gloves
+    [6709] = "ALLIANCE",  -- Moonglow Vest
+    [7284] = "ALLIANCE",  -- Red Whelp Gloves
+    [4332] = "ALLIANCE",  -- Bright Yellow Shirt
+  }
+  for iid, fac in pairs(defaults) do
+    if db.factionLocks.items[iid] == nil then
+      db.factionLocks.items[iid] = fac
+    end
+  end
+
+  return db
 end
 
 -- ==============================

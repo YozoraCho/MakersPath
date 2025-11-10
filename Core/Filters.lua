@@ -34,6 +34,13 @@ local function playerLevel()
   return UnitLevel("player") or 1
 end
 
+local function PlayerFaction()
+  local f = UnitFactionGroup("player")
+  if f == "Alliance" then return "ALLIANCE" end
+  if f == "Horde" then return "HORDE" end
+  return nil
+end
+
 local function GetClassSubClass(itemID)
   local equipLoc, classID, subclassID
   if C_Item and C_Item.GetItemInfoInstant then
@@ -47,6 +54,22 @@ local function GetClassSubClass(itemID)
 end
 
 local function ItemIsOkForPlayerClass(_)
+  return true
+end
+
+local function FactionAllowedForItem(itemID)
+  if not itemID then return true end
+  local db = GDB()
+
+  local mark = db.factionLocks and db.factionLocks.items and db.factionLocks.items[itemID]
+  if mark == "HORDE"     then return PlayerFaction() == "HORDE" end
+  if mark == "ALLIANCE"  then return PlayerFaction() == "ALLIANCE" end
+
+  local rec = db.itemRecords and db.itemRecords[itemID]
+  local recFac = rec and (rec.faction or rec.sourceFaction)
+  if recFac == "HORDE"    then return PlayerFaction() == "HORDE" end
+  if recFac == "ALLIANCE" then return PlayerFaction() == "ALLIANCE" end
+
   return true
 end
 
@@ -488,5 +511,32 @@ function F:IsAllowed(entry)
   if not self:ArmorOkForClass(entry) then DBG("deny Armor", entry.itemID) return false end
   if not self:LevelOk(entry) then DBG("deny Level", entry.itemID) return false end
   if entry.itemID and not ProfessionEquipOk(entry.itemID) then DBG("deny ProfEquip", entry.itemID) return false end
+  if entry.itemID and not FactionAllowedForItem(entry.itemID) then DBG("deny Faction", entry.itemID) return false end
   return true
+end
+
+SLASH_MPFAC1="/mpfac"  -- /mpfac Raptor Hide Harness HORDE  (or ALLIANCE)
+SlashCmdList["MPFAC"]=function(msg)
+  local name, fac = msg:match('^%s*(.-)%s+(HORDE|ALLIANCE)%s*$')
+  if not name or not fac then print("|cff66ccff[Maker'sPath]|r usage: /mpfac <item name> <HORDE|ALLIANCE>"); return end
+  local db = GDB(); db.factionLocks = db.factionLocks or {}; db.factionLocks.items = db.factionLocks.items or {}
+  local add = function(iid)
+    db.factionLocks.items[iid]=fac
+    print("|cff66ccff[Maker'sPath]|r faction lock:", fac, "for", (GetItemInfo(iid) or ("item:"..iid)), "("..iid..")")
+  end
+  local seen, hit = {}, false
+  local function consider(iid)
+    if iid and not seen[iid] then
+      seen[iid]=true
+      local iname = GetItemInfo(iid)
+      if iname and iname:lower()==name:lower() then add(iid); hit=true end
+    end
+  end
+  -- search dynamic DB
+  for inv, list in pairs(db.items or {}) do for _,r in ipairs(list or {}) do consider(r.itemID or r.id) end end
+  for inv, list in pairs(db.buckets or {}) do for _,e in ipairs(list or {}) do consider(e.itemID) end end
+  -- search static craftables
+  local static = MakersPath and MakersPath.Static and MakersPath.Static.Craftables or {}
+  for inv, list in pairs(static) do for _,r in ipairs(list or {}) do consider(r.itemID or r.id) end end
+  if not hit then print("|cff66ccff[Maker'sPath]|r could not find item named:", name) end
 end
