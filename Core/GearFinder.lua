@@ -4,11 +4,12 @@ MakersPath.Util = MakersPath.Util or {}
 _G.MakersPath = MakersPath
 local C = MakersPath.Const or {}
 local Filters = MakersPath and MakersPath.Filters
-
+local function Ls(key) if MakersPath and MakersPath.Ls then return MakersPath.Ls(key) end return key end
 local GearFinder = {}
 MakersPath.GearFinder = GearFinder
-local STRICT_UPGRADES_ONLY = false
+MakersPath.Spec = MakersPath.Spec or {}
 MakersPath.Config = MakersPath.Config or {}
+MakersPath.Config.CHAR_SPEC = MakersPath.Config.CHAR_SPEC or {}
 local PREF_NATIVE_ARMOR = (MakersPath.Config.PREF_NATIVE_ARMOR ~= false) -- default: true
 local function GetIgnoreFilters()
   return MakersPath.Config.IGNORE_FILTERS == true
@@ -30,7 +31,7 @@ SlashCmdList["MPIGN"] = function(msg)
   else
     SetIgnoreFilters(not GetIgnoreFilters())
   end
-  print("|cff66ccff[Maker'sPath]|r IGNORE_FILTERS = "..tostring(GetIgnoreFilters()))
+  print("|cff66ccff[Maker'sPath]|r " .. string.format(Ls("IGNORE_FILTERS_STATUS"), tostring(GetIgnoreFilters())))
   if MakersPath and MakersPath.GearFinderScan then MakersPath.GearFinderScan() end
   if MakersPathFrame and MakersPathFrame:IsShown() and RefreshList then RefreshList() end
 end
@@ -49,25 +50,70 @@ if not MakersPath.Util.ArmorTokenForItemID then
     return nil
   end
 end
+-- ===== Spec API =====
+function MakersPath.Spec.CharKey()
+  return (UnitName("player") or "?") .. "-" .. (GetRealmName() or "?")
+end
+
+function CurrentSpec()
+  return MakersPath.Spec.Get and MakersPath.Spec.Get() or nil
+end
+
+function SetCurrentSpec(spec)
+  if MakersPath.Spec.Set then
+    MakersPath.Spec.Set(spec)
+  end
+end
 
 ArmorTokenForItemID = ArmorTokenForItemID or MakersPath.Util.ArmorTokenForItemID
 
-local STAT_ALIAS = {
-  ITEM_MOD_STRENGTH               = "STR",
-  ITEM_MOD_AGILITY                = "AGI",
-  ITEM_MOD_INTELLECT              = "INT",
-  ITEM_MOD_STAMINA                = "STA",
-  ITEM_MOD_SPIRIT                 = "SPIRIT",
-  ITEM_MOD_ATTACK_POWER           = "AP",
-  ITEM_MOD_RANGED_ATTACK_POWER    = "RAP",
-  ITEM_MOD_SPELL_POWER            = "SP",
-  ITEM_MOD_SPELL_HEALING_DONE     = "HEAL",
-  ITEM_MOD_MANA_REGENERATION      = "MP5",
-  ITEM_MOD_CRIT_RATING            = "CRIT_RATING",
-  ITEM_MOD_CRIT_SPELL_RATING      = "CRIT_SPELL_RATING",
-  ITEM_MOD_HIT_RATING             = "HIT_RATING",
-  ITEM_MOD_HIT_SPELL_RATING       = "HIT_SPELL_RATING",
-}
+-- ==============================
+-- Spec selection (per-character)
+-- ==============================
+MakersPath.Config = MakersPath.Config or {}
+MakersPath.Config.CHAR_SPEC = MakersPath.Config.CHAR_SPEC or {}
+local CharConfig
+
+local function CurrentSpec()
+  local rec, key = CharConfig()
+  local s = rec.spec or MakersPath.Config.CHAR_SPEC[key]
+  if not s or s == "" then
+    return nil
+  end
+  s = s:upper()
+  MakersPath.Config.CHAR_SPEC[key] = s
+  return s
+end
+
+local function SetCurrentSpec(spec)
+  local rec, key = CharConfig()
+  if spec and spec ~= "" then
+    spec = spec:upper()
+    rec.spec = spec
+    MakersPath.Config.CHAR_SPEC[key] = spec
+  else
+    rec.spec = nil
+    MakersPath.Config.CHAR_SPEC[key] = nil
+  end
+  if MakersPath and MakersPath.GearFinder then
+    MakersPath.GearFinder._equippedScoreCache = {}
+  end
+  if MakersPath and MakersPath.GearFinderScan then MakersPath.GearFinderScan() end
+  if MakersPathFrame and MakersPathFrame:IsShown() and RefreshList then RefreshList() end
+end
+
+local function _printSpecChanged()
+  local spec = CurrentSpec() or Ls("SPEC_AUTO_KEYWORD")
+  print("|cff66ccff[Maker'sPath]|r" .. string.format(Ls("SPEC_CURRENT_STATUS"), spec))
+end
+
+MakersPath.Spec.Get = function()
+  return CurrentSpec()
+end
+MakersPath.Spec.Set = function(spec)
+  return SetCurrentSpec(spec)
+end
+
 
 -- ==============================
 -- Per-character session (avoid cross-character bleed)
@@ -86,6 +132,18 @@ function GearFinder:BeginSession()
   else
     self._equippedScoreCache = {}
   end
+end
+
+CharConfig = function()
+  MakersPathDB = MakersPathDB or {}
+  MakersPathDB.chars = MakersPathDB.chars or {}
+
+  local name  = UnitName("player") or "?"
+  local realm = GetRealmName() or "?"
+  local key   = name .. "-" .. realm
+
+  MakersPathDB.chars[key] = MakersPathDB.chars[key] or {}
+  return MakersPathDB.chars[key], key
 end
 
 local function ArmorTokenFromIDs(classID, subClassID)
@@ -133,6 +191,18 @@ local function ArmorTokenForItemID(itemID)
   return ArmorTokenByStrings(itemType, itemSubType)
 end
 
+local function IsArmorish(inv)
+  return inv=="INVTYPE_HEAD" or inv=="INVTYPE_NECK" or inv=="INVTYPE_SHOULDER" or inv=="INVTYPE_CLOAK" or inv=="INVTYPE_CHEST" or inv=="INVTYPE_ROBE" or inv=="INVTYPE_WRIST" or inv=="INVTYPE_HAND" or inv=="INVTYPE_WAIST" or inv=="INVTYPE_LEGS" or inv=="INVTYPE_FEET" or inv=="INVTYPE_FINGER" or inv=="INVTYPE_TRINKET"
+end
+
+local function casterHasPrimaries(s)
+  return (tonumber(s.ITEM_MOD_INTELLECT or 0) > 0)
+      or (tonumber(s.ITEM_MOD_SPELL_POWER or 0) > 0)
+      or (tonumber(s.ITEM_MOD_SPELL_HEALING_DONE or 0) > 0)
+      or (tonumber(s.ITEM_MOD_HIT_SPELL_RATING or 0) > 0)
+      or (tonumber(s.ITEM_MOD_CRIT_SPELL_RATING or 0) > 0)
+end
+
 local function WeaponLineForItem(itemID)
   if not itemID then return nil end
   local _, _, _, _, _, classID, subClassID = nil, nil, nil, nil, nil, nil, nil
@@ -167,7 +237,89 @@ end
 local MPGFTT = MPGFTT or CreateFrame("GameTooltip","MPGFTT",UIParent,"GameTooltipTemplate")
 MPGFTT:SetOwner(UIParent, "ANCHOR_NONE")
 
+-- ===========================
+-- Locale-aware tooltip parse
+-- ===========================
+local GF_STAT_LINES
+local GF_DAMAGE_PATTERNS
+local GF_SPEED_PATTERNS
+local GF_ARMOR_PATTERNS
+local GF_DPS_PATTERNS
+
+local function GF_EscapePattern(text)
+  return (text or ""):gsub("([%^%$%(%)%.%[%]%*%+%-%?])","%%%1")
+end
+
+local function GF_MakeIntPairPattern(tmpl)
+  if not tmpl or tmpl == "" then return nil end
+  tmpl = GF_EscapePattern(tmpl)
+  tmpl = tmpl:gsub("%%d","(%%d+)")
+  return "^" .. tmpl .. "$"
+end
+
+local function GF_MakeNumberPattern(tmpl)
+  if not tmpl or tmpl == "" then return nil end
+  tmpl = GF_EscapePattern(tmpl)
+  tmpl = tmpl:gsub("%%%.%df","([%%d%%.,]+)")
+  tmpl = tmpl:gsub("%%f","([%%d%%.,]+)")
+  return "^" .. tmpl .. "$"
+end
+
+local function GF_BuildTooltipPatterns()
+  if GF_STAT_LINES then return end
+
+  GF_STAT_LINES     = {}
+  GF_DAMAGE_PATTERNS = {}
+  GF_SPEED_PATTERNS  = {}
+  GF_ARMOR_PATTERNS  = {}
+  GF_DPS_PATTERNS    = {}
+
+  local function addStat(shortGlobal, fieldKey)
+    local label = _G[shortGlobal]
+    if not label or label == "" then return end
+    label = GF_EscapePattern(label)
+    local pat = "^%+(%d+)%s+" .. label .. "$"
+    GF_STAT_LINES[#GF_STAT_LINES+1] = { field = fieldKey, pattern = pat }
+  end
+
+  addStat("ITEM_MOD_STRENGTH_SHORT",  "ITEM_MOD_STRENGTH")
+  addStat("ITEM_MOD_AGILITY_SHORT",   "ITEM_MOD_AGILITY")
+  addStat("ITEM_MOD_STAMINA_SHORT",   "ITEM_MOD_STAMINA")
+  addStat("ITEM_MOD_INTELLECT_SHORT", "ITEM_MOD_INTELLECT")
+  addStat("ITEM_MOD_SPIRIT_SHORT",    "ITEM_MOD_SPIRIT")
+
+  local dmgTmpl  = _G.DAMAGE_TEMPLATE
+  local dmgSchT  = _G.DAMAGE_TEMPLATE_WITH_SCHOOL
+  local dmgAlt   = "%%d%s*%-%s*%%d%s+" .. (GF_EscapePattern(_G.DAMAGE or "Damage"))
+
+  local p1 = GF_MakeIntPairPattern(dmgTmpl)
+  local p2 = GF_MakeIntPairPattern(dmgSchT)
+  if p1 then table.insert(GF_DAMAGE_PATTERNS, p1) end
+  if p2 then table.insert(GF_DAMAGE_PATTERNS, p2) end
+  table.insert(GF_DAMAGE_PATTERNS, "^" .. dmgAlt .. "$")
+
+  local spdTmpl = _G.WEAPON_SPEED or _G.TOOLTIP_SPEED or "Speed %.2f"
+  local spdPat  = GF_MakeNumberPattern(spdTmpl)
+  if spdPat then table.insert(GF_SPEED_PATTERNS, spdPat) end
+  table.insert(GF_SPEED_PATTERNS, "^[Ss]peed[:%s]+([%d%.%,]+)")
+
+  local armorWord = _G.ARMOR or "Armor"
+  armorWord = GF_EscapePattern(armorWord)
+  table.insert(GF_ARMOR_PATTERNS, "^([%d,%.]+)%s+" .. armorWord .. "$")
+
+  local dpsTmpl   = _G.DPS_TEMPLATE
+  local dpsSimple = _G.DPS_TEMPLATE_SIMPLE
+  local pDps1     = GF_MakeNumberPattern(dpsTmpl)
+  local pDps2     = GF_MakeNumberPattern(dpsSimple)
+  if pDps1 then table.insert(GF_DPS_PATTERNS, pDps1) end
+  if pDps2 then table.insert(GF_DPS_PATTERNS, pDps2) end
+  table.insert(GF_DPS_PATTERNS, "^([%d%.%,]+)%s+[Dd][Pp][Ss]$")
+  table.insert(GF_DPS_PATTERNS, "%(([%d%.%,]+)%s+[Dd]amage%s+per%s+second%)")
+end
+
 local function ParseTooltipStatsToTable(itemID)
+  GF_BuildTooltipPatterns()
+
   local t = {}
   local link = select(2, GetItemInfo(itemID))
   if not link then
@@ -182,45 +334,73 @@ local function ParseTooltipStatsToTable(itemID)
   local function feed(txt)
     if not txt or txt == "" then return end
 
-    -- +Stat lines
-    local val, stat = txt:match("^%+(%d+)%s+([%a ]+)$")
-    if val and stat then
-      stat = stat:upper():gsub("%s+", "")
-      if     stat=="STRENGTH"  then t.ITEM_MOD_STRENGTH  = (t.ITEM_MOD_STRENGTH  or 0) + tonumber(val)
-      elseif stat=="AGILITY"   then t.ITEM_MOD_AGILITY   = (t.ITEM_MOD_AGILITY   or 0) + tonumber(val)
-      elseif stat=="STAMINA"   then t.ITEM_MOD_STAMINA   = (t.ITEM_MOD_STAMINA   or 0) + tonumber(val)
-      elseif stat=="INTELLECT" then t.ITEM_MOD_INTELLECT = (t.ITEM_MOD_INTELLECT or 0) + tonumber(val)
-      elseif stat=="SPIRIT"    then t.ITEM_MOD_SPIRIT    = (t.ITEM_MOD_SPIRIT    or 0) + tonumber(val)
+    local handledStat = false
+    for _, row in ipairs(GF_STAT_LINES) do
+      local val = txt:match(row.pattern)
+      if val then
+        val = tonumber(val) or 0
+        if val > 0 then
+          t[row.field] = (t[row.field] or 0) + val
+          handledStat = true
+        end
+        break
       end
     end
-
-    local dmin, dmax = txt:match("^(%d+)%s*%-%s*(%d+)%s+[Dd]amage")
-    if not dmin then dmin, dmax = txt:match("^[Dd]amage:%s*(%d+)%s*%-%s*(%d+)") end
-    if dmin and dmax then
-      t.__TMP_MIN = tonumber(dmin)
-      t.__TMP_MAX = tonumber(dmax)
+    if handledStat then return end
+    for _, pat in ipairs(GF_DAMAGE_PATTERNS) do
+      local dmin, dmax = txt:match(pat)
+      if dmin and dmax then
+        t.__TMP_MIN = tonumber(dmin) or t.__TMP_MIN
+        t.__TMP_MAX = tonumber(dmax) or t.__TMP_MAX
+        break
+      end
     end
-
-    local spd = txt:match("^[Ss]peed[:%s]+([%d%.]+)")
-    if spd then t.__TMP_SPD = tonumber(spd) end
-
-    local armor = txt:match("^([%d,]+)%s+[Aa]rmor$")
-    if armor then
-      armor = tonumber((armor:gsub(",",""))) or 0
-      t.ITEM_MOD_ARMOR = math.max(armor, t.ITEM_MOD_ARMOR or 0)
+    if not t.__TMP_SPD then
+      for _, pat in ipairs(GF_SPEED_PATTERNS) do
+        local spd = txt:match(pat)
+        if spd then
+          spd = tonumber((spd:gsub(",", ".")))
+          if spd and spd > 0 then
+            t.__TMP_SPD = spd
+            break
+          end
+        end
+      end
     end
-
-    local dps = txt:match("^([%d%.]+)%s+[Dd][Pp][Ss]$")
-    if not dps then
-      dps = txt:match("%(([%d%.]+)%s+[Dd]amage%s+per%s+second%)")
+    do
+      local armor
+      for _, pat in ipairs(GF_ARMOR_PATTERNS) do
+        armor = txt:match(pat)
+        if armor then break end
+      end
+      if armor then
+        armor = tonumber((armor:gsub("[,%.]", ""))) or 0
+        if armor > 0 then
+          t.ITEM_MOD_ARMOR = math.max(armor, t.ITEM_MOD_ARMOR or 0)
+        end
+      end
     end
-    if dps then t.DAMAGE_PER_SECOND = math.max(tonumber(dps) or 0, t.DAMAGE_PER_SECOND or 0) end
+    do
+      local dpsVal
+      for _, pat in ipairs(GF_DPS_PATTERNS) do
+        local m = txt:match(pat)
+        if m then
+          dpsVal = tonumber((m:gsub(",", "."))) or 0
+          if dpsVal > 0 then break end
+        end
+      end
+      if dpsVal and dpsVal > 0 then
+        t.DAMAGE_PER_SECOND = math.max(dpsVal, t.DAMAGE_PER_SECOND or 0)
+      end
+    end
   end
 
   local hadAny = false
   for i = 1, MPGFTT:NumLines() do
-    local L = _G["MPGFTTTextLeft"..i];  local R = _G["MPGFTTTextRight"..i]
-    local ltxt = L and L:GetText() or ""; local rtxt = R and R:GetText() or ""
+    local L = _G["MPGFTTTextLeft"..i]
+    local R = _G["MPGFTTTextRight"..i]
+    local ltxt = L and L:GetText() or ""
+    local rtxt = R and R:GetText() or ""
     if ltxt ~= "" then hadAny = true; feed(ltxt) end
     if rtxt ~= "" then hadAny = true; feed(rtxt) end
   end
@@ -233,7 +413,9 @@ local function ParseTooltipStatsToTable(itemID)
   if t.__TMP_MIN and t.__TMP_MAX and t.__TMP_SPD and t.__TMP_SPD > 0 then
     local avg = (t.__TMP_MIN + t.__TMP_MAX) / 2
     local dps = avg / t.__TMP_SPD
-    t.DAMAGE_PER_SECOND = math.max(dps, t.DAMAGE_PER_SECOND or 0)
+    if dps > 0 then
+      t.DAMAGE_PER_SECOND = math.max(dps, t.DAMAGE_PER_SECOND or 0)
+    end
   end
   t.__TMP_MIN, t.__TMP_MAX, t.__TMP_SPD = nil, nil, nil
 
@@ -331,46 +513,252 @@ end
 -- ==============================
 -- Scoring
 -- ==============================
-local CLASS_WEIGHTS = {
-  WARRIOR = { STR=1.0, STA=0.8, AGI=0.7, CRIT_RATING=0.65, HIT_RATING=0.55, AP=0.9 },
-  PALADIN = { STR=1.0, STA=0.75, INT=0.5, CRIT_RATING=0.5, SPELL_POWER=0.4, MP5=0.4 },
-  HUNTER  = { AGI=1.0, STA=0.6, RAP=0.9, CRIT_RATING=0.7, HIT_RATING=0.6, INT=0.3 },
-  ROGUE   = { AGI=1.0, STA=0.7, STR=0.5, AP=0.9, CRIT_RATING=0.7, HIT_RATING=0.7 },
-  PRIEST  = { INT=1.0, STA=0.7, SP=1.0, HEAL=0.9, MP5=0.8, SPIRIT=0.7 },
-  SHAMAN  = { STR=0.7, AGI=0.7, INT=0.8, STA=0.7, SP=0.9, HEAL=0.9, CRIT_RATING=0.6 },
-  MAGE    = { INT=1.0, STA=0.5, SP=1.0, CRIT_SPELL_RATING=0.6, HIT_SPELL_RATING=0.7, SPIRIT=0.5 },
-  WARLOCK = { INT=0.9, STA=0.9, SP=1.0, HIT_SPELL_RATING=0.7, CRIT_SPELL_RATING=0.4, SPIRIT=0.4 },
-  DRUID = { AGI=0.9, STR=0.7, INT=0.8, STA=0.8, SP=0.8, HEAL=0.8, HIT_RATING=0.6 },
-}
 
-local function GetClassWeights()
-  local _, class = UnitClass("player")
-  return CLASS_WEIGHTS[class] or {}
-end
+-- ===== NORMALIZE ITEM STATS =====
+local function NormalizeToMaker(stats)
+  local t = {}
 
-local function ScoreFromStats(stats)
-  local w = GetClassWeights()
-  local score = 0
-  for statName, value in pairs(stats or {}) do
-    local alias = STAT_ALIAS[statName]
-    if alias and w[alias] and tonumber(value) then
-      score = score + (value * w[alias])
+  local function add(key, val)
+    if type(val) ~= "number" then
+      if val == nil then
+        val = 0
+      else
+        val = tonumber(val) or 0
+      end
+    end
+    if val > 0 then
+      t[key] = (t[key] or 0) + val
     end
   end
-  return score
+  local function pickVals(...)
+    local best = 0
+    local n = select("#", ...)
+    for i = 1, n do
+      local raw = select(i, ...)
+      local v = 0
+      if type(raw) == "number" then
+        v = raw
+      elseif type(raw) == "string" then
+        v = tonumber(raw) or 0
+      end
+      if v > best then
+        best = v
+      end
+    end
+    return best
+  end
+  local function stat2(base)
+    return pickVals(
+      stats["ITEM_MOD_"..base],
+      stats["ITEM_MOD_"..base.."_SHORT"]
+    )
+  end
+
+  -- Primary stats
+  add("STRENGTH",  stat2("STRENGTH"))
+  add("AGILITY",   stat2("AGILITY"))
+  add("STAMINA",   stat2("STAMINA"))
+  add("INTELLECT", stat2("INTELLECT"))
+  add("SPIRIT",    stat2("SPIRIT"))
+
+  -- Armor
+  local armor = pickVals(
+    stats.ITEM_MOD_ARMOR,
+    stats.ITEM_MOD_ARMOR_SHORT,
+    stats.RESISTANCE0_NAME
+  )
+  if type(armor) ~= "number" then
+    if armor == nil then
+      armor = 0
+    else
+      armor = tonumber(armor) or 0
+    end
+  end
+  if armor > 0 then
+    add("ARMOR", armor)
+  end
+  add("ARMOR", stats.ITEM_MOD_ARMOR_BONUS)
+
+  -- Melee / Ranged / Feral AP
+  add("ATTACK_POWER",        stat2("ATTACK_POWER"))
+  add("RANGED_ATTACK_POWER", stat2("RANGED_ATTACK_POWER"))
+  add("FERAL_ATTACK_POWER",  stats.FERAL_ATTACK_POWER or stats.FERAL_AP)
+
+  -- DPS
+  add("DAMAGE_PER_SECOND", pickVals(
+    stats.DPS,
+    stats.DAMAGE_PER_SECOND,
+    stats.ITEM_MOD_DAMAGE_PER_SECOND_SHORT
+  ))
+
+  -- Ratings
+  add("CRIT",              stat2("CRIT_RATING"))
+  add("CRIT_SPELL",        stat2("CRIT_SPELL_RATING"))
+  add("HIT",               stat2("HIT_RATING"))
+  add("HIT_SPELL",         stat2("HIT_SPELL_RATING"))
+  add("HASTE",             pickVals(stats.ITEM_MOD_HASTE_RATING, stats.ITEM_MOD_HASTE_SPELL_RATING))
+  add("EXPERTISE",         stat2("EXPERTISE_RATING"))
+  add("ARMOR_PENETRATION", stat2("ARMOR_PENETRATION_RATING"))
+
+  -- Defensive ratings
+  add("DEFENSE_SKILL", stats.DEFENSE_RATING or stats.ITEM_MOD_DEFENSE_SKILL_RATING)
+  add("DODGE",               stat2("DODGE_RATING"))
+  add("PARRY",               stat2("PARRY_RATING"))
+  add("BLOCK",               stat2("BLOCK_RATING"))
+  add("BLOCK_VALUE",         stats.ITEM_MOD_BLOCK_VALUE)
+
+  -- Health / Mana / regen
+  add("HEALTH",              stats.HEALTH or stats.ITEM_MOD_HEALTH)
+  add("MANA",                stats.MANA   or stats.ITEM_MOD_MANA)
+  add("HEALTH_REGENERATION", stats.ITEM_MOD_HEALTH_REGENERATION or stats.HEALTH_REGEN)
+  add("MANA_REGENERATION",   stats.ITEM_MOD_MANA_REGENERATION   or stats.MP5)
+
+  -- Spell power & healing
+  add("SPELL_DAMAGE_DONE",  stat2("SPELL_POWER"))
+  add("SPELL_HEALING_DONE", stats.ITEM_MOD_SPELL_HEALING_DONE or stats.HEALING_POWER)
+  add("SPELL_PENETRATION",  stats.ITEM_MOD_SPELL_PENETRATION)
+
+  -- School-specific spell damage
+  add("SPELL_DAMAGE_DONE_HOLY",   stats.SPELL_DMG_HOLY)
+  add("SPELL_DAMAGE_DONE_FIRE",   stats.SPELL_DMG_FIRE)
+  add("SPELL_DAMAGE_DONE_NATURE", stats.SPELL_DMG_NATURE)
+  add("SPELL_DAMAGE_DONE_FROST",  stats.SPELL_DMG_FROST)
+  add("SPELL_DAMAGE_DONE_SHADOW", stats.SPELL_DMG_SHADOW)
+  add("SPELL_DAMAGE_DONE_ARCANE", stats.SPELL_DMG_ARCANE)
+
+  -- Resistances
+  add("FIRE_RESISTANCE",   stats.RESISTANCE2_NAME or stats.RESISTANCEFIRE)
+  add("NATURE_RESISTANCE", stats.RESISTANCE3_NAME or stats.RESISTANCENATURE)
+  add("FROST_RESISTANCE",  stats.RESISTANCE4_NAME or stats.RESISTANCEFROST)
+  add("SHADOW_RESISTANCE", stats.RESISTANCE5_NAME or stats.RESISTANCESHADOW)
+  add("ARCANE_RESISTANCE", stats.RESISTANCE6_NAME or stats.RESISTANCEARCANE)
+
+  return t
+end
+
+
+local ROLE_FOR_SPEC = {
+  SHAMAN = {
+    ELEMENTAL   = "CASTER",
+    ENHANCEMENT = "MELEE",
+    RESTORATION = "CASTER",
+  },
+  DRUID = {
+    BALANCE     = "CASTER",
+    FERAL_DPS   = "MELEE",
+    FERAL_TANK  = "MELEE",
+    RESTORATION = "CASTER",
+  },
+  WARRIOR = { ARMS="MELEE", FURY="MELEE", PROTECTION="MELEE", FURYPROT="HYBRID" },
+  PALADIN = { HOLY="CASTER", PROTECTION="MELEE", RETRIBUTION="MELEE" },
+  PRIEST  = { DISCIPLINE="CASTER", HOLY="CASTER", SHADOW="CASTER" },
+  MAGE    = { ARCANE="CASTER", FIRE="CASTER", FROST="CASTER" },
+  WARLOCK = { AFFLICTION="CASTER", DEMONOLOGY="CASTER", DESTRUCTION="CASTER" },
+  HUNTER  = { BEAST_MASTERY="HYBRID", MARKSMANSHIP="HYBRID", SURVIVAL="HYBRID" },
+  ROGUE   = { ASSASSINATION="MELEE", COMBAT="MELEE", SUBTLETY="MELEE" },
+}
+
+local function IsTankSpec()
+  local _, class = UnitClass("player")
+  class = class and class:upper() or "UNKNOWN"
+  local spec = CurrentSpec()
+  if not spec then return false end
+  if class=="DRUID"  and spec=="FERAL_TANK"  then return true end
+  if class=="WARRIOR" and spec=="PROTECTION" then return true end
+  if class=="PALADIN" and spec=="PROTECTION" then return true end
+  return false
+end
+
+local function RolePhase(class, lvl)
+  lvl = lvl or (UnitLevel("player") or 1)
+  class = (class and class:upper()) or "UNKNOWN"
+  local spec = CurrentSpec()
+
+  local role
+  if spec and ROLE_FOR_SPEC[class] and ROLE_FOR_SPEC[class][spec] then
+    role = ROLE_FOR_SPEC[class][spec]
+  else
+    if class=="WARRIOR" or class=="PALADIN" or class=="ROGUE" then
+      role = "MELEE"
+    elseif class=="HUNTER" or class=="DRUID" or class=="SHAMAN" then
+      role = "HYBRID"
+    elseif class=="MAGE" or class=="PRIEST" or class=="WARLOCK" then
+      role = "CASTER"
+    else
+      role = "GENERIC"
+    end
+  end
+
+  local band
+  if lvl < 20 then band = 1
+  elseif lvl < 30 then band = 2
+  else band = 3 end
+
+  return role, band
+end
+
+local function GetClassWeights()
+  local all = MakersPath.Weights or {}
+  local _, class = UnitClass("player")
+  class = class and class:upper() or "UNKNOWN"
+  local lvl = UnitLevel("player") or 1
+
+  local classTbl = all[class]
+  if not classTbl then return nil end
+
+  if lvl < 10 then
+    if classTbl.BASE then
+      return classTbl.BASE
+    end
+    for k, v in pairs(classTbl) do
+      if k ~= "BASE" and type(v) == "table" then
+        return v
+      end
+    end
+    return nil
+  end
+
+  local spec = MakersPath.Spec.Get()
+  if not spec or spec == "" then
+    return classTbl.BASE or nil
+  end
+
+  local key = spec
+  if class == "WARRIOR" and key == "PROT"     then key = "PROTECTION" end
+  if class == "WARRIOR" and key == "FURYPROT" then key = "FURYPROT"   end
+
+  local weights = classTbl[key]
+  if weights then
+    return weights
+  end
+  return classTbl.BASE or nil
+end
+
+local function ScoreFromStats(statsRaw)
+  local weights = GetClassWeights()
+  if not weights then return 0 end
+  local mstats = NormalizeToMaker(statsRaw or {})
+
+  local total = 0
+  for k, w in pairs(weights) do
+    local v = mstats[k]
+    if v and w and v > 0 then
+      total = total + (v * w)
+    end
+  end
+  return total
 end
 
 local function LevelScaledCoeffs()
   local lvl = UnitLevel("player") or 1
   if lvl < 20 then
-    return 0.020, 0.35
+    return 0.020, 0.25
   elseif lvl < 40 then
-    return 0.020, 0.50
+    return 0.020, 0.40
   else
-    return 0.020, 0.60
+    return 0.020, 0.50
   end
 end
-local ARMOR_COEF, DPS_COEF = LevelScaledCoeffs()
 
 local function StatsAreEmpty(stats)
   if not stats then return true end
@@ -412,34 +800,11 @@ local function PickDPS(stats)
   return best
 end
 
-local function GetItemScore_ByStats(itemID)
-  if not itemID then return 0, false end
-  local link = select(2, GetItemInfo(itemID))
-  if not link then
-    if C_Item and C_Item.RequestLoadItemDataByID then C_Item.RequestLoadItemDataByID(itemID) end
-    return 0, true
-  end
-  local stats = GetItemStats(link)
-  if StatsAreEmpty(stats) then
-    local tstats = ParseTooltipStatsToTable(itemID)
-    if not tstats or StatsAreEmpty(tstats) then
-      if C_Item and C_Item.RequestLoadItemDataByID then C_Item.RequestLoadItemDataByID(itemID) end
-      return 0, true
-    end
-    stats = tstats
-  end
-  local score = ScoreFromStats(stats or {})
-  local armor = PickArmor(stats)
-  if armor > 0 then score = score + (armor * ARMOR_COEF) end
-  local dps = PickDPS(stats)
-  if dps > 0 then score = score + (dps * DPS_COEF) end
-  return score, false
-end
-
 local ArmorBias
 local WeaponBias
 local ProfessionBias
 local GatherBias
+local AugmentNeedHave
 
 -- ==============================
 -- Debug + scoring breakdown
@@ -476,7 +841,7 @@ SlashCmdList["MPDEBUG"] = function(msg)
   else
     MakersPath.Config.DEBUG_GF = not MakersPath.Config.DEBUG_GF
   end
-  print("|cff66ccff[Maker'sPath]|r DEBUG_GF = "..tostring(MakersPath.Config.DEBUG_GF))
+  print("|cff66ccff[Maker'sPath]|r".. string.format(Ls("DEBUG_GF_STATUS"), tostring(MakersPath.Config.DEBUG_GF)))
 end
 
 
@@ -489,66 +854,188 @@ function WeaponBias(_)     return 0 end
 function ProfessionBias(_) return 0 end
 function GatherBias(_)     return 0 end
 
--- Returns: totalScore, pending, breakdownTable
-local function ScoreItemWithBreakdown(iid, slotName, preKnownArmorTok, preKnownInvType)
-  if not iid then return 0, false, {reason="no-iid"} end
+local function ArmorCoefFor(class, slotName, lvl)
+  local ARMOR_COEF = select(1, LevelScaledCoeffs())
+  local major = (slotName == "ChestSlot" or slotName == "LegsSlot" or slotName == "HeadSlot" or slotName == "ShoulderSlot")
+  if major then
+    return ARMOR_COEF * 1.5
+  end
 
+  return ARMOR_COEF
+end
+
+local function StatFromStats(stats, key)
+  return tonumber((stats and stats[key]) or 0) or 0
+end
+
+local function GetItemStatsTable(iid)
+  if not iid then return nil end
   local link = select(2, GetItemInfo(iid))
   if not link then
     if C_Item and C_Item.RequestLoadItemDataByID then C_Item.RequestLoadItemDataByID(iid) end
-    return 0, true, {reason="link-pending"}
+    return nil
+  end
+  local s = GetItemStats(link)
+  if StatsAreEmpty(s) then
+    s = ParseTooltipStatsToTable(iid)
+  end
+  return s
+end
+
+local function EquippedStatForSlot(slotName, statKey)
+
+  local function statOn(token)
+    local slotId = GetInventorySlotInfo(token)
+    if not slotId then return 0 end
+    local link = GetInventoryItemLink("player", slotId)
+    if not link then return 0 end
+    local iid = GetItemInfoInstant(link)
+    if not iid then return 0 end
+    local s = GetItemStatsTable(iid)
+    return StatFromStats(s, statKey)
+  end
+
+  if slotName=="Finger0Slot" or slotName=="Finger1Slot" then
+    return math.max(statOn("Finger0Slot"), statOn("Finger1Slot"))
+  elseif slotName=="Trinket0Slot" or slotName=="Trinket1Slot" then
+    return math.max(statOn("Trinket0Slot"), statOn("Trinket1Slot"))
+  else
+    return statOn(slotName)
+  end
+end
+
+local PRIMARY_LIST = {
+  "ITEM_MOD_INTELLECT","ITEM_MOD_STAMINA","ITEM_MOD_SPIRIT",
+  "ITEM_MOD_STRENGTH","ITEM_MOD_AGILITY",
+  "ITEM_MOD_SPELL_POWER","ITEM_MOD_SPELL_HEALING_DONE",
+  "ITEM_MOD_MANA_REGENERATION","ITEM_MOD_ATTACK_POWER",
+  "ITEM_MOD_RANGED_ATTACK_POWER","ITEM_MOD_CRIT_RATING",
+  "ITEM_MOD_CRIT_SPELL_RATING","ITEM_MOD_HIT_RATING","ITEM_MOD_HIT_SPELL_RATING",
+}
+
+local function StatRichnessBonus(stats, invType, class)
+  if not stats then return 0 end
+  local role, band = RolePhase(class)
+  local mstats = NormalizeToMaker(stats or {})
+  local primKeys = {
+    "STRENGTH","AGILITY","STAMINA","INTELLECT","SPIRIT",
+    "ATTACK_POWER","RANGED_ATTACK_POWER",
+    "SPELL_DAMAGE_DONE","SPELL_HEALING_DONE","MANA_REGENERATION",
+    "CRIT","CRIT_SPELL","HIT","HIT_SPELL",
+  }
+  local primCount, primSum = 0, 0
+  for _,k in ipairs(primKeys) do
+    local v = tonumber(mstats[k] or 0) or 0
+    if v > 0 then primCount = primCount + 1; primSum = primSum + v end
+  end
+
+  local base = (primCount > 0) and (0.25 + 0.05 * primCount) or 0
+
+  if role == "CASTER" then
+    local intVal    = tonumber(mstats.INTELLECT or 0) or 0
+    local spVal     = tonumber(mstats.SPELL_DAMAGE_DONE or mstats.SPELL_HEALING_DONE or 0) or 0
+    local spiritVal = tonumber(mstats.SPIRIT or 0) or 0
+    local hitVal    = tonumber(mstats.HIT_SPELL or 0) or 0
+    local critVal   = tonumber(mstats.CRIT_SPELL or 0) or 0
+
+    if band == 1 then
+      base = base + (intVal + spiritVal) * 0.01
+    elseif band == 2 then
+      base = base + (intVal * 0.06) + (spiritVal * 0.05)
+    else
+      base = base + (intVal * 0.08) + (spVal * 0.07)
+           + (spiritVal * 0.05) + (hitVal * 0.06) + (critVal * 0.05)
+    end
+  end
+
+  return math.min(1.25, base)
+end
+
+local function ScoreItemWithBreakdown(iid, slotName, preKnownArmorTok, preKnownInvType)
+  if not iid then
+    return 0, false, { reason = "no-iid" }
+  end
+
+  local link = select(2, GetItemInfo(iid))
+  if not link then
+    if C_Item and C_Item.RequestLoadItemDataByID then
+      C_Item.RequestLoadItemDataByID(iid)
+    end
+    return 0, true, { reason = "link-pending" }
   end
 
   local stats = GetItemStats(link)
   if StatsAreEmpty(stats) then
     local tstats = ParseTooltipStatsToTable(iid)
     if not tstats or StatsAreEmpty(tstats) then
-      if C_Item and C_Item.RequestLoadItemDataByID then C_Item.RequestLoadItemDataByID(iid) end
-      return 0, true, {reason="stats-pending"}
+      if C_Item and C_Item.RequestLoadItemDataByID then
+        C_Item.RequestLoadItemDataByID(iid)
+      end
+      return 0, true, { reason = "stats-pending" }
     end
     stats = tstats
   end
 
-  local ARMOR_COEF, DPS_COEF = LevelScaledCoeffs()
-
   local baseStatsScore = ScoreFromStats(stats or {})
+
+  local _, class = UnitClass("player")
+  class = class or "UNKNOWN"
+  local lvl = UnitLevel("player") or 1
+
   local armorVal = PickArmor(stats) or 0
-  local armorAdd = armorVal * ARMOR_COEF
+  local dpsVal   = PickDPS(stats)   or 0
 
-  local dpsVal = PickDPS(stats) or 0
-  local dpsAdd = dpsVal * DPS_COEF
+  local ARMOR_COEF, DPS_COEF = LevelScaledCoeffs()
+  local armorAdd = armorVal * ArmorCoefFor(class, slotName, lvl)
+  local dpsAdd   = dpsVal   * DPS_COEF
 
-  local invType = preKnownInvType or select(9, GetItemInfo(iid)) or ""
+  local invType  = preKnownInvType or select(9, GetItemInfo(iid)) or ""
   local armorTok = preKnownArmorTok or _ArmorTokenForItemID(iid)
 
-  local entryShim = { itemID = iid, invType = invType, armor = armorTok }
-  local biasArmor, biasWeap, biasProf, biasGather = 0,0,0,0
-  local isWeaponish = (invType and (invType:find("WEAPON") or invType:find("RANGED") or invType=="INVTYPE_HOLDABLE" or invType=="INVTYPE_SHIELD"))
+  local statBonus = 0
+  do
+    local _, c = UnitClass("player")
+    statBonus = StatRichnessBonus(stats, invType, c)
+  end
+
+  local entryShim = {
+    itemID  = iid,
+    invType = invType,
+    armor   = armorTok,
+  }
+  local biasArmor, biasWeap = 0, 0
+
+  local isWeaponish = invType
+    and (invType:find("WEAPON")
+      or invType:find("RANGED")
+      or invType == "INVTYPE_HOLDABLE"
+      or invType == "INVTYPE_SHIELD")
+
   if not (ONLY_STATS_WEAPONS and isWeaponish) then
     biasArmor  = ArmorBias(entryShim)
     biasWeap   = WeaponBias(entryShim)
-    biasProf   = ProfessionBias(entryShim)
-    biasGather = GatherBias(entryShim)
   end
 
-  local total = (baseStatsScore or 0) + armorAdd + dpsAdd + biasArmor + biasWeap + biasProf + biasGather
+  local total = (baseStatsScore or 0) + armorAdd + dpsAdd + statBonus + biasArmor + biasWeap
 
   return total, false, {
-    iid       = iid,
-    base      = baseStatsScore or 0,
-    armor     = armorVal or 0,
-    armorAdd  = armorAdd or 0,
-    dps       = dpsVal or 0,
-    dpsAdd    = dpsAdd or 0,
-    biasArmor = biasArmor or 0,
-    biasWeap  = biasWeap or 0,
-    biasProf  = biasProf or 0,
-    biasGather= biasGather or 0,
-    invType   = invType,
-    armorTok  = armorTok,
-    slot      = slotName,
+    iid        = iid,
+    base       = baseStatsScore or 0,
+    armor      = armorVal or 0,
+    armorAdd   = armorAdd or 0,
+    dps        = dpsVal   or 0,
+    dpsAdd     = dpsAdd   or 0,
+    biasArmor  = biasArmor or 0,
+    biasWeap   = biasWeap  or 0,
+    biasProf   = biasProf  or 0,
+    biasGather = biasGather or 0,
+    invType    = invType,
+    armorTok   = armorTok,
+    slot       = slotName,
+    statBonus  = statBonus or 0,
   }
 end
+
 
 -- ==============================
 -- Armor / Weapon bias
@@ -583,42 +1070,63 @@ end
 local function ShouldSkipLighterArmor(slotName, candidateArmorTok, eqArmorTok, eqScore, candScore)
   if not candidateArmorTok or not eqArmorTok then return false end
   if not PREF_NATIVE_ARMOR then return false end
+  local major =
+    (slotName == "ChestSlot" or
+     slotName == "LegsSlot"  or
+     slotName == "HeadSlot"  or
+     slotName == "ShoulderSlot")
+
+  if not major then
+    return false
+  end
+
   local candOrd = ARMOR_ORDER[candidateArmorTok] or 0
-  local eqOrd = ARMOR_ORDER[eqArmorTok] or 0
-  if candOrd >= eqOrd then return false end
+  local eqOrd   = ARMOR_ORDER[eqArmorTok] or 0
+  if candOrd >= eqOrd then
+    return false
+  end
 
   local lvl = UnitLevel("player") or 1
   local THRESH
   if lvl < 20 then
-    THRESH = 0.75
+    THRESH = 0.50
   elseif lvl < 40 then
-    THRESH = 0.25
+    THRESH = 0.35
   else
-    THRESH = 0.0
+    THRESH = 0.20
+  end
+  if (candScore or 0) >= (eqScore or 0) * 1.15 then
+    return false
   end
   if (candScore or 0) > (eqScore or 0) and (eqScore or 0) < 0.6 then
     return false
   end
+
   return (candScore or 0) < (eqScore + THRESH)
 end
 
 function ArmorBias(entry)
   if not entry or not entry.armor then return 0 end
   if not PREF_NATIVE_ARMOR then return 0 end
+
   local _, class = UnitClass("player")
-  if class == "ROGUE" or class == "DRUID" then
-    return (entry.armor == "LEATHER") and 1.5 or 0
-  elseif class == "HUNTER" or class == "SHAMAN" then
-    return (entry.armor == "MAIL") and 1.5 or 0
-  elseif class == "WARRIOR" or class == "PALADIN" then
-    local lvl = UnitLevel("player") or 1
-    if lvl >= 40 then
-      return (entry.armor == "PLATE") and 1.5 or 0
-    else
-      return (entry.armor == "MAIL") and 1.5 or 0
-    end
-  elseif class == "MAGE" or class == "PRIEST" or class == "WARLOCK" then
-    return (entry.armor == "CLOTH") and 1.5 or 0
+  local lvl = UnitLevel("player") or 1
+  local role, band = RolePhase(class, lvl)
+
+  if role=="MELEE" then
+    if band==1 then return (entry.armor=="MAIL" or entry.armor=="PLATE" or entry.armor=="LEATHER") and 1.0 or 0
+    elseif band==2 then return (entry.armor=="MAIL" or entry.armor=="PLATE") and 1.0 or 0
+    else return (entry.armor=="PLATE") and 1.0 or 0 end
+
+  elseif role=="HYBRID" then
+    if band==1 then return (entry.armor=="LEATHER" or entry.armor=="MAIL") and 1.0 or 0
+    elseif band==2 then return (entry.armor=="MAIL") and 0.75 or 0
+    else return (entry.armor=="MAIL") and 0.25 or 0 end
+
+  elseif role=="CASTER" then
+    if band==1 then return 0
+    elseif band==2 then return (entry.armor=="CLOTH") and 0.5 or 0
+    else return (entry.armor=="CLOTH") and 0.25 or 0 end
   end
   return 0
 end
@@ -687,6 +1195,63 @@ local function WeaponSkillAllows(entry)
 end
 
 -- ==============================
+-- Dual wield gating for offhand
+-- ==============================
+local function HasDualWield()
+  local dualName = GetSpellInfo(674)
+  if dualName and IsPlayerSpell and IsPlayerSpell(674) then
+    return true
+  end
+
+  local _, classTag = UnitClass("player")
+  local lvl = UnitLevel("player") or 1
+
+  if classTag == "ROGUE" and lvl >= 10 then
+    return true
+  end
+  if (classTag == "WARRIOR" or classTag == "HUNTER") and lvl >= 20 then
+    return true
+  end
+  if classTag == "SHAMAN" and lvl >= 40 then
+    return true
+  end
+  return false
+end
+
+local function CanUseAsOffhand(entry, slotName)
+  if slotName ~= "SecondaryHandSlot" then
+    return true
+  end
+  if not entry or not entry.itemID then
+    return true
+  end
+
+  local inv = entry.invType
+  if not inv then
+    inv = select(9, GetItemInfo(entry.itemID))
+  end
+  if not inv then
+    return true
+  end
+
+  if inv == "INVTYPE_SHIELD" or inv == "INVTYPE_HOLDABLE" then
+    return true
+  end
+
+  if inv == "INVTYPE_WEAPON"
+     or inv == "INVTYPE_WEAPONOFFHAND"
+     or inv == "INVTYPE_WEAPONMAINHAND"
+  then
+    if not HasDualWield() then
+      DBG("deny DualWield", entry.itemID or "nil")
+      return false
+    end
+  end
+
+  return true
+end
+
+-- ==============================
 -- Slot mapping (includes Ammo)
 -- ==============================
 local SLOT_TO_INV = {
@@ -705,7 +1270,7 @@ local SLOT_TO_INV = {
   Trinket0Slot      = { "INVTYPE_TRINKET" },
   Trinket1Slot      = { "INVTYPE_TRINKET" },
   MainHandSlot      = { "INVTYPE_WEAPON","INVTYPE_WEAPONMAINHAND","INVTYPE_2HWEAPON" },
-  SecondaryHandSlot = { "INVTYPE_WEAPONOFFHAND","INVTYPE_SHIELD","INVTYPE_HOLDABLE" },
+  SecondaryHandSlot = { "INVTYPE_WEAPON","INVTYPE_WEAPONOFFHAND","INVTYPE_SHIELD","INVTYPE_HOLDABLE" },
   RangedSlot        = { "INVTYPE_RANGED","INVTYPE_RANGEDRIGHT","INVTYPE_RELIC" },
   AmmoSlot          = { "INVTYPE_AMMO","INVTYPE_THROWN" },
 }
@@ -735,6 +1300,7 @@ local function CandidatesForSlot(slotName)
           row.source   = row.source or "crafted"
           row.armor    = row.armor or MakersPath.Util.ArmorTokenForItemID(row.itemID)
           if IsCraftedLike(row) then
+            AugmentNeedHave(row)
             out[#out+1] = row
           end
         end
@@ -760,6 +1326,7 @@ local function CandidatesForSlot(slotName)
             isCrafted = rec and rec.isCrafted or nil,
           }
           if IsCraftedLike(cand) then
+            AugmentNeedHave(cand)
             out[#out+1] = cand
           end
         end
@@ -775,6 +1342,7 @@ local function CandidatesForSlot(slotName)
         if id and not seen[id] then
           seen[id] = true
           row.invType = row.invType or invType
+          AugmentNeedHave(row)
           out[#out+1] = row
         end
       end
@@ -837,6 +1405,22 @@ local function withinCap(entry)
   return req <= (me + cap)
 end
 
+local function LevelBias(entry)
+  if not entry then return 0 end
+  local me  = UnitLevel("player") or 1
+  local cap = FutureCap()
+  local req = RealRequiredLevel(entry)
+
+  if req <= 0 then return 0 end
+  local maxReq = me + cap
+  if req > maxReq then return 0 end
+  local t = (req - me) / math.max(1, cap)
+  if t < 0 then t = 0 end
+  local BIAS_MAX = 0.5
+  return t * BIAS_MAX
+end
+
+
 -- ==============================
 -- Value gate: skip cosmetic/statless pieces
 -- ==============================
@@ -875,8 +1459,17 @@ local function _ItemStats(iid)
 end
 
 local function HasAnyPrimaryStat(stats)
-  for k,v in pairs(stats or {}) do
-    if PRIMARY_KEYS[k] and (tonumber(v) or 0) > 0 then return true end
+  local mstats = NormalizeToMaker(stats or {})
+  local keys = {
+    "STRENGTH","AGILITY","STAMINA","INTELLECT","SPIRIT",
+    "ATTACK_POWER","RANGED_ATTACK_POWER",
+    "SPELL_DAMAGE_DONE","SPELL_HEALING_DONE",
+    "MANA_REGENERATION","CRIT","CRIT_SPELL","HIT","HIT_SPELL",
+  }
+  for _,k in ipairs(keys) do
+    if (tonumber(mstats[k] or 0) or 0) > 0 then
+      return true
+    end
   end
   return false
 end
@@ -892,16 +1485,33 @@ local function HasValueForSlot(slotName, iid)
   local dps   = PickDPS(stats)
   local any   = HasAnyPrimaryStat(stats)
 
-  if slotName == "MainHandSlot" or slotName == "SecondaryHandSlot" or slotName == "RangedSlot" then
+  if slotName == "MainHandSlot" then
     return (tonumber(dps) or 0) > 0
   end
 
-  if slotName == "NeckSlot" or slotName == "Finger0Slot" or slotName == "Finger1Slot" or slotName == "Trinket0Slot" or slotName == "Trinket1Slot" then
-    return any
+  if slotName == "RangedSlot" then
+    return (tonumber(dps) or 0) > 0
   end
 
+  if slotName == "SecondaryHandSlot" then
+    local inv = select(9, GetItemInfo(iid)) or ""
+    if inv:find("WEAPON") or inv:find("RANGED") then
+      return (tonumber(dps) or 0) > 0
+    else
+      return (tonumber(armor) or 0) > 0 or any
+    end
+  end
+
+  if slotName == "NeckSlot"
+     or slotName == "Finger0Slot"
+     or slotName == "Finger1Slot"
+     or slotName == "Trinket0Slot"
+     or slotName == "Trinket1Slot" then
+    return any
+  end
   return (tonumber(armor) or 0) > 0 or any
 end
+
 
 -- ==============================
 -- Equipped score (per-slot; handles ring/trinket pairs)
@@ -1055,7 +1665,7 @@ local function CurrentRankFor(profIdOrSpell)
   return 0
 end
 
-local function AugmentNeedHave(entry)
+function AugmentNeedHave(entry)
   if not entry then return end
   local pid  = tonumber(entry.profId or entry.reqSkill or 0) or 0
   local need = tonumber(entry.reqSkillLevel or entry.skillReq or entry.learnedAt or 0) or 0
@@ -1074,9 +1684,27 @@ end
 -- ==============================
 local EPS = 0.01
 
+local function EquippedMinReqLevel(equippedIDs)
+  if not equippedIDs then return 0 end
+  local minReq = nil
+  for iid in pairs(equippedIDs) do
+    if iid then
+      local _, _, _, _, reqLevel = GetItemInfo(iid)
+      if type(reqLevel) == "number" and reqLevel > 0 then
+        if not minReq or reqLevel < minReq then
+          minReq = reqLevel
+        end
+      end
+    end
+  end
+  return minReq or 0
+end
+
 function GearFinder:GetBestCraftable(slotName)
   local eqScore, equippedIDs, eqPending = GetEquippedScore(slotName)
+  local eqReqLevel = EquippedMinReqLevel(equippedIDs)
   local cs = CandidatesForSlot(slotName)
+  local eqArmorTok = EquippedArmorForSlot(slotName)
   for i = 1, math.min(20, #cs) do
     if cs[i].itemID then GetItemInfo(cs[i].itemID) end
   end
@@ -1097,6 +1725,7 @@ function GearFinder:GetBestCraftable(slotName)
 
   local function consider_entry(entry, wantStrictUpgrade, curBestScore)
     diag.total = diag.total + 1
+    AugmentNeedHave(entry)
 
     if not entry.invType or not InvTypeMatchesSlot(entry.invType, slotName) then
       local equipLoc = select(9, GetItemInfo(entry.itemID))
@@ -1111,6 +1740,7 @@ function GearFinder:GetBestCraftable(slotName)
     if LooksBogus(entry) then return nil else diag.notbogus=diag.notbogus+1 end
     if IsEngineeringOnlyTool(entry) then return nil end
     if not WeaponSkillAllows(entry) then return nil else diag.prof=diag.prof+1 end
+    if not CanUseAsOffhand(entry, slotName) then return nil end
     if equippedIDs and equippedIDs[entry.itemID] then diag.equippedskip=diag.equippedskip+1; return nil end
     if not HasValueForSlot(slotName, entry.itemID) then return nil else diag.value=diag.value+1 end
     if not withinCap(entry) then return nil else diag.cap=diag.cap+1 end
@@ -1131,6 +1761,58 @@ function GearFinder:GetBestCraftable(slotName)
       end
       return nil
     end
+    local lvlBonus = LevelBias(entry)
+    if lvlBonus ~= 0 then
+      total = total + lvlBonus
+      if br then br.levelAdd = lvlBonus end
+    end
+    if eqArmorTok and entry.armor then
+      if ShouldSkipLighterArmor(slotName, entry.armor, eqArmorTok, eqScore or 0, total or 0) then
+        diag.lighterarmor = diag.lighterarmor + 1
+        return nil
+      end
+    end
+
+    do
+      local _, class = UnitClass("player")
+      if class=="MAGE" or class=="PRIEST" or class=="WARLOCK" then
+        local inv = entry.invType or ""
+        if IsArmorish(inv) then
+          local candStats = GetItemStatsTable(entry.itemID)
+          if candStats then
+            local lvl = UnitLevel("player") or 1
+            local hasPrim = casterHasPrimaries(candStats)
+            local isJewelry = (inv=="INVTYPE_NECK" or inv=="INVTYPE_FINGER" or inv=="INVTYPE_TRINKET")
+            local isCloak   = (inv=="INVTYPE_CLOAK")
+
+            if isJewelry and not hasPrim then
+              return nil
+            end
+            if isCloak and lvl >= 20 and not hasPrim then
+              return nil
+            end
+
+            if lvl >= 12 then
+              local candINT = tonumber(candStats.ITEM_MOD_INTELLECT or 0) or 0
+              local eqINT = EquippedStatForSlot(slotName, "ITEM_MOD_INTELLECT") or 0
+              if candINT < eqINT then
+                local candSP    = math.max(tonumber(candStats.ITEM_MOD_SPELL_POWER or 0) or 0, tonumber(candStats.ITEM_MOD_SPELL_HEALING_DONE or 0) or 0)
+                local candHitS  = tonumber(candStats.ITEM_MOD_HIT_SPELL_RATING or 0) or 0
+                local candCritS = tonumber(candStats.ITEM_MOD_CRIT_SPELL_RATING or 0) or 0
+
+                local intLoss   = (eqINT - candINT)
+                local paid      = (candSP * 0.67) + (candHitS * 1.0) + (candCritS * 0.83)
+                local threshold = (lvl < 40) and intLoss or (intLoss * 0.85)
+
+                if paid < threshold then
+                  return nil
+                end
+              end
+            end
+          end
+        end
+      end
+    end
 
     if (not GetIgnoreFilters()) and Filters and Filters.IsAllowed then
       if not Filters:IsAllowed(entry) then
@@ -1140,7 +1822,12 @@ function GearFinder:GetBestCraftable(slotName)
     diag.filters_ok = diag.filters_ok + 1
 
     if wantStrictUpgrade then
-      if total <= (eqScore + EPS) then return nil end
+      local eq = eqScore or 0
+      local cand = total or 0
+
+      if cand <= eq + EPS then
+        return nil
+      end
     end
 
     entry.__dbg = { kind="candidate", total=total, br=br }

@@ -2,13 +2,17 @@ local ADDON_NAME, MakersPath = ...
 
 MakersPath = MakersPath or {}
 MakersPath.name = ADDON_NAME
-MakersPath.version = "1.1"
+MakersPath.version = "1.1.5"
+_G.MakersPath = MakersPath
 
 MakersPath.Config = MakersPath.Config or {}
 
 -- ===================== Localization shim =====================
 local L = LibStub("AceLocale-3.0"):GetLocale("MakersPath")
 local function Ls(key) return (L and L[key]) or key end
+
+MakersPath.L = L
+MakersPath.Ls = Ls
 
 -- ===================== SavedVariables =====================
 local DB
@@ -572,6 +576,137 @@ do
     if CharacterFrame then _CreateCharPanelButton() end
   end)
 end
+
+-- ===== Spec Choices =====
+MakersPath.Spec.CHOICES = {
+  DRUID = {
+    { text= Ls("SPEC_AUTO_NO_OVERRIDE"), value="" },
+    { text= Ls("DRUID_BALANCE"),     value="BALANCE" },
+    { text= Ls("DRUID_FERAL_DPS"),    value="FERAL_DPS" },
+    { text= Ls("DRUID_FERAL_TANK"),   value="FERAL_TANK" },
+    { text= Ls("DRUID_RESTORATION"),  value="RESTORATION" },
+  },
+  SHAMAN = {
+    { text= Ls("SPEC_AUTO_NO_OVERRIDE"), value="" },
+    { text= Ls("SHAMAN_ELEMENTAL"),   value="ELEMENTAL" },
+    { text= Ls("SHAMAN_ENHANCEMENT"), value="ENHANCEMENT" },
+    { text= Ls("SHAMAN_RESTORATION"), value="RESTORATION" },
+  },
+  WARRIOR = {
+    { text= Ls("SPEC_AUTO_NO_OVERRIDE"), value="" },
+    { text= Ls("WARRIOR_ARMS"),       value="ARMS" },
+    { text= Ls("WARRIOR_FURY"),       value="FURY" },
+    { text= Ls("WARRIOR_PROTECTION"), value="PROTECTION" },
+    { text= Ls("WARRIOR_FURYPROT"),  value="FURYPROT" },
+  },
+  PALADIN = {
+    { text= Ls("SPEC_AUTO_NO_OVERRIDE"), value="" },
+    { text= Ls("PALADIN_HOLY"),       value="HOLY" },
+    { text= Ls("PALADIN_PROTECTION"), value="PROTECTION" },
+    { text= Ls("PALADIN_RETRIBUTION"),value="RETRIBUTION" },
+  },
+  PRIEST = {
+    { text= Ls("SPEC_AUTO_NO_OVERRIDE"), value="" },
+    { text= Ls("PRIEST_DISCIPLINE"), value="DISCIPLINE" },
+    { text= Ls("PRIEST_HOLY"),       value="HOLY" },
+    { text= Ls("PRIEST_SHADOW"),     value="SHADOW" },
+  },
+  MAGE = {
+    { text= Ls("SPEC_AUTO_NO_OVERRIDE"), value="" },
+    { text= Ls("MAGE_ARCANE"),     value="ARCANE" },
+    { text= Ls("MAGE_FIRE"),       value="FIRE" },
+    { text= Ls("MAGE_FROST"),      value="FROST" },
+    { text= Ls("MAGE_AOE"),        value="AOE" },
+  },
+  WARLOCK = {
+    { text= Ls("SPEC_AUTO_NO_OVERRIDE"), value="" },
+    { text= Ls("WARLOCK_AFFLICTION"), value="AFFLICTION" },
+    { text= Ls("WARLOCK_DEMONOLOGY"), value="DEMONOLOGY" },
+    { text= Ls("WARLOCK_DESTRUCTION"),value="DESTRUCTION" },
+  },
+  HUNTER = {
+    { text= Ls("SPEC_AUTO_NO_OVERRIDE"), value="" },
+    { text= Ls("HUNTER_BEAST_MASTERY"), value="BEAST_MASTERY" },
+    { text= Ls("HUNTER_MARKSMANSHIP"),  value="MARKSMANSHIP" },
+    { text= Ls("HUNTER_SURVIVAL"),      value="SURVIVAL" },
+  },
+  ROGUE = {
+    { text= Ls("SPEC_AUTO_NO_OVERRIDE"), value="" },
+    { text= Ls("ROGUE_ASSASSINATION"), value="ASSASSINATION" },
+    { text= Ls("ROGUE_COMBAT"),        value="COMBAT" },
+    { text= Ls("ROGUE_SUBTLETY"),      value="SUBTLETY" },
+  },
+}
+
+-- ===== Spec Dropdown UI =====
+MakersPath.SpecUI = MakersPath.SpecUI or {}
+
+function MakersPath.SpecUI.Init(parent)
+  if not parent or MakersPath.SpecUI._inited then return end
+  MakersPath.SpecUI._inited = true
+
+  if not (MakersPath.Spec and MakersPath.Spec.CHOICES) then return end
+
+  local _, class = UnitClass("player")
+  class = class and class:upper() or "UNKNOWN"
+  local choices = MakersPath.Spec.CHOICES[class]
+  if not choices then return end
+
+  local lbl = parent:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+  lbl:SetText("Spec:")
+  lbl:SetPoint("LEFT", profBookBtn, "RIGHT", 16, 0)
+
+  local dd = CreateFrame("Frame", "MakersPathSpecDropdown", parent, "UIDropDownMenuTemplate")
+  dd:SetPoint("LEFT", lbl, "RIGHT", 6, -2)
+  UIDropDownMenu_SetWidth(dd, 170)
+
+  local function currentText()
+    local cur = CurrentSpec() or ""
+    for _, o in ipairs(choices) do
+      if o.value == cur then return o.text end
+    end
+    return "Auto (no override)"
+  end
+
+  local function OnSelect(_, arg1)
+    SetCurrentSpec(arg1 or "")
+    UIDropDownMenu_SetText(dd, currentText())
+  end
+
+  local function Initialize(self, level)
+    if level ~= 1 then return end
+    local cur = CurrentSpec() or ""
+    for _, opt in ipairs(choices) do
+      local info = UIDropDownMenu_CreateInfo()
+      info.text    = opt.text
+      info.arg1    = opt.value
+      info.func    = OnSelect
+      info.checked = (cur == (opt.value or ""))
+      UIDropDownMenu_AddButton(info, 1)
+    end
+  end
+
+  UIDropDownMenu_Initialize(dd, Initialize)
+  UIDropDownMenu_SetText(dd, currentText())
+
+  parent:HookScript("OnShow", function()
+    UIDropDownMenu_SetText(dd, currentText())
+  end)
+end
+do
+  local f = CreateFrame("Frame")
+  f:RegisterEvent("PLAYER_LOGIN")
+  f:RegisterEvent("ADDON_LOADED")
+  f:SetScript("OnEvent", function(_, ev, addon)
+    if ev == "PLAYER_LOGIN" or (ev=="ADDON_LOADED" and addon == ADDON) then
+      if MakersPathFrame and MakersPath.SpecUI and MakersPath.SpecUI.Init then
+        MakersPath.SpecUI.Init(MakersPathFrame)
+      end
+    end
+  end)
+end
+
+
 -- ===================== Slash (user-facing only) =====================
 -- Toggle
 SLASH_MAKERSPATH1 = "/mp"

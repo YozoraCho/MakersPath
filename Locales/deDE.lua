@@ -32,9 +32,11 @@ L["BOOK_SCALE_SET"]      = "|cff00ccff[Maker's Path]|r Buch-Skalierung gesetzt a
 L["OPEN_MAKERS_PATH"] = "Maker's Path öffnen"
 
 -- Commands
-L["CMD_MAX"]         = "max"
-L["USAGE_MPCAP"]      = "Verwendung: /mpcap <Stufen> oder /mpcap max"
-L["FUTUREWINDOW_SET"] = "FutureWindow auf %d gesetzt"
+L["CMD_MAX"]                = "max"
+L["USAGE_MPCAP"]            = "Verwendung: /mpcap <Stufen> oder /mpcap max"
+L["FUTUREWINDOW_SET"]       = "FutureWindow auf %d gesetzt"
+L["IGNORE_FILTERS_STATUS"]  = "FILTER IGNORIEREN = %s"
+L["DEBUG_GF_STATUS"]        = "DEBUG_GF = %s"
 
 -- Options
 L["OPTIONS_DESC"]       = "Passe das Aussehen und Verhalten von Maker's Path an."
@@ -69,6 +71,40 @@ L["LW"]     = "LW"          -- Lederverarbeitung
 L["Tailor"] = "Schneider"
 L["Eng"]    = "Ing"         -- Ingenieurskunst
 L["Ench"]   = "Verz"        -- Verzauberkunst
+
+-- Specs
+L["SPEC_AUTO_KEYWORD"]      = "AUTO"
+L["SPEC_CURRENT_STATUS"]    = "Spezialisierung = %s"
+L["DRUID_BALANCE"]          = "Gleichgewicht"
+L["DRUID_FERAL_DPS"]        = "Wilder Kampf (DPS)"
+L["DRUID_FERAL_TANK"]       = "Wilder Kampf (Tank)"
+L["DRUID_RESTORATION"]      = "Wiederherst"
+L["SHAMAN_ELEMENTAL"]       = "Elementar"
+L["SHAMAN_ENHANCEMENT"]     = "Verstärk"
+L["SHAMAN_RESTORATION"]     = "Wiederherst"
+L["WARRIOR_ARMS"]           = "Waffen"
+L["WARRIOR_FURY"]           = "Furor"
+L["WARRIOR_PROTECTION"]     = "Schutz"
+L["WARRIOR_FURYPROT"]       = "FuryProt"
+L["PALADIN_HOLY"]           = "Heilig"
+L["PALADIN_PROTECTION"]     = "Schutz"
+L["PALADIN_RETRIBUTION"]    = "Vergeltung"
+L["PRIEST_DISCIPLINE"]      = "Disziplin"
+L["PRIEST_HOLY"]            = "Heilig"
+L["PRIEST_SHADOW"]          = "Schatten"
+L["MAGE_ARCANE"]            = "Arkan"
+L["MAGE_FIRE"]              = "Feuer"
+L["MAGE_FROST"]             = "Frost"
+L["MAGE_AOE"]               = "AoE"
+L["WARLOCK_AFFLICTION"]     = "Gebrechen"
+L["WARLOCK_DEMONOLOGY"]     = "Dämonologie"
+L["WARLOCK_DESTRUCTION"]    = "Zerstörung"
+L["HUNTER_BEAST_MASTERY"]   = "Tierherrschaft"
+L["HUNTER_MARKSMANSHIP"]    = "Treffsicherheit"
+L["HUNTER_SURVIVAL"]        = "Überleben"
+L["ROGUE_ASSASSINATION"]    = "Meucheln"
+L["ROGUE_COMBAT"]           = "Kampf"
+L["ROGUE_SUBTLETY"]         = "Täuschung"
 
 -- Meta Formatting
 L["META_PREFIX_FMT"]   = "[%s %d"

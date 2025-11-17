@@ -2,10 +2,9 @@
 ## Title: |TInterface\Addons\MakersPath\Art\makerspath:16:16|t Makers Path
 ## Author: YozoraCho
 ## Notes: Adds craftable-only gear filtering and|nupgrade suggestions for the CraftedLocked Challenge.|n|cffbbbbbbBy YozoraCho
-## Version: 1.1.4
+## Version: 1.1.5
 ## SavedVariables: MakersPathDB, MakersPathGlobalDB
 ## IconTexture: Interface\AddOns\MakersPath\Art\makerspath.tga
-## OptionalDeps: LibStub, CallbackHandler-1.0, LibDataBroker-1.1, LibDBIIcon-1.0, Ace3
 
 ## X-Credits: YozoraCho
 ## X-Category: Inventory
@@ -15,10 +14,16 @@
 
 embeds.xml
 Locales\Locales.xml
-
+Libs\LibStub\LibStub.lua
+Libs\AceLocale-3.0\AceLocale-3.0.lua
+Libs\CallbackHandler-1.0\CallbackHandler-1.0.lua
+Libs\LibDataBroker-1.1\LibDataBroker-1.1.lua
+Libs\LibDBIcon-1.0\LibDBIcon-1.0.lua
+Libs\LibUIDropDownMenu\LibUIDropDownMenu.xml
 Core\Constants.lua
 Data\Recipes.lua
 Data\Static.lua
+Data\Weights.lua
 Core\RecipesAdapter.lua
 Core\Filters.lua
 Core\GearFinder.lua

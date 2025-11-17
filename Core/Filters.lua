@@ -3,10 +3,6 @@ MakersPath             = MakersPath or {}
 MakersPath.Config      = MakersPath.Config or {}
 MakersPath.Filters     = MakersPath.Filters or {}
 local F                = MakersPath.Filters
-local FILTER_PROF_REQUIRED = true
-if MakersPath and MakersPath.Config and type(MakersPath.Config.FILTER_EQUIP_PROF_REQUIRED) == "boolean" then
-  FILTER_PROF_REQUIRED = MakersPath.Config.FILTER_EQUIP_PROF_REQUIRED
-end
 local C = MakersPath.Const or {}
 
 
@@ -51,6 +47,10 @@ local function GetClassSubClass(itemID)
     equipLoc, classID, subclassID = invType, cID, scID
   end
   return classID, subclassID, equipLoc
+end
+
+local function IsRangedInv(inv)
+  return inv == "INVTYPE_RANGED" or inv == "INVTYPE_RANGEDRIGHT" or inv == "INVTYPE_THROWN"
 end
 
 local function ItemIsOkForPlayerClass(_)
@@ -117,21 +117,25 @@ local function ScanEquipProfession(itemID)
 end
 
 local function ProfessionEquipOk(itemID)
-  if not FILTER_PROF_REQUIRED then return true end
+  local requireProf = true
+  if MakersPath and MakersPath.Config and type(MakersPath.Config.FILTER_EQUIP_PROF_REQUIRED) == "boolean" then
+    requireProf = MakersPath.Config.FILTER_EQUIP_PROF_REQUIRED
+  end
+  if not requireProf then
+    return true
+  end
   local skillLineID, needed = ScanEquipProfession(itemID)
-  if not skillLineID then return true end
-
+  if not skillLineID then
+    return true
+  end
   local pmap = MakersPath.Util and MakersPath.Util.CurrentProfMap and MakersPath.Util.CurrentProfMap() or {}
   local have = 0
 
-  if pmap[skillLineID] then
-    have = tonumber(pmap[skillLineID]) or 0
-  else
-    local spell = C.SKILLLINE_TO_SPELL and C.SKILLLINE_TO_SPELL[skillLineID]
-    if spell and pmap[spell] then have = tonumber(pmap[spell]) or 0 end
+  local spell = C.SKILLLINE_TO_SPELL and C.SKILLLINE_TO_SPELL[skillLineID]
+  if spell and pmap[spell] then
+    have = tonumber(pmap[spell]) or 0
   end
-
-  return have >= (tonumber(needed) or 0)
+  return have > 0
 end
 
 local ALL_SUBS = {
@@ -270,8 +274,10 @@ local function HardNeverForClass(entry)
   local _, _, inv = GetClassSubClass(entry.itemID)
   if not inv then inv = select(9, GetItemInfo(entry.itemID)) end
   if not inv then return false end
-  if not (inv:find("WEAPON") or inv == "INVTYPE_HOLDABLE" or inv == "INVTYPE_SHIELD"
-       or inv == "INVTYPE_RANGED" or inv == "INVTYPE_RANGEDRIGHT" or inv == "INVTYPE_THROWN") then
+  if IsRangedInv(inv) then
+    return false
+  end
+  if not (inv:find("WEAPON") or inv == "INVTYPE_HOLDABLE" or inv == "INVTYPE_SHIELD") then
     return false
   end
 
