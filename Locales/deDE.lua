@@ -66,11 +66,18 @@ L["RANGED"]     = "Distanz"
 L["AMMO"]       = "Munition"
 
 -- Professions
-L["BS"]     = "Schm"        -- Schmiedekunst (common short)
-L["LW"]     = "LW"          -- Lederverarbeitung
-L["Tailor"] = "Schneider"
-L["Eng"]    = "Ing"         -- Ingenieurskunst
-L["Ench"]   = "Verz"        -- Verzauberkunst
+L["BS"]     = "Schm"
+L["LW"]     = "Led"
+L["Tailor"] = "Schn"
+L["Eng"]    = "Ing"
+L["Ench"]   = "Ver"
+L["Alc"]    = "Alch"
+L["Herb"]   = "Krä"
+L["Mine"]   = "Ber"
+L["Skin"]   = "Häu"
+L["Cook"]   = "Koch"
+L["Fish"]   = "Ang"
+L["FA"]     = "Med"
 
 -- Specs
 L["SPEC_AUTO_KEYWORD"]      = "AUTO"
@@ -110,5 +117,5 @@ L["ROGUE_SUBTLETY"]         = "Täuschung"
 L["META_PREFIX_FMT"]   = "[%s %d"
 L["META_DELTA_FMT"]    = " (+%d)"
 L["META_CLOSE"]        = "]"
-L["META_REQ_LVL_FMT"]  = " (erf. lvl %d)"
+L["META_REQ_LVL_FMT"]  = " (erf. lv %d)"
 L["SIGNED_FLOAT_FMT"]  = "%+.2f"

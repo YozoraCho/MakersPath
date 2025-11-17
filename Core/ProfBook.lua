@@ -27,7 +27,7 @@ local HIDE_IN_BOOK = {
 }
 
 local PROF_COLOR = {
-  Tail = "ffc8e0ff",  -- light blue
+  Tailor = "ffc8e0ff",  -- light blue
   Ench = "ffd0b0ff",  -- light purple/pink
   Alc  = "ffb0ffb0",  -- light green
   LW   = "ffffe0a0",  -- sand
@@ -43,7 +43,7 @@ local SHORT_TAG_BY_SPELL = {
   [C.SKILLLINE_TO_SPELL and C.SKILLLINE_TO_SPELL[164] or 2018] = "BS",
   [C.SKILLLINE_TO_SPELL and C.SKILLLINE_TO_SPELL[202] or 4036] = "Eng",
   [C.SKILLLINE_TO_SPELL and C.SKILLLINE_TO_SPELL[333] or 7411] = "Ench",
-  [C.SKILLLINE_TO_SPELL and C.SKILLLINE_TO_SPELL[197] or 3908] = "Tail",
+  [C.SKILLLINE_TO_SPELL and C.SKILLLINE_TO_SPELL[197] or 3908] = "Tailor",
   [C.SKILLLINE_TO_SPELL and C.SKILLLINE_TO_SPELL[171] or 2259] = "Alc",
   [C.SKILLLINE_TO_SPELL and C.SKILLLINE_TO_SPELL[182] or 2366] = "Herb",
   [C.SKILLLINE_TO_SPELL and C.SKILLLINE_TO_SPELL[186] or 2575] = "Mine",
@@ -64,9 +64,24 @@ local SHORT_PROF_FROM_SPELL = setmetatable({}, {
   end
 })
 
+local function LocalizedProfShort(short)
+  if not short or short == "" then
+    return short or ""
+  end
+  if L and L[short] then
+    return L[short]
+  end
+  return short
+end
+
 local function ColorizeProf(short, rank)
-  local hex = PROF_COLOR[short] or "ffeaeaea"
-  return string.format("|c%s%s %d|r", hex, short, rank or 0)
+  local hex   = PROF_COLOR[short] or "ffeaeaea"
+  local label = LocalizedProfShort(short)
+  if rank and rank > 0 then
+    return string.format("|c%s%s %d|r", hex, label, rank)
+  else
+    return string.format("|c%s%s|r", hex, label)
+  end
 end
 
 local function ClassColored(class)

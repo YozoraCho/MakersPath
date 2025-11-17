@@ -71,6 +71,13 @@ L["LW"]     = "LW"
 L["Tailor"] = "Tailor"
 L["Eng"]    = "Eng"
 L["Ench"]   = "Ench"
+L["Alc"]    = "Alc"
+L["Herb"]   = "Herb"
+L["Mine"]   = "Mine"
+L["Skin"]   = "Skin"
+L["Cook"]   = "Cook"
+L["Fish"]   = "Fish"
+L["FA"]     = "FA"
 
 -- Specs
 L["SPEC_AUTO_KEYWORD"]      = "AUTO"
