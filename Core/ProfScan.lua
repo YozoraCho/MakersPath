@@ -165,26 +165,59 @@ end
 
 function MakersPath.Util.CurrentProfMap()
   local map = {}
-  local p1, p2, p3, p4, p5, p6 = GetProfessions()
-  local list = { p1, p2, p3, p4, p5, p6 }
 
-  for _, profIndex in ipairs(list) do
-    if profIndex then
-      local name, icon, skillLine, rank = GetProfessionInfo(profIndex)
-      local spellId = SKILLLINE_TO_SPELL[skillLine]
-      if spellId then
-        map[spellId] = rank or 0
-      else
-        print(string.format(
-          "|cff66ccff[Maker's Path]|r Unknown skillLine %d (%s)",
-          skillLine or -1,
-          name or "?"
-        ))
+  if GetProfessions and GetProfessionInfo then
+    local p1, p2, p3, p4, p5, p6 = GetProfessions()
+    local list = { p1, p2, p3, p4, p5, p6 }
+
+    for _, profIndex in ipairs(list) do
+      if profIndex then
+        local name, icon, skillLine, rank = GetProfessionInfo(profIndex)
+        local spellId = SKILLLINE_TO_SPELL[skillLine]
+        if spellId and rank and rank > 0 then
+          map[spellId] = rank
+        end
+      end
+    end
+  end
+
+  local empty = true
+  for _ in pairs(map) do
+    empty = false
+    break
+  end
+
+  if empty then
+    MakersPathDB       = MakersPathDB or {}
+    MakersPathDB.chars = MakersPathDB.chars or {}
+    local key          = (UnitName("player") or "?") .. "-" .. (GetRealmName() or "?")
+    local rec          = MakersPathDB.chars[key]
+
+    if rec and rec.profs then
+      for spellId, rank in pairs(rec.profs) do
+        if rank and rank > 0 then
+          map[spellId] = rank
+        end
       end
     end
   end
 
   return map
+end
+
+SLASH_MPPROFMAP1 = "/mpprofmap"
+SlashCmdList["MPPROFMAP"] = function()
+  local p = MakersPath.Util.CurrentProfMap()
+  print("|cff66ccff[Maker's Path]|r CurrentProfMap dump:")
+  local any = false
+  for id, r in pairs(p) do
+    any = true
+    local name = GetSpellInfo(id) or "?"
+    print(string.format("  %d -> %s (%d)", id, name, r or 0))
+  end
+  if not any then
+    print("  (no entries)")
+  end
 end
 
 function MakersPath.Util.CurrentWeaponMap()

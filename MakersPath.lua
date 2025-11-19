@@ -2,7 +2,7 @@ local ADDON_NAME, MakersPath = ...
 
 MakersPath = MakersPath or {}
 MakersPath.name = ADDON_NAME
-MakersPath.version = "1.1.7"
+MakersPath.version = "1.1.8"
 _G.MakersPath = MakersPath
 
 MakersPath.Config = MakersPath.Config or {}

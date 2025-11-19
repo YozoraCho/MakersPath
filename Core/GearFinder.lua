@@ -1657,26 +1657,91 @@ end
 local function CurrentRankFor(profIdOrSpell)
   local pmap = MakersPath.Util and MakersPath.Util.CurrentProfMap() or {}
   local raw  = tonumber(profIdOrSpell or 0) or 0
-  if pmap[raw] then return tonumber(pmap[raw]) or 0 end
-  local spell = SKILLLINE_TO_SPELL[raw]
-  if spell and pmap[spell] then return tonumber(pmap[spell]) or 0 end
-  local skill = SPELL_TO_SKILLLINE[raw]
-  if skill and pmap[skill] then return tonumber(pmap[skill]) or 0 end
+  local r = pmap[raw]
+  if r then
+    return tonumber(r) or 0
+  end
+  local spellFromSkill = SKILLLINE_TO_SPELL and SKILLLINE_TO_SPELL[raw]
+  if spellFromSkill and pmap[spellFromSkill] then
+    return tonumber(pmap[spellFromSkill]) or 0
+  end
+  local skillFromSpell = SPELL_TO_SKILLLINE and SPELL_TO_SKILLLINE[raw]
+  if skillFromSpell and SKILLLINE_TO_SPELL and SKILLLINE_TO_SPELL[skillFromSpell] then
+    local spellAgain = SKILLLINE_TO_SPELL[skillFromSpell]
+    if pmap[spellAgain] then
+      return tonumber(pmap[spellAgain]) or 0
+    end
+  end
   return 0
 end
 
 function AugmentNeedHave(entry)
   if not entry then return end
+
   local pid  = tonumber(entry.profId or entry.reqSkill or 0) or 0
   local need = tonumber(entry.reqSkillLevel or entry.skillReq or entry.learnedAt or 0) or 0
+
   if pid > 0 then
     local skillLine = ResolveSkillLineId(pid)
-    entry.__profId   = (skillLine ~= 0) and skillLine or nil
-    entry.__needRank = need
-    entry.__haveRank = CurrentRankFor(pid) or 0
+    local profSpellId
+
+    if skillLine ~= 0 then
+      profSpellId = SKILLLINE_TO_SPELL[skillLine]
+    else
+      profSpellId = pid
+    end
+
+    local haveRank = CurrentRankFor(pid) or 0
+
+    local pmap    = MakersPath.Util and MakersPath.Util.CurrentProfMap() or {}
+    local hasProf = (profSpellId ~= nil and pmap[profSpellId] ~= nil) or false
+
+    entry.__profSkillLine = (skillLine ~= 0) and skillLine or nil
+    entry.__profSpellID   = profSpellId
+    entry.__profId        = entry.__profSkillLine
+    entry.__needRank      = need
+    entry.__haveRank      = haveRank
+    entry.__hasProfession = hasProf
   else
-    entry.__profId, entry.__needRank, entry.__haveRank = nil, nil, nil
+    entry.__profSkillLine = nil
+    entry.__profSpellID   = nil
+    entry.__profId        = nil
+    entry.__needRank      = nil
+    entry.__haveRank      = 0
+    entry.__hasProfession = false
   end
+end
+
+SLASH_MPAUGTEST1 = "/mpaugtest"
+SlashCmdList["MPAUGTEST"] = function(msg)
+  local itemID, profId, need = msg:match("^(%d+)%s+(%d+)%s+(%d+)")
+  if not itemID then
+    print("|cff66ccff[Maker's Path]|r Usage: /mpaugtest <itemID> <profIdOrSkillLine> <needRank>")
+    return
+  end
+
+  itemID = tonumber(itemID)
+  profId = tonumber(profId)
+  need   = tonumber(need)
+
+  local e = {
+    itemID        = itemID,
+    profId        = profId,
+    reqSkillLevel = need,
+  }
+
+  AugmentNeedHave(e)
+
+  local spellName = (e.__profSpellID and GetSpellInfo(e.__profSpellID)) or "?"
+  print(string.format(
+    "|cff66ccff[Maker's Path]|r item=%d prof=%s (%d) need=%d have=%d hasProf=%s",
+    itemID,
+    spellName,
+    e.__profSkillLine or 0,
+    e.__needRank or 0,
+    e.__haveRank or 0,
+    tostring(e.__hasProfession)
+  ))
 end
 
 -- ==============================
