@@ -2,17 +2,18 @@ local ADDON, MakersPath = ...
 MakersPath = MakersPath or {}
 MakersPath.Util = MakersPath.Util or {}
 local C = MakersPath.Const or {}
+local SKILLLINE_TO_SPELL = C.SKILLLINE_TO_SPELL or {}
 
 local PROF_BY_ID = {}
-if C.SKILLLINE_TO_SPELL then
-  for skillLineID, spellID in pairs(C.SKILLLINE_TO_SPELL) do
+if SKILLLINE_TO_SPELL then
+  for skillLineID, spellID in pairs(SKILLLINE_TO_SPELL) do
     PROF_BY_ID[skillLineID] = spellID
   end
 end
 
 local PROF_NAME_TO_SPELL = {}
 do
-  local src = C.SKILLLINE_TO_SPELL or {}
+  local src = SKILLLINE_TO_SPELL or {}
   for _, spellID in pairs(src) do
     local n = GetSpellInfo(spellID)
     if n and n ~= "" then
@@ -20,7 +21,7 @@ do
     end
   end
 end
-PROF_NAME_TO_SPELL["Herbalism"] = (C.SKILLLINE_TO_SPELL and C.SKILLLINE_TO_SPELL[182]) or 2366
+PROF_NAME_TO_SPELL["Herbalism"] = (SKILLLINE_TO_SPELL and SKILLLINE_TO_SPELL[182]) or 2366
 
 local function _sanitizeRoster()
   MakersPathDB = MakersPathDB or {}; MakersPathDB.chars = MakersPathDB.chars or {}
@@ -59,6 +60,11 @@ local function BuildWeaponLocaleTables()
       SUBTYPE_TO_WEAPONLINE[localizedSubtype] = localizedSubtype
     end
   end
+
+  local unarmedName = GetSpellInfo(203)
+  if unarmedName and unarmedName ~= "" then
+    WEAPON_LINE_SET[unarmedName] = true
+  end
 end
 
 local function isWeaponSkillLine(localizedSkillName)
@@ -83,22 +89,38 @@ local function doScan()
   local key = charKey()
   local outProfs, outWeps = {}, {}
 
+  local realProfSkillLines = {}
+  if GetProfessions and GetProfessionInfo then
+    local p1, p2, p3, p4, p5, p6 = GetProfessions()
+    local plist = { p1, p2, p3, p4, p5, p6 }
+    for _, idx in ipairs(plist) do
+      if idx then
+        local _, _, skillLine = GetProfessionInfo(idx)
+        if skillLine then
+          realProfSkillLines[skillLine] = true
+        end
+      end
+    end
+  end
+
   local num = GetNumSkillLines and GetNumSkillLines() or 0
   for i = 1, num do
     local skillName, isHeader, _, skillRank, _, _, maybeSkillLineID = GetSkillLineInfo(i)
     if not isHeader then
       local rank = tonumber(skillRank) or 0
       if rank > 0 and skillName and skillName ~= "" then
-        local profSpell = PROF_NAME_TO_SPELL[skillName]
-        if profSpell then
-          outProfs[profSpell] = rank
-        else
-          if maybeSkillLineID and PROF_BY_ID[maybeSkillLineID] then
-            outProfs[PROF_BY_ID[maybeSkillLineID]] = rank
-          end
-        end
-        if isWeaponSkillLine(skillName) then
+        local weaponLine = isWeaponSkillLine(skillName)
+        if weaponLine then
           outWeps[skillName] = rank
+        else
+          local profSpell = PROF_NAME_TO_SPELL[skillName]
+          if profSpell then
+            outProfs[profSpell] = rank
+          else
+            if maybeSkillLineID and realProfSkillLines[maybeSkillLineID] and PROF_BY_ID[maybeSkillLineID] then
+              outProfs[PROF_BY_ID[maybeSkillLineID]] = rank
+            end
+          end
         end
       end
     end
@@ -142,13 +164,39 @@ function MakersPath.Util.ProfNames(map)
 end
 
 function MakersPath.Util.CurrentProfMap()
-  local key = charKey()
-  return (MakersPathDB and MakersPathDB.chars and MakersPathDB.chars[key] and MakersPathDB.chars[key].profs) or {}
+  local map = {}
+  local p1, p2, p3, p4, p5, p6 = GetProfessions()
+  local list = { p1, p2, p3, p4, p5, p6 }
+
+  for _, profIndex in ipairs(list) do
+    if profIndex then
+      local name, icon, skillLine, rank = GetProfessionInfo(profIndex)
+      local spellId = SKILLLINE_TO_SPELL[skillLine]
+      if spellId then
+        map[spellId] = rank or 0
+      else
+        print(string.format(
+          "|cff66ccff[Maker's Path]|r Unknown skillLine %d (%s)",
+          skillLine or -1,
+          name or "?"
+        ))
+      end
+    end
+  end
+
+  return map
 end
 
 function MakersPath.Util.CurrentWeaponMap()
-  local key = charKey()
-  return (MakersPathDB and MakersPathDB.chars and MakersPathDB.chars[key] and MakersPathDB.chars[key].weps) or {}
+  MakersPathDB         = MakersPathDB or {}
+  MakersPathDB.chars   = MakersPathDB.chars or {}
+  local key            = charKey()
+  MakersPathDB.chars[key] = MakersPathDB.chars[key] or {}
+
+  local rec = MakersPathDB.chars[key]
+  rec.weps = rec.weps or {}
+
+  return rec.weps
 end
 
 function MakersPath.Util.CurrentWeaponSkills()
