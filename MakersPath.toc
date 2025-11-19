@@ -2,7 +2,7 @@
 ## Title: |TInterface\Addons\MakersPath\Art\makerspath:16:16|t Makers Path
 ## Author: YozoraCho
 ## Notes: Adds craftable-only gear filtering and|nupgrade suggestions for the CraftedLocked Challenge.|n|cffbbbbbbBy YozoraCho
-## Version: 1.1.6
+## Version: 1.1.7
 ## SavedVariables: MakersPathDB, MakersPathGlobalDB
 ## IconTexture: Interface\AddOns\MakersPath\Art\makerspath.tga
 
