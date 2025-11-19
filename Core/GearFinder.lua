@@ -252,16 +252,24 @@ end
 
 local function GF_MakeIntPairPattern(tmpl)
   if not tmpl or tmpl == "" then return nil end
+  if tmpl:find("%%1%$") or tmpl:find("%%2%$") or tmpl:find("%%3%$") then
+    return nil
+  end
+
   tmpl = GF_EscapePattern(tmpl)
-  tmpl = tmpl:gsub("%%d","(%%d+)")
+  tmpl = tmpl:gsub("%%d", "(%%d+)")
   return "^" .. tmpl .. "$"
 end
 
 local function GF_MakeNumberPattern(tmpl)
   if not tmpl or tmpl == "" then return nil end
+  if tmpl:find("%%1%$") or tmpl:find("%%2%$") or tmpl:find("%%3%$") then
+    return nil
+  end
+
   tmpl = GF_EscapePattern(tmpl)
-  tmpl = tmpl:gsub("%%%.%df","([%%d%%.,]+)")
-  tmpl = tmpl:gsub("%%f","([%%d%%.,]+)")
+  tmpl = tmpl:gsub("%%%.%df", "([%%d%%.,]+)")
+  tmpl = tmpl:gsub("%%f", "([%%d%%.,]+)")
   return "^" .. tmpl .. "$"
 end
 
