@@ -7,6 +7,11 @@ local Filters = MakersPath and MakersPath.Filters
 local function Ls(key) if MakersPath and MakersPath.Ls then return MakersPath.Ls(key) end return key end
 local GearFinder = {}
 MakersPath.GearFinder = GearFinder
+GearFinder._summaryDirty = true
+GearFinder._lastSummary = nil
+function GearFinder:MarkDirty() self._summaryDirty = true end
+local debugprofilestop = debugprofilestop or function() return 0 end
+local StatsCache = {}
 MakersPath.Spec = MakersPath.Spec or {}
 MakersPath.Config = MakersPath.Config or {}
 MakersPath.Config.CHAR_SPEC = MakersPath.Config.CHAR_SPEC or {}
@@ -32,6 +37,9 @@ SlashCmdList["MPIGN"] = function(msg)
     SetIgnoreFilters(not GetIgnoreFilters())
   end
   print("|cff66ccff[Maker'sPath]|r " .. string.format(Ls("IGNORE_FILTERS_STATUS"), tostring(GetIgnoreFilters())))
+  if MakersPath and MakersPath.GearFinder and MakersPath.GearFinder.MarkDirty then
+    MakersPath.GearFinder:MarkDirty()
+  end
   if MakersPath and MakersPath.GearFinderScan then MakersPath.GearFinderScan() end
   if MakersPathFrame and MakersPathFrame:IsShown() and RefreshList then RefreshList() end
 end
@@ -97,6 +105,9 @@ local function SetCurrentSpec(spec)
   end
   if MakersPath and MakersPath.GearFinder then
     MakersPath.GearFinder._equippedScoreCache = {}
+    if MakersPath.GearFinder.MarkDirty then
+      MakersPath.GearFinder:MarkDirty()
+    end
   end
   if MakersPath and MakersPath.GearFinderScan then MakersPath.GearFinderScan() end
   if MakersPathFrame and MakersPathFrame:IsShown() and RefreshList then RefreshList() end
@@ -892,15 +903,24 @@ end
 
 local function GetItemStatsTable(iid)
   if not iid then return nil end
+  local cached = StatsCache[iid]
+  if cached ~= nil then
+    return cached or nil
+  end
+
   local link = select(2, GetItemInfo(iid))
   if not link then
-    if C_Item and C_Item.RequestLoadItemDataByID then C_Item.RequestLoadItemDataByID(iid) end
+    if C_Item and C_Item.RequestLoadItemDataByID then
+      C_Item.RequestLoadItemDataByID(iid)
+    end
     return nil
   end
+
   local s = GetItemStats(link)
   if StatsAreEmpty(s) then
     s = ParseTooltipStatsToTable(iid)
   end
+  StatsCache[iid] = s or false
   return s
 end
 
@@ -986,16 +1006,9 @@ local function ScoreItemWithBreakdown(iid, slotName, preKnownArmorTok, preKnownI
     return 0, true, { reason = "link-pending" }
   end
 
-  local stats = GetItemStats(link)
-  if StatsAreEmpty(stats) then
-    local tstats = ParseTooltipStatsToTable(iid)
-    if not tstats or StatsAreEmpty(tstats) then
-      if C_Item and C_Item.RequestLoadItemDataByID then
-        C_Item.RequestLoadItemDataByID(iid)
-      end
-      return 0, true, { reason = "stats-pending" }
-    end
-    stats = tstats
+  local stats = GetItemStatsTable(iid)
+  if not stats or StatsAreEmpty(stats) then
+    return 0, true, { reason = "stats-pending" }
   end
 
   local baseStatsScore = ScoreFromStats(stats or {})
@@ -1469,30 +1482,7 @@ local PRIMARY_KEYS = {
 }
 
 local function _ItemStats(iid)
-  if not iid then return nil end
-  local link = select(2, GetItemInfo(iid))
-  if not link then
-    if C_Item and C_Item.RequestLoadItemDataByID then C_Item.RequestLoadItemDataByID(iid) end
-    return nil
-  end
-  local stats = GetItemStats(link)
-  -- If empty, fall back to tooltip parse (so weapons get DPS)
-  local function isEmpty(t)
-    if not t then return true end
-    for _, v in pairs(t) do
-      if type(v) == "number" and v > 0 then return false end
-    end
-    return true
-  end
-  if isEmpty(stats) then
-    local tstats = ParseTooltipStatsToTable(iid)
-    if not isEmpty(tstats) then
-      return tstats
-    end
-    if C_Item and C_Item.RequestLoadItemDataByID then C_Item.RequestLoadItemDataByID(iid) end
-    return nil
-  end
-  return stats
+  return GetItemStatsTable(iid)
 end
 
 local function HasAnyPrimaryStat(stats)
@@ -2008,6 +1998,11 @@ end
 -- Summary for UI
 -- ==============================
 function GearFinder:BuildSummary()
+  if not self._summaryDirty and self._lastSummary then
+    return self._lastSummary
+  end
+
+  local t0 = debugprofilestop()
   self:BeginSession()
 
   local slots = {
@@ -2018,7 +2013,11 @@ function GearFinder:BuildSummary()
   }
 
   local rows = {}
+  local slowestSlot, slowestTime = nil, 0
+
   for _, slotName in ipairs(slots) do
+    local s0 = debugprofilestop()
+
     local best, bestScore, eqScore, alts = self:GetBestCraftable(slotName)
     local pct = 0
     if bestScore and bestScore > 0 then
@@ -2031,9 +2030,25 @@ function GearFinder:BuildSummary()
       bestScore = bestScore or 0,
       eqScore   = eqScore or 0,
       progress  = pct,
-      alts     = alts,
+      alts      = alts,
     }
+
+    local sdt = debugprofilestop() - s0
+    if sdt > slowestTime then
+      slowestTime, slowestSlot = sdt, slotName
+    end
   end
+
+  local dt = debugprofilestop() - t0
+  if MakersPath.Config.DEBUG_TIMING then
+    print(string.format(
+      "|cff66ccff[Maker'sPath]|r BuildSummary %.1f ms; slowest %s = %.1f ms",
+      dt, tostring(slowestSlot), slowestTime
+    ))
+  end
+
+  self._lastSummary = rows
+  self._summaryDirty = false
   return rows
 end
 
@@ -2201,4 +2216,10 @@ SlashCmdList["MPCLEAN"] = function()
     end
   end
   print("|cff66ccff[Maker's Path]|r cleaned "..changed.." non-crafted entries. /reload recommended.")
+end
+-- ===================== Timing toggle =====================
+SLASH_MPTIMING1 = "/mptiming"
+SlashCmdList["MPTIMING"] = function()
+  MakersPath.Config.DEBUG_TIMING = not MakersPath.Config.DEBUG_TIMING
+  print("|cff66ccff[Maker'sPath]|r timing debug is now " .. tostring(MakersPath.Config.DEBUG_TIMING))
 end

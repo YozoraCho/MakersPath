@@ -2,10 +2,11 @@ local ADDON_NAME, MakersPath = ...
 
 MakersPath = MakersPath or {}
 MakersPath.name = ADDON_NAME
-MakersPath.version = "1.2.0"
+MakersPath.version = "1.2.1"
 _G.MakersPath = MakersPath
-
+local debugprofilestop = debugprofilestop
 MakersPath.Config = MakersPath.Config or {}
+MakersPath.Config.DEBUG_TIMING = MakersPath.Config.DEBUG_TIMING or false
 
 -- ===================== Localization shim =====================
 local L = LibStub("AceLocale-3.0"):GetLocale("MakersPath")
@@ -26,6 +27,7 @@ panel:SetSize(MIN_W, MIN_H)
 panel:SetResizeBounds(MIN_W, MIN_H, MAX_W, MAX_H)
 panel:SetPoint("CENTER")
 panel:Hide()
+table.insert(UISpecialFrames, "MakersPathFrame")
 
 panel:SetMovable(true)
 panel:EnableMouse(true)
@@ -184,7 +186,14 @@ local RefreshList
 local function SafeRefresh(delay)
   delay = delay or 0.05
   C_Timer.After(delay, function()
-    if MakersPath and MakersPath.GearFinderScan then MakersPath.GearFinderScan() end
+    if not (MakersPathFrame and MakersPathFrame:IsShown()) then
+      return
+    end
+
+    if MakersPath and MakersPath.GearFinderScan then
+      MakersPath.GearFinderScan()
+    end
+
     C_Timer.After(0.05, function()
       if MakersPathFrame and MakersPathFrame:IsShown() and RefreshList then
         RefreshList()
@@ -593,6 +602,7 @@ frame:SetScript("OnEvent", function(_, event, arg1)
     RestorePanelPosition()
   elseif event == "PLAYER_LOGIN" or event == "PLAYER_ENTERING_WORLD" then
     if GF() and GF().BeginSession then GF():BeginSession() end
+    if GF() and GF().MarkDirty then GF():MarkDirty() end
     if MakersPath.ScanProfessions then MakersPath.ScanProfessions() end
     RefreshStatus()
     UpdateEmptyHint()
@@ -602,16 +612,10 @@ frame:SetScript("OnEvent", function(_, event, arg1)
       or event == "TRADE_SKILL_SHOW"
       or event == "GET_ITEM_INFO_RECEIVED" then
     if GF() and GF().BeginSession then GF():BeginSession() end
+    if GF() and GF().MarkDirty then GF():MarkDirty() end
     RefreshStatus()
     UpdateEmptyHint()
     SafeRefresh(0.05)
-
-    if panel:IsShown() then
-      C_Timer.After(0.05, function()
-        if MakersPath and MakersPath.GearFinderScan then MakersPath.GearFinderScan() end
-        C_Timer.After(0.05, function() if panel:IsShown() then RefreshList() end end)
-      end)
-    end
   elseif event == "PLAYER_LOGOUT" then
   end
 end)
@@ -859,6 +863,39 @@ SlashCmdList["MPCAP"] = function(msg)
     return
   end
   print("|cff66ccff["..Ls("ADDON_NAME").."]|r "..Ls("FUTUREWINDOW_SET"):format(MakersPath.FutureWindow))
+  if MakersPath and MakersPath.GearFinder and MakersPath.GearFinder.MarkDirty then
+    MakersPath.GearFinder:MarkDirty()
+  end
   if MakersPath and MakersPath.GearFinderScan then MakersPath.GearFinderScan() end
   if MakersPathFrame and MakersPathFrame:IsShown() and RefreshList then RefreshList() end
+end
+-- ===================== Simple CPU snapshot =====================
+SLASH_MPCPU1 = "/mpcpu"
+SlashCmdList["MPCPU"] = function()
+  if not GetAddOnCPUUsage then
+    print("|cff66ccff[Maker'sPath]|r CPU profiling API not available (scriptProfile off?).")
+    return
+  end
+
+  UpdateAddOnCPUUsage()
+
+  local num = GetNumAddOns()
+  local totals = {}
+
+  for i = 1, num do
+    local name, _, _, loadable, reason, security = GetAddOnInfo(i)
+    if name and IsAddOnLoaded(i) then
+      local cpu = GetAddOnCPUUsage(i) or 0
+      totals[#totals+1] = { name = name, cpu = cpu }
+    end
+  end
+
+  table.sort(totals, function(a, b) return (a.cpu or 0) > (b.cpu or 0) end)
+
+  print("|cff66ccff[Maker'sPath]|r Top addon CPU usage (ms since last reload):")
+  for i = 1, math.min(10, #totals) do
+    local row = totals[i]
+    local mark = (row.name == ADDON_NAME) and "  <-- MakersPath" or ""
+    print(string.format("  %2d) %s : %.1f%s", i, row.name, row.cpu or 0, mark))
+  end
 end
