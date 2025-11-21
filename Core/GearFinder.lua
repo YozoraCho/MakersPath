@@ -468,6 +468,20 @@ end
 
 local function LooksBogus(entry)
   if not entry or not entry.itemID then return true end
+
+  local BAD_ITEMS = {
+    [7005]  = true, -- Skinning Knife
+    [7007]  = true, -- Mining Pick
+    [7010]  = true, -- Fishing Pole
+    [7420] = true, -- Phalanx Headguard
+    [7748] = true, -- Forcestone Buckler
+    [13529] = true, -- Husk of Nerub'ekkan
+    [22750] = true, -- Sentinel's Lizardhide Pants
+  }
+  if BAD_ITEMS[entry.itemID] then
+    return true
+  end
+
   local name = entry.name or GetItemInfo(entry.itemID)
   if name then
     if name:find("^Monster%s*%-")  then return true end
@@ -1206,9 +1220,11 @@ end
 -- Dual wield gating for offhand
 -- ==============================
 local function HasDualWield()
-  local dualName = GetSpellInfo(674)
-  if dualName and IsPlayerSpell and IsPlayerSpell(674) then
-    return true
+  if IsPlayerSpell then
+    if IsPlayerSpell(674) then
+      return true
+    end
+    return false
   end
 
   local _, classTag = UnitClass("player")
@@ -1224,6 +1240,15 @@ local function HasDualWield()
     return true
   end
   return false
+end
+
+local function IsEquippedTwoHander()
+  local slotId = GetInventorySlotInfo("MainHandSlot")
+  if not slotId then return false end
+  local link = GetInventoryItemLink("player", slotId)
+  if not link then return false end
+  local _, _, _, _, _, _, _, _, invType = GetItemInfo(link)
+  return invType == "INVTYPE_2HWEAPON"
 end
 
 local function CanUseAsOffhand(entry, slotName)
@@ -1250,6 +1275,10 @@ local function CanUseAsOffhand(entry, slotName)
      or inv == "INVTYPE_WEAPONOFFHAND"
      or inv == "INVTYPE_WEAPONMAINHAND"
   then
+    if IsEquippedTwoHander() then
+      return false
+    end
+
     if not HasDualWield() then
       DBG("deny DualWield", entry.itemID or "nil")
       return false
@@ -1755,6 +1784,8 @@ end
 -- ==============================
 -- Best-next selection
 -- ==============================
+ALT_MAX_COUNT = 3
+ALT_MIN_RELATIVE = 0.80
 local EPS = 0.01
 
 local function EquippedMinReqLevel(equippedIDs)
@@ -1788,15 +1819,18 @@ function GearFinder:GetBestCraftable(slotName)
       if MakersPath and MakersPath.GearFinderScan then MakersPath.GearFinderScan() end
       if MakersPathFrame and MakersPathFrame:IsShown() and RefreshList then RefreshList() end
     end)
-    return nil, 0, 0
+    return nil, 0, eqScore or 0, nil
   end
 
   -- DIAG counters
   local diag = {
-    total=0, inv_match=0, craftedlike=0, notbogus=0, prof=0, value=0, cap=0, filters_ok=0, pending=0, equippedskip=0, lighterarmor=0,
+    total=0, inv_match=0, craftedlike=0, notbogus=0, prof=0, value=0, cap=0,
+    filters_ok=0, pending=0, equippedskip=0, lighterarmor=0,
   }
+  local strictCandidates   = {}
+  local futureCandidates   = {}
 
-  local function consider_entry(entry, wantStrictUpgrade, curBestScore)
+  local function consider_entry(entry, wantStrictUpgrade, curBestScore, bucket)
     diag.total = diag.total + 1
     AugmentNeedHave(entry)
 
@@ -1867,7 +1901,7 @@ function GearFinder:GetBestCraftable(slotName)
 
             if lvl >= 12 then
               local candINT = tonumber(candStats.ITEM_MOD_INTELLECT or 0) or 0
-              local eqINT = EquippedStatForSlot(slotName, "ITEM_MOD_INTELLECT") or 0
+              local eqINT   = EquippedStatForSlot(slotName, "ITEM_MOD_INTELLECT") or 0
               if candINT < eqINT then
                 local candSP    = math.max(tonumber(candStats.ITEM_MOD_SPELL_POWER or 0) or 0, tonumber(candStats.ITEM_MOD_SPELL_HEALING_DONE or 0) or 0)
                 local candHitS  = tonumber(candStats.ITEM_MOD_HIT_SPELL_RATING or 0) or 0
@@ -1897,37 +1931,62 @@ function GearFinder:GetBestCraftable(slotName)
     if wantStrictUpgrade then
       local eq = eqScore or 0
       local cand = total or 0
-
       if cand <= eq + EPS then
         return nil
       end
     end
 
     entry.__dbg = { kind="candidate", total=total, br=br }
+    if bucket then
+      bucket[#bucket+1] = { entry = entry, score = total }
+    end
     return total
+  end
+
+  local function buildAlts(bucket, bestEntry, bestScore, eqScore)
+    if not bestEntry or not bestScore or bestScore <= 0 then return nil end
+    if not bucket or #bucket == 0 then return nil end
+    table.sort(bucket, function(a, b)
+      return (a.score or 0) > (b.score or 0)
+    end)
+
+    local out = {}
+    local eq = eqScore or 0
+    for _, rec in ipairs(bucket) do
+      if rec.entry ~= bestEntry then
+        local s = rec.score or 0
+        if s > eq + EPS and s >= bestScore * ALT_MIN_RELATIVE then
+          out[#out+1] = rec.entry
+          if #out >= ALT_MAX_COUNT then
+            break
+          end
+        end
+      end
+    end
+    if #out == 0 then return nil end
+    return out
   end
 
   local best, bestScore
   local list = CandidatesForSlot(slotName)
 
-  -- Try strict upgrades
-  for _,entry in ipairs(list) do
-    local s = consider_entry(entry, true, bestScore)
+  for _, entry in ipairs(list) do
+    local s = consider_entry(entry, true, bestScore, strictCandidates)
     if s and (not bestScore or s > bestScore or (s == bestScore and betterTiebreak(entry, best))) then
       best, bestScore = entry, s
     end
   end
   if best then
+    local alts = buildAlts(strictCandidates, best, bestScore or 0, eqScore or 0)
     DBG("GF["..slotName.."] diag:", "tot="..diag.total, "inv="..diag.inv_match, "crafted="..diag.craftedlike, "okbogus="..diag.notbogus,
         "prof="..diag.prof, "value="..diag.value, "cap="..diag.cap, "pend="..diag.pending, "lighter="..diag.lighterarmor,
         "eqskip="..diag.equippedskip, "filtOK="..diag.filters_ok)
-    return best, bestScore or 0, eqScore or 0
+    return best, bestScore or 0, eqScore or 0, alts
   end
 
-  -- Try future (non-strict) within cap
   local futureBest, futureBestScore
-  for _,entry in ipairs(list) do
-    local s = consider_entry(entry, false, futureBestScore)
+  for _, entry in ipairs(list) do
+    local s = consider_entry(entry, false, futureBestScore, futureCandidates)
     if s and (not futureBestScore or s > futureBestScore or (s == futureBestScore and betterTiebreak(entry, futureBest))) then
       futureBest, futureBestScore = entry, s
     end
@@ -1938,9 +1997,11 @@ function GearFinder:GetBestCraftable(slotName)
       "eqskip="..diag.equippedskip, "filtOK="..diag.filters_ok)
 
   if futureBest and (futureBestScore or 0) > (eqScore or 0) + EPS then
-    return futureBest, futureBestScore or 0, eqScore or 0
+    local alts = buildAlts(futureCandidates, futureBest, futureBestScore or 0, eqScore or 0)
+    return futureBest, futureBestScore or 0, eqScore or 0, alts
   end
-  return nil, 0, eqScore or 0
+
+  return nil, 0, eqScore or 0, nil
 end
 
 -- ==============================
@@ -1958,7 +2019,7 @@ function GearFinder:BuildSummary()
 
   local rows = {}
   for _, slotName in ipairs(slots) do
-    local best, bestScore, eqScore = self:GetBestCraftable(slotName)
+    local best, bestScore, eqScore, alts = self:GetBestCraftable(slotName)
     local pct = 0
     if bestScore and bestScore > 0 then
       pct = math.max(0, math.min(1, (eqScore or 0) / bestScore))
@@ -1970,6 +2031,7 @@ function GearFinder:BuildSummary()
       bestScore = bestScore or 0,
       eqScore   = eqScore or 0,
       progress  = pct,
+      alts     = alts,
     }
   end
   return rows

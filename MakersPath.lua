@@ -2,7 +2,7 @@ local ADDON_NAME, MakersPath = ...
 
 MakersPath = MakersPath or {}
 MakersPath.name = ADDON_NAME
-MakersPath.version = "1.1.8"
+MakersPath.version = "1.2.0"
 _G.MakersPath = MakersPath
 
 MakersPath.Config = MakersPath.Config or {}
@@ -229,6 +229,27 @@ local function CreateRow(i)
   row.iconTex:Hide()
   row.iconTex:SetTexCoord(0.08, 0.92, 0.08, 0.92)
 
+  -- Alt Suggestions
+  row.altDrop = CreateFrame("Frame", "MakersPathAltDrop"..i, row, "UIDropDownMenuTemplate")
+  row.altDrop:SetPoint("RIGHT", row.iconTex, "LEFT", -2, 0)
+  row.altDrop:SetSize(18, 18)
+  local name   = row.altDrop:GetName()
+  local left   = _G[name.."Left"]
+  local mid    = _G[name.."Middle"]
+  local right  = _G[name.."Right"]
+  local button = _G[name.."Button"]
+  if left  then left:Hide() end
+  if mid   then mid:Hide() end
+  if right then right:Hide() end
+  if button then
+    button:ClearAllPoints()
+    button:SetPoint("CENTER", row.altDrop, "CENTER", 0, 0)
+    button:SetSize(16, 16)
+  end
+  UIDropDownMenu_SetWidth(row.altDrop, 1)
+  UIDropDownMenu_SetText(row.altDrop, "")
+  row.altDrop:Hide()
+
   -- Item name
   row.itemText = row:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
   row.itemText:SetPoint("LEFT", row.iconTex, "RIGHT", 6, 0)
@@ -312,6 +333,30 @@ local function ProfShort(id)
   end
 end
 
+local function GetActiveEntryForRow(row, data)
+  if not data or not data.best then return nil end
+
+  local best = data.best
+  local alts = data.alts
+  local bestIID = best.itemID
+  if row.lastBestIID ~= bestIID then
+    row.currentEntry = nil
+    row.lastBestIID  = bestIID
+  end
+  local entry = row.currentEntry or best
+  if entry and entry ~= best and alts and #alts > 0 then
+    local ok = false
+    for _, e in ipairs(alts) do
+      if e == entry then ok = true; break end
+    end
+    if not ok then
+      entry = best
+    end
+  end
+
+  return entry
+end
+
 RefreshList = function()
   local finder = GF()
   if not (finder and finder.BuildSummary) then
@@ -329,17 +374,30 @@ RefreshList = function()
   for i=1,ROWS do
     local idx = i + offset
     local row = rows[i]
+
     if idx <= total then
       local data = summary[idx]
       row:Show()
 
+      if row.currentSlot ~= data.slot then
+        row.currentSlot  = data.slot
+        row.currentEntry = nil
+      end
+
+      local best = data.best
+      local alts = data.alts
+
       local slotLabel = SLOT_LABEL[data.slot] or data.slot
       row.slotText:SetText(slotLabel or "")
 
-      if data.best then
-        local iid = data.best.itemID
+      if best then
+        local entry = GetActiveEntryForRow(row, data)
+        row.currentEntry = entry
+        row.dataAlts     = alts
+
+        local iid = entry and entry.itemID
         local link = iid and select(2, GetItemInfo(iid)) or nil
-        local shown = link or (data.best.name or L["ITEM_ID_FMT"]:format(iid or 0))
+        local shown = link or (entry.name or L["ITEM_ID_FMT"]:format(iid or 0))
         row.itemText:SetText(shown)
 
         local icon = iid and GetItemIcon(iid) or "Interface\\ICONS\\INV_Misc_QuestionMark"
@@ -355,19 +413,72 @@ RefreshList = function()
           return fallback or 0
         end
 
-        local prof   = ProfShort(data.best.__profId or data.best.reqSkill)
-        local need   = tonumber(data.best.__needRank or data.best.reqSkillLevel or 0) or 0
-        local have   = tonumber(data.best.__haveRank or 0) or 0
+        local prof   = ProfShort(entry.__profId or entry.reqSkill)
+        local need   = tonumber(entry.__needRank or entry.reqSkillLevel or 0) or 0
+        local have   = tonumber(entry.__haveRank or 0) or 0
         local delta  = math.max(0, need - have)
-        local reqL   = ResolveRequiredLevel(iid, tonumber(data.best.reqLevel or 0) or 0)
-        local diff   = (data.bestScore or 0) - (data.eqScore or 0)
+        local reqL   = ResolveRequiredLevel(iid, tonumber(entry.reqLevel or 0) or 0)
+
+        local entryScore = (entry.__dbg and entry.__dbg.total) or (data.bestScore or 0)
+        local diff       = entryScore - (data.eqScore or 0)
 
         local meta = L["META_PREFIX_FMT"]:format(prof, need)
         if delta > 0 then meta = meta .. L["META_DELTA_FMT"]:format(delta) end
         meta = meta .. L["META_CLOSE"]
         if reqL > 0 then meta = meta .. L["META_REQ_LVL_FMT"]:format(reqL) end
-        if diff and diff ~= 0 then meta = meta .. ("  |cff00ff00"..L["SIGNED_FLOAT_FMT"].."|r"):format(diff) end
+        if diff and diff ~= 0 then
+          meta = meta .. ("  |cff00ff00"..L["SIGNED_FLOAT_FMT"].."|r"):format(diff)
+        end
         row.srcText:SetText(meta)
+
+        if row.altDrop then
+          if alts and #alts > 0 then
+            row.altDrop:Show()
+
+            UIDropDownMenu_Initialize(row.altDrop, function(self, level)
+              if level ~= 1 then return end
+              -- Best Suggestion Header
+              do
+                local info = UIDropDownMenu_CreateInfo()
+                info.text = L["ALT_USE_BEST"] or "Use Best Suggestion"
+                info.notCheckable = false
+                info.checked = (row.currentEntry == nil or row.currentEntry == best)
+                info.func = function()
+                  row.currentEntry = nil
+                  RefreshList()
+                end
+                UIDropDownMenu_AddButton(info, level)
+              end
+              -- Alternate Suggestions Header
+              do
+                local info = UIDropDownMenu_CreateInfo()
+                info.isTitle = true
+                info.notCheckable = true
+                info.text = L["ALT_SUGGESTIONS_HEADER"] or "Other suggestions"
+                UIDropDownMenu_AddButton(info, level)
+              end
+
+              -- Allternate Suggestions
+              for _, e in ipairs(alts) do
+                if e and e.itemID then
+                  local name, _, _, _, _, _, _, _, _, ic = GetItemInfo(e.itemID)
+                  local opt = UIDropDownMenu_CreateInfo()
+                  opt.text = name or L["ITEM_ID_FMT"]:format(e.itemID)
+                  opt.icon = ic
+                  opt.notCheckable = false
+                  opt.checked = (row.currentEntry == e)
+                  opt.func = function()
+                    row.currentEntry = e
+                    RefreshList()
+                  end
+                  UIDropDownMenu_AddButton(opt, level)
+                end
+              end
+            end)
+          else
+            row.altDrop:Hide()
+          end
+        end
 
         if iid and not link and C_Item and C_Item.RequestLoadItemDataByID then
           C_Item.RequestLoadItemDataByID(iid)
@@ -380,6 +491,7 @@ RefreshList = function()
         row.iconTex:Hide()
         row.itemBtn.itemID = nil
         row.srcText:SetText("")
+        if row.altDrop then row.altDrop:Hide() end
       end
     else
       row:Hide()

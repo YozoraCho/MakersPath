@@ -14,6 +14,8 @@ L["MAIN_SCALE_FMT"]         = "Maker's Path scale: %.2f"
 L["ITEM_ID_FMT"]            = "Item %d"
 L["NO_CRAFT_UPGRADE"]       = "(no craftable upgrade)"
 L["RESCANNED_PROFS"]        = "Rescanned current professions."
+L["ALT_SUGGESTIONS_HEADER"] = "Other suggestions"
+L["ALT_USE_BEST"]           = "Use best suggestion"
 
 -- Book
 L["PROFBOOK_TITLE"]      = "Maker's Path — Profession Book"
