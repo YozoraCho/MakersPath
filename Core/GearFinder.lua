@@ -9,6 +9,7 @@ local GearFinder = {}
 MakersPath.GearFinder = GearFinder
 GearFinder._summaryDirty = true
 GearFinder._lastSummary = nil
+local NormalizeToMaker
 function GearFinder:MarkDirty() self._summaryDirty = true end
 local debugprofilestop = debugprofilestop or function() return 0 end
 local StatsCache = {}
@@ -207,11 +208,14 @@ local function IsArmorish(inv)
 end
 
 local function casterHasPrimaries(s)
-  return (tonumber(s.ITEM_MOD_INTELLECT or 0) > 0)
-      or (tonumber(s.ITEM_MOD_SPELL_POWER or 0) > 0)
-      or (tonumber(s.ITEM_MOD_SPELL_HEALING_DONE or 0) > 0)
-      or (tonumber(s.ITEM_MOD_HIT_SPELL_RATING or 0) > 0)
-      or (tonumber(s.ITEM_MOD_CRIT_SPELL_RATING or 0) > 0)
+  local m = NormalizeToMaker(s or {})
+  local int  = tonumber(m.INTELLECT or 0) or 0
+  local sp   = tonumber(m.SPELL_DAMAGE_DONE or 0) or 0
+  local heal = tonumber(m.SPELL_HEALING_DONE or 0) or 0
+  local hitS = tonumber(m.HIT_SPELL or 0) or 0
+  local critS= tonumber(m.CRIT_SPELL or 0) or 0
+
+  return (int > 0) or (sp > 0) or (heal > 0) or (hitS > 0) or (critS > 0)
 end
 
 local function WeaponLineForItem(itemID)
@@ -548,7 +552,7 @@ end
 -- ==============================
 
 -- ===== NORMALIZE ITEM STATS =====
-local function NormalizeToMaker(stats)
+function NormalizeToMaker(stats)
   local t = {}
 
   local function add(key, val)
@@ -1428,14 +1432,20 @@ end
 local function RealRequiredLevel(entry)
   if not entry then return 0 end
   local iid = entry.itemID
+  local fallbackReq = tonumber(entry.reqLevel or entry.minLevel or 0) or 0
 
   if iid then
-    local _, _, _, _, reqLevel = GetItemInfo(iid)
-    if type(reqLevel) == "number" and reqLevel > 0 then
-      return reqLevel
+    local name, _, _, itemLevel, requiredLevel = GetItemInfo(iid)
+    if type(requiredLevel) == "number" and requiredLevel > 0 then
+      return requiredLevel
     end
+
     if C_Item and C_Item.RequestLoadItemDataByID then
       C_Item.RequestLoadItemDataByID(iid)
+    end
+
+    if not name then
+      return 0
     end
   end
 
@@ -1444,8 +1454,18 @@ local function RealRequiredLevel(entry)
     return math.max(1, math.floor(learned / 10))
   end
 
-  return tonumber(entry.reqLevel or entry.minLevel or 0) or 0
+  if fallbackReq > 0 and iid then
+    local _, _, _, itemLevel = GetItemInfo(iid)
+    if type(itemLevel) == "number" and itemLevel > 0 then
+      if fallbackReq > itemLevel then
+        return 0
+      end
+    end
+  end
+
+  return fallbackReq
 end
+MakersPath.RealRequiredLevel = RealRequiredLevel
 
 local function withinCap(entry)
   local me  = UnitLevel("player") or 1
