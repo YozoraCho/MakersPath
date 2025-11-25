@@ -110,7 +110,7 @@ local function FallbackGetAllChars()
   return roster
 end
 local GetAllChars = (MakersPath.Util and MakersPath.Util.GetAllChars) or FallbackGetAllChars
-
+ 
 -- =================== Frame ===================
 local frame = CreateFrame("Frame", "MakersPathProfBook", UIParent, "BasicFrameTemplateWithInset")
 frame:SetSize(540, 360)
@@ -118,6 +118,7 @@ frame:SetFrameStrata("DIALOG")
 frame:SetFrameLevel(50)
 frame:SetClampedToScreen(true)
 frame:Hide()
+table.insert(UISpecialFrames, "MakersPathProfBook")
 
 do
   local bg = CreateFrame("Frame", nil, frame, BackdropTemplateMixin and "BackdropTemplate" or nil)
