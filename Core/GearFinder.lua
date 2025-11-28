@@ -61,7 +61,7 @@ if not MakersPath.Util.ArmorTokenForItemID then
 end
 -- ===== Spec API =====
 function MakersPath.Spec.CharKey()
-  return (UnitName("player") or "?") .. "-" .. (GetRealmName() or "?")
+  return MakersPath.Util.CurrentCharKey()
 end
 
 function CurrentSpec()
@@ -131,6 +131,9 @@ end
 -- Per-character session (avoid cross-character bleed)
 -- ==============================
 local function CurrentCharKey()
+  if MakersPath and MakersPath.Util and MakersPath.Util.CurrentCharKey then
+    return MakersPath.Util.CurrentCharKey()
+  end
   local name  = UnitName("player") or "?"
   local realm = GetRealmName() or "?"
   return name .. "-" .. realm
@@ -1702,24 +1705,49 @@ local function ResolveSkillLineId(id)
 end
 
 local function CurrentRankFor(profIdOrSpell)
+  local raw = tonumber(profIdOrSpell or 0) or 0
+
+  local function rankFromMap(map, id)
+    if not map then return 0 end
+    id = tonumber(id or 0) or 0
+    local r = map[id]
+    if r then
+      return tonumber(r) or 0
+    end
+
+    local spellFromSkill = SKILLLINE_TO_SPELL and SKILLLINE_TO_SPELL[id]
+    if spellFromSkill and map[spellFromSkill] then
+      return tonumber(map[spellFromSkill]) or 0
+    end
+    local skillFromSpell = SPELL_TO_SKILLLINE and SPELL_TO_SKILLLINE[id]
+    if skillFromSpell and SKILLLINE_TO_SPELL and SKILLLINE_TO_SPELL[skillFromSpell] then
+      local spellAgain = SKILLLINE_TO_SPELL[skillFromSpell]
+      if map[spellAgain] then
+        return tonumber(map[spellAgain]) or 0
+      end
+    end
+
+    return 0
+  end
+
   local pmap = MakersPath.Util and MakersPath.Util.CurrentProfMap() or {}
-  local raw  = tonumber(profIdOrSpell or 0) or 0
-  local r = pmap[raw]
-  if r then
-    return tonumber(r) or 0
-  end
-  local spellFromSkill = SKILLLINE_TO_SPELL and SKILLLINE_TO_SPELL[raw]
-  if spellFromSkill and pmap[spellFromSkill] then
-    return tonumber(pmap[spellFromSkill]) or 0
-  end
-  local skillFromSpell = SPELL_TO_SKILLLINE and SPELL_TO_SKILLLINE[raw]
-  if skillFromSpell and SKILLLINE_TO_SPELL and SKILLLINE_TO_SPELL[skillFromSpell] then
-    local spellAgain = SKILLLINE_TO_SPELL[skillFromSpell]
-    if pmap[spellAgain] then
-      return tonumber(pmap[spellAgain]) or 0
+  local have = rankFromMap(pmap, raw)
+
+  MakersPathDB         = MakersPathDB or {}
+  MakersPathDB.chars   = MakersPathDB.chars or {}
+  local bestAltRank    = 0
+
+  for _, rec in pairs(MakersPathDB.chars) do
+    local r = rankFromMap(rec and rec.profs, raw)
+    if r > bestAltRank then
+      bestAltRank = r
     end
   end
-  return 0
+  if bestAltRank > have then
+    return bestAltRank
+  end
+
+  return have
 end
 
 function AugmentNeedHave(entry)
@@ -2017,6 +2045,72 @@ end
 -- ==============================
 -- Summary for UI
 -- ==============================
+local function SaveSummaryForCurrentChar(rows)
+  if not MakersPath then return end
+
+  MakersPathDB = MakersPathDB or {}
+  MakersPathDB.chars = MakersPathDB.chars or {}
+
+  local key = (MakersPath.Util and MakersPath.Util.CurrentCharKey)
+    and MakersPath.Util.CurrentCharKey()
+    or ((UnitName("player") or "?") .. "-" .. (GetRealmName() or "?"))
+
+  local rec = MakersPathDB.chars[key] or {}
+  local _, class = UnitClass("player")
+
+  rec.class = class or rec.class
+  rec.level = UnitLevel("player") or rec.level
+
+  rec.gearSummary = {
+    version = 1,
+    time    = time and time() or nil,
+    slots   = {},
+  }
+
+  for _, row in ipairs(rows or {}) do
+    local best = row.best
+    local slot = row.slot
+    if slot then
+      local entry = {
+        slot          = slot,
+        itemID        = best and best.itemID or nil,
+        invType       = best and best.invType or nil,
+        reqLevel      = best and (best.reqLevel or best.minLevel) or nil,
+        reqSkill      = best and (best.reqSkill or best.profId) or nil,
+        reqSkillLevel = best and (best.reqSkillLevel or best.skillReq or best.learnedAt) or nil,
+        bestScore     = row.bestScore or 0,
+        eqScore       = row.eqScore or 0,
+        __profId      = best and best.__profId or nil,
+        __needRank    = best and best.__needRank or nil,
+        __haveRank    = best and best.__haveRank or nil,
+      }
+
+      if row.alts and #row.alts > 0 then
+        entry.alts = {}
+        for _, alt in ipairs(row.alts) do
+          if alt and alt.itemID then
+            table.insert(entry.alts, {
+              itemID        = alt.itemID,
+              invType       = alt.invType,
+              reqLevel      = alt.reqLevel or alt.minLevel,
+              reqSkill      = alt.reqSkill or alt.profId,
+              reqSkillLevel = alt.reqSkillLevel or alt.skillReq or alt.learnedAt,
+              score         = alt.score or (alt.__dbg and alt.__dbg.total) or 0,
+              __profId      = alt.__profId,
+              __needRank    = alt.__needRank,
+              __haveRank    = alt.__haveRank,
+            })
+          end
+        end
+      end
+
+      rec.gearSummary.slots[slot] = entry
+    end
+  end
+
+  MakersPathDB.chars[key] = rec
+end
+
 function GearFinder:BuildSummary()
   if not self._summaryDirty and self._lastSummary then
     return self._lastSummary
@@ -2066,6 +2160,7 @@ function GearFinder:BuildSummary()
       dt, tostring(slowestSlot), slowestTime
     ))
   end
+  SaveSummaryForCurrentChar(rows)
 
   self._lastSummary = rows
   self._summaryDirty = false

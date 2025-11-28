@@ -16,6 +16,9 @@ L["NO_CRAFT_UPGRADE"]       = "(sin mejora fabricable)"
 L["RESCANNED_PROFS"]        = "Profesiones actualizadas."
 L["ALT_SUGGESTIONS_HEADER"] = "Otras sugerencias"
 L["ALT_USE_BEST"]           = "Usar mejor sugerencia"
+L["PROFILE_LABEL"]          = "Perfil:"
+L["PROFILE_ACTIVE"]         = "Personaje activo"
+L["PROFILE_ALT"]            = "Otros personajes:"
 
 
 -- Book

@@ -16,6 +16,9 @@ L["NO_CRAFT_UPGRADE"]       = "(no craftable upgrade)"
 L["RESCANNED_PROFS"]        = "Rescanned current professions."
 L["ALT_SUGGESTIONS_HEADER"] = "Other suggestions"
 L["ALT_USE_BEST"]           = "Use best suggestion"
+L["PROFILE_LABEL"]          = "Profile:"
+L["PROFILE_ACTIVE"]         = "Active Character"
+L["PROFILE_ALT"]            = "Other characters:"
 
 -- Book
 L["PROFBOOK_TITLE"]      = "Maker's Path — Profession Book"

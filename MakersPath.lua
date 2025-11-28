@@ -2,11 +2,12 @@ local ADDON_NAME, MakersPath = ...
 
 MakersPath = MakersPath or {}
 MakersPath.name = ADDON_NAME
-MakersPath.version = "1.2.3"
+MakersPath.version = "1.3.0"
 _G.MakersPath = MakersPath
 local debugprofilestop = debugprofilestop
 MakersPath.Config = MakersPath.Config or {}
 MakersPath.Config.DEBUG_TIMING = MakersPath.Config.DEBUG_TIMING or false
+MakersPath.Util = MakersPath.Util or {}
 
 -- ===================== Localization shim =====================
 local L = LibStub("AceLocale-3.0"):GetLocale("MakersPath")
@@ -20,6 +21,122 @@ local DB
 
 local MIN_W, MIN_H   = 610, 470
 local MAX_W, MAX_H   = 900, 700
+
+-- ==================== Alt Helpers ====================
+
+local function GetCachedSummaryForKey(key)
+  if not key then return nil end
+  MakersPathDB = MakersPathDB or {}
+  MakersPathDB.chars = MakersPathDB.chars or {}
+  local rec = MakersPathDB.chars[key]
+  return rec and rec.gearSummary or nil
+end
+
+local SLOT_ORDER = {
+  "HeadSlot",
+  "NeckSlot",
+  "ShoulderSlot",
+  "BackSlot",
+  "ChestSlot",
+  "WristSlot",
+  "HandsSlot",
+  "WaistSlot",
+  "LegsSlot",
+  "FeetSlot",
+  "Finger0Slot",
+  "Finger1Slot",
+  "Trinket0Slot",
+  "Trinket1Slot",
+  "MainHandSlot",
+  "SecondaryHandSlot",
+  "RangedSlot",
+  "AmmoSlot",
+}
+
+local SLOT_INDEX = {}
+for i, slot in ipairs(SLOT_ORDER) do
+  SLOT_INDEX[slot] = i
+end
+
+local function SummaryRowsFromCached(gs)
+  local rows = {}
+  if not gs or type(gs) ~= "table" then return rows end
+
+  local slots = gs.slots or {}
+  for slotName, info in pairs(slots) do
+    local bestScore = info.bestScore or 0
+    local eqScore   = info.eqScore or 0
+    local pct = 0
+    if bestScore > 0 then
+      pct = math.max(0, math.min(1, (eqScore or 0) / bestScore))
+    end
+
+    local best
+    if info.itemID then
+      best = {
+        itemID        = info.itemID,
+        invType       = info.invType,
+        reqLevel      = info.reqLevel,
+        reqSkill      = info.reqSkill,
+        reqSkillLevel = info.reqSkillLevel,
+        score         = bestScore,
+        eqScore       = eqScore,
+        __profId      = info.__profId,
+        __needRank    = info.__needRank,
+        __haveRank    = info.__haveRank,
+      }
+    end
+    local alts
+    if info.alts and #info.alts > 0 then
+      alts = {}
+      for _, a in ipairs(info.alts) do
+        if a and a.itemID then
+          alts[#alts+1] = {
+            itemID        = a.itemID,
+            invType       = a.invType,
+            reqLevel      = a.reqLevel,
+            reqSkill      = a.reqSkill,
+            reqSkillLevel = a.reqSkillLevel,
+            score         = a.score or 0,
+            __profId      = a.__profId,
+            __needRank    = a.__needRank,
+            __haveRank    = a.__haveRank,
+          }
+        end
+      end
+    end
+
+    rows[#rows+1] = {
+      slot      = slotName,
+      best      = best,
+      bestScore = bestScore,
+      eqScore   = eqScore,
+      progress  = pct,
+      alts      = alts,
+    }
+  end
+
+  table.sort(rows, function(a, b)
+    local ia = SLOT_INDEX[a.slot] or 999
+    local ib = SLOT_INDEX[b.slot] or 999
+    if ia ~= ib then
+      return ia < ib
+    end
+    return (a.slot or "") < (b.slot or "")
+  end)
+
+  return rows
+end
+
+function MakersPath.Util.CharKey(name, realm)
+  name = name or UnitName("player") or "?"
+  realm = realm or GetRealmName() or "?"
+  return name .."-".. realm
+end
+
+function MakersPath.Util.CurrentCharKey()
+  return MakersPath.Util.CharKey()
+end
 
 -- ===================== Panel =====================
 local panel = CreateFrame("Frame", "MakersPathFrame", UIParent, "BasicFrameTemplateWithInset")
@@ -43,6 +160,7 @@ panel:SetScript("OnDragStop", function(self)
 end)
 
 MakersPath.UI = MakersPath.UI or {}
+MakersPath.UI.ActiveProfileKey = MakersPath.UI.ActiveProfileKey or nil
 function MakersPath.UI.EnsureMainPanelSize()
   if not MakersPathFrame then return end
   local w, h = MakersPathFrame:GetSize()
@@ -374,9 +492,18 @@ RefreshList = function()
     return
   end
 
-  if finder.BeginSession then finder:BeginSession() end
+  local activeKey = MakersPath.UI.ActiveProfileKey
+  local thisKey   = MakersPath.Util.CurrentCharKey()
+  local summary
 
-  local summary = finder:BuildSummary() or {}
+  if not activeKey or activeKey == thisKey then
+    if finder.BeginSession then finder:BeginSession() end
+    summary = finder:BuildSummary() or {}
+  else
+    local cached = GetCachedSummaryForKey(activeKey)
+    summary = SummaryRowsFromCached(cached)
+  end
+
   local total  = #summary
   local offset = FauxScrollFrame_GetOffset(scroll)
 
@@ -428,7 +555,7 @@ RefreshList = function()
         local delta  = math.max(0, need - have)
         local reqL   = ResolveRequiredLevel(iid, tonumber(entry.reqLevel or 0) or 0)
 
-        local entryScore = (entry.__dbg and entry.__dbg.total) or (data.bestScore or 0)
+        local entryScore = entry.score or (entry.__dbg and entry.__dbg.total) or (data.bestScore or 0)
         local diff       = entryScore - (data.eqScore or 0)
 
         local meta = L["META_PREFIX_FMT"]:format(prof, need)
@@ -449,7 +576,7 @@ RefreshList = function()
               -- Best Suggestion Header
               do
                 local info = UIDropDownMenu_CreateInfo()
-                info.text = L["ALT_USE_BEST"] or "Use Best Suggestion"
+                info.text = L["ALT_USE_BEST"]
                 info.notCheckable = false
                 info.checked = (row.currentEntry == nil or row.currentEntry == best)
                 info.func = function()
@@ -463,7 +590,7 @@ RefreshList = function()
                 local info = UIDropDownMenu_CreateInfo()
                 info.isTitle = true
                 info.notCheckable = true
-                info.text = L["ALT_SUGGESTIONS_HEADER"] or "Other suggestions"
+                info.text = L["ALT_SUGGESTIONS_HEADER"]
                 UIDropDownMenu_AddButton(info, level)
               end
 
@@ -526,6 +653,154 @@ local function UpdateEmptyHint()
   local count = gf and gf.GetIndexedCount and gf:GetIndexedCount() or 0
   emptyHint:SetShown(count == 0)
 end
+--- Character Roster
+local function BuildProfileRoster()
+  MakersPathDB = MakersPathDB or {}
+  MakersPathDB.chars = MakersPathDB.chars or {}
+  local thisKey = MakersPath.Util.CurrentCharKey()
+  local out = {}
+
+  for key, rec in pairs(MakersPathDB.chars) do
+    if key ~= thisKey then
+      local name  = rec.name or key:match("^[^-]+") or key
+      local level = rec.level
+      local class = rec.class
+
+      local label = name
+      if level and class then
+        label = string.format("%s (|cffffff00%s %s|r)", name, tostring(level), class)
+      end
+
+      out[#out+1] = {
+        key       = key,
+        label     = label,
+        isCurrent = false,
+      }
+    end
+  end
+
+  table.sort(out, function(a, b) return a.label < b.label end)
+  return out
+end
+
+-- ===================== Profile viewer (alts) =====================
+MakersPath.UI.ActiveProfileKey = MakersPath.UI.ActiveProfileKey or nil
+
+local profileLabel = panel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+profileLabel:SetText(L["PROFILE_LABEL"])
+
+local profileDrop = CreateFrame("Frame", "MakersPathProfileDropdown", panel, "UIDropDownMenuTemplate")
+UIDropDownMenu_SetWidth(profileDrop, 120)
+
+do
+  local name   = profileDrop:GetName()
+  local left   = _G[name.."Left"]
+  local mid    = _G[name.."Middle"]
+  local right  = _G[name.."Right"]
+  local button = _G[name.."Button"]
+  local text   = _G[name.."Text"]
+
+  if left  then left:Hide() end
+  if mid   then mid:Hide() end
+  if right then right:Hide() end
+
+  if text then
+    text:ClearAllPoints()
+    text:SetPoint("LEFT", profileDrop, "LEFT", 4, 0)
+    text:SetFontObject(GameFontDisableSmall)
+    text:SetTextColor(0.75, 0.75, 0.75)
+  end
+  if button then
+    button:ClearAllPoints()
+    button:SetPoint("TOPRIGHT", profileDrop, "TOPRIGHT", 0, 0)
+    button:SetPoint("BOTTOMLEFT", profileDrop, "BOTTOMLEFT", 0, 0)
+  end
+end
+
+if panel.TitleBg then
+  profileDrop:ClearAllPoints()
+  profileDrop:SetPoint("RIGHT", panel.TitleBg, "RIGHT", -8, 0)
+  profileLabel:ClearAllPoints()
+  profileLabel:SetPoint("RIGHT", profileDrop, "LEFT", 0, 0)
+else
+  profileDrop:ClearAllPoints()
+  profileDrop:SetPoint("TOPRIGHT", panel, "TOPRIGHT", -12, -20)
+  profileLabel:ClearAllPoints()
+  profileLabel:SetPoint("RIGHT", profileDrop, "LEFT", 0, 2)
+end
+
+local function SetActiveProfile(key)
+  MakersPath.UI.ActiveProfileKey = key
+  UIDropDownMenu_SetText(profileDrop, MakersPath.UI.CurrentProfileText())
+  if MakersPathFrame:IsShown() then
+    RefreshList()
+  end
+end
+
+function MakersPath.UI.CurrentProfileText()
+  local thisKey = MakersPath.Util.CurrentCharKey()
+  local active  = MakersPath.UI.ActiveProfileKey
+
+  if not active or active == thisKey then
+    local name = UnitName("player") or "?"
+    return name
+  end
+
+  MakersPathDB       = MakersPathDB or {}
+  MakersPathDB.chars = MakersPathDB.chars or {}
+  local rec = MakersPathDB.chars[active]
+
+  local displayName
+  if rec and rec.name then
+    displayName = rec.name
+  else
+    local n = active:match("^([^%-]+)%-.+$")
+    displayName = n or active
+  end
+
+  return displayName
+end
+
+local function ProfileDrop_Init(self, level)
+  if level ~= 1 then return end
+
+  local thisKey = MakersPath.Util.CurrentCharKey()
+  local active  = MakersPath.UI.ActiveProfileKey
+  local roster  = BuildProfileRoster()
+  do
+    local info = UIDropDownMenu_CreateInfo()
+    info.text         = L["PROFILE_ACTIVE"]
+    info.func         = function() SetActiveProfile(nil) end
+    info.checked      = (not active or active == thisKey)
+    info.notCheckable = false
+    UIDropDownMenu_AddButton(info, level)
+  end
+  if #roster > 0 then
+    local sep = UIDropDownMenu_CreateInfo()
+    sep.isTitle      = true
+    sep.notCheckable = true
+    sep.text         = L["PROFILE_ALT"]
+    UIDropDownMenu_AddButton(sep, level)
+  end
+  for _, row in ipairs(roster) do
+    local info = UIDropDownMenu_CreateInfo()
+    info.text         = row.label
+    info.arg1         = row.key
+    info.notCheckable = false
+    info.checked      = (active == row.key)
+    info.func = function(_, key)
+      SetActiveProfile(key)
+    end
+    UIDropDownMenu_AddButton(info, level)
+  end
+end
+
+UIDropDownMenu_Initialize(profileDrop, ProfileDrop_Init)
+UIDropDownMenu_SetText(profileDrop, MakersPath.UI.CurrentProfileText())
+
+MakersPathFrame:HookScript("OnShow", function()
+  UIDropDownMenu_SetText(profileDrop, MakersPath.UI.CurrentProfileText())
+end)
 
 -- Refresh Button
 local refreshBtn = CreateFrame("Button", nil, MakersPathFrame, "UIPanelButtonTemplate")
@@ -626,10 +901,10 @@ end
 
 -- ===================== Character Panel Button =====================
 local function _CreateCharPanelButton()
-  if not CharacterFrame then return end
+  if not CharacterFrame or not PaperDollFrame then return end
   if MakersPathCharBtn then return end
 
-  local btn = CreateFrame("Button", "MakersPathCharBtn", CharacterFrame)
+  local btn = CreateFrame("Button", "MakersPathCharBtn", PaperDollFrame)
   btn:SetSize(26, 26)
 
   if CharacterFrameCloseButton then
@@ -689,7 +964,9 @@ do
   w:RegisterEvent("PLAYER_ENTERING_WORLD")
   w:SetScript("OnEvent", function(_, ev, name)
     if ev == "ADDON_LOADED" and name ~= ADDON_NAME then return end
-    if CharacterFrame then _CreateCharPanelButton() end
+    if CharacterFrame and PaperDollFrame then
+      _CreateCharPanelButton()
+    end
   end)
 end
 
@@ -770,10 +1047,10 @@ function MakersPath.SpecUI.Init(parent)
 
   local lbl = parent:CreateFontString(nil, "OVERLAY", "GameFontNormal")
   lbl:SetText("Spec:")
-  lbl:SetPoint("LEFT", profBookBtn, "RIGHT", 16, 0)
+  lbl:SetPoint("LEFT", profBookBtn, "RIGHT", 8, 0)
 
   local dd = CreateFrame("Frame", "MakersPathSpecDropdown", parent, "UIDropDownMenuTemplate")
-  dd:SetPoint("LEFT", lbl, "RIGHT", 6, -2)
+  dd:SetPoint("LEFT", lbl, "RIGHT", 4, -2)
   UIDropDownMenu_SetWidth(dd, 170)
 
   local function currentText()

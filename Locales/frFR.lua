@@ -18,6 +18,9 @@ L["NO_CRAFT_UPGRADE"]       = "(pas d'amélioration disponible)"
 L["RESCANNED_PROFS"]        = "Métiers actuels re-analysés."
 L["ALT_SUGGESTIONS_HEADER"] = "Autres suggestions"
 L["ALT_USE_BEST"]           = "Utiliser la meilleure suggestion"
+L["PROFILE_LABEL"]          = "Profil:"
+L["PROFILE_ACTIVE"]         = "Personnage actif"
+L["PROFILE_ALT"]            = "Autres personnages:"
 
 -- Book
 L["PROFBOOK_TITLE"]      = "Maker's Path — Profession Book"
