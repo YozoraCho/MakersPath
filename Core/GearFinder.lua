@@ -1,4 +1,4 @@
-local ADDON, MakersPath = ...
+local _, MakersPath = ...
 MakersPath = MakersPath or {}
 MakersPath.Util = MakersPath.Util or {}
 _G.MakersPath = MakersPath
@@ -1668,7 +1668,7 @@ function GatherBias(entry)
   local pmap = MakersPath.Util and MakersPath.Util.CurrentProfMap() or {}
   local has = function(spellID) return pmap[spellID] ~= nil end
   local T = {
-    LW   = 2108, SKIN = 8613,
+    LW   = 2108, SKIN = 8613, JC = 25229,
     ALC  = 2259, HERB = 2366,
     BS   = 2018, ENG  = 4036, MINE = 2575,
   }
@@ -1686,6 +1686,7 @@ local SKILLLINE_TO_SPELL = {
   [197] = 3908,  -- Tailoring
   [202] = 4036,  -- Engineering
   [333] = 7411,  -- Enchanting
+  [755] = 25229, -- Jewelcrafting
   -- gather/secondary
   [186] = 2575,  -- Mining
   [182] = 2366,  -- Herbalism

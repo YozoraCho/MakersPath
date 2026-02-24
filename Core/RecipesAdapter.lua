@@ -1,11 +1,18 @@
-local ADDON, MakersPath = ...
-MakersPath                   = MakersPath or {}
-MakersPath.Professions       = MakersPath.Professions or {}
-MakersPath.Static            = MakersPath.Static or {}
-MakersPath.Static.Craftables = MakersPath.Static.Craftables or {}
+local _, MakersPath = ...
+MakersPath = MakersPath or {}
+
+MakersPath.Data = MakersPath.Data or {}
+MakersPath.Static = MakersPath.Static or {}
+
+local craftables = MakersPath.Data.Craftables or MakersPath.Static.Craftables or {}
+MakersPath.Data.Craftables = craftables
+MakersPath.Static.Craftables = craftables
+
+MakersPath.Professions = MakersPath.Professions or {}
 
 local C = MakersPath.Const or {}
 local P = MakersPath.Professions
+local Craftables = MakersPath.Data.Craftables
 
 -- =======================
 -- Small utility helpers
@@ -106,16 +113,17 @@ local unresolved = {}
 
 local function bucketInsert(inv, row)
   if not inv or inv=="" then return end
-  local b = MakersPath.Static.Craftables[inv]
-  if not b then b = {}; MakersPath.Static.Craftables[inv] = b end
+  local b = Craftables[inv]
+  if not b then b = {}; Craftables[inv] = b end
   for i=1,#b do if b[i].itemID == row.itemID then return end end
   table.insert(b, row)
 end
 
 local function bucketStaticItem(itemID, profId, learnedAt)
   local name, _, _, reqLevel, _, itemType, itemSubType, _, equipLoc = GetItemInfo(itemID)
-  if not equipLoc or equipLoc=="" then return false end
 
+  if not name then return false end
+  if not equipLoc or equipLoc=="" then return true end
   if not INV_WHITELIST[equipLoc] then
     return true
   end
@@ -170,6 +178,7 @@ end
 local frameRetry = CreateFrame("Frame")
 frameRetry:RegisterEvent("GET_ITEM_INFO_RECEIVED")
 frameRetry:SetScript("OnEvent", function(_, _, iid)
+  iid = tonumber(iid) or iid
   local meta = unresolved[iid]
   if not meta then return end
   local ok = bucketStaticItem(iid, meta[1], meta[2])
@@ -182,7 +191,8 @@ boot:SetScript("OnEvent", function()
   indexStaticRecipes()
   C_Timer.After(2.0, function()
     for iid, meta in pairs(unresolved) do
-      bucketStaticItem(iid, meta[1], meta[2])
+      local ok = bucketStaticItem(iid, meta[1], meta[2])
+      if ok then unresolved[iid] = nil end
     end
   end)
 end)

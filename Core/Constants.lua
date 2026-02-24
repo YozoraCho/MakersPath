@@ -1,4 +1,4 @@
-local ADDON, MakersPath = ...
+local _, MakersPath = ...
 MakersPath = MakersPath or {}
 MakersPath.Const = MakersPath.Const or {}
 
@@ -55,6 +55,7 @@ C.SKILLLINE_TO_SPELL = {
   [197] = 3908,  -- Tailoring
   [202] = 4036,  -- Engineering
   [333] = 7411,  -- Enchanting
+  [755] = 25229,  -- Jewelcrafting
   [186] = 2575,  -- Mining
   [182] = 2366,  -- Herbalism
   [393] = 8613,  -- Skinning

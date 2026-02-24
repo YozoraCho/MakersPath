@@ -1,7 +1,6 @@
-local ADDON, MakersPath = ...
+local _, MakersPath = ...
 MakersPath = MakersPath or {}
-
-local L = LibStub("AceLocale-3.0"):GetLocale("MakersPath")
+local L = LibStub("AceLocale-3.0"):GetLocale("MakersPath", true) or {}
 
 -- ==== Build a simple canvas panel ====
 local options = CreateFrame("Frame", "MakersPathOptionsPanel", UIParent)

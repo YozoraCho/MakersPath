@@ -10,11 +10,15 @@ MakersPath.Config.DEBUG_TIMING = MakersPath.Config.DEBUG_TIMING or false
 MakersPath.Util = MakersPath.Util or {}
 
 -- ===================== Localization shim =====================
-local L = LibStub("AceLocale-3.0"):GetLocale("MakersPath")
+local L = LibStub("AceLocale-3.0"):GetLocale("MakersPath", true) or {}
 local function Ls(key) return (L and L[key]) or key end
 
 MakersPath.L = L
 MakersPath.Ls = Ls
+-- ===================== Client Detection =====================
+
+local client   = MakersPath.client or {}
+local features = MakersPath.features or {}
 
 -- ===================== SavedVariables =====================
 local DB
@@ -456,6 +460,7 @@ local function ProfShort(id)
   elseif id == 197 then return L["Tailor"] or "Tailor"
   elseif id == 202 then return L["Eng"]    or "Eng"
   elseif id == 333 then return L["Ench"]   or "Ench"
+  elseif id == 755 then return L["JC"] or "Jewel"
   else return tostring(id or "?")
   end
 end

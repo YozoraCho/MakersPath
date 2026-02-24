@@ -1,3 +1,4 @@
+local ADDON, MakersPath = ...
 MakersPath = MakersPath or {}
 MakersPath.Static = MakersPath.Static or {}
 MakersPath.Static.Craftables = MakersPath.Static.Craftables or {}

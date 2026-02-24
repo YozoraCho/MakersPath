@@ -1,8 +1,5 @@
-local ADDON, MakersPath = ...
-
+local _, MakersPath = ...
 MakersPath = MakersPath or {}
-_G.MakersPath = MakersPath
-
 local M = {}
 
 -- ===========================

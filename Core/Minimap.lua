@@ -1,4 +1,4 @@
-local ADDON, MakersPath = ...
+local _, MakersPath = ...
 MakersPath = MakersPath or {}
 
 local L = LibStub("AceLocale-3.0", true)
@@ -53,9 +53,9 @@ local launcher = LDB:NewDataObject("MakersPath", {
 })
 
 local f = CreateFrame("Frame")
-f:RegisterEvent("ADDON_LOADED")
+f:RegisterEvent("PLAYER_LOGIN")
 f:SetScript("OnEvent", function(_, ev, name)
-  if ev == "ADDON_LOADED" and name == ADDON then
+  if ev == "PLAYER_LOGIN" then
     LDBIcon:Register("MakersPath", launcher, DB().minimap)
     if DB().minimap.hide then
       LDBIcon:Hide("MakersPath")

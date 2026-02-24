@@ -1,10 +1,10 @@
-local ADDON, MakersPath = ...
+local _, MakersPath = ...
 MakersPath = MakersPath or {}
 MakersPath.UI = MakersPath.UI or {}
 
 -- ===== Locale & Consts =====
 local C = MakersPath.Const or {}
-local L = LibStub("AceLocale-3.0"):GetLocale("MakersPath")
+local L = LibStub("AceLocale-3.0"):GetLocale("MakersPath", true) or {}
 
 -- =================== Styling ===================
 local NAME_W       = 180
@@ -32,6 +32,7 @@ local PROF_COLOR = {
   Alc  = "ffb0ffb0",  -- light green
   LW   = "ffffe0a0",  -- sand
   BS   = "ffffc0c0",  -- rosy
+  JC   = "ff40e0d0",  -- turquoise
   Eng  = "fff0e090",  -- amber
   Herb = "ffa0ffb0",  -- mint
   Mine = "ffd0d0d0",  -- steel
@@ -45,6 +46,7 @@ local SHORT_TAG_BY_SPELL = {
   [C.SKILLLINE_TO_SPELL and C.SKILLLINE_TO_SPELL[333] or 7411] = "Ench",
   [C.SKILLLINE_TO_SPELL and C.SKILLLINE_TO_SPELL[197] or 3908] = "Tailor",
   [C.SKILLLINE_TO_SPELL and C.SKILLLINE_TO_SPELL[171] or 2259] = "Alc",
+  [C.SKILLLINE_TO_SPELL and C.SKILLLINE_TO_SPELL[755] or 25229] = "JC",
   [C.SKILLLINE_TO_SPELL and C.SKILLLINE_TO_SPELL[182] or 2366] = "Herb",
   [C.SKILLLINE_TO_SPELL and C.SKILLLINE_TO_SPELL[186] or 2575] = "Mine",
   [C.SKILLLINE_TO_SPELL and C.SKILLLINE_TO_SPELL[393] or 8613] = "Skin",
