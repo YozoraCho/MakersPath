@@ -1,6 +1,6 @@
 All Rights Reserved
 
-Copyright (c) 2025 YozoraCho
+Copyright (c) 2026 YozoraCho
 
 This software and its accompanying assets are the intellectual property of the author.
 You may not copy, modify, merge, publish, distribute, sublicense, or sell any portion

@@ -20,8 +20,7 @@ No dungeon drops, no world loot clutter — just pure craftsmanship.
 - **Smart upgrade scoring** — compares crafted gear to what you’re currently wearing.  
 - **Automatic profession scanning** — tracks your ranks across all characters.  
 - **Profession Book** — view all characters, levels, classes, and professions at a glance.  
-- **Optional minimap button** — quick access to both panels.  
-- **Movable, resizable, and scalable UI** — use `/mpscale` or `Ctrl + ScrollWheel` to adjust.  
+- **Optional minimap button** — quick access to both panels.   
 
 ### Dynamic Updates
 - Automatically rescans when you:
@@ -56,8 +55,7 @@ Each entry shows:
 ### Profession Book
 A secondary window listing all characters on your account.  
 - Shift + Right-Click any entry to remove it  
-- Color-coded by class  
-- Adjustable scale (Ctrl + ScrollWheel)  
+- Color-coded by class   
 
 ---
 
