@@ -1,0 +1,26 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/">
+
+  <!-- Libs -->
+  <Script file="Libs/LibStub/LibStub.lua"/>
+  <Script file="Libs/CallbackHandler-1.0/CallbackHandler-1.0.lua"/>
+  <Script file="Libs/AceLocale-3.0/AceLocale-3.0.lua"/>
+  <Script file="Libs/LibDataBroker-1.1/LibDataBroker-1.1.lua"/>
+  <Script file="Libs/LibDBIcon-1.0/LibDBIcon-1.0.lua"/>
+
+  <!-- Locales -->
+  <Include file="Locale/Locales.xml"/>
+
+  <!-- Core -->
+  <Script file="Core/Client.lua"/>
+  <Script file="Core/Bootstrap.lua"/>
+
+  <!-- UI -->
+  <Script file="Core/UI/GearFinder/Slots.lua"/>
+  <Script file="Core/UI/GearFinder/Row.lua"/>
+  <Script file="Core/UI/GearFinder/Panel.lua"/>
+  <Script file="Core/UI/GearFinder/Controller.lua"/>
+  <Script file="Core/UI/MainFrame.lua"/>
+  <Script file="Core/UI/Slash.lua"/>
+  <Script file="Core/UI/Minimap.lua"/>
+
+</Ui>

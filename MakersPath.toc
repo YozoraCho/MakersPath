@@ -1,0 +1,9 @@
+## Interface: 11508
+## Title: |TInterface\AddOns\MakersPath\Art\makerspath:16:16|t Makers Path (V2)
+## Author: YozoraCho
+## Notes: Makers Path V2 rewrite (Era/TBC+)
+## Version: 2.0.0
+## SavedVariables: MakersPathDB, MakersPathGlobalDB
+## IconTexture: Interface\AddOns\MakersPath\Art\makerspath.tga
+
+embeds.xml
