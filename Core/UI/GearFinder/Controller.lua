@@ -1,9 +1,7 @@
-local ADDON, ns = ...
-local UI = ns.UI.GearFinder
-local SYS = ns.Systems.GearFinder
+local SYS = ns.Systems and ns.Systems.GearFinder
 
-function UI:BindSystem()
-  if self._bound then return end
+function ns.UI.GearFinder:BindSystem()
+  if self._bound or not SYS then return end
   self._bound = true
 
   SYS:SetCallback(function(results)
@@ -11,7 +9,7 @@ function UI:BindSystem()
   end)
 end
 
-function UI:ScanNow()
+function ns.UI.GearFinder:ScanNow()
   self:BindSystem()
   SYS:RequestScan({ force = true })
 end

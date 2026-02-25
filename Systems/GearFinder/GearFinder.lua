@@ -4,16 +4,7 @@ ns.Systems.GearFinder = ns.Systems.GearFinder or {}
 local GF = ns.Systems.GearFinder
 
 GF._callbacks = {}
-GF._resultsByChar = {}
-GF._dirtyByChar = {}
 GF._scanQueued = false
-
-local function CharKey()
-  if ns.Util and ns.Util.CurrentCharKey then return ns.Util.CurrentCharKey() end
-  local name = UnitName("player") or "?"
-  local realm = GetRealmName() or "?"
-  return name .. "-" .. realm
-end
 
 function GF:SetCallback(fn)
   if type(fn) ~= "function" then return end
@@ -21,24 +12,21 @@ function GF:SetCallback(fn)
 end
 
 local function Fire(results)
-  for _, fn in ipairs(GF._callbacks) do pcall(fn, results) end
+  for _, fn in ipairs(GF._callbacks) do
+    pcall(fn, results)
+  end
 end
 
-function GF:MarkDirty()
-  self._dirtyByChar[CharKey()] = true
-end
-
-function GF:GetResults()
-  return self._resultsByChar[CharKey()] or {}
+local function GetEquippedItemLink(invSlot)
+  return GetInventoryItemLink("player", invSlot)
 end
 
 function GF:RequestScan(opts)
   opts = opts or {}
-  local key = CharKey()
 
-  if not opts.force and not self._dirtyByChar[key] and self._resultsByChar[key] then
-    Fire(self._resultsByChar[key])
-    return self._resultsByChar[key]
+  if not opts.force and not self._dirty and self._results then
+    Fire(self._results)
+    return
   end
 
   if self._scanQueued then return end
@@ -46,21 +34,40 @@ function GF:RequestScan(opts)
 
   C_Timer.After(0.05, function()
     self._scanQueued = false
-    local results = self:_ScanNow()
-    self._resultsByChar[key] = results
-    self._dirtyByChar[key] = false
-    Fire(results)
+    self:_ScanIncremental()
   end)
 end
 
-function GF:_ScanNow()
-  local Slots = ns.Systems.GearFinder.Slots
-  local out = {}
+function GF:_ScanIncremental()
+  local Slots = self
+  local results = {}
 
-  for _, slot in ipairs(Slots.SLOT_ORDER) do
-    local best = self:GetBestForSlot(slot)
-    if best then out[slot] = best end
+  local i = 1
+  local function step()
+    local slotKey = Slots.SLOT_ORDER[i]
+    if not slotKey then
+      self:_SetResults(results)
+      Fire(results)
+      return
+    end
+
+    local invSlot = Slots.SLOT_TO_INVSLOT[slotKey]
+    local equippedLink = invSlot and GetEquippedItemLink(invSlot)
+
+    local candidates = self:GetCandidatesForSlot(slotKey)
+
+    local best, alts = self:PickBestAndAlts(candidates, equippedLink)
+
+    if best then
+      results[slotKey] = {
+        best = best,
+        alts = alts,
+      }
+    end
+
+    i = i + 1
+    C_Timer.After(0, step)
   end
 
-  return out
+  step()
 end
