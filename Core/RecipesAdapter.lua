@@ -14,6 +14,20 @@ local C = MakersPath.Const or {}
 local P = MakersPath.Professions
 local Craftables = MakersPath.Data.Craftables
 
+local function ResolveSkillLine(profKey)
+  if type(profKey) == "number" then return profKey end
+  if type(profKey) ~= "string" then return 0 end
+
+  local want = profKey:lower()
+  for skillLineID, spellID in pairs((C.SKILLLINE_TO_SPELL or {})) do
+    local nm = GetSpellInfo(spellID)
+    if nm and nm:lower() == want then
+      return skillLineID
+    end
+  end
+  return 0
+end
+
 -- =======================
 -- Small utility helpers
 -- =======================
@@ -112,10 +126,30 @@ end
 local unresolved = {}
 
 local function bucketInsert(inv, row)
-  if not inv or inv=="" then return end
+  if not inv or inv=="" or not row or not row.itemID then return end
   local b = Craftables[inv]
   if not b then b = {}; Craftables[inv] = b end
-  for i=1,#b do if b[i].itemID == row.itemID then return end end
+
+  for i=1,#b do
+    local ex = b[i]
+    if ex and ex.itemID == row.itemID then
+      if (not ex.name or ex.name=="") and row.name then ex.name = row.name end
+      if (not ex.invType or ex.invType=="") and row.invType then ex.invType = row.invType end
+      if (not ex.reqLevel or ex.reqLevel==0) and row.reqLevel then ex.reqLevel = row.reqLevel end
+
+      if (not ex.reqSkill or ex.reqSkill==0) and row.reqSkill then ex.reqSkill = row.reqSkill end
+      if (not ex.reqSkillLevel or ex.reqSkillLevel==0) and row.reqSkillLevel then ex.reqSkillLevel = row.reqSkillLevel end
+
+      if (not ex.armor or ex.armor=="") and row.armor then ex.armor = row.armor end
+      if ex.isCrafted == nil and row.isCrafted ~= nil then ex.isCrafted = row.isCrafted end
+
+      if ex.source == nil and row.source ~= nil then ex.source = row.source end
+      if ex.source ~= "crafted" and row.source == "crafted" then ex.source = "crafted" end
+
+      return
+    end
+  end
+
   table.insert(b, row)
 end
 
@@ -152,6 +186,17 @@ end
 -- =======================
 -- Index static recipes
 -- =======================
+local DATA_ADDON = "MakersPath_Data_TBC"
+local _indexed = false
+
+local function TryIndex()
+  if _indexed then return end
+  if not (P and P.AllRecipes) then return end
+  indexStaticRecipes()
+  _indexed = true
+end
+MakersPath.TryIndexRecipes = TryIndex
+
 local function indexStaticRecipes()
   buildSpellMaps()
   if not P.AllRecipes then return end
@@ -165,10 +210,10 @@ local function indexStaticRecipes()
       end
 
       if itemID then
+        local skillLine = ResolveSkillLine(profId)
         local ok = bucketStaticItem(itemID, profId, getLearnedAt(rec))
         if not ok then
           unresolved[itemID] = { profId, getLearnedAt(rec) }
-          if C_Item and C_Item.RequestLoadItemDataByID then C_Item.RequestLoadItemDataByID(itemID) end
         end
       end
     end
@@ -185,14 +230,39 @@ frameRetry:SetScript("OnEvent", function(_, _, iid)
   if ok then unresolved[iid] = nil end
 end)
 
+-- =======================
+-- Throttled item data preloader
+-- =======================
+local preload = CreateFrame("Frame")
+preload._accum = 0
+preload._interval = 0.03
+preload._batch = 1
+
+preload:SetScript("OnUpdate", function(self, elapsed)
+  self._accum = self._accum + (elapsed or 0)
+  if self._accum < self._interval then return end
+  self._accum = 0
+
+  if not (C_Item and C_Item.RequestLoadItemDataByID) then return end
+  if not next(unresolved) then return end
+
+  local n = 0
+  for iid in pairs(unresolved) do
+    C_Item.RequestLoadItemDataByID(iid)
+    n = n + 1
+    if n >= self._batch then break end
+  end
+end)
+
 local boot = CreateFrame("Frame")
 boot:RegisterEvent("PLAYER_LOGIN")
-boot:SetScript("OnEvent", function()
-  indexStaticRecipes()
-  C_Timer.After(2.0, function()
-    for iid, meta in pairs(unresolved) do
-      local ok = bucketStaticItem(iid, meta[1], meta[2])
-      if ok then unresolved[iid] = nil end
+boot:RegisterEvent("ADDON_LOADED")
+boot:SetScript("OnEvent", function(_, ev, name)
+  if ev == "PLAYER_LOGIN" then
+    TryIndex()
+  elseif ev == "ADDON_LOADED" then
+    if name == DATA_ADDON or name == "MakersPath" then
+      TryIndex()
     end
-  end)
+  end
 end)

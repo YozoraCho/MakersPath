@@ -24,7 +24,6 @@ local function SetIgnoreFilters(v)
   MakersPath.Config.IGNORE_FILTERS = (v == true)
 end
 local ONLY_STATS_WEAPONS = (MakersPath.Config.ONLY_STATS_WEAPONS == true)
-local _pendingKick = _pendingKick or {}
 
 -- temp: slash to toggle filter gating at runtime
 SLASH_MPIGN1 = "/mpignorefilters"
@@ -42,7 +41,7 @@ SlashCmdList["MPIGN"] = function(msg)
     MakersPath.GearFinder:MarkDirty()
   end
   if MakersPath and MakersPath.GearFinderScan then MakersPath.GearFinderScan() end
-  if MakersPathFrame and MakersPathFrame:IsShown() and RefreshList then RefreshList() end
+  if MakersPath and MakersPath.RequestUIRefresh then MakersPath.RequestUIRefresh() end
 end
 
 if not MakersPath.Util.ArmorTokenForItemID then
@@ -111,7 +110,7 @@ local function SetCurrentSpec(spec)
     end
   end
   if MakersPath and MakersPath.GearFinderScan then MakersPath.GearFinderScan() end
-  if MakersPathFrame and MakersPathFrame:IsShown() and RefreshList then RefreshList() end
+  if MakersPath and MakersPath.RequestUIRefresh then MakersPath.RequestUIRefresh() end
 end
 
 local function _printSpecChanged()
@@ -144,8 +143,7 @@ function GearFinder:BeginSession()
   if self._charKey ~= key then
     self._charKey = key
     self._equippedScoreCache = {}
-  else
-    self._equippedScoreCache = {}
+    self:MarkDirty()
   end
 end
 
@@ -1346,19 +1344,34 @@ local function CandidatesForSlot(slotName)
   local out, seen = {}, {}
   local db = GDB()
 
+  local function UpgradeRow(dst, src)
+    if not dst or not src then return end
+    if (tonumber(dst.reqSkill or 0) == 0) and (tonumber(src.reqSkill or 0) ~= 0) then dst.reqSkill = src.reqSkill end
+    if (tonumber(dst.profId  or 0) == 0) and (tonumber(src.profId  or 0) ~= 0) then dst.profId  = src.profId  end
+    if (tonumber(dst.reqSkillLevel or 0) == 0) and (tonumber(src.reqSkillLevel or 0) ~= 0) then dst.reqSkillLevel = src.reqSkillLevel end
+    if (tonumber(dst.learnedAt or 0) == 0) and (tonumber(src.learnedAt or 0) ~= 0) then dst.learnedAt = src.learnedAt end
+    if not dst.name and src.name then dst.name = src.name end
+    if not dst.source and src.source then dst.source = src.source end
+    if dst.isCrafted == nil and src.isCrafted ~= nil then dst.isCrafted = src.isCrafted end
+  end
+
+
   for invType, list in pairs(db.items) do
     if InvTypeMatchesSlot(invType, slotName) and type(list)=="table" then
       for _, row in ipairs(list) do
         local id = row.itemID or row.id
         if id and not seen[id] then
           seen[id]  = true
-          row.invType  = row.invType or invType
-          row.reqLevel = row.reqLevel or row.minLevel or 0
-          row.source   = row.source or "crafted"
-          row.armor    = row.armor or MakersPath.Util.ArmorTokenForItemID(row.itemID)
-          if IsCraftedLike(row) then
-            AugmentNeedHave(row)
-            out[#out+1] = row
+          local cand = {}
+          for k,v in pairs(row) do cand[k] = v end
+          cand.itemID   = cand.itemID or cand.id or id
+          cand.invType  = cand.invType or invType
+          cand.reqLevel = cand.reqLevel or cand.minLevel or 0
+          cand.source   = cand.source or "crafted"
+          cand.armor    = cand.armor or MakersPath.Util.ArmorTokenForItemID(cand.itemID)
+          if IsCraftedLike(cand) then
+            out[#out+1] = cand
+            AugmentNeedHave(cand)
           end
         end
       end
@@ -1843,6 +1856,17 @@ local function EquippedMinReqLevel(equippedIDs)
   return minReq or 0
 end
 
+local _kickQueued = false
+local function QueueKick(delay)
+  if _kickQueued then return end
+  _kickQueued = true
+  C_Timer.After(delay or 0.25, function()
+    _kickQueued = false
+    if MakersPath and MakersPath.GearFinderScan then MakersPath.GearFinderScan() end
+    if MakersPath and MakersPath.RequestUIRefresh then MakersPath.RequestUIRefresh() end
+  end)
+end
+
 function GearFinder:GetBestCraftable(slotName)
   local eqScore, equippedIDs, eqPending = GetEquippedScore(slotName)
   local eqReqLevel = EquippedMinReqLevel(equippedIDs)
@@ -1854,10 +1878,7 @@ function GearFinder:GetBestCraftable(slotName)
 
   if eqPending then
     if self._equippedScoreCache then self._equippedScoreCache[slotName] = nil end
-    C_Timer.After(0.15, function()
-      if MakersPath and MakersPath.GearFinderScan then MakersPath.GearFinderScan() end
-      if MakersPathFrame and MakersPathFrame:IsShown() and RefreshList then RefreshList() end
-    end)
+    QueueKick(0.15)
     return nil, 0, eqScore or 0, nil
   end
 
@@ -1896,21 +1917,15 @@ function GearFinder:GetBestCraftable(slotName)
     local total, pend, br = ScoreItemWithBreakdown(entry.itemID, slotName, entry.armor, entry.invType)
     if pend then
       diag.pending = diag.pending + 1
-
-      if not _pendingKick[slotName] then
-        _pendingKick[slotName] = true
-        C_Timer.After(0.25, function()
-          _pendingKick[slotName] = nil
-          if MakersPath and MakersPath.GearFinderScan then MakersPath.GearFinderScan() end
-          if MakersPathFrame and MakersPathFrame:IsShown() and RefreshList then RefreshList() end
-        end)
-      end
+      QueueKick(0.25)
       return nil
     end
-    local lvlBonus = LevelBias(entry)
-    if lvlBonus ~= 0 then
-      total = total + lvlBonus
-      if br then br.levelAdd = lvlBonus end
+    if not wantStrictUpgrade then
+      local lvlBonus = LevelBias(entry)
+      if lvlBonus ~= 0 then
+        total = total + lvlBonus
+        if br then br.levelAdd = lvlBonus end
+      end
     end
     if eqArmorTok and entry.armor then
       if ShouldSkipLighterArmor(slotName, entry.armor, eqArmorTok, eqScore or 0, total or 0) then
@@ -2166,6 +2181,21 @@ function GearFinder:BuildSummary()
   self._lastSummary = rows
   self._summaryDirty = false
   return rows
+end
+
+function GearFinder:BuildSummaryCached()
+  local key = CurrentCharKey and CurrentCharKey() or "?"
+  self._summaryCache = self._summaryCache or {}
+  local cached = self._summaryCache[key]
+
+  if cached and not self._summaryDirty then
+    return cached
+  end
+
+  local summary = self:BuildSummary() or {}
+  self._summaryCache[key] = summary
+  self._summaryDirty = false
+  return summary
 end
 
 -- ==============================

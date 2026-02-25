@@ -13,11 +13,6 @@
   <Script file="Core/Client.lua" />
   <Script file="Core/Constants.lua" />
 
-  <!-- Data (TBC) -->
-  <Script file="Data/TBC/Recipes_TBC.lua" />
-  <Script file="Data/TBC/Static.lua" />
-  <Script file="Data/TBC/Weights.lua" />
-
   <!-- Systems -->
   <Script file="Core/RecipesAdapter.lua" />
   <Script file="Core/Filters.lua" />

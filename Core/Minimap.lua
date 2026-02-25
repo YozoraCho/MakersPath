@@ -4,7 +4,6 @@ MakersPath = MakersPath or {}
 local L = LibStub("AceLocale-3.0", true)
 L = (L and L:GetLocale("MakersPath", true)) or setmetatable({}, { __index = function(_, k) return k end })
 
-
 local function DB()
   MakersPathDB = MakersPathDB or {}
   MakersPathDB.minimap = MakersPathDB.minimap or {}

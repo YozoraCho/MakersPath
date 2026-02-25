@@ -1,6 +1,16 @@
 local ADDON_NAME, MakersPath = ...
 
 MakersPath = MakersPath or {}
+function MakersPath.EnsureTBCDataLoaded()
+  if MakersPath.Professions and MakersPath.Professions.AllRecipes then return true end
+  local loader = (C_AddOns and C_AddOns.LoadAddOn) or LoadAddOn
+  if not loader then return false end
+  local ok = loader("MakersPath_Data_TBC")
+  if ok and MakersPath.TryIndexRecipes then
+    MakersPath.TryIndexRecipes()
+  end
+  return ok and MakersPath.Professions and MakersPath.Professions.AllRecipes ~= nil
+end
 MakersPath.name = ADDON_NAME
 MakersPath.version = "1.3.0"
 _G.MakersPath = MakersPath
@@ -142,6 +152,14 @@ function MakersPath.Util.CurrentCharKey()
   return MakersPath.Util.CharKey()
 end
 
+function MakersPath.RequestUIRefresh()
+  MakersPath._nextUIRefresh = MakersPath._nextUIRefresh or 0
+  local t = GetTime()
+  if t < MakersPath._nextUIRefresh then return end
+  MakersPath._nextUIRefresh = t + 0.20
+  if SafeRefresh then SafeRefresh(0) end
+end
+
 -- ===================== Panel =====================
 local panel = CreateFrame("Frame", "MakersPathFrame", UIParent, "BasicFrameTemplateWithInset")
 panel:SetSize(MIN_W, MIN_H)
@@ -174,6 +192,11 @@ function MakersPath.UI.EnsureMainPanelSize()
     MakersPathFrame:SetSize(newW, newH)
   end
 end
+MakersPathFrame:HookScript("OnShow", function()
+  if MakersPath.EnsureTBCDataLoaded then
+    MakersPath.EnsureTBCDataLoaded()
+  end
+end)
 
 -- Title
 panel.title = panel:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
@@ -304,25 +327,46 @@ local function ResetPanelPosition()
 end
 
 -- ===================== List UI =====================
-local RefreshList
+local _refreshPending = false
+local _refreshRunning = false
+
 local function SafeRefresh(delay)
-  delay = delay or 0.05
+  delay = delay or 0
+  if _refreshPending then return end
+  _refreshPending = true
+
   C_Timer.After(delay, function()
-    if not (MakersPathFrame and MakersPathFrame:IsShown()) then
-      return
+    _refreshPending = false
+    if _refreshRunning then return end
+    _refreshRunning = true
+
+    if MakersPathFrame and MakersPathFrame:IsShown() and RefreshList then
+      RefreshList()
     end
 
-    if MakersPath and MakersPath.GearFinderScan then
-      MakersPath.GearFinderScan()
-    end
-
-    C_Timer.After(0.05, function()
-      if MakersPathFrame and MakersPathFrame:IsShown() and RefreshList then
-        RefreshList()
-      end
-    end)
+    _refreshRunning = false
   end)
 end
+
+MakersPath._itemRefreshPending = MakersPath._itemRefreshPending or {}
+MakersPath._itemLoadRequested  = MakersPath._itemLoadRequested  or {}
+MakersPath._unresolvedRefreshQueued = MakersPath._unresolvedRefreshQueued or false
+MakersPath._nextItemDrivenRefreshAt = MakersPath._nextItemDrivenRefreshAt or 0
+
+local function ItemDrivenRefresh()
+  local t = GetTime()
+  if t < (MakersPath._nextItemDrivenRefreshAt or 0) then return end
+  MakersPath._nextItemDrivenRefreshAt = t + 0.25
+  SafeRefresh(0.05)
+end
+
+local itemInfoEvt = CreateFrame("Frame")
+itemInfoEvt:RegisterEvent("GET_ITEM_INFO_RECEIVED")
+itemInfoEvt:SetScript("OnEvent", function()
+  if MakersPathFrame and MakersPathFrame:IsShown() then
+    ItemDrivenRefresh()
+  end
+end)
 
 -- Content parent
 local content = CreateFrame("Frame", nil, MakersPathFrame)
@@ -453,14 +497,38 @@ local SLOT_LABEL = {
   RangedSlot        = _G.RANGEDSLOT or L["RANGED"],
   AmmoSlot          = _G.AMMOSLOT or L["AMMO"],
 }
+local SKILLLINE_TO_SPELL = {
+  [164] = 2018,  -- Blacksmithing
+  [165] = 2108,  -- Leatherworking
+  [171] = 2259,  -- Alchemy
+  [197] = 3908,  -- Tailoring
+  [202] = 4036,  -- Engineering
+  [333] = 7411,  -- Enchanting
+  [755] = 25229, -- Jewelcrafting
+  -- gather/secondary
+  [186] = 2575,  -- Mining
+  [182] = 2366,  -- Herbalism
+  [393] = 8613,  -- Skinning
+  [185] = 2550,  -- Cooking
+  [356] = 7620,  -- Fishing
+  [129] = 3273,  -- First Aid
+}
+local SPELL_TO_SKILLLINE = {}
+for k,v in pairs(SKILLLINE_TO_SPELL) do SPELL_TO_SKILLLINE[v] = k end
 
+local function ResolveSkillLineId(id)
+  id = tonumber(id or 0) or 0
+  if SKILLLINE_TO_SPELL[id] then return id end
+  if SPELL_TO_SKILLLINE[id] then return SPELL_TO_SKILLLINE[id] end
+  return 0
+end
 local function ProfShort(id)
   if id == 164 then return L["BS"]     or "BS"
   elseif id == 165 then return L["LW"] or "LW"
   elseif id == 197 then return L["Tailor"] or "Tailor"
   elseif id == 202 then return L["Eng"]    or "Eng"
   elseif id == 333 then return L["Ench"]   or "Ench"
-  elseif id == 755 then return L["JC"] or "Jewel"
+  elseif id == 755 then return L["JC"] or "JC"
   else return tostring(id or "?")
   end
 end
@@ -489,7 +557,72 @@ local function GetActiveEntryForRow(row, data)
   return entry
 end
 
+local function InitAltDrop(row)
+  if not row or not row.altDrop or row._altDropInited then return end
+  row._altDropInited = true
+  row.altDrop.__row = row
+
+  UIDropDownMenu_Initialize(row.altDrop, function(self, level)
+    if level ~= 1 then return end
+    local r = self.__row
+    if not r then return end
+
+    local best = r.dataBest
+    local alts = r.dataAlts
+
+    -- Best option
+    do
+      local info = UIDropDownMenu_CreateInfo()
+      info.text = L["ALT_USE_BEST"]
+      info.notCheckable = false
+      info.checked = (r.currentEntry == nil or r.currentEntry == best)
+      info.func = function()
+        r.currentEntry = nil
+        SafeRefresh(0.05)
+      end
+      UIDropDownMenu_AddButton(info, level)
+    end
+
+    -- Title
+    do
+      local info = UIDropDownMenu_CreateInfo()
+      info.isTitle = true
+      info.notCheckable = true
+      info.text = L["ALT_SUGGESTIONS_HEADER"]
+      UIDropDownMenu_AddButton(info, level)
+    end
+
+    if alts then
+      for _, e in ipairs(alts) do
+        if e and e.itemID then
+          local name, _, _, _, _, _, _, _, _, ic = GetItemInfo(e.itemID)
+          local opt = UIDropDownMenu_CreateInfo()
+          opt.text = name or L["ITEM_ID_FMT"]:format(e.itemID)
+          opt.icon = ic
+          opt.notCheckable = false
+          opt.checked = (r.currentEntry == e)
+          opt.func = function()
+            r.currentEntry = e
+            SafeRefresh(0.05)
+          end
+          UIDropDownMenu_AddButton(opt, level)
+        end
+      end
+    end
+  end)
+end
+
 RefreshList = function()
+  MakersPath._rl = MakersPath._rl or { n = 0, t = 0 }
+  local now = GetTime()
+  if now - MakersPath._rl.t > 1 then
+    MakersPath._rl.t = now
+    MakersPath._rl.n = 0
+  end
+  MakersPath._rl.n = MakersPath._rl.n + 1
+  if MakersPath._rl.n == 10 then
+    print("|cff66ccff[MP]|r RefreshList spam: 10 calls in ~1s")
+  end
   local finder = GF()
   if not (finder and finder.BuildSummary) then
     for i=1,ROWS do rows[i]:Hide() end
@@ -502,8 +635,7 @@ RefreshList = function()
   local summary
 
   if not activeKey or activeKey == thisKey then
-    if finder.BeginSession then finder:BeginSession() end
-    summary = finder:BuildSummary() or {}
+    summary = finder:BuildSummaryCached() or {}
   else
     local cached = GetCachedSummaryForKey(activeKey)
     summary = SummaryRowsFromCached(cached)
@@ -511,10 +643,12 @@ RefreshList = function()
 
   local total  = #summary
   local offset = FauxScrollFrame_GetOffset(scroll)
+  local sawUnresolved = false
 
   for i=1,ROWS do
     local idx = i + offset
     local row = rows[i]
+    if not row._altDropInited then InitAltDrop(row) end
 
     if idx <= total then
       local data = summary[idx]
@@ -537,8 +671,19 @@ RefreshList = function()
         row.dataAlts     = alts
 
         local iid = entry and entry.itemID
-        local link = iid and select(2, GetItemInfo(iid)) or nil
-        local shown = link or (entry.name or L["ITEM_ID_FMT"]:format(iid or 0))
+        local name, link, _, _, reqLevel = iid and GetItemInfo(iid) or nil
+        local fallbackName = entry.name or L["ITEM_ID_FMT"]:format(iid or 0)
+        local shown = link or fallbackName
+        if not link and iid and ITEM_QUALITY_COLORS then
+          local q = select(3, GetItemInfo(iid))
+          local c = q and ITEM_QUALITY_COLORS[q]
+          if c then
+            local r = math.floor((c.r or 1) * 255 + 0.5)
+            local g = math.floor((c.g or 1) * 255 + 0.5)
+            local b = math.floor((c.b or 1) * 255 + 0.5)
+            shown = string.format("|cff%02x%02x%02x%s|r", r, g, b, fallbackName)
+          end
+        end
         row.itemText:SetText(shown)
 
         local icon = iid and GetItemIcon(iid) or "Interface\\ICONS\\INV_Misc_QuestionMark"
@@ -547,18 +692,12 @@ RefreshList = function()
 
         row.itemBtn.itemID = iid
 
-        local function ResolveRequiredLevel(iid2, fallback)
-          if not iid2 then return fallback or 0 end
-          local _, _, _, _, reqLevel = GetItemInfo(iid2)
-          if type(reqLevel)=="number" then return reqLevel end
-          return fallback or 0
-        end
-
-        local prof   = ProfShort(entry.__profId or entry.reqSkill)
+        local profId = entry.__profSkillLine or entry.__profId or entry.reqSkill or entry.profId
+        local prof   = ProfShort(profId)
         local need   = tonumber(entry.__needRank or entry.reqSkillLevel or 0) or 0
         local have   = tonumber(entry.__haveRank or 0) or 0
         local delta  = math.max(0, need - have)
-        local reqL   = ResolveRequiredLevel(iid, tonumber(entry.reqLevel or 0) or 0)
+        local reqL   = (type(reqLevel)=="number" and reqLevel) or (tonumber(entry.reqLevel) or 0) or 0
 
         local entryScore = entry.score or (entry.__dbg and entry.__dbg.total) or (data.bestScore or 0)
         local diff       = entryScore - (data.eqScore or 0)
@@ -571,61 +710,15 @@ RefreshList = function()
           meta = meta .. ("  |cff00ff00"..L["SIGNED_FLOAT_FMT"].."|r"):format(diff)
         end
         row.srcText:SetText(meta)
+        row.dataBest = best
+        row.dataAlts = alts
 
         if row.altDrop then
           if alts and #alts > 0 then
             row.altDrop:Show()
-
-            UIDropDownMenu_Initialize(row.altDrop, function(self, level)
-              if level ~= 1 then return end
-              -- Best Suggestion Header
-              do
-                local info = UIDropDownMenu_CreateInfo()
-                info.text = L["ALT_USE_BEST"]
-                info.notCheckable = false
-                info.checked = (row.currentEntry == nil or row.currentEntry == best)
-                info.func = function()
-                  row.currentEntry = nil
-                  RefreshList()
-                end
-                UIDropDownMenu_AddButton(info, level)
-              end
-              -- Alternate Suggestions Header
-              do
-                local info = UIDropDownMenu_CreateInfo()
-                info.isTitle = true
-                info.notCheckable = true
-                info.text = L["ALT_SUGGESTIONS_HEADER"]
-                UIDropDownMenu_AddButton(info, level)
-              end
-
-              -- Allternate Suggestions
-              for _, e in ipairs(alts) do
-                if e and e.itemID then
-                  local name, _, _, _, _, _, _, _, _, ic = GetItemInfo(e.itemID)
-                  local opt = UIDropDownMenu_CreateInfo()
-                  opt.text = name or L["ITEM_ID_FMT"]:format(e.itemID)
-                  opt.icon = ic
-                  opt.notCheckable = false
-                  opt.checked = (row.currentEntry == e)
-                  opt.func = function()
-                    row.currentEntry = e
-                    RefreshList()
-                  end
-                  UIDropDownMenu_AddButton(opt, level)
-                end
-              end
-            end)
           else
             row.altDrop:Hide()
           end
-        end
-
-        if iid and not link and C_Item and C_Item.RequestLoadItemDataByID then
-          C_Item.RequestLoadItemDataByID(iid)
-          C_Timer.After(0.1, function()
-            if MakersPathFrame:IsShown() then RefreshList() end
-          end)
         end
       else
         row.itemText:SetText("|cff888888"..L["NO_CRAFT_UPGRADE"].."|r")
@@ -636,6 +729,17 @@ RefreshList = function()
       end
     else
       row:Hide()
+    end
+  end
+  if sawUnresolved and C_Timer then
+    if not MakersPath._unresolvedRefreshQueued then
+      MakersPath._unresolvedRefreshQueued = true
+      C_Timer.After(0.25, function()
+        MakersPath._unresolvedRefreshQueued = false
+        if MakersPathFrame and MakersPathFrame:IsShown() then
+          ItemDrivenRefresh()
+        end
+      end)
     end
   end
 
