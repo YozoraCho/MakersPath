@@ -13,11 +13,10 @@
   <Script file="Core/Client.lua" />
   <Script file="Core/Constants.lua" />
 
-  <!-- Data (Classic) -->
-  <Script file="Data/Recipes_Classic.lua" />
-  <Script file="Data/Static.lua" />
-  <Script file="Data/Weights.lua" />
-  <Script file="Data/Jewelry.lua" />
+  <!-- Data (TBC) -->
+  <Script file="Data/TBC/Recipes_TBC.lua" />
+  <Script file="Data/TBC/Static.lua" />
+  <Script file="Data/TBC/Weights.lua" />
 
   <!-- Systems -->
   <Script file="Core/RecipesAdapter.lua" />
