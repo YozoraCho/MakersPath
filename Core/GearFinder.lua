@@ -468,12 +468,12 @@ local function IsProfessionRestrictedItem(entry)
 
   local Const = MakersPath.Const or {}
   local profSpellIDs = {
-    (Const.SKILLLINE_TO_SPELL and Const.SKILLLINE_TO_SPELL[202]) or 4036, -- Engineering
-    (Const.SKILLLINE_TO_SPELL and Const.SKILLLINE_TO_SPELL[171]) or 2259, -- Alchemy
-    (Const.SKILLLINE_TO_SPELL and Const.SKILLLINE_TO_SPELL[333]) or 7411, -- Enchanting
-    (Const.SKILLLINE_TO_SPELL and Const.SKILLLINE_TO_SPELL[164]) or 2018, -- Blacksmithing
-    (Const.SKILLLINE_TO_SPELL and Const.SKILLLINE_TO_SPELL[197]) or 3908, -- Tailoring
-    (Const.SKILLLINE_TO_SPELL and Const.SKILLLINE_TO_SPELL[165]) or 2108, -- Leatherworking
+    (Const.SKILLLINE_TO_SPELL and Const.SKILLLINE_TO_SPELL[202]) or 4036,  -- Engineering
+    (Const.SKILLLINE_TO_SPELL and Const.SKILLLINE_TO_SPELL[171]) or 2259,  -- Alchemy
+    (Const.SKILLLINE_TO_SPELL and Const.SKILLLINE_TO_SPELL[333]) or 7411,  -- Enchanting
+    (Const.SKILLLINE_TO_SPELL and Const.SKILLLINE_TO_SPELL[164]) or 2018,  -- Blacksmithing
+    (Const.SKILLLINE_TO_SPELL and Const.SKILLLINE_TO_SPELL[197]) or 3908,  -- Tailoring
+    (Const.SKILLLINE_TO_SPELL and Const.SKILLLINE_TO_SPELL[165]) or 2108,  -- Leatherworking
     (Const.SKILLLINE_TO_SPELL and Const.SKILLLINE_TO_SPELL[755]) or 25229, -- Jewelcrafting
   }
 
@@ -482,19 +482,24 @@ local function IsProfessionRestrictedItem(entry)
     if C_Item and C_Item.RequestLoadItemDataByID then
       C_Item.RequestLoadItemDataByID(entry.itemID)
     end
-    return false
+    return true
   end
 
-  local profNames = {}
+  local profNameToSpell = {}
   for _, spellID in ipairs(profSpellIDs) do
     local name = GetSpellInfo(spellID)
     if name and name ~= "" then
-      profNames[#profNames + 1] = name
+      profNameToSpell[name] = spellID
     end
   end
 
-  if #profNames == 0 then
+  if not next(profNameToSpell) then
     return false
+  end
+
+  local currentProfMap = {}
+  if MakersPath and MakersPath.Util and MakersPath.Util.CurrentProfMap then
+    currentProfMap = MakersPath.Util.CurrentProfMap() or {}
   end
 
   MPGFTT:ClearLines()
@@ -503,10 +508,14 @@ local function IsProfessionRestrictedItem(entry)
   for i = 2, MPGFTT:NumLines() do
     local leftFS = _G["MPGFTTTextLeft"..i]
     local txt = leftFS and leftFS:GetText() or ""
-    if txt ~= "" and txt:find("%(", 1, true) then
-      for _, profName in ipairs(profNames) do
+
+    if txt ~= "" and txt:find("Requires", 1, true) then
+      for profName, spellID in pairs(profNameToSpell) do
         if txt:find(profName, 1, true) then
-          return true
+          local requiredRank = tonumber(txt:match("%((%d+)%)")) or 0
+          local haveRank = tonumber(currentProfMap[spellID]) or 0
+
+          return haveRank < requiredRank
         end
       end
     end
