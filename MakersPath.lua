@@ -2,7 +2,7 @@ local ADDON_NAME, MakersPath = ...
 
 MakersPath = MakersPath or {}
 MakersPath.name = ADDON_NAME
-MakersPath.version = "1.4.3"
+MakersPath.version = "1.4.4"
 _G.MakersPath = MakersPath
 local debugprofilestop = debugprofilestop
 MakersPath.Config = MakersPath.Config or {}
@@ -11,7 +11,8 @@ MakersPath.Util = MakersPath.Util or {}
 MakersPath.Spec = MakersPath.Spec or {}
 
 -- ===================== Localization shim =====================
-local L = LibStub("AceLocale-3.0"):GetLocale("MakersPath", true) or {}
+local AceLocale = LibStub and LibStub("AceLocale-3.0", true)
+local L = AceLocale and AceLocale:GetLocale("MakersPath", true) or {}
 local function Ls(key) return (L and L[key]) or key end
 
 MakersPath.L = L
@@ -232,7 +233,7 @@ panel.close:SetPoint("TOPRIGHT", panel, "TOPRIGHT", -6, -6)
 -- Status line
 panel.status = panel:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
 panel.status:SetPoint("TOPLEFT", panel, "TOPLEFT", 16, -42)
-panel.status:SetText(L["INDEXED_CRAFTABLES_FMT"]:format(0))
+panel.status:SetText((L["INDEXED_CRAFTABLES_FMT"] or "Indexed Craftables: %d"):format(0))
 
 -- ===================== Accessors =====================
 local function GF()
@@ -243,7 +244,7 @@ local function RefreshStatus()
   if not panel.status then return end
   local gf = GF()
   local count = gf and gf.GetIndexedCount and gf:GetIndexedCount() or 0
-  panel.status:SetText(L["INDEXED_CRAFTABLES_FMT"]:format(count))
+  panel.status:SetText((L["INDEXED_CRAFTABLES_FMT"] or "Indexed Craftables: %d"):format(count))
 end
 
 panel:HookScript("OnShow", RefreshStatus)
@@ -930,14 +931,22 @@ frame:SetScript("OnEvent", function(_, event, arg1)
   elseif event == "PLAYER_LOGIN" or event == "PLAYER_ENTERING_WORLD" then
     if GF() and GF().BeginSession then GF():BeginSession() end
     if GF() and GF().MarkDirty then GF():MarkDirty() end
+    if GF() and GF().InvalidateKnownSpellNames then GF():InvalidateKnownSpellNames() end
     if MakersPath.ScanProfessions then MakersPath.ScanProfessions() end
     RefreshStatus()
     UpdateEmptyHint()
 
-  elseif event == "PLAYER_EQUIPMENT_CHANGED"
-      or event == "PLAYER_LEVEL_UP"
-      or event == "SKILL_LINES_CHANGED"
+  elseif event == "SKILL_LINES_CHANGED"
       or event == "TRADE_SKILL_SHOW" then
+    if GF() and GF().BeginSession then GF():BeginSession() end
+    if GF() and GF().MarkDirty then GF():MarkDirty() end
+    if GF() and GF().InvalidateKnownSpellNames then GF():InvalidateKnownSpellNames() end
+    RefreshStatus()
+    UpdateEmptyHint()
+    RebuildCurrentSummaryView()
+
+  elseif event == "PLAYER_EQUIPMENT_CHANGED"
+      or event == "PLAYER_LEVEL_UP" then
     if GF() and GF().BeginSession then GF():BeginSession() end
     if GF() and GF().MarkDirty then GF():MarkDirty() end
     RefreshStatus()

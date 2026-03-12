@@ -463,6 +463,92 @@ local function IsCraftedLike(entry)
   return entry and (entry.isCrafted == true or entry.source == "crafted")
 end
 
+local _knownSpellNamesCache = nil
+local function GetKnownSpellNames()
+  if _knownSpellNamesCache then
+    return _knownSpellNamesCache
+  end
+  local known = {}
+  local i = 1
+  while true do
+    local skillType, spellID = GetSpellBookItemInfo(i, BOOKTYPE_SPELL)
+    if not skillType then break end
+    if skillType == "SPELL" and spellID then
+      local name = GetSpellInfo(spellID)
+      if name and name ~= "" then
+        known[name] = true
+      end
+    end
+    i = i + 1
+  end
+  _knownSpellNamesCache = known
+  return known
+end
+
+local function InvalidateKnownSpellNames()
+  _knownSpellNamesCache = nil
+end
+
+local function ResolveProfessionSpellFromEntry(entry)
+  if not entry then return nil end
+
+  local Const = MakersPath.Const or {}
+  local raw = entry.__profId or entry.profId or entry.reqSkill
+  if not raw then return nil end
+
+  if Const.SKILLLINE_TO_SPELL and Const.SKILLLINE_TO_SPELL[raw] then
+    return Const.SKILLLINE_TO_SPELL[raw]
+  end
+
+  return raw
+end
+
+local function IsBindOnPickupItem(entry)
+  if not entry or not entry.itemID then return false end
+
+  local link = select(2, GetItemInfo(entry.itemID))
+  if not link then
+    if C_Item and C_Item.RequestLoadItemDataByID then
+      C_Item.RequestLoadItemDataByID(entry.itemID)
+    end
+    return true
+  end
+
+  MPGFTT:ClearLines()
+  MPGFTT:SetHyperlink(link)
+
+  for i = 2, MPGFTT:NumLines() do
+    local leftFS = _G["MPGFTTTextLeft"..i]
+    local txt = leftFS and leftFS:GetText() or ""
+    if txt ~= "" then
+      if txt == ITEM_BIND_ON_PICKUP or txt:find("Binds when picked up", 1, true) then
+        return true
+      end
+    end
+  end
+
+  return false
+end
+
+local function IsProfessionAcquisitionRestricted(entry)
+  if not entry or not entry.itemID then return false end
+  if not IsCraftedLike(entry) then return false end
+  if not IsBindOnPickupItem(entry) then return false end
+
+  local profSpell = ResolveProfessionSpellFromEntry(entry)
+  if not profSpell then
+    return false
+  end
+
+  local currentProfMap = {}
+  if MakersPath and MakersPath.Util and MakersPath.Util.CurrentProfMap then
+    currentProfMap = MakersPath.Util.CurrentProfMap() or {}
+  end
+
+  local haveRank = tonumber(currentProfMap[profSpell]) or 0
+  return haveRank <= 0
+end
+
 local function IsProfessionRestrictedItem(entry)
   if not entry or not entry.itemID then return false end
 
@@ -501,6 +587,7 @@ local function IsProfessionRestrictedItem(entry)
   if MakersPath and MakersPath.Util and MakersPath.Util.CurrentProfMap then
     currentProfMap = MakersPath.Util.CurrentProfMap() or {}
   end
+  local knownSpellNames = GetKnownSpellNames()
 
   MPGFTT:ClearLines()
   MPGFTT:SetHyperlink(link)
@@ -512,10 +599,24 @@ local function IsProfessionRestrictedItem(entry)
     if txt ~= "" and txt:find("Requires", 1, true) then
       for profName, spellID in pairs(profNameToSpell) do
         if txt:find(profName, 1, true) then
-          local requiredRank = tonumber(txt:match("%((%d+)%)")) or 0
+          local parenText = txt:match("%(([^)]+)%)")
           local haveRank = tonumber(currentProfMap[spellID]) or 0
+          local requiredRank = tonumber(parenText or "")
+          if requiredRank then
+            return haveRank < requiredRank
+          end
+          if not parenText or parenText == "" then
+            return haveRank <= 0
+          end
+          local full1 = parenText
+          local full2 = parenText .. " " .. profName
+          local full3 = profName .. " (" .. parenText .. ")"
 
-          return haveRank < requiredRank
+          if knownSpellNames[full1] or knownSpellNames[full2] or knownSpellNames[full3] then
+            return false
+          end
+
+          return true
         end
       end
     end
@@ -1943,6 +2044,7 @@ function GearFinder:GetBestCraftable(slotName, excludeIDs)
     if not IsCraftedLike(entry) then return nil else diag.craftedlike=diag.craftedlike+1 end
     if LooksBogus(entry) then return nil else diag.notbogus=diag.notbogus+1 end
     if IsProfessionRestrictedItem(entry) then return nil end
+    if IsProfessionAcquisitionRestricted(entry) then return nil end
     if not WeaponSkillAllows(entry) then return nil else diag.prof=diag.prof+1 end
     if not CanUseAsOffhand(entry, slotName) then return nil end
     if equippedIDs and equippedIDs[entry.itemID] then diag.equippedskip=diag.equippedskip+1; return nil end
