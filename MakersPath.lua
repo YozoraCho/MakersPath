@@ -2,7 +2,7 @@ local ADDON_NAME, MakersPath = ...
 
 MakersPath = MakersPath or {}
 MakersPath.name = ADDON_NAME
-MakersPath.version = "1.4.4"
+MakersPath.version = "1.4.6"
 _G.MakersPath = MakersPath
 local debugprofilestop = debugprofilestop
 MakersPath.Config = MakersPath.Config or {}
@@ -522,21 +522,23 @@ local function CreateSlotWidget(parent, side, slotName, index)
   wrap.icon:SetPoint("BOTTOMRIGHT", -3, 3)
   wrap.icon:SetTexCoord(0.08, 0.92, 0.08, 0.92)
 
-  if side == "LEFT" then
-    wrap.iconBtn:SetPoint("LEFT", wrap, "LEFT", 0, 0)
-  else
-    wrap.iconBtn:SetPoint("LEFT", wrap, "LEFT", 0, 0)
-  end
+  wrap.iconBtn:SetPoint("LEFT", wrap, "LEFT", 0, 0)
 
   wrap.name = wrap:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
   wrap.name:SetPoint("TOPLEFT", wrap.iconBtn, "TOPRIGHT", 8, -2)
-  wrap.name:SetWidth(190)
+  wrap.name:SetWidth(145)
   wrap.name:SetJustifyH("LEFT")
 
   wrap.meta = wrap:CreateFontString(nil, "OVERLAY", "GameFontDisableSmall")
   wrap.meta:SetPoint("TOPLEFT", wrap.name, "BOTTOMLEFT", 0, -1)
-  wrap.meta:SetWidth(190)
+  wrap.meta:SetWidth(145)
   wrap.meta:SetJustifyH("LEFT")
+
+  wrap.altBtn = CreateFrame("Button", nil, wrap, "UIPanelButtonTemplate")
+  wrap.altBtn:SetSize(42, 18)
+  wrap.altBtn:SetPoint("TOPRIGHT", wrap, "TOPRIGHT", 0, -2)
+  wrap.altBtn:SetText("Alts")
+  wrap.altBtn:Hide()
 
   wrap.slotLabel = parent:CreateFontString(nil, "OVERLAY", "GameFontDisableSmall")
   wrap.slotLabel:SetWidth(72)
@@ -605,6 +607,35 @@ local function ResolveRequiredLevel(iid2, fallback)
   return fallback or 0
 end
 
+local MPAltDropdown = CreateFrame("Frame", "MakersPathAltDropdown", UIParent, "UIDropDownMenuTemplate")
+MPAltDropdown.displayMode = "MENU"
+
+local function ShowAltMenu(anchor, alts)
+  if not alts or #alts == 0 then return end
+
+  UIDropDownMenu_Initialize(MPAltDropdown, function(self, level)
+    if level ~= 1 then return end
+
+    for _, alt in ipairs(alts) do
+      if alt and alt.itemID then
+        local info = UIDropDownMenu_CreateInfo()
+        local link = select(2, GetItemInfo(alt.itemID))
+        info.text = link or ("item:" .. tostring(alt.itemID))
+        info.notCheckable = true
+        info.func = function()
+          local itemLink = select(2, GetItemInfo(alt.itemID))
+          if itemLink and IsModifiedClick("CHATLINK") then
+            ChatEdit_InsertLink(itemLink)
+          end
+        end
+        UIDropDownMenu_AddButton(info, level)
+      end
+    end
+  end, "MENU")
+
+  ToggleDropDownMenu(1, nil, MPAltDropdown, anchor, 0, 0)
+end
+
 local function RenderSlot(slotName, data)
   local w = slotWidgets[slotName]
   if not w then return end
@@ -615,6 +646,8 @@ local function RenderSlot(slotName, data)
     w.iconBtn.itemID = nil
     w.name:SetText("|cffbbbbbb" .. (L["NO_CRAFT_UPGRADE"] or "No upgrade found") .. "|r")
     w.meta:SetText("")
+    w.altBtn:Hide()
+    w.altBtn:SetScript("OnClick", nil)
     return
   end
 
@@ -642,6 +675,16 @@ local function RenderSlot(slotName, data)
   end
 
   w.meta:SetText(meta)
+  local alts = data and data.alts or nil
+  if alts and #alts > 0 then
+    w.altBtn:Show()
+    w.altBtn:SetScript("OnClick", function(self)
+      ShowAltMenu(self, alts)
+    end)
+  else
+    w.altBtn:Hide()
+    w.altBtn:SetScript("OnClick", nil)
+  end
 
   if iid and not link and C_Item and C_Item.RequestLoadItemDataByID then
     C_Item.RequestLoadItemDataByID(iid)

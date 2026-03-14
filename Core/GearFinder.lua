@@ -267,6 +267,28 @@ local GF_DAMAGE_PATTERNS
 local GF_SPEED_PATTERNS
 local GF_ARMOR_PATTERNS
 local GF_DPS_PATTERNS
+local GF_SPELL_POWER_PATTERNS
+local GF_HEALING_PATTERNS
+local GF_SCHOOL_DAMAGE_PATTERNS
+local GF_SCHOOL_NAME_FALLBACKS = nil
+
+local function GF_GetSchoolNameFallbacks()
+  if GF_SCHOOL_NAME_FALLBACKS then
+    return GF_SCHOOL_NAME_FALLBACKS
+  end
+
+  local t = {
+    SPELL_DMG_HOLY   = _G.SPELL_SCHOOL1_CAP or "Holy",
+    SPELL_DMG_FIRE   = _G.SPELL_SCHOOL2_CAP or "Fire",
+    SPELL_DMG_NATURE = _G.SPELL_SCHOOL3_CAP or "Nature",
+    SPELL_DMG_FROST  = _G.SPELL_SCHOOL4_CAP or "Frost",
+    SPELL_DMG_SHADOW = _G.SPELL_SCHOOL5_CAP or "Shadow",
+    SPELL_DMG_ARCANE = _G.SPELL_SCHOOL6_CAP or "Arcane",
+  }
+
+  GF_SCHOOL_NAME_FALLBACKS = t
+  return t
+end
 
 local function GF_EscapePattern(text)
   return (text or ""):gsub("([%^%$%(%)%.%[%]%*%+%-%?])","%%%1")
@@ -377,6 +399,15 @@ local function GF_BuildTooltipPatterns()
   addTooltipNumberPattern(GF_SCHOOL_DAMAGE_PATTERNS, _G.ITEM_MOD_SPELL_DAMAGE_DONE_ARCANE, "SPELL_DMG_ARCANE")
 end
 
+local function GF_ExtractLastNumber(txt)
+  if not txt or txt == "" then return nil end
+  local last = nil
+  for num in txt:gmatch("(%d+)") do
+    last = tonumber(num)
+  end
+  return last
+end
+
 local function ParseTooltipStatsToTable(itemID)
   GF_BuildTooltipPatterns()
 
@@ -407,12 +438,33 @@ local function ParseTooltipStatsToTable(itemID)
       end
     end
     if handledStat then return end
-    for _, row in ipairs(GF_SPELL_POWER_PATTERNS or {}) do
+    do
+      local looksLikeSpellLine =
+        txt:find("spell", 1, true) or
+        txt:find("spells", 1, true) or
+        txt:find("effects", 1, true)
+
+      if looksLikeSpellLine then
+        local schools = GF_GetSchoolNameFallbacks()
+        for field, schoolName in pairs(schools) do
+          if schoolName and schoolName ~= "" and txt:find(schoolName, 1, true) then
+            local val = GF_ExtractLastNumber(txt)
+            if val and val > 0 then
+              t[field] = (t[field] or 0) + val
+              t.__HAS_SCHOOL_DAMAGE = true
+              return
+            end
+          end
+        end
+      end
+    end
+    for _, row in ipairs(GF_SCHOOL_DAMAGE_PATTERNS or {}) do
       local val = txt:match(row.pattern)
       if val then
         val = tonumber(val) or 0
         if val > 0 then
           t[row.field] = (t[row.field] or 0) + val
+          t.__HAS_SCHOOL_DAMAGE = true
           return
         end
       end
@@ -427,7 +479,7 @@ local function ParseTooltipStatsToTable(itemID)
         end
       end
     end
-    for _, row in ipairs(GF_SCHOOL_DAMAGE_PATTERNS or {}) do
+    for _, row in ipairs(GF_SPELL_POWER_PATTERNS or {}) do
       local val = txt:match(row.pattern)
       if val then
         val = tonumber(val) or 0
@@ -508,6 +560,14 @@ local function ParseTooltipStatsToTable(itemID)
     end
   end
   t.__TMP_MIN, t.__TMP_MAX, t.__TMP_SPD = nil, nil, nil
+  if t.__HAS_SCHOOL_DAMAGE then
+    t.ITEM_MOD_SPELL_DAMAGE_DONE = nil
+    t.ITEM_MOD_SPELL_DAMAGE_DONE_SHORT = nil
+    t.ITEM_MOD_SPELL_POWER = nil
+    t.ITEM_MOD_SPELL_POWER_SHORT = nil
+  end
+
+  t.__HAS_SCHOOL_DAMAGE = nil
 
   if t.DAMAGE_PER_SECOND and t.DAMAGE_PER_SECOND > 0 then
     t.ITEM_MOD_DAMAGE_PER_SECOND_SHORT = t.DAMAGE_PER_SECOND
@@ -1141,6 +1201,13 @@ local function GetItemStatsTable(iid)
       if s[k] == nil or s[k] == 0 then
         s[k] = v
       end
+    end
+    if tip.SPELL_DMG_HOLY or tip.SPELL_DMG_FIRE or tip.SPELL_DMG_NATURE
+      or tip.SPELL_DMG_FROST or tip.SPELL_DMG_SHADOW or tip.SPELL_DMG_ARCANE then
+      s.ITEM_MOD_SPELL_DAMAGE_DONE = nil
+      s.ITEM_MOD_SPELL_DAMAGE_DONE_SHORT = nil
+      s.ITEM_MOD_SPELL_POWER = nil
+      s.ITEM_MOD_SPELL_POWER_SHORT = nil
     end
   end
 
