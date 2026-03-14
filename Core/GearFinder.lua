@@ -283,6 +283,14 @@ local function GF_MakeIntPairPattern(tmpl)
   return "^" .. tmpl .. "$"
 end
 
+local function GF_MakeIntPattern(fmtString)
+  if not fmtString or fmtString == "" then return nil end
+  local pat = GF_EscapePattern(fmtString)
+  pat = pat:gsub("%%%%d", "(%%d+)")
+  if pat == fmtString then return nil end
+  return "^" .. pat .. "$"
+end
+
 local function GF_MakeNumberPattern(tmpl)
   if not tmpl or tmpl == "" then return nil end
   if tmpl:find("%%1%$") or tmpl:find("%%2%$") or tmpl:find("%%3%$") then
@@ -303,6 +311,9 @@ local function GF_BuildTooltipPatterns()
   GF_SPEED_PATTERNS  = {}
   GF_ARMOR_PATTERNS  = {}
   GF_DPS_PATTERNS    = {}
+  GF_SPELL_POWER_PATTERNS = {}
+  GF_HEALING_PATTERNS = {}
+  GF_SCHOOL_DAMAGE_PATTERNS = {}
 
   local function addStat(shortGlobal, fieldKey)
     local label = _G[shortGlobal]
@@ -345,6 +356,25 @@ local function GF_BuildTooltipPatterns()
   if pDps2 then table.insert(GF_DPS_PATTERNS, pDps2) end
   table.insert(GF_DPS_PATTERNS, "^([%d%.%,]+)%s+[Dd][Pp][Ss]$")
   table.insert(GF_DPS_PATTERNS, "%(([%d%.%,]+)%s+[Dd]amage%s+per%s+second%)")
+
+  local function addTooltipNumberPattern(dst, text, field)
+    if not text or text == "" then return end
+    local pat = GF_MakeIntPattern(text)
+    if pat then
+      dst[#dst + 1] = { pattern = pat, field = field }
+    end
+  end
+
+  addTooltipNumberPattern(GF_SPELL_POWER_PATTERNS, _G.ITEM_MOD_SPELL_POWER_SHORT, "ITEM_MOD_SPELL_POWER")
+  addTooltipNumberPattern(GF_SPELL_POWER_PATTERNS, _G.ITEM_MOD_SPELL_POWER, "ITEM_MOD_SPELL_POWER")
+  addTooltipNumberPattern(GF_HEALING_PATTERNS, _G.ITEM_MOD_SPELL_HEALING_DONE_SHORT, "ITEM_MOD_SPELL_HEALING_DONE")
+  addTooltipNumberPattern(GF_HEALING_PATTERNS, _G.ITEM_MOD_SPELL_HEALING_DONE, "ITEM_MOD_SPELL_HEALING_DONE")
+  addTooltipNumberPattern(GF_SCHOOL_DAMAGE_PATTERNS, _G.ITEM_MOD_SPELL_DAMAGE_DONE_HOLY,   "SPELL_DMG_HOLY")
+  addTooltipNumberPattern(GF_SCHOOL_DAMAGE_PATTERNS, _G.ITEM_MOD_SPELL_DAMAGE_DONE_FIRE,   "SPELL_DMG_FIRE")
+  addTooltipNumberPattern(GF_SCHOOL_DAMAGE_PATTERNS, _G.ITEM_MOD_SPELL_DAMAGE_DONE_NATURE, "SPELL_DMG_NATURE")
+  addTooltipNumberPattern(GF_SCHOOL_DAMAGE_PATTERNS, _G.ITEM_MOD_SPELL_DAMAGE_DONE_FROST,  "SPELL_DMG_FROST")
+  addTooltipNumberPattern(GF_SCHOOL_DAMAGE_PATTERNS, _G.ITEM_MOD_SPELL_DAMAGE_DONE_SHADOW, "SPELL_DMG_SHADOW")
+  addTooltipNumberPattern(GF_SCHOOL_DAMAGE_PATTERNS, _G.ITEM_MOD_SPELL_DAMAGE_DONE_ARCANE, "SPELL_DMG_ARCANE")
 end
 
 local function ParseTooltipStatsToTable(itemID)
@@ -377,6 +407,36 @@ local function ParseTooltipStatsToTable(itemID)
       end
     end
     if handledStat then return end
+    for _, row in ipairs(GF_SPELL_POWER_PATTERNS or {}) do
+      local val = txt:match(row.pattern)
+      if val then
+        val = tonumber(val) or 0
+        if val > 0 then
+          t[row.field] = (t[row.field] or 0) + val
+          return
+        end
+      end
+    end
+    for _, row in ipairs(GF_HEALING_PATTERNS or {}) do
+      local val = txt:match(row.pattern)
+      if val then
+        val = tonumber(val) or 0
+        if val > 0 then
+          t[row.field] = (t[row.field] or 0) + val
+          return
+        end
+      end
+    end
+    for _, row in ipairs(GF_SCHOOL_DAMAGE_PATTERNS or {}) do
+      local val = txt:match(row.pattern)
+      if val then
+        val = tonumber(val) or 0
+        if val > 0 then
+          t[row.field] = (t[row.field] or 0) + val
+          return
+        end
+      end
+    end
     for _, pat in ipairs(GF_DAMAGE_PATTERNS) do
       local dmin, dmax = txt:match(pat)
       if dmin and dmax then
@@ -796,8 +856,16 @@ function NormalizeToMaker(stats)
   add("MANA_REGENERATION",   stats.ITEM_MOD_MANA_REGENERATION   or stats.MP5)
 
   -- Spell power & healing
-  add("SPELL_DAMAGE_DONE",  stat2("SPELL_POWER"))
-  add("SPELL_HEALING_DONE", stats.ITEM_MOD_SPELL_HEALING_DONE or stats.HEALING_POWER)
+  add("SPELL_DAMAGE_DONE", pickVals(
+    stat2("SPELL_POWER"),
+    stats.ITEM_MOD_SPELL_DAMAGE_DONE,
+    stats.ITEM_MOD_SPELL_DAMAGE_DONE_SHORT
+  ))
+  add("SPELL_HEALING_DONE", pickVals(
+    stats.ITEM_MOD_SPELL_HEALING_DONE,
+    stats.ITEM_MOD_SPELL_HEALING_DONE_SHORT,
+    stats.HEALING_POWER
+  ))
   add("SPELL_PENETRATION",  stats.ITEM_MOD_SPELL_PENETRATION)
 
   -- School-specific spell damage
@@ -1065,9 +1133,19 @@ local function GetItemStatsTable(iid)
     return nil
   end
 
-  local s = GetItemStats(link)
+  local s = GetItemStats(link) or {}
+  local tip = ParseTooltipStatsToTable(iid)
+
+  if tip then
+    for k, v in pairs(tip) do
+      if s[k] == nil or s[k] == 0 then
+        s[k] = v
+      end
+    end
+  end
+
   if StatsAreEmpty(s) then
-    s = ParseTooltipStatsToTable(iid)
+    s = nil
   end
   StatsCache[iid] = s or false
   return s
