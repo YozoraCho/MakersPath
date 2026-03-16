@@ -1210,6 +1210,16 @@ local function GetItemStatsTable(iid)
       s.ITEM_MOD_SPELL_POWER_SHORT = nil
     end
   end
+  if iid == 9998 or iid == 10001 or iid == 10004 then
+    print("MP stats for", iid)
+    if s then
+      for k, v in pairs(s) do
+        print("  ", k, v)
+      end
+    else
+      print(" nil stats")
+    end
+  end
 
   if StatsAreEmpty(s) then
     s = nil
@@ -1253,6 +1263,12 @@ local function StatRichnessBonus(stats, invType, class)
   if not stats then return 0 end
   local role, band = RolePhase(class)
   local mstats = NormalizeToMaker(stats or {})
+  if iid == 9998 or iid == 10001 or iid == 10004 then
+    print("MP normalized for", iid)
+    for k, v in pairs(mstats) do
+      print(" ", k, v)
+    end
+  end
   local primKeys = {
     "STRENGTH","AGILITY","STAMINA","INTELLECT","SPIRIT",
     "ATTACK_POWER","RANGED_ATTACK_POWER",
@@ -2156,53 +2172,60 @@ function GearFinder:GetBestCraftable(slotName, excludeIDs)
   local cs = CandidatesForSlot(slotName)
   local eqArmorTok = EquippedArmorForSlot(slotName)
   for i = 1, math.min(20, #cs) do
-    if cs[i].itemID then GetItemInfo(cs[i].itemID) end
+    if cs[i].itemID then
+      GetItemInfo(cs[i].itemID)
+    end
   end
 
   if eqPending then
-    if self._equippedScoreCache then self._equippedScoreCache[slotName] = nil end
+    if self._equippedScoreCache then
+      self._equippedScoreCache[slotName] = nil
+    end
     QueueGearFinderRescan(0.15)
     return nil, 0, eqScore or 0, nil
   end
 
-  -- DIAG counters
   local diag = {
     total=0, inv_match=0, craftedlike=0, notbogus=0, prof=0, value=0, cap=0,
     filters_ok=0, pending=0, equippedskip=0, lighterarmor=0,
   }
-  local strictCandidates   = {}
-  local futureCandidates   = {}
 
-  local function consider_entry(entry, wantStrictUpgrade, curBestScore, bucket)
+  local strictCandidates = {}
+  local futureCandidates = {}
+
+  local function consider_entry(entry, wantStrictUpgrade, bucket)
     diag.total = diag.total + 1
     AugmentNeedHave(entry)
 
     if not entry.invType or not InvTypeMatchesSlot(entry.invType, slotName) then
       local equipLoc = select(9, GetItemInfo(entry.itemID))
-      if equipLoc then entry.invType = entry.invType or equipLoc end
+      if equipLoc then
+        entry.invType = entry.invType or equipLoc
+      end
       if not (entry.invType and InvTypeMatchesSlot(entry.invType, slotName)) then
         return nil
       end
     end
     diag.inv_match = diag.inv_match + 1
 
-    if not IsCraftedLike(entry) then return nil else diag.craftedlike=diag.craftedlike+1 end
-    if LooksBogus(entry) then return nil else diag.notbogus=diag.notbogus+1 end
+    if not IsCraftedLike(entry) then return nil else diag.craftedlike = diag.craftedlike + 1 end
+    if LooksBogus(entry) then return nil else diag.notbogus = diag.notbogus + 1 end
     if IsProfessionRestrictedItem(entry) then return nil end
     if IsProfessionAcquisitionRestricted(entry) then return nil end
-    if not WeaponSkillAllows(entry) then return nil else diag.prof=diag.prof+1 end
+    if not WeaponSkillAllows(entry) then return nil else diag.prof = diag.prof + 1 end
     if not CanUseAsOffhand(entry, slotName) then return nil end
-    if equippedIDs and equippedIDs[entry.itemID] then diag.equippedskip=diag.equippedskip+1; return nil end
+    if equippedIDs and equippedIDs[entry.itemID] then diag.equippedskip = diag.equippedskip + 1; return nil end
     if excludeIDs and excludeIDs[entry.itemID] then return nil end
-    if not HasValueForSlot(slotName, entry.itemID) then return nil else diag.value=diag.value+1 end
-    if not withinCap(entry) then return nil else diag.cap=diag.cap+1 end
+    if not HasValueForSlot(slotName, entry.itemID) then return nil else diag.value = diag.value + 1 end
+    if not withinCap(entry) then return nil else diag.cap = diag.cap + 1 end
 
-    if not entry.armor then entry.armor = ArmorTokenForItemID(entry.itemID) end
+    if not entry.armor then
+      entry.armor = ArmorTokenForItemID(entry.itemID)
+    end
 
     local total, pend, br = ScoreItemWithBreakdown(entry.itemID, slotName, entry.armor, entry.invType)
     if pend then
       diag.pending = diag.pending + 1
-
       if not _pendingKick[slotName] then
         _pendingKick[slotName] = true
         C_Timer.After(0.25, function()
@@ -2226,15 +2249,15 @@ function GearFinder:GetBestCraftable(slotName, excludeIDs)
 
     do
       local _, class = UnitClass("player")
-      if class=="MAGE" or class=="PRIEST" or class=="WARLOCK" then
+      if class == "MAGE" or class == "PRIEST" or class == "WARLOCK" then
         local inv = entry.invType or ""
         if IsArmorish(inv) then
           local candStats = GetItemStatsTable(entry.itemID)
           if candStats then
             local lvl = UnitLevel("player") or 1
             local hasPrim = casterHasPrimaries(candStats)
-            local isJewelry = (inv=="INVTYPE_NECK" or inv=="INVTYPE_FINGER" or inv=="INVTYPE_TRINKET")
-            local isCloak   = (inv=="INVTYPE_CLOAK")
+            local isJewelry = (inv == "INVTYPE_NECK" or inv == "INVTYPE_FINGER" or inv == "INVTYPE_TRINKET")
+            local isCloak = (inv == "INVTYPE_CLOAK")
 
             if isJewelry and not hasPrim then
               return nil
@@ -2245,14 +2268,18 @@ function GearFinder:GetBestCraftable(slotName, excludeIDs)
 
             if lvl >= 12 then
               local candINT = tonumber(candStats.ITEM_MOD_INTELLECT or 0) or 0
-              local eqINT   = EquippedStatForSlot(slotName, "ITEM_MOD_INTELLECT") or 0
+              local eqINT = EquippedStatForSlot(slotName, "ITEM_MOD_INTELLECT") or 0
               if candINT < eqINT then
-                local candSP    = math.max(tonumber(candStats.ITEM_MOD_SPELL_POWER or 0) or 0, tonumber(candStats.ITEM_MOD_SPELL_HEALING_DONE or 0) or 0)
-                local candHitS  = tonumber(candStats.ITEM_MOD_HIT_SPELL_RATING or 0) or 0
+                local candSP = math.max(
+                  tonumber(candStats.ITEM_MOD_SPELL_POWER or 0) or 0,
+                  tonumber(candStats.ITEM_MOD_SPELL_HEALING_DONE or 0) or 0,
+                  tonumber(candStats.ITEM_MOD_SPELL_DAMAGE_DONE or 0) or 0
+                )
+                local candHitS = tonumber(candStats.ITEM_MOD_HIT_SPELL_RATING or 0) or 0
                 local candCritS = tonumber(candStats.ITEM_MOD_CRIT_SPELL_RATING or 0) or 0
 
-                local intLoss   = (eqINT - candINT)
-                local paid      = (candSP * 0.67) + (candHitS * 1.0) + (candCritS * 0.83)
+                local intLoss = (eqINT - candINT)
+                local paid = (candSP * 0.67) + (candHitS * 1.0) + (candCritS * 0.83)
                 local threshold = (lvl < 40) and intLoss or (intLoss * 0.85)
 
                 if paid < threshold then
@@ -2280,9 +2307,9 @@ function GearFinder:GetBestCraftable(slotName, excludeIDs)
       end
     end
 
-    entry.__dbg = { kind="candidate", total=total, br=br }
+    entry.__dbg = { kind = "candidate", total = total, br = br }
     if bucket then
-      bucket[#bucket+1] = { entry = entry, score = total }
+      bucket[#bucket + 1] = { entry = entry, score = total }
     end
     return total
   end
@@ -2300,7 +2327,7 @@ function GearFinder:GetBestCraftable(slotName, excludeIDs)
       if rec.entry ~= bestEntry then
         local s = rec.score or 0
         if s > eq + EPS and s >= bestScore * ALT_MIN_RELATIVE then
-          out[#out+1] = rec.entry
+          out[#out + 1] = rec.entry
           if #out >= ALT_MAX_COUNT then
             break
           end
@@ -2312,33 +2339,53 @@ function GearFinder:GetBestCraftable(slotName, excludeIDs)
   end
 
   local best, bestScore
-  local list = CandidatesForSlot(slotName)
-
-  for _, entry in ipairs(list) do
-    local s = consider_entry(entry, true, bestScore, strictCandidates)
+  for _, entry in ipairs(cs) do
+    local s = consider_entry(entry, true, strictCandidates)
     if s and (not bestScore or s > bestScore or (s == bestScore and betterTiebreak(entry, best))) then
       best, bestScore = entry, s
     end
   end
-  if best then
-    local alts = buildAlts(strictCandidates, best, bestScore or 0, eqScore or 0)
-    DBG("GF["..slotName.."] diag:", "tot="..diag.total, "inv="..diag.inv_match, "crafted="..diag.craftedlike, "okbogus="..diag.notbogus,
-        "prof="..diag.prof, "value="..diag.value, "cap="..diag.cap, "pend="..diag.pending, "lighter="..diag.lighterarmor,
-        "eqskip="..diag.equippedskip, "filtOK="..diag.filters_ok)
-    return best, bestScore or 0, eqScore or 0, alts
-  end
 
   local futureBest, futureBestScore
-  for _, entry in ipairs(list) do
-    local s = consider_entry(entry, false, futureBestScore, futureCandidates)
+  for _, entry in ipairs(cs) do
+    local s = consider_entry(entry, false, futureCandidates)
     if s and (not futureBestScore or s > futureBestScore or (s == futureBestScore and betterTiebreak(entry, futureBest))) then
       futureBest, futureBestScore = entry, s
     end
   end
 
-  DBG("GF["..slotName.."] diag:", "tot="..diag.total, "inv="..diag.inv_match, "crafted="..diag.craftedlike, "okbogus="..diag.notbogus,
-      "prof="..diag.prof, "value="..diag.value, "cap="..diag.cap, "pend="..diag.pending, "lighter="..diag.lighterarmor,
-      "eqskip="..diag.equippedskip, "filtOK="..diag.filters_ok)
+  DBG("GF["..slotName.."] diag:",
+    "tot="..diag.total,
+    "inv="..diag.inv_match,
+    "crafted="..diag.craftedlike,
+    "okbogus="..diag.notbogus,
+    "prof="..diag.prof,
+    "value="..diag.value,
+    "cap="..diag.cap,
+    "pend="..diag.pending,
+    "lighter="..diag.lighterarmor,
+    "eqskip="..diag.equippedskip,
+    "filtOK="..diag.filters_ok
+  )
+  if best and futureBest then
+    local playerLevel = UnitLevel("player") or 1
+    local futureReq = tonumber(futureBest.reqLevel or futureBest.minLevel or 0) or 0
+
+    if futureReq > playerLevel
+      and futureReq <= (playerLevel + 1)
+      and (futureBestScore or 0) > (bestScore or 0) then
+      local alts = buildAlts(futureCandidates, futureBest, futureBestScore or 0, eqScore or 0)
+      return futureBest, futureBestScore or 0, eqScore or 0, alts
+    end
+
+    local alts = buildAlts(strictCandidates, best, bestScore or 0, eqScore or 0)
+    return best, bestScore or 0, eqScore or 0, alts
+  end
+
+  if best then
+    local alts = buildAlts(strictCandidates, best, bestScore or 0, eqScore or 0)
+    return best, bestScore or 0, eqScore or 0, alts
+  end
 
   if futureBest and (futureBestScore or 0) > (eqScore or 0) + EPS then
     local alts = buildAlts(futureCandidates, futureBest, futureBestScore or 0, eqScore or 0)
