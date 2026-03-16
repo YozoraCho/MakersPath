@@ -1210,16 +1210,6 @@ local function GetItemStatsTable(iid)
       s.ITEM_MOD_SPELL_POWER_SHORT = nil
     end
   end
-  if iid == 9998 or iid == 10001 or iid == 10004 then
-    print("MP stats for", iid)
-    if s then
-      for k, v in pairs(s) do
-        print("  ", k, v)
-      end
-    else
-      print(" nil stats")
-    end
-  end
 
   if StatsAreEmpty(s) then
     s = nil
@@ -1263,12 +1253,6 @@ local function StatRichnessBonus(stats, invType, class)
   if not stats then return 0 end
   local role, band = RolePhase(class)
   local mstats = NormalizeToMaker(stats or {})
-  if iid == 9998 or iid == 10001 or iid == 10004 then
-    print("MP normalized for", iid)
-    for k, v in pairs(mstats) do
-      print(" ", k, v)
-    end
-  end
   local primKeys = {
     "STRENGTH","AGILITY","STAMINA","INTELLECT","SPIRIT",
     "ATTACK_POWER","RANGED_ATTACK_POWER",
