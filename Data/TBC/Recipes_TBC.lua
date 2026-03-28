@@ -1552,6 +1552,14 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
+		[28208] = {
+			["name"] = "Glacial Cloak",
+			["spell"] = 28208,
+			["productid"] = 22658,
+			["type"] = "item",
+			["source"] = "undefined",
+			["learnedat"] = "300",
+		},
 		[28209] = {
 			["name"] = "Glacial Wrists",
 			["spell"] = 28209,
@@ -11046,6 +11054,7 @@ MakersPath.Professions.ItemToSpell = {
 	[22665] = 28224,
 	[22666] = 28223,
 	[22669] = 28242,
+	[22658] = 28208,
 	[22670] = 28243,
 	[22671] = 28244,
 	[22749] = 22749,
