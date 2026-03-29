@@ -119,7 +119,7 @@ local function bucketInsert(inv, row)
   table.insert(b, row)
 end
 
-local function bucketStaticItem(itemID, profId, learnedAt)
+local function bucketStaticItem(itemID, profId, learnedAt, source)
   local name, _, _, reqLevel, _, itemType, itemSubType, _, equipLoc = GetItemInfo(itemID)
 
   if not name then return false end
@@ -142,7 +142,7 @@ local function bucketStaticItem(itemID, profId, learnedAt)
     reqSkill       = toNum(profId),
     reqSkillLevel  = toNum(learnedAt),
     armor          = tag,
-    source         = "crafted",
+    source         = source or "undefined",
     isCrafted      = true,
   }
   bucketInsert(equipLoc, row)
@@ -165,9 +165,9 @@ local function indexStaticRecipes()
       end
 
       if itemID then
-        local ok = bucketStaticItem(itemID, profId, getLearnedAt(rec))
+        local ok = bucketStaticItem(itemID, profId, getLearnedAt(rec), rec and rec.source)
         if not ok then
-          unresolved[itemID] = { profId, getLearnedAt(rec) }
+          unresolved[itemID] = { profId, getLearnedAt(rec), rec and rec.source }
           if C_Item and C_Item.RequestLoadItemDataByID then C_Item.RequestLoadItemDataByID(itemID) end
         end
       end
@@ -181,7 +181,7 @@ frameRetry:SetScript("OnEvent", function(_, _, iid)
   iid = tonumber(iid) or iid
   local meta = unresolved[iid]
   if not meta then return end
-  local ok = bucketStaticItem(iid, meta[1], meta[2])
+  local ok = bucketStaticItem(iid, meta[1], meta[2], meta[3])
   if ok then unresolved[iid] = nil end
 end)
 
@@ -191,7 +191,7 @@ boot:SetScript("OnEvent", function()
   indexStaticRecipes()
   C_Timer.After(2.0, function()
     for iid, meta in pairs(unresolved) do
-      local ok = bucketStaticItem(iid, meta[1], meta[2])
+      local ok = bucketStaticItem(iid, meta[1], meta[2], meta[3])
       if ok then unresolved[iid] = nil end
     end
   end)

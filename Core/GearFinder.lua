@@ -16,15 +16,34 @@ local StatsCache = {}
 MakersPath.Spec = MakersPath.Spec or {}
 MakersPath.Config = MakersPath.Config or {}
 MakersPath.Config.CHAR_SPEC = MakersPath.Config.CHAR_SPEC or {}
-local PREF_NATIVE_ARMOR = (MakersPath.Config.PREF_NATIVE_ARMOR ~= false) -- default: true
+local function ConfigDB()
+  MakersPathDB = MakersPathDB or {}
+  MakersPathDB.config = MakersPathDB.config or {}
+  return MakersPathDB.config
+end
+local function GetPrefNativeArmor()
+  return ConfigDB().PREF_NATIVE_ARMOR ~= false
+end
+local function SetPrefNativeArmor(v)
+  ConfigDB().PREF_NATIVE_ARMOR = (v == true)
+end
 local function GetIgnoreFilters()
-  return MakersPath.Config.IGNORE_FILTERS == true
+  return ConfigDB().IGNORE_FILTERS == true
 end
 local function SetIgnoreFilters(v)
-  MakersPath.Config.IGNORE_FILTERS = (v == true)
+  ConfigDB().IGNORE_FILTERS = (v == true)
 end
 local function OnlyStatsWeapons()
-  return MakersPath.Config.ONLY_STATS_WEAPONS == true
+  return ConfigDB().ONLY_STATS_WEAPONS == true
+end
+local function SetOnlyStatsWeapons(v)
+  ConfigDB().ONLY_STATS_WEAPONS = (v == true)
+end
+local function GetTrainerOnly()
+  return ConfigDB().TRAINER_ONLY == true
+end
+local function SetTrainerOnly(v)
+  ConfigDB().TRAINER_ONLY = (v == true)
 end
 local _pendingKick = _pendingKick or {}
 
@@ -580,7 +599,31 @@ end
 -- Crafted/bogus guards
 -- ==============================
 local function IsCraftedLike(entry)
-  return entry and (entry.isCrafted == true or entry.source == "crafted")
+  if not entry then return false end
+
+  if entry.isCrafted == true then
+    return true
+  end
+
+  local src = tostring(entry.source or ""):lower()
+  if src == "crafted"
+    or src == "trainer"
+    or src == "vendor"
+    or src == "worlddrop"
+    or src == "quest"
+    or src == "drop"
+    or src == "reputation"
+    or src == "undefined"
+  then
+    return true
+  end
+
+  local pid = tonumber(entry.reqSkill or entry.profId or 0) or 0
+  if pid > 0 then
+    return true
+  end
+
+  return false
 end
 
 local _knownSpellNamesCache = nil
@@ -1400,7 +1443,7 @@ end
 
 local function ShouldSkipLighterArmor(slotName, candidateArmorTok, eqArmorTok, eqScore, candScore)
   if not candidateArmorTok or not eqArmorTok then return false end
-  if not PREF_NATIVE_ARMOR then return false end
+  if not GetPrefNativeArmor() then return false end
   local major =
     (slotName == "ChestSlot" or
      slotName == "LegsSlot"  or
@@ -1438,7 +1481,7 @@ end
 
 function ArmorBias(entry)
   if not entry or not entry.armor then return 0 end
-  if not PREF_NATIVE_ARMOR then return 0 end
+  if not GetPrefNativeArmor() then return 0 end
 
   local _, class = UnitClass("player")
   local lvl = UnitLevel("player") or 1
@@ -1631,50 +1674,78 @@ end
 -- ==============================
 -- Candidates (runtime + static)
 -- ==============================
+local function SourcePriority(src)
+  src = tostring(src or ""):lower()
+  if src == "trainer" then return 3 end
+  if src == "vendor" then return 2 end
+  if src == "undefined" then return 1 end
+  if src == "crafted" then return 0 end
+  return 0
+end
 local function CandidatesForSlot(slotName)
-  local out, seen = {}, {}
+  local out = {}
+  local byID = {}
   local db = GDB()
 
-  for invType, list in pairs(db.items) do
-    if InvTypeMatchesSlot(invType, slotName) and type(list)=="table" then
-      for _, row in ipairs(list) do
-        local id = row.itemID or row.id
-        if id and not seen[id] then
-          seen[id]  = true
-          row.invType  = row.invType or invType
-          row.reqLevel = row.reqLevel or row.minLevel or 0
-          row.source   = row.source or "crafted"
-          row.armor    = row.armor or MakersPath.Util.ArmorTokenForItemID(row.itemID)
-          if IsCraftedLike(row) then
-            AugmentNeedHave(row)
-            out[#out+1] = row
-          end
+  local function addCandidate(row, invType)
+    if not row then return end
+    local id = row.itemID or row.id
+    if not id then return end
+
+    row.invType  = row.invType or invType
+    row.reqLevel = row.reqLevel or row.minLevel or 0
+    row.source   = row.source or "undefined"
+    row.armor    = row.armor or MakersPath.Util.ArmorTokenForItemID(id)
+
+    if not IsCraftedLike(row) then return end
+    AugmentNeedHave(row)
+
+    local existing = byID[id]
+    if not existing then
+      byID[id] = row
+      out[#out+1] = row
+      return
+    end
+
+    local oldPri = SourcePriority(existing.source)
+    local newPri = SourcePriority(row.source)
+
+    if newPri > oldPri then
+      for i = 1, #out do
+        if out[i] == existing then
+          out[i] = row
+          break
         end
+      end
+      byID[id] = row
+    end
+  end
+
+  for invType, list in pairs(db.items) do
+    if InvTypeMatchesSlot(invType, slotName) and type(list) == "table" then
+      for _, row in ipairs(list) do
+        addCandidate(row, invType)
       end
     end
   end
 
   for invType, list in pairs(db.buckets) do
-    if InvTypeMatchesSlot(invType, slotName) and type(list)=="table" then
+    if InvTypeMatchesSlot(invType, slotName) and type(list) == "table" then
       for _, e in ipairs(list) do
         local id = e.itemID
-        if id and not seen[id] then
-          seen[id]=true
+        if id then
           local rec = db.itemRecords[id]
           local cand = {
-            itemID   = id,
-            name     = rec and rec.name or nil,
-            invType  = invType,
-            reqLevel = (rec and (rec.reqLevel or rec.minLevel)) or 0,
-            reqSkill = (rec and (rec.profId or rec.reqSkill)) or 0,
-            armor    = rec and rec.armor or nil,
-            source   = rec and rec.source or nil,
+            itemID    = id,
+            name      = rec and rec.name or nil,
+            invType   = invType,
+            reqLevel  = (rec and (rec.reqLevel or rec.minLevel)) or 0,
+            reqSkill  = (rec and (rec.profId or rec.reqSkill)) or 0,
+            armor     = rec and rec.armor or nil,
+            source    = rec and rec.source or "undefined",
             isCrafted = rec and rec.isCrafted or nil,
           }
-          if IsCraftedLike(cand) then
-            AugmentNeedHave(cand)
-            out[#out+1] = cand
-          end
+          addCandidate(cand, invType)
         end
       end
     end
@@ -1682,15 +1753,9 @@ local function CandidatesForSlot(slotName)
 
   local static = MakersPath and MakersPath.Static and MakersPath.Static.Craftables or {}
   for invType, list in pairs(static) do
-    if InvTypeMatchesSlot(invType, slotName) and type(list)=="table" then
+    if InvTypeMatchesSlot(invType, slotName) and type(list) == "table" then
       for _, row in ipairs(list) do
-        local id = row.itemID or row.id
-        if id and not seen[id] then
-          seen[id] = true
-          row.invType = row.invType or invType
-          AugmentNeedHave(row)
-          out[#out+1] = row
-        end
+        addCandidate(row, invType)
       end
     end
   end
@@ -2193,6 +2258,13 @@ function GearFinder:GetBestCraftable(slotName, excludeIDs)
     diag.inv_match = diag.inv_match + 1
 
     if not IsCraftedLike(entry) then return nil else diag.craftedlike = diag.craftedlike + 1 end
+    if GetTrainerOnly() then
+      local src = tostring(entry.source or ""):lower()
+      if src ~= "trainer" then
+        return nil
+      end
+      DBG("TRAINER PASS", slotName, entry.itemID, entry.name or "?", src)
+    end
     if LooksBogus(entry) then return nil else diag.notbogus = diag.notbogus + 1 end
     if IsProfessionRestrictedItem(entry) then return nil end
     if IsProfessionAcquisitionRestricted(entry) then return nil end
@@ -2479,7 +2551,7 @@ function GearFinder:BuildSummary()
   local t0 = debugprofilestop()
   self:BeginSession()
 
-  local slots = {
+  local orderedSlots = {
     "HeadSlot","NeckSlot","ShoulderSlot","BackSlot","ChestSlot","WristSlot",
     "HandsSlot","WaistSlot","LegsSlot","FeetSlot",
     "Finger0Slot","Finger1Slot","Trinket0Slot","Trinket1Slot",
@@ -2489,7 +2561,30 @@ function GearFinder:BuildSummary()
   local rows = {}
   local slowestSlot, slowestTime = nil, 0
 
-  local function addRow(slotName, best, bestScore, eqScore, alts)
+  local chosenMainHand = nil
+  local chosenMainHandInvType = nil
+
+  for _, slotName in ipairs(orderedSlots) do
+    local s0 = debugprofilestop()
+
+    local best, bestScore, eqScore, alts
+
+    if slotName == "SecondaryHandSlot" and chosenMainHandInvType == "INVTYPE_2HWEAPON" then
+      local equippedScore = select(1, GetEquippedScore(slotName)) or 0
+      best, bestScore, eqScore, alts = nil, 0, equippedScore, nil
+    else
+      best, bestScore, eqScore, alts = self:GetBestCraftable(slotName)
+    end
+
+    if slotName == "MainHandSlot" then
+      chosenMainHand = best
+      if best and best.itemID then
+        chosenMainHandInvType = best.invType or select(9, GetItemInfo(best.itemID))
+      else
+        chosenMainHandInvType = nil
+      end
+    end
+
     local pct = 0
     if bestScore and bestScore > 0 then
       pct = math.max(0, math.min(1, (eqScore or 0) / bestScore))
@@ -2504,59 +2599,10 @@ function GearFinder:BuildSummary()
       progress  = pct,
       alts      = alts,
     }
-  end
 
-  local i = 1
-  while i <= #slots do
-    local slotName = slots[i]
-    local s0 = debugprofilestop()
-
-    if slotName == "Finger0Slot" then
-      local best0, bestScore0, eqScore0, alts0 = self:GetBestCraftable("Finger0Slot")
-      local exclude = {}
-      if best0 and best0.itemID then
-        exclude[best0.itemID] = true
-      end
-      local best1, bestScore1, eqScore1, alts1 = self:GetBestCraftable("Finger1Slot", exclude)
-
-      addRow("Finger0Slot", best0, bestScore0, eqScore0, alts0)
-      addRow("Finger1Slot", best1, bestScore1, eqScore1, alts1)
-
-      local sdt = debugprofilestop() - s0
-      if sdt > slowestTime then
-        slowestTime, slowestSlot = sdt, "Finger0Slot/Finger1Slot"
-      end
-
-      i = i + 2
-
-    elseif slotName == "Trinket0Slot" then
-      local best0, bestScore0, eqScore0, alts0 = self:GetBestCraftable("Trinket0Slot")
-      local exclude = {}
-      if best0 and best0.itemID then
-        exclude[best0.itemID] = true
-      end
-      local best1, bestScore1, eqScore1, alts1 = self:GetBestCraftable("Trinket1Slot", exclude)
-
-      addRow("Trinket0Slot", best0, bestScore0, eqScore0, alts0)
-      addRow("Trinket1Slot", best1, bestScore1, eqScore1, alts1)
-
-      local sdt = debugprofilestop() - s0
-      if sdt > slowestTime then
-        slowestTime, slowestSlot = sdt, "Trinket0Slot/Trinket1Slot"
-      end
-
-      i = i + 2
-
-    else
-      local best, bestScore, eqScore, alts = self:GetBestCraftable(slotName)
-      addRow(slotName, best, bestScore, eqScore, alts)
-
-      local sdt = debugprofilestop() - s0
-      if sdt > slowestTime then
-        slowestTime, slowestSlot = sdt, slotName
-      end
-
-      i = i + 1
+    local sdt = debugprofilestop() - s0
+    if sdt > slowestTime then
+      slowestTime, slowestSlot = sdt, slotName
     end
   end
 
@@ -2567,6 +2613,7 @@ function GearFinder:BuildSummary()
       dt, tostring(slowestSlot), slowestTime
     ))
   end
+
   SaveSummaryForCurrentChar(rows)
 
   self._lastSummary = rows
@@ -2597,6 +2644,7 @@ function GearFinder:BuildSummaryAsync(onProgress, onDone)
   local rows = {}
   local rowBySlot = {}
   local i = 1
+  local chosenMainHandInvType = nil
 
   local function addOrReplaceRow(row)
     rowBySlot[row.slot] = row
@@ -2652,7 +2700,20 @@ function GearFinder:BuildSummaryAsync(onProgress, onDone)
         i = i + 2
 
       else
-        local best, bestScore, eqScore, alts = self:GetBestCraftable(slotName)
+        local best, bestScore, eqScore, alts
+        if slotName == "SecondaryHandSlot" and chosenMainHandInvType == "INVTYPE_2HWEAPON" then
+          best, bestScore, eqScore, alts = nil, 0, select(1, GetEquippedScore(slotName)) or 0, nil
+        else
+          best, bestScore, eqScore, alts = self:GetBestCraftable(slotName)
+        end
+
+        if slotName == "MainHandSlot" then
+          if best and best.itemID then
+            chosenMainHandInvType = best.invType or select(9, GetItemInfo(best.itemID))
+          else
+            chosenMainHandInvType = nil
+          end
+        end
         addOrReplaceRow(MakeSummaryRow(slotName, best, bestScore, eqScore, alts))
         i = i + 1
       end
@@ -2811,8 +2872,15 @@ SlashCmdList["MPGFLIST"] = function(arg)
       end)()
       local dps = stats and (stats.DPS or stats.DAMAGE_PER_SECOND or stats.ITEM_MOD_DAMAGE_PER_SECOND_SHORT) or 0
       local allowed = MakersPath.Filters:IsAllowed(e)
-      print(string.format("|cff66ccff[MP:list]|r %s (%s) dps=%.2f allowed=%s", name, inv, dps, tostring(allowed)))
-      count = count + 1
+      print(string.format(
+        "|cff66ccff[MP:list]|r %s (%s) source=%s dps=%.2f allowed=%s",
+        name,
+        inv,
+        tostring(e.source),
+        dps,
+        tostring(allowed)
+      ))
+        count = count + 1
       if count >= limit then break end
     end
   end
@@ -2855,4 +2923,24 @@ SLASH_MPTIMING1 = "/mptiming"
 SlashCmdList["MPTIMING"] = function()
   MakersPath.Config.DEBUG_TIMING = not MakersPath.Config.DEBUG_TIMING
   print("|cff66ccff[Maker'sPath]|r timing debug is now " .. tostring(MakersPath.Config.DEBUG_TIMING))
+end
+SLASH_MPTRAINER1 = "/mptrainer"
+SlashCmdList["MPTRAINER"] = function(msg)
+  msg = (msg or ""):lower():match("^%s*(%S*)") or ""
+
+  if msg == "on" or msg == "true" or msg == "1" then
+    SetTrainerOnly(true)
+  elseif msg == "off" or msg == "false" or msg == "0" then
+    SetTrainerOnly(false)
+  else
+    SetTrainerOnly(not GetTrainerOnly())
+  end
+
+  print("|cff66ccff[Maker'sPath]|r Trainer-only mode: " .. tostring(GetTrainerOnly()))
+
+  if MakersPath and MakersPath.GearFinder and MakersPath.GearFinder.MarkDirty then
+    MakersPath.GearFinder:MarkDirty()
+  end
+  if MakersPath and MakersPath.GearFinderScan then MakersPath.GearFinderScan() end
+  if MakersPath and MakersPath.RequestUIRefresh then MakersPath.RequestUIRefresh() end
 end

@@ -2,7 +2,7 @@ local ADDON_NAME, MakersPath = ...
 
 MakersPath = MakersPath or {}
 MakersPath.name = ADDON_NAME
-MakersPath.version = "1.4.8"
+MakersPath.version = "1.4.9"
 _G.MakersPath = MakersPath
 local debugprofilestop = debugprofilestop
 MakersPath.Config = MakersPath.Config or {}
@@ -910,6 +910,17 @@ profBookBtn:SetScript("OnClick", function()
       if MakersPath.UI and MakersPath.UI.RefreshProfBook then MakersPath.UI.RefreshProfBook() end
       MakersPathProfBook:Show()
     end
+  end
+end)
+
+-- Options Button
+local optionsBtn = CreateFrame("Button", nil, MakersPathFrame, "UIPanelButtonTemplate")
+optionsBtn:SetSize(90, 22)
+optionsBtn:SetPoint("BOTTOMRIGHT", MakersPathFrame, "BOTTOMRIGHT", -120, 12)
+optionsBtn:SetText("Options")
+optionsBtn:SetScript("OnClick", function()
+  if MakersPath and MakersPath.UI and MakersPath.UI.ToggleOptions then
+    MakersPath.UI:ToggleOptions()
   end
 end)
 
