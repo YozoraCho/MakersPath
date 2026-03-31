@@ -107,6 +107,25 @@ local function buildSpellMaps()
 end
 
 -- =======================
+-- Build catalog item set
+-- =======================
+local function buildCatalogItemSet()
+  MakersPath.CatalogItemIDs = MakersPath.CatalogItemIDs or {}
+  wipe(MakersPath.CatalogItemIDs)
+
+  if not P.AllRecipes then return end
+
+  for _, list in pairs(P.AllRecipes) do
+    for _, rec in pairs(list) do
+      local itemID = getItemIdFromRec(rec)
+      if itemID then
+        MakersPath.CatalogItemIDs[itemID] = true
+      end
+    end
+  end
+end
+
+-- =======================
 -- Bucketing
 -- =======================
 local unresolved = {}
@@ -154,6 +173,7 @@ end
 -- =======================
 local function indexStaticRecipes()
   buildSpellMaps()
+  buildCatalogItemSet()
   if not P.AllRecipes then return end
 
   for profId, list in pairs(P.AllRecipes) do
@@ -164,11 +184,13 @@ local function indexStaticRecipes()
         itemID = P.SpellToItem[spellID]
       end
 
-      if itemID then
+      if itemID and MakersPath.CatalogItemIDs[itemID] then
         local ok = bucketStaticItem(itemID, profId, getLearnedAt(rec), rec and rec.source)
         if not ok then
           unresolved[itemID] = { profId, getLearnedAt(rec), rec and rec.source }
-          if C_Item and C_Item.RequestLoadItemDataByID then C_Item.RequestLoadItemDataByID(itemID) end
+          if C_Item and C_Item.RequestLoadItemDataByID then
+            C_Item.RequestLoadItemDataByID(itemID)
+          end
         end
       end
     end

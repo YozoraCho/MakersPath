@@ -1682,6 +1682,10 @@ local function SourcePriority(src)
   if src == "crafted" then return 0 end
   return 0
 end
+local function IsInRecipeCatalog(itemID)
+  if not itemID then return false end
+  return MakersPath and MakersPath.CatalogItemIDs and MakersPath.CatalogItemIDs[itemID] == true
+end
 local function CandidatesForSlot(slotName)
   local out = {}
   local byID = {}
@@ -1691,6 +1695,10 @@ local function CandidatesForSlot(slotName)
     if not row then return end
     local id = row.itemID or row.id
     if not id then return end
+
+    if not IsInRecipeCatalog(id) then
+      return
+    end
 
     row.invType  = row.invType or invType
     row.reqLevel = row.reqLevel or row.minLevel or 0
@@ -1722,7 +1730,7 @@ local function CandidatesForSlot(slotName)
   end
 
   for invType, list in pairs(db.items) do
-    if InvTypeMatchesSlot(invType, slotName) and type(list) == "table" then
+    if InvTypeMatchesSlot(invType, slotName) and type(list)=="table" then
       for _, row in ipairs(list) do
         addCandidate(row, invType)
       end
@@ -1730,7 +1738,7 @@ local function CandidatesForSlot(slotName)
   end
 
   for invType, list in pairs(db.buckets) do
-    if InvTypeMatchesSlot(invType, slotName) and type(list) == "table" then
+    if InvTypeMatchesSlot(invType, slotName) and type(list)=="table" then
       for _, e in ipairs(list) do
         local id = e.itemID
         if id then
@@ -1753,7 +1761,7 @@ local function CandidatesForSlot(slotName)
 
   local static = MakersPath and MakersPath.Static and MakersPath.Static.Craftables or {}
   for invType, list in pairs(static) do
-    if InvTypeMatchesSlot(invType, slotName) and type(list) == "table" then
+    if InvTypeMatchesSlot(invType, slotName) and type(list)=="table" then
       for _, row in ipairs(list) do
         addCandidate(row, invType)
       end
@@ -2890,13 +2898,19 @@ SlashCmdList["MPCLEAN"] = function()
   local db = MakersPathGlobalDB or {}
   local changed = 0
 
+  local function inCatalog(iid)
+    return MakersPath and MakersPath.CatalogItemIDs and MakersPath.CatalogItemIDs[iid] == true
+  end
+
   if db.items then
     for inv, list in pairs(db.items) do
       if type(list) == "table" then
-        for i=#list,1,-1 do
+        for i = #list, 1, -1 do
           local r = list[i]
-          if r and not IsCraftedLike(r) then
-            table.remove(list, i); changed = changed + 1
+          local iid = r and (r.itemID or r.id)
+          if not iid or not inCatalog(iid) then
+            table.remove(list, i)
+            changed = changed + 1
           end
         end
       end
@@ -2905,18 +2919,28 @@ SlashCmdList["MPCLEAN"] = function()
   if db.buckets then
     for inv, list in pairs(db.buckets) do
       if type(list) == "table" then
-        for i=#list,1,-1 do
+        for i = #list, 1, -1 do
           local e = list[i]
-          local rec = db.itemRecords and db.itemRecords[e.itemID] or nil
-          local tmp = { itemID = e.itemID, source = rec and rec.source, isCrafted = rec and rec.isCrafted }
-          if not IsCraftedLike(tmp) then
-            table.remove(list, i); changed = changed + 1
+          local iid = e and e.itemID
+          if not iid or not inCatalog(iid) then
+            table.remove(list, i)
+            changed = changed + 1
           end
         end
       end
     end
   end
-  print("|cff66ccff[Maker's Path]|r cleaned "..changed.." non-crafted entries. /reload recommended.")
+
+  if db.itemRecords then
+    for iid, _ in pairs(db.itemRecords) do
+      if not inCatalog(iid) then
+        db.itemRecords[iid] = nil
+        changed = changed + 1
+      end
+    end
+  end
+
+  print("|cff66ccff[Maker's Path]|r cleaned " .. changed .. " non-catalog entries. /reload recommended.")
 end
 -- ===================== Timing toggle =====================
 SLASH_MPTIMING1 = "/mptiming"
