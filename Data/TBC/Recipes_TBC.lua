@@ -5637,7 +5637,7 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29556,
 			["productid"] = 23490,
 			["type"] = "item",
-			["source"] = "undefined",
+			["source"] = "trainer",
 			["learnedat"] = "330",
 		},
 		[29557] = {
