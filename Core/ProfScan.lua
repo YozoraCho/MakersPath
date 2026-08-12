@@ -46,11 +46,13 @@ end
 
 local WEAPON_LINE_SET
 local SUBTYPE_TO_WEAPONLINE
+local WEAPONLINE_TO_SUBID
 
 local function BuildWeaponLocaleTables()
   if WEAPON_LINE_SET then return end
   WEAPON_LINE_SET = {}
   SUBTYPE_TO_WEAPONLINE = {}
+  WEAPONLINE_TO_SUBID = {}
 
   local itemClassWeapons = 2
   for _, subId in ipairs(WEAPON_SUB_IDS) do
@@ -58,6 +60,7 @@ local function BuildWeaponLocaleTables()
     if localizedSubtype and localizedSubtype ~= "" then
       WEAPON_LINE_SET[localizedSubtype] = true
       SUBTYPE_TO_WEAPONLINE[localizedSubtype] = localizedSubtype
+      WEAPONLINE_TO_SUBID[localizedSubtype] = subId
     end
   end
 
@@ -70,6 +73,11 @@ end
 local function isWeaponSkillLine(localizedSkillName)
   BuildWeaponLocaleTables()
   return localizedSkillName and WEAPON_LINE_SET and WEAPON_LINE_SET[localizedSkillName] == true
+end
+
+function MakersPath.Util.WeaponSubIdFromSkillName(localizedSkillName)
+  BuildWeaponLocaleTables()
+  return localizedSkillName and WEAPONLINE_TO_SUBID and WEAPONLINE_TO_SUBID[localizedSkillName]
 end
 
 MakersPath.Util.WEAPON_LINE_FROM_SUBTYPE = function(itemSubType)
@@ -87,7 +95,7 @@ local function doScan()
   MakersPathDB = MakersPathDB or {}
   MakersPathDB.chars = MakersPathDB.chars or {}
   local key = charKey()
-  local outProfs, outWeps = {}, {}
+  local outProfs, outWeps, outWepsById = {}, {}, {}
 
   local realProfSkillLines = {}
   if GetProfessions and GetProfessionInfo then
@@ -112,6 +120,8 @@ local function doScan()
         local weaponLine = isWeaponSkillLine(skillName)
         if weaponLine then
           outWeps[skillName] = rank
+          local subId = MakersPath.Util.WeaponSubIdFromSkillName(skillName)
+          if subId then outWepsById[subId] = rank end
         else
           local profSpell = PROF_NAME_TO_SPELL[skillName]
           if profSpell then
@@ -127,8 +137,9 @@ local function doScan()
   end
 
   local rec = MakersPathDB.chars[key] or {}
-  rec.profs = outProfs
-  rec.weps  = outWeps
+  rec.profs     = outProfs
+  rec.weps      = outWeps
+  rec.wepsById  = outWepsById
 
   local _, classTag = UnitClass("player")
   rec.class = classTag
@@ -139,17 +150,27 @@ local function doScan()
 end
 
 local pending = false
-local function scheduleScan()
+local afterScan = {}
+local function scheduleScan(onComplete)
+  if onComplete then afterScan[#afterScan+1] = onComplete end
   if pending then return end
   pending = true
   C_Timer.After(0.10, function()
     pending = false
     doScan()
+    local callbacks = afterScan
+    afterScan = {}
+    for _, cb in ipairs(callbacks) do
+      local ok, err = pcall(cb)
+      if not ok then
+        DEFAULT_CHAT_FRAME:AddMessage("|cff00ccff[Maker's Path]|r scan callback error: " .. tostring(err))
+      end
+    end
   end)
 end
 
-function MakersPath.ScanProfessions()
-  scheduleScan()
+function MakersPath.ScanProfessions(onComplete)
+  scheduleScan(onComplete)
 end
 
 -- === Utilities used elsewhere ===
@@ -230,6 +251,18 @@ function MakersPath.Util.CurrentWeaponMap()
   rec.weps = rec.weps or {}
 
   return rec.weps
+end
+
+function MakersPath.Util.CurrentWeaponSubIds()
+  MakersPathDB         = MakersPathDB or {}
+  MakersPathDB.chars   = MakersPathDB.chars or {}
+  local key            = charKey()
+  MakersPathDB.chars[key] = MakersPathDB.chars[key] or {}
+
+  local rec = MakersPathDB.chars[key]
+  rec.wepsById = rec.wepsById or {}
+
+  return rec.wepsById, (next(rec.wepsById) ~= nil)
 end
 
 function MakersPath.Util.CurrentWeaponSkills()

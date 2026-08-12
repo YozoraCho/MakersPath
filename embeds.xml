@@ -8,6 +8,7 @@
   <Script file="Libs/AceLocale-3.0/AceLocale-3.0.lua" />
   <Script file="Libs/LibDataBroker-1.1/LibDataBroker-1.1.lua" />
   <Include file="Libs/LibDBIcon-1.0/lib.xml" />
+  <Include file="Libs/LibUIDropDownMenu/LibUIDropDownMenu.xml" />
 
   <!-- Locales -->
   <Include file="Locales/Locales.xml" />
@@ -23,6 +24,7 @@
   <Script file="Data/Jewelry.lua" />
 
   <!-- Systems -->
+  <Script file="Core/WeightsRuntime.lua" />
   <Script file="Core/RecipesAdapter.lua" />
   <Script file="Core/Filters.lua" />
   <Script file="Core/GearFinder.lua" />
@@ -34,5 +36,6 @@
   <!-- Entry -->
   <Script file="MakersPath.lua" />
   <Script file="Core/Options.lua" />
+  <Script file="Core/WeightsUI.lua" />
 
 </Ui>

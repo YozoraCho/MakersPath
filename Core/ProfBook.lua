@@ -369,8 +369,11 @@ rescan:SetSize(120, 22)
 rescan:SetPoint("BOTTOMLEFT", frame, "BOTTOMLEFT", 14, 12)
 rescan:SetText(L["BTN_RESCAN"])
 rescan:SetScript("OnClick", function()
-  if MakersPath.ScanProfessions then MakersPath.ScanProfessions() end
-  MakersPath.UI.RefreshProfBook()
+  if MakersPath.ScanProfessions then
+    MakersPath.ScanProfessions(MakersPath.UI.RefreshProfBook)
+  else
+    MakersPath.UI.RefreshProfBook()
+  end
 end)
 
 local close = CreateFrame("Button", nil, frame, "UIPanelButtonTemplate")

@@ -45,6 +45,26 @@ end
 local function SetTrainerOnly(v)
   ConfigDB().TRAINER_ONLY = (v == true)
 end
+local function SyncDebugMirror()
+  MakersPath.Config = MakersPath.Config or {}
+  MakersPath.Config.DEBUG_GF     = ConfigDB().DEBUG_GF == true
+  MakersPath.Config.DEBUG_TIMING = ConfigDB().DEBUG_TIMING == true
+end
+function MakersPath.GetDebugGF()
+  return ConfigDB().DEBUG_GF == true
+end
+function MakersPath.SetDebugGF(v)
+  ConfigDB().DEBUG_GF = (v == true)
+  SyncDebugMirror()
+end
+function MakersPath.GetDebugTiming()
+  return ConfigDB().DEBUG_TIMING == true
+end
+function MakersPath.SetDebugTiming(v)
+  ConfigDB().DEBUG_TIMING = (v == true)
+  SyncDebugMirror()
+end
+MakersPath.SyncDebugMirror = SyncDebugMirror
 local _pendingKick = _pendingKick or {}
 
 -- temp: slash to toggle filter gating at runtime
@@ -126,8 +146,14 @@ local function SetCurrentSpec(spec)
     rec.spec = nil
     MakersPath.Config.CHAR_SPEC[key] = nil
   end
+  if MakersPath.WeightsRT and MakersPath.WeightsRT.Invalidate then
+    MakersPath.WeightsRT:Invalidate()
+  end
   if MakersPath and MakersPath.GearFinder then
     MakersPath.GearFinder._equippedScoreCache = {}
+    if MakersPath.GearFinder.InvalidateScoreCache then
+      MakersPath.GearFinder:InvalidateScoreCache()
+    end
     if MakersPath.GearFinder.MarkDirty then
       MakersPath.GearFinder:MarkDirty()
     end
@@ -859,132 +885,129 @@ end
 -- ==============================
 
 -- ===== NORMALIZE ITEM STATS =====
+
+local function _num(v)
+  local ty = type(v)
+  if ty == "number" then return v end
+  if ty == "string" then return tonumber(v) or 0 end
+  return 0
+end
+
+local function _max2(a, b)
+  a = _num(a); b = _num(b)
+  if a > b then return a end
+  return b
+end
+
+local PAIR_STATS = {}
+do
+  local defs = {
+    { "STRENGTH",           "STRENGTH"                 },
+    { "AGILITY",            "AGILITY"                  },
+    { "STAMINA",            "STAMINA"                  },
+    { "INTELLECT",          "INTELLECT"                },
+    { "SPIRIT",             "SPIRIT"                   },
+    { "ATTACK_POWER",       "ATTACK_POWER"             },
+    { "RANGED_ATTACK_POWER","RANGED_ATTACK_POWER"      },
+    { "CRIT",               "CRIT_RATING"              },
+    { "CRIT_SPELL",         "CRIT_SPELL_RATING"        },
+    { "HIT",                "HIT_RATING"               },
+    { "HIT_SPELL",          "HIT_SPELL_RATING"         },
+    { "EXPERTISE",          "EXPERTISE_RATING"         },
+    { "ARMOR_PENETRATION",  "ARMOR_PENETRATION_RATING" },
+    { "DODGE",              "DODGE_RATING"             },
+    { "PARRY",              "PARRY_RATING"             },
+    { "BLOCK",              "BLOCK_RATING"             },
+  }
+  for i = 1, #defs do
+    local outKey, base = defs[i][1], defs[i][2]
+    PAIR_STATS[i] = { outKey, "ITEM_MOD_" .. base, "ITEM_MOD_" .. base .. "_SHORT" }
+  end
+end
+
+local SINGLE_STATS = {
+  { "HASTE",             "ITEM_MOD_HASTE_RATING"       },
+  { "HASTE_SPELL",       "ITEM_MOD_HASTE_SPELL_RATING" },
+  { "BLOCK_VALUE",       "ITEM_MOD_BLOCK_VALUE"        },
+  { "SPELL_PENETRATION", "ITEM_MOD_SPELL_PENETRATION"  },
+}
+
+local FALLBACK_STATS = {
+  { "FERAL_ATTACK_POWER",  "FERAL_ATTACK_POWER",              "FERAL_AP"          },
+  { "DEFENSE_SKILL",       "DEFENSE_RATING",                  "ITEM_MOD_DEFENSE_SKILL_RATING" },
+  { "HEALTH",              "HEALTH",                          "ITEM_MOD_HEALTH"   },
+  { "MANA",                "MANA",                            "ITEM_MOD_MANA"     },
+  { "HEALTH_REGENERATION", "ITEM_MOD_HEALTH_REGENERATION",    "HEALTH_REGEN"      },
+  { "MANA_REGENERATION",   "ITEM_MOD_MANA_REGENERATION",      "MP5"               },
+  { "FIRE_RESISTANCE",     "RESISTANCE2_NAME",                "RESISTANCEFIRE"    },
+  { "NATURE_RESISTANCE",   "RESISTANCE3_NAME",                "RESISTANCENATURE"  },
+  { "FROST_RESISTANCE",    "RESISTANCE4_NAME",                "RESISTANCEFROST"   },
+  { "SHADOW_RESISTANCE",   "RESISTANCE5_NAME",                "RESISTANCESHADOW"  },
+  { "ARCANE_RESISTANCE",   "RESISTANCE6_NAME",                "RESISTANCEARCANE"  },
+}
+
+local SCHOOL_STATS = {
+  { "SPELL_DAMAGE_DONE_HOLY",   "SPELL_DMG_HOLY"   },
+  { "SPELL_DAMAGE_DONE_FIRE",   "SPELL_DMG_FIRE"   },
+  { "SPELL_DAMAGE_DONE_NATURE", "SPELL_DMG_NATURE" },
+  { "SPELL_DAMAGE_DONE_FROST",  "SPELL_DMG_FROST"  },
+  { "SPELL_DAMAGE_DONE_SHADOW", "SPELL_DMG_SHADOW" },
+  { "SPELL_DAMAGE_DONE_ARCANE", "SPELL_DMG_ARCANE" },
+}
+
 function NormalizeToMaker(stats)
   local t = {}
+  if not stats then return t end
 
-  local function add(key, val)
-    if type(val) ~= "number" then
-      if val == nil then
-        val = 0
-      else
-        val = tonumber(val) or 0
-      end
-    end
-    if val > 0 then
-      t[key] = (t[key] or 0) + val
-    end
-  end
-  local function pickVals(...)
-    local best = 0
-    local n = select("#", ...)
-    for i = 1, n do
-      local raw = select(i, ...)
-      local v = 0
-      if type(raw) == "number" then
-        v = raw
-      elseif type(raw) == "string" then
-        v = tonumber(raw) or 0
-      end
-      if v > best then
-        best = v
-      end
-    end
-    return best
-  end
-  local function stat2(base)
-    return pickVals(
-      stats["ITEM_MOD_"..base],
-      stats["ITEM_MOD_"..base.."_SHORT"]
-    )
+  -- Paired ITEM_MOD_x / ITEM_MOD_x_SHORT stats
+  for i = 1, #PAIR_STATS do
+    local row = PAIR_STATS[i]
+    local v = _max2(stats[row[2]], stats[row[3]])
+    if v > 0 then t[row[1]] = (t[row[1]] or 0) + v end
   end
 
-  -- Primary stats
-  add("STRENGTH",  stat2("STRENGTH"))
-  add("AGILITY",   stat2("AGILITY"))
-  add("STAMINA",   stat2("STAMINA"))
-  add("INTELLECT", stat2("INTELLECT"))
-  add("SPIRIT",    stat2("SPIRIT"))
+  -- Armor: best of three sources, plus the separate bonus field
+  local armor = _max2(_max2(stats.ITEM_MOD_ARMOR, stats.ITEM_MOD_ARMOR_SHORT), stats.RESISTANCE0_NAME)
+  if armor > 0 then t.ARMOR = (t.ARMOR or 0) + armor end
+  local armorBonus = _num(stats.ITEM_MOD_ARMOR_BONUS)
+  if armorBonus > 0 then t.ARMOR = (t.ARMOR or 0) + armorBonus end
 
-  -- Armor
-  local armor = pickVals(
-    stats.ITEM_MOD_ARMOR,
-    stats.ITEM_MOD_ARMOR_SHORT,
-    stats.RESISTANCE0_NAME
-  )
-  if type(armor) ~= "number" then
-    if armor == nil then
-      armor = 0
-    else
-      armor = tonumber(armor) or 0
-    end
+  -- DPS: best of three sources
+  local dps = _max2(_max2(stats.DPS, stats.DAMAGE_PER_SECOND), stats.ITEM_MOD_DAMAGE_PER_SECOND_SHORT)
+  if dps > 0 then t.DAMAGE_PER_SECOND = (t.DAMAGE_PER_SECOND or 0) + dps end
+
+  -- Single-source stats
+  for i = 1, #SINGLE_STATS do
+    local row = SINGLE_STATS[i]
+    local v = _num(stats[row[2]])
+    if v > 0 then t[row[1]] = (t[row[1]] or 0) + v end
   end
-  if armor > 0 then
-    add("ARMOR", armor)
+
+  -- First-non-nil fallback stats
+  for i = 1, #FALLBACK_STATS do
+    local row = FALLBACK_STATS[i]
+    local raw = stats[row[2]]
+    if raw == nil or raw == false then raw = stats[row[3]] end
+    local v = _num(raw)
+    if v > 0 then t[row[1]] = (t[row[1]] or 0) + v end
   end
-  add("ARMOR", stats.ITEM_MOD_ARMOR_BONUS)
 
-  -- Melee / Ranged / Feral AP
-  add("ATTACK_POWER",        stat2("ATTACK_POWER"))
-  add("RANGED_ATTACK_POWER", stat2("RANGED_ATTACK_POWER"))
-  add("FERAL_ATTACK_POWER",  stats.FERAL_ATTACK_POWER or stats.FERAL_AP)
+  -- Spell power: best of the pair form and the two long-form fields
+  local sp = _max2(stats.ITEM_MOD_SPELL_POWER, stats.ITEM_MOD_SPELL_POWER_SHORT)
+  sp = _max2(sp, stats.ITEM_MOD_SPELL_DAMAGE_DONE)
+  sp = _max2(sp, stats.ITEM_MOD_SPELL_DAMAGE_DONE_SHORT)
+  if sp > 0 then t.SPELL_DAMAGE_DONE = (t.SPELL_DAMAGE_DONE or 0) + sp end
 
-  -- DPS
-  add("DAMAGE_PER_SECOND", pickVals(
-    stats.DPS,
-    stats.DAMAGE_PER_SECOND,
-    stats.ITEM_MOD_DAMAGE_PER_SECOND_SHORT
-  ))
-
-  -- Ratings
-  add("CRIT",              stat2("CRIT_RATING"))
-  add("CRIT_SPELL",        stat2("CRIT_SPELL_RATING"))
-  add("HIT",               stat2("HIT_RATING"))
-  add("HIT_SPELL",         stat2("HIT_SPELL_RATING"))
-  add("HASTE",             stats.ITEM_MOD_HASTE_RATING)
-  add("HASTE_SPELL",       stats.ITEM_MOD_HASTE_SPELL_RATING)
-  add("EXPERTISE",         stat2("EXPERTISE_RATING"))
-  add("ARMOR_PENETRATION", stat2("ARMOR_PENETRATION_RATING"))
-
-  -- Defensive ratings
-  add("DEFENSE_SKILL", stats.DEFENSE_RATING or stats.ITEM_MOD_DEFENSE_SKILL_RATING)
-  add("DODGE",               stat2("DODGE_RATING"))
-  add("PARRY",               stat2("PARRY_RATING"))
-  add("BLOCK",               stat2("BLOCK_RATING"))
-  add("BLOCK_VALUE",         stats.ITEM_MOD_BLOCK_VALUE)
-
-  -- Health / Mana / regen
-  add("HEALTH",              stats.HEALTH or stats.ITEM_MOD_HEALTH)
-  add("MANA",                stats.MANA   or stats.ITEM_MOD_MANA)
-  add("HEALTH_REGENERATION", stats.ITEM_MOD_HEALTH_REGENERATION or stats.HEALTH_REGEN)
-  add("MANA_REGENERATION",   stats.ITEM_MOD_MANA_REGENERATION   or stats.MP5)
-
-  -- Spell power & healing
-  add("SPELL_DAMAGE_DONE", pickVals(
-    stat2("SPELL_POWER"),
-    stats.ITEM_MOD_SPELL_DAMAGE_DONE,
-    stats.ITEM_MOD_SPELL_DAMAGE_DONE_SHORT
-  ))
-  add("SPELL_HEALING_DONE", pickVals(
-    stats.ITEM_MOD_SPELL_HEALING_DONE,
-    stats.ITEM_MOD_SPELL_HEALING_DONE_SHORT,
-    stats.HEALING_POWER
-  ))
-  add("SPELL_PENETRATION",  stats.ITEM_MOD_SPELL_PENETRATION)
+  local heal = _max2(stats.ITEM_MOD_SPELL_HEALING_DONE, stats.ITEM_MOD_SPELL_HEALING_DONE_SHORT)
+  heal = _max2(heal, stats.HEALING_POWER)
+  if heal > 0 then t.SPELL_HEALING_DONE = (t.SPELL_HEALING_DONE or 0) + heal end
 
   -- School-specific spell damage
-  add("SPELL_DAMAGE_DONE_HOLY",   stats.SPELL_DMG_HOLY)
-  add("SPELL_DAMAGE_DONE_FIRE",   stats.SPELL_DMG_FIRE)
-  add("SPELL_DAMAGE_DONE_NATURE", stats.SPELL_DMG_NATURE)
-  add("SPELL_DAMAGE_DONE_FROST",  stats.SPELL_DMG_FROST)
-  add("SPELL_DAMAGE_DONE_SHADOW", stats.SPELL_DMG_SHADOW)
-  add("SPELL_DAMAGE_DONE_ARCANE", stats.SPELL_DMG_ARCANE)
-
-  -- Resistances
-  add("FIRE_RESISTANCE",   stats.RESISTANCE2_NAME or stats.RESISTANCEFIRE)
-  add("NATURE_RESISTANCE", stats.RESISTANCE3_NAME or stats.RESISTANCENATURE)
-  add("FROST_RESISTANCE",  stats.RESISTANCE4_NAME or stats.RESISTANCEFROST)
-  add("SHADOW_RESISTANCE", stats.RESISTANCE5_NAME or stats.RESISTANCESHADOW)
-  add("ARCANE_RESISTANCE", stats.RESISTANCE6_NAME or stats.RESISTANCEARCANE)
+  for i = 1, #SCHOOL_STATS do
+    local row = SCHOOL_STATS[i]
+    local v = _num(stats[row[2]])
+    if v > 0 then t[row[1]] = (t[row[1]] or 0) + v end
+  end
 
   return t
 end
@@ -1051,6 +1074,11 @@ local function RolePhase(class, lvl)
 end
 
 local function GetClassWeights()
+  local RT = MakersPath.WeightsRT
+  if RT and RT.GetScoringWeights then
+    return RT.GetScoringWeights()
+  end
+
   local all = MakersPath.Weights or {}
   local _, class = UnitClass("player")
   class = class and class:upper() or "UNKNOWN"
@@ -1087,10 +1115,42 @@ local function GetClassWeights()
   return classTbl.BASE or nil
 end
 
-local function ScoreFromStats(statsRaw)
+local NormCache = {}
+
+local function NormalizedFor(iid, statsRaw)
+  if not iid then return NormalizeToMaker(statsRaw or {}) end
+  local n = NormCache[iid]
+  if n == nil then
+    n = NormalizeToMaker(statsRaw or {})
+    NormCache[iid] = n
+  end
+  return n
+end
+
+local ScoreCache = {}
+
+function GearFinder:InvalidateScoreCache()
+  ScoreCache = {}
+  self._equippedScoreCache = {}
+  self._summaryDirty = true
+end
+
+function GearFinder:InvalidateStatsCaches()
+  StatsCache = {}
+  NormCache = {}
+  ScoreCache = {}
+end
+
+local function ScoreFromStats(statsRaw, iid)
   local weights = GetClassWeights()
   if not weights then return 0 end
-  local mstats = NormalizeToMaker(statsRaw or {})
+
+  if iid then
+    local cached = ScoreCache[iid]
+    if cached ~= nil then return cached end
+  end
+
+  local mstats = NormalizedFor(iid, statsRaw)
 
   local total = 0
   for k, w in pairs(weights) do
@@ -1099,6 +1159,8 @@ local function ScoreFromStats(statsRaw)
       total = total + (v * w)
     end
   end
+
+  if iid then ScoreCache[iid] = total end
   return total
 end
 
@@ -1188,13 +1250,13 @@ SLASH_MPDEBUG1 = "/mpdebug"
 SlashCmdList["MPDEBUG"] = function(msg)
   msg = (msg or ""):lower():match("^%s*(%S*)") or ""
   if msg == "on" then
-    MakersPath.Config.DEBUG_GF = true
+    MakersPath.SetDebugGF(true)
   elseif msg == "off" then
-    MakersPath.Config.DEBUG_GF = false
+    MakersPath.SetDebugGF(false)
   else
-    MakersPath.Config.DEBUG_GF = not MakersPath.Config.DEBUG_GF
+    MakersPath.SetDebugGF(not MakersPath.GetDebugGF())
   end
-  print("|cff66ccff[Maker'sPath]|r".. string.format(Ls("DEBUG_GF_STATUS"), tostring(MakersPath.Config.DEBUG_GF)))
+  print("|cff66ccff[Maker'sPath]|r".. string.format(Ls("DEBUG_GF_STATUS"), tostring(MakersPath.GetDebugGF())))
 end
 
 
@@ -1348,7 +1410,7 @@ local function ScoreItemWithBreakdown(iid, slotName, preKnownArmorTok, preKnownI
     return 0, true, { reason = "stats-pending" }
   end
 
-  local baseStatsScore = ScoreFromStats(stats or {})
+  local baseStatsScore = ScoreFromStats(stats or {}, iid)
 
   local _, class = UnitClass("player")
   class = class or "UNKNOWN"
@@ -1383,7 +1445,7 @@ local function ScoreItemWithBreakdown(iid, slotName, preKnownArmorTok, preKnownI
       or invType == "INVTYPE_HOLDABLE"
       or invType == "INVTYPE_SHIELD")
 
-  if not (ONLY_STATS_WEAPONS and isWeaponish) then
+  if not (OnlyStatsWeapons() and isWeaponish) then
     biasArmor  = ArmorBias(entryShim)
     biasWeap   = WeaponBias(entryShim)
     biasProf   = ProfessionBias(entryShim)
@@ -1603,7 +1665,7 @@ local function IsEquippedTwoHander()
   return invType == "INVTYPE_2HWEAPON"
 end
 
-local function CanUseAsOffhand(entry, slotName)
+local function CanUseAsOffhand(entry, slotName, assumeMainHandInvType)
   if slotName ~= "SecondaryHandSlot" then
     return true
   end
@@ -1619,6 +1681,14 @@ local function CanUseAsOffhand(entry, slotName)
     return true
   end
 
+  local mainHandInv = assumeMainHandInvType
+  if mainHandInv == nil then
+    mainHandInv = IsEquippedTwoHander() and "INVTYPE_2HWEAPON" or nil
+  end
+  if mainHandInv == "INVTYPE_2HWEAPON" then
+    return false
+  end
+
   if inv == "INVTYPE_SHIELD" or inv == "INVTYPE_HOLDABLE" then
     return true
   end
@@ -1627,10 +1697,6 @@ local function CanUseAsOffhand(entry, slotName)
      or inv == "INVTYPE_WEAPONOFFHAND"
      or inv == "INVTYPE_WEAPONMAINHAND"
   then
-    if IsEquippedTwoHander() then
-      return false
-    end
-
     if not HasDualWield() then
       DBG("deny DualWield", entry.itemID or "nil")
       return false
@@ -1674,6 +1740,27 @@ end
 -- ==============================
 -- Candidates (runtime + static)
 -- ==============================
+MakersPath.CandidateGen = MakersPath.CandidateGen or 1
+
+function MakersPath.BumpCandidateGen()
+  MakersPath.CandidateGen = (MakersPath.CandidateGen or 1) + 1
+end
+
+local CandCache    = {}
+local CandCacheGen = nil
+
+local SLOT_CACHE_KEY = setmetatable({}, {
+  __index = function(t, slotName)
+    local keys = KeysForSlot(slotName)
+    local sorted = {}
+    for i = 1, #keys do sorted[i] = keys[i] end
+    table.sort(sorted)
+    local k = table.concat(sorted, "|")
+    rawset(t, slotName, k)
+    return k
+  end
+})
+
 local function SourcePriority(src)
   src = tostring(src or ""):lower()
   if src == "trainer" then return 3 end
@@ -1686,7 +1773,7 @@ local function IsInRecipeCatalog(itemID)
   if not itemID then return false end
   return MakersPath and MakersPath.CatalogItemIDs and MakersPath.CatalogItemIDs[itemID] == true
 end
-local function CandidatesForSlot(slotName)
+local function BuildCandidatesForSlot(slotName)
   local out = {}
   local byID = {}
   local db = GDB()
@@ -1769,6 +1856,27 @@ local function CandidatesForSlot(slotName)
   end
 
   return out
+end
+
+local function CandidatesForSlot(slotName)
+  local gen = MakersPath.CandidateGen or 1
+  if CandCacheGen ~= gen then
+    CandCache    = {}
+    CandCacheGen = gen
+  end
+
+  local key = SLOT_CACHE_KEY[slotName]
+  local hit = CandCache[key]
+  if hit then return hit end
+
+  local out = BuildCandidatesForSlot(slotName)
+  CandCache[key] = out
+  return out
+end
+
+function GearFinder:InvalidateCandidates()
+  CandCache    = {}
+  CandCacheGen = nil
 end
 
 -- ==============================
@@ -1928,43 +2036,76 @@ end
 -- ==============================
 -- Equipped score (per-slot; handles ring/trinket pairs)
 -- ==============================
+local PAIRED_SLOTS = {
+  Finger0Slot  = { "Finger0Slot",  "Finger1Slot"  },
+  Finger1Slot  = { "Finger0Slot",  "Finger1Slot"  },
+  Trinket0Slot = { "Trinket0Slot", "Trinket1Slot" },
+  Trinket1Slot = { "Trinket0Slot", "Trinket1Slot" },
+}
+
 local function GetEquippedScore(slotName)
   local cache = GearFinder._equippedScoreCache or {}
   GearFinder._equippedScoreCache = cache
   if cache[slotName] then
-    return cache[slotName].score, cache[slotName].ids, cache[slotName].pending, cache[slotName].dbg
+    local c = cache[slotName]
+    return c.score, c.ids, c.pending, c.dbg, c.bestScore
   end
 
-  local equippedIDs, best, pending = {}, 0, false
+  local equippedIDs, pending = {}, false
   local dbglist = {}
+  local worn = {}
+
+  local tokens = PAIRED_SLOTS[slotName]
+  local slotCount = tokens and #tokens or 1
+
   local function pushByToken(token)
     local slotId = GetInventorySlotInfo(token)
     if not slotId then return end
     local link = GetInventoryItemLink("player", slotId)
     if not link then return end
     local iid = GetItemInfoInstant(link)
-    if iid then equippedIDs[iid] = true end
+    if not iid then return end
+    equippedIDs[iid] = true
+    worn[#worn+1] = iid
   end
 
-  if slotName == "Finger0Slot" or slotName == "Finger1Slot" then
-    pushByToken("Finger0Slot")
-    pushByToken("Finger1Slot")
-  elseif slotName == "Trinket0Slot" or slotName == "Trinket1Slot" then
-    pushByToken("Trinket0Slot")
-    pushByToken("Trinket1Slot")
+  if tokens then
+    for _, token in ipairs(tokens) do pushByToken(token) end
   else
     pushByToken(slotName)
   end
 
-  for iid in pairs(equippedIDs) do
+  local scores = {}
+  for _, iid in ipairs(worn) do
     local total, pend, breakdown = ScoreItemWithBreakdown(iid, slotName)
     if pend then pending = true end
-    dbglist[#dbglist+1] = { kind="equipped", total = total, br = breakdown}
-    if total > best then best = total end
+    dbglist[#dbglist+1] = { kind="equipped", total = total, br = breakdown }
+    scores[#scores+1] = total or 0
   end
 
-  cache[slotName] = { score = best, ids = equippedIDs, pending = pending, dbg = dbglist }
-  return best, equippedIDs, pending, dbglist
+  local bestScore = 0
+  for _, s in ipairs(scores) do
+    if s > bestScore then bestScore = s end
+  end
+
+  local threshold
+  if #scores < slotCount then
+    threshold = 0
+  else
+    threshold = scores[1] or 0
+    for _, s in ipairs(scores) do
+      if s < threshold then threshold = s end
+    end
+  end
+
+  cache[slotName] = {
+    score     = threshold,
+    ids       = equippedIDs,
+    pending   = pending,
+    dbg       = dbglist,
+    bestScore = bestScore,
+  }
+  return threshold, equippedIDs, pending, dbglist, bestScore
 end
 
 -- ==============================
@@ -1980,7 +2121,7 @@ local function betterTiebreak(a, b)
   local wepA = invA:find("WEAPON") or invA:find("RANGED") or invA=="INVTYPE_HOLDABLE" or invA=="INVTYPE_SHIELD"
   local wepB = invB:find("WEAPON") or invB:find("RANGED") or invB=="INVTYPE_HOLDABLE" or invB=="INVTYPE_SHIELD"
 
-  if not (ONLY_STATS_WEAPONS and (wepA or wepB)) then
+  if not (OnlyStatsWeapons() and (wepA or wepB)) then
     local ba = ArmorBias(a)
     local bb = ArmorBias(b)
     if ba ~= bb then return ba > bb end
@@ -2187,8 +2328,8 @@ end
 -- ==============================
 -- Best-next selection
 -- ==============================
-ALT_MAX_COUNT = 3
-ALT_MIN_RELATIVE = 0.80
+local ALT_MAX_COUNT = 3
+local ALT_MIN_RELATIVE = 0.80
 local EPS = 0.01
 
 local function EquippedMinReqLevel(equippedIDs)
@@ -2223,7 +2364,8 @@ local function QueueGearFinderRescan(delay)
   end)
 end
 
-function GearFinder:GetBestCraftable(slotName, excludeIDs)
+function GearFinder:GetBestCraftable(slotName, excludeIDs, opts)
+  opts = opts or {}
   local eqScore, equippedIDs, eqPending = GetEquippedScore(slotName)
   local eqReqLevel = EquippedMinReqLevel(equippedIDs)
   local cs = CandidatesForSlot(slotName)
@@ -2277,7 +2419,8 @@ function GearFinder:GetBestCraftable(slotName, excludeIDs)
     if IsProfessionRestrictedItem(entry) then return nil end
     if IsProfessionAcquisitionRestricted(entry) then return nil end
     if not WeaponSkillAllows(entry) then return nil else diag.prof = diag.prof + 1 end
-    if not CanUseAsOffhand(entry, slotName) then return nil end
+    if opts.invTypeFilter and not opts.invTypeFilter[entry.invType] then return nil end
+    if not CanUseAsOffhand(entry, slotName, opts.assumeMainHandInvType) then return nil end
     if equippedIDs and equippedIDs[entry.itemID] then diag.equippedskip = diag.equippedskip + 1; return nil end
     if excludeIDs and excludeIDs[entry.itemID] then return nil end
     if not HasValueForSlot(slotName, entry.itemID) then return nil else diag.value = diag.value + 1 end
@@ -2459,9 +2602,9 @@ function GearFinder:GetBestCraftable(slotName, excludeIDs)
   return nil, 0, eqScore or 0, nil
 end
 
-GearFinder._summaryWorker = GearFinder._summaryWorker or Nimble
+GearFinder._summaryWorker = GearFinder._summaryWorker or nil
 GearFinder._buildToken = 0
-GearFinder._isBuildSummary = false
+GearFinder._isBuildingSummary = false
 
 -- ==============================
 -- Summary for UI
@@ -2551,6 +2694,136 @@ local function MakeSummaryRow(slotName, best, bestScore, eqScore, alts)
   }
 end
 
+-- =====================================================================
+-- Uniqueness
+-- =====================================================================
+local uniqueCache = {}
+local uniqueScanner
+
+local function IsUniqueEquipped(itemID)
+  if not itemID then return false end
+  local cached = uniqueCache[itemID]
+  if cached ~= nil then return cached end
+
+  -- Don't cache a verdict from an unloaded tooltip.
+  if not GetItemInfo(itemID) then return false end
+
+  if not uniqueScanner then
+    uniqueScanner = CreateFrame("GameTooltip", "MakersPathUniqueScanner", nil, "GameTooltipTemplate")
+    uniqueScanner:SetOwner(UIParent, "ANCHOR_NONE")
+  end
+
+  uniqueScanner:ClearLines()
+  uniqueScanner:SetHyperlink("item:" .. itemID)
+
+  local result = false
+  local needles = { ITEM_UNIQUE, ITEM_UNIQUE_EQUIPPABLE }
+  for i = 2, math.min(uniqueScanner:NumLines(), 6) do
+    local fs = _G["MakersPathUniqueScannerTextLeft" .. i]
+    local text = fs and fs:GetText()
+    if text then
+      for _, needle in ipairs(needles) do
+        if needle and needle ~= "" and text:find(needle, 1, true) then
+          result = true
+          break
+        end
+      end
+    end
+    if result then break end
+  end
+
+  uniqueCache[itemID] = result
+  return result
+end
+
+MakersPath.InvalidateUniqueCache = function() uniqueCache = {} end
+
+-- =====================================================================
+-- Paired slots (rings, trinkets)
+-- =====================================================================
+function GearFinder:SolvePair(slotA, slotB)
+  local bestA, scoreA, eqA, altsA = self:GetBestCraftable(slotA)
+
+  local exclude = nil
+  if bestA and bestA.itemID and IsUniqueEquipped(bestA.itemID) then
+    exclude = { [bestA.itemID] = true }
+  end
+
+  local bestB, scoreB, eqB, altsB = self:GetBestCraftable(slotB, exclude)
+  return bestA, scoreA, eqA, altsA, bestB, scoreB, eqB, altsB
+end
+
+-- =====================================================================
+-- Weapon set
+-- =====================================================================
+local FILTER_2H = { INVTYPE_2HWEAPON = true }
+local FILTER_1H = { INVTYPE_WEAPON = true, INVTYPE_WEAPONMAINHAND = true }
+
+local function EquippedInvTypeFor(token)
+  local slotId = GetInventorySlotInfo(token)
+  if not slotId then return nil end
+  local link = GetInventoryItemLink("player", slotId)
+  if not link then return nil end
+  return select(9, GetItemInfo(link))
+end
+
+function GearFinder:SolveWeaponSet()
+  local eqMH = select(1, GetEquippedScore("MainHandSlot")) or 0
+  local eqOH = select(1, GetEquippedScore("SecondaryHandSlot")) or 0
+  local mainHandIsTwoHander = (EquippedInvTypeFor("MainHandSlot") == "INVTYPE_2HWEAPON")
+
+  local cand2H, score2H, _, alts2H = self:GetBestCraftable("MainHandSlot", nil, { invTypeFilter = FILTER_2H })
+  local cand1H, score1H, _, alts1H = self:GetBestCraftable("MainHandSlot", nil, { invTypeFilter = FILTER_1H })
+
+  local candOH, scoreOH, _, altsOH =
+    self:GetBestCraftable("SecondaryHandSlot", nil, { assumeMainHandInvType = "INVTYPE_WEAPON" })
+
+  score2H = cand2H and (score2H or 0) or nil
+  score1H = cand1H and (score1H or 0) or nil
+  scoreOH = candOH and (scoreOH or 0) or nil
+
+  local keepableOH = mainHandIsTwoHander and 0 or eqOH
+
+  local configs = {
+    { total = eqMH + eqOH, mh = nil, oh = nil },
+  }
+  if score2H then
+    configs[#configs+1] = { total = score2H, mh = cand2H, mhScore = score2H, mhAlts = alts2H, twoHander = true }
+  end
+  if score1H then
+    configs[#configs+1] = { total = score1H + keepableOH, mh = cand1H, mhScore = score1H, mhAlts = alts1H }
+    if scoreOH then
+      configs[#configs+1] = {
+        total = score1H + scoreOH,
+        mh = cand1H, mhScore = score1H, mhAlts = alts1H,
+        oh = candOH, ohScore = scoreOH, ohAlts = altsOH,
+      }
+    end
+  end
+  if scoreOH and not mainHandIsTwoHander then
+    configs[#configs+1] = { total = eqMH + scoreOH, oh = candOH, ohScore = scoreOH, ohAlts = altsOH }
+  end
+
+  local winner = configs[1]
+  for i = 2, #configs do
+    if configs[i].total > winner.total then winner = configs[i] end
+  end
+
+  local mhBaseline = winner.twoHander and (eqMH + eqOH) or eqMH
+
+  return {
+    mh      = winner.mh,
+    mhScore = winner.mhScore or 0,
+    mhEq    = mhBaseline,
+    mhAlts  = winner.mhAlts,
+    oh      = winner.oh,
+    ohScore = winner.ohScore or 0,
+    ohEq    = eqOH,
+    ohAlts  = winner.ohAlts,
+    ohBlocked = winner.twoHander or (winner.mh == nil and mainHandIsTwoHander),
+  }
+end
+
 function GearFinder:BuildSummary()
   if not self._summaryDirty and self._lastSummary then
     return self._lastSummary
@@ -2569,44 +2842,35 @@ function GearFinder:BuildSummary()
   local rows = {}
   local slowestSlot, slowestTime = nil, 0
 
-  local chosenMainHand = nil
-  local chosenMainHandInvType = nil
+  local solved = {}
+
+  do
+    local a, sa, ea, aa, b, sb, eb, ab = self:SolvePair("Finger0Slot", "Finger1Slot")
+    solved.Finger0Slot = { a, sa, ea, aa }
+    solved.Finger1Slot = { b, sb, eb, ab }
+
+    local c, sc, ec, ac, d, sd, ed, ad = self:SolvePair("Trinket0Slot", "Trinket1Slot")
+    solved.Trinket0Slot = { c, sc, ec, ac }
+    solved.Trinket1Slot = { d, sd, ed, ad }
+
+    local w = self:SolveWeaponSet()
+    solved.MainHandSlot      = { w.mh, w.mhScore, w.mhEq, w.mhAlts }
+    solved.SecondaryHandSlot = w.ohBlocked and { nil, 0, w.ohEq, nil }
+                                           or  { w.oh, w.ohScore, w.ohEq, w.ohAlts }
+  end
 
   for _, slotName in ipairs(orderedSlots) do
     local s0 = debugprofilestop()
 
     local best, bestScore, eqScore, alts
-
-    if slotName == "SecondaryHandSlot" and chosenMainHandInvType == "INVTYPE_2HWEAPON" then
-      local equippedScore = select(1, GetEquippedScore(slotName)) or 0
-      best, bestScore, eqScore, alts = nil, 0, equippedScore, nil
+    local pre = solved[slotName]
+    if pre then
+      best, bestScore, eqScore, alts = pre[1], pre[2], pre[3], pre[4]
     else
       best, bestScore, eqScore, alts = self:GetBestCraftable(slotName)
     end
 
-    if slotName == "MainHandSlot" then
-      chosenMainHand = best
-      if best and best.itemID then
-        chosenMainHandInvType = best.invType or select(9, GetItemInfo(best.itemID))
-      else
-        chosenMainHandInvType = nil
-      end
-    end
-
-    local pct = 0
-    if bestScore and bestScore > 0 then
-      pct = math.max(0, math.min(1, (eqScore or 0) / bestScore))
-    end
-    if best then best.eqScore = eqScore end
-
-    rows[#rows+1] = {
-      slot      = slotName,
-      best      = best,
-      bestScore = bestScore or 0,
-      eqScore   = eqScore or 0,
-      progress  = pct,
-      alts      = alts,
-    }
+    rows[#rows+1] = MakeSummaryRow(slotName, best, bestScore, eqScore, alts)
 
     local sdt = debugprofilestop() - s0
     if sdt > slowestTime then
@@ -2615,7 +2879,7 @@ function GearFinder:BuildSummary()
   end
 
   local dt = debugprofilestop() - t0
-  if MakersPath.Config.DEBUG_TIMING then
+  if MakersPath.GetDebugTiming() then
     print(string.format(
       "|cff66ccff[Maker'sPath]|r BuildSummary %.1f ms; slowest %s = %.1f ms",
       dt, tostring(slowestSlot), slowestTime
@@ -2652,7 +2916,6 @@ function GearFinder:BuildSummaryAsync(onProgress, onDone)
   local rows = {}
   local rowBySlot = {}
   local i = 1
-  local chosenMainHandInvType = nil
 
   local function addOrReplaceRow(row)
     rowBySlot[row.slot] = row
@@ -2680,48 +2943,29 @@ function GearFinder:BuildSummaryAsync(onProgress, onDone)
       local slotName = slots[i]
 
       if slotName == "Finger0Slot" then
-        local best0, bestScore0, eqScore0, alts0 = self:GetBestCraftable("Finger0Slot")
-        addOrReplaceRow(MakeSummaryRow("Finger0Slot", best0, bestScore0, eqScore0, alts0))
-
-        local exclude = {}
-        if best0 and best0.itemID then
-          exclude[best0.itemID] = true
-        end
-
-        local best1, bestScore1, eqScore1, alts1 = self:GetBestCraftable("Finger1Slot", exclude)
-        addOrReplaceRow(MakeSummaryRow("Finger1Slot", best1, bestScore1, eqScore1, alts1))
-
+        local a, sa, ea, aa, b, sb, eb, ab = self:SolvePair("Finger0Slot", "Finger1Slot")
+        addOrReplaceRow(MakeSummaryRow("Finger0Slot", a, sa, ea, aa))
+        addOrReplaceRow(MakeSummaryRow("Finger1Slot", b, sb, eb, ab))
         i = i + 2
 
       elseif slotName == "Trinket0Slot" then
-        local best0, bestScore0, eqScore0, alts0 = self:GetBestCraftable("Trinket0Slot")
-        addOrReplaceRow(MakeSummaryRow("Trinket0Slot", best0, bestScore0, eqScore0, alts0))
+        local a, sa, ea, aa, b, sb, eb, ab = self:SolvePair("Trinket0Slot", "Trinket1Slot")
+        addOrReplaceRow(MakeSummaryRow("Trinket0Slot", a, sa, ea, aa))
+        addOrReplaceRow(MakeSummaryRow("Trinket1Slot", b, sb, eb, ab))
+        i = i + 2
 
-        local exclude = {}
-        if best0 and best0.itemID then
-          exclude[best0.itemID] = true
+      elseif slotName == "MainHandSlot" then
+        local w = self:SolveWeaponSet()
+        addOrReplaceRow(MakeSummaryRow("MainHandSlot", w.mh, w.mhScore, w.mhEq, w.mhAlts))
+        if w.ohBlocked then
+          addOrReplaceRow(MakeSummaryRow("SecondaryHandSlot", nil, 0, w.ohEq, nil))
+        else
+          addOrReplaceRow(MakeSummaryRow("SecondaryHandSlot", w.oh, w.ohScore, w.ohEq, w.ohAlts))
         end
-
-        local best1, bestScore1, eqScore1, alts1 = self:GetBestCraftable("Trinket1Slot", exclude)
-        addOrReplaceRow(MakeSummaryRow("Trinket1Slot", best1, bestScore1, eqScore1, alts1))
-
         i = i + 2
 
       else
-        local best, bestScore, eqScore, alts
-        if slotName == "SecondaryHandSlot" and chosenMainHandInvType == "INVTYPE_2HWEAPON" then
-          best, bestScore, eqScore, alts = nil, 0, select(1, GetEquippedScore(slotName)) or 0, nil
-        else
-          best, bestScore, eqScore, alts = self:GetBestCraftable(slotName)
-        end
-
-        if slotName == "MainHandSlot" then
-          if best and best.itemID then
-            chosenMainHandInvType = best.invType or select(9, GetItemInfo(best.itemID))
-          else
-            chosenMainHandInvType = nil
-          end
-        end
+        local best, bestScore, eqScore, alts = self:GetBestCraftable(slotName)
         addOrReplaceRow(MakeSummaryRow(slotName, best, bestScore, eqScore, alts))
         i = i + 1
       end
@@ -2752,6 +2996,11 @@ function GearFinder:InvalidateSummary()
   self._equippedScoreCache = nil
   self._scoreCache = nil
   self._candidateCache = nil
+  self._buildToken = (self._buildToken or 0) + 1
+  if self._isBuildingSummary and self._summaryWorker then
+    self._summaryWorker:SetScript("OnUpdate", nil)
+    self._isBuildingSummary = false
+  end
 end
 
 -- ==============================
@@ -2945,8 +3194,8 @@ end
 -- ===================== Timing toggle =====================
 SLASH_MPTIMING1 = "/mptiming"
 SlashCmdList["MPTIMING"] = function()
-  MakersPath.Config.DEBUG_TIMING = not MakersPath.Config.DEBUG_TIMING
-  print("|cff66ccff[Maker'sPath]|r timing debug is now " .. tostring(MakersPath.Config.DEBUG_TIMING))
+  MakersPath.SetDebugTiming(not MakersPath.GetDebugTiming())
+  print("|cff66ccff[Maker'sPath]|r timing debug is now " .. tostring(MakersPath.GetDebugTiming()))
 end
 SLASH_MPTRAINER1 = "/mptrainer"
 SlashCmdList["MPTRAINER"] = function(msg)

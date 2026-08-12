@@ -136,6 +136,8 @@ local function bucketInsert(inv, row)
   if not b then b = {}; Craftables[inv] = b end
   for i=1,#b do if b[i].itemID == row.itemID then return end end
   table.insert(b, row)
+  if MakersPath.BumpCandidateGen then MakersPath.BumpCandidateGen() end
+  if MakersPath.RequestUIRefresh then MakersPath.RequestUIRefresh(0.25) end
 end
 
 local function bucketStaticItem(itemID, profId, learnedAt, source)

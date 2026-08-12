@@ -472,6 +472,19 @@ local function WeaponProficiencyOk(entry)
   end
   local _, subclassID = GetClassSubClass(entry.itemID)
   if not subclassID then return true end
+
+  local me = UnitLevel("player") or 1
+  if me < 10 then return true end
+
+  local Util = MakersPath.Util
+  if Util and Util.CurrentWeaponSubIds then
+    local byId, scanned = Util.CurrentWeaponSubIds()
+    if scanned then
+      local rank = byId[subclassID]
+      return (rank and rank > 0) or false
+    end
+  end
+
   if not C.SUBCLASS_TO_LINE or next(C.SUBCLASS_TO_LINE) == nil then
     return true
   end
@@ -479,9 +492,8 @@ local function WeaponProficiencyOk(entry)
   if not needLine then
     return true
   end
-  local me = UnitLevel("player") or 1
-  local weps = MakersPath.Util and MakersPath.Util.CurrentWeaponMap and MakersPath.Util.CurrentWeaponMap() or {}
-  if me < 10 or not weps then
+  local weps = Util and Util.CurrentWeaponMap and Util.CurrentWeaponMap() or {}
+  if not weps or next(weps) == nil then
     return true
   end
   local rank = weps[needLine]

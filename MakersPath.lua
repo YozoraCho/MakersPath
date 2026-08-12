@@ -2,7 +2,7 @@ local ADDON_NAME, MakersPath = ...
 
 MakersPath = MakersPath or {}
 MakersPath.name = ADDON_NAME
-MakersPath.version = "1.4.10"
+MakersPath.version = "1.5.0"
 _G.MakersPath = MakersPath
 local debugprofilestop = debugprofilestop
 MakersPath.Config = MakersPath.Config or {}
@@ -17,6 +17,10 @@ local function Ls(key) return (L and L[key]) or key end
 
 MakersPath.L = L
 MakersPath.Ls = Ls
+
+-- ===================== Dropdowns =====================
+local LibDD = LibStub("LibUIDropDownMenu-4.0")
+MakersPath.LibDD = LibDD
 -- ===================== Client Detection =====================
 
 local client   = MakersPath.client or {}
@@ -348,6 +352,7 @@ end
 
 -- ===================== List UI =====================
 local RefreshList
+local RebuildCurrentSummaryView
 
 local function SafeRefresh(delay)
   delay = delay or 0.05
@@ -450,7 +455,7 @@ local function GetSummaryBySlot()
   return bySlot
 end
 
-local function RebuildCurrentSummaryView()
+function RebuildCurrentSummaryView()
   local finder = GF()
   if not finder then return end
 
@@ -462,16 +467,13 @@ local function RebuildCurrentSummaryView()
     return
   end
 
-  if finder._isBuildingSummary then
-    return
-  end
-
   if finder.InvalidateSummary then
     finder:InvalidateSummary()
   else
     finder._summaryDirty = true
     finder._lastSummary = nil
     finder._equippedScoreCache = nil
+    finder._isBuildingSummary = false
   end
 
   if MakersPathFrame and MakersPathFrame:IsShown() then
@@ -490,6 +492,18 @@ local function RebuildCurrentSummaryView()
       finder._lastSummary = finder:BuildSummary() or {}
       if RefreshList then RefreshList() end
     end
+  end
+end
+
+do
+  local refreshPending = false
+  function MakersPath.RequestUIRefresh(delay)
+    if refreshPending then return end
+    refreshPending = true
+    C_Timer.After(delay or 0.10, function()
+      refreshPending = false
+      RebuildCurrentSummaryView()
+    end)
   end
 end
 
@@ -607,18 +621,18 @@ local function ResolveRequiredLevel(iid2, fallback)
   return fallback or 0
 end
 
-local MPAltDropdown = CreateFrame("Frame", "MakersPathAltDropdown", UIParent, "UIDropDownMenuTemplate")
+local MPAltDropdown = LibDD:Create_UIDropDownMenu("MakersPathAltDropdown", UIParent)
 MPAltDropdown.displayMode = "MENU"
 
 local function ShowAltMenu(anchor, alts)
   if not alts or #alts == 0 then return end
 
-  UIDropDownMenu_Initialize(MPAltDropdown, function(self, level)
+  LibDD:UIDropDownMenu_Initialize(MPAltDropdown, function(self, level)
     if level ~= 1 then return end
 
     for _, alt in ipairs(alts) do
       if alt and alt.itemID then
-        local info = UIDropDownMenu_CreateInfo()
+        local info = LibDD:UIDropDownMenu_CreateInfo()
         local link = select(2, GetItemInfo(alt.itemID))
         info.text = link or ("item:" .. tostring(alt.itemID))
         info.notCheckable = true
@@ -628,12 +642,12 @@ local function ShowAltMenu(anchor, alts)
             ChatEdit_InsertLink(itemLink)
           end
         end
-        UIDropDownMenu_AddButton(info, level)
+        LibDD:UIDropDownMenu_AddButton(info, level)
       end
     end
   end, "MENU")
 
-  ToggleDropDownMenu(1, nil, MPAltDropdown, anchor, 0, 0)
+  LibDD:ToggleDropDownMenu(1, nil, MPAltDropdown, anchor, 0, 0)
 end
 
 local function RenderSlot(slotName, data)
@@ -750,16 +764,15 @@ MakersPath.UI.ActiveProfileKey = MakersPath.UI.ActiveProfileKey or nil
 local profileLabel = panel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
 profileLabel:SetText(L["PROFILE_LABEL"])
 
-local profileDrop = CreateFrame("Frame", "MakersPathProfileDropdown", panel, "UIDropDownMenuTemplate")
-UIDropDownMenu_SetWidth(profileDrop, 120)
+local profileDrop = LibDD:Create_UIDropDownMenu("MakersPathProfileDropdown", panel)
+LibDD:UIDropDownMenu_SetWidth(profileDrop, 120)
 
 do
-  local name   = profileDrop:GetName()
-  local left   = _G[name.."Left"]
-  local mid    = _G[name.."Middle"]
-  local right  = _G[name.."Right"]
-  local button = _G[name.."Button"]
-  local text   = _G[name.."Text"]
+  local left   = profileDrop.Left
+  local mid    = profileDrop.Middle
+  local right  = profileDrop.Right
+  local button = profileDrop.Button
+  local text   = profileDrop.Text
 
   if left  then left:Hide() end
   if mid   then mid:Hide() end
@@ -786,7 +799,7 @@ profileLabel:SetPoint("RIGHT", profileDrop, "LEFT", -8, 2)
 
 local function SetActiveProfile(key)
   MakersPath.UI.ActiveProfileKey = key
-  UIDropDownMenu_SetText(profileDrop, MakersPath.UI.CurrentProfileText())
+  LibDD:UIDropDownMenu_SetText(profileDrop, MakersPath.UI.CurrentProfileText())
 
   if not MakersPathFrame:IsShown() then
     return
@@ -831,22 +844,22 @@ local function ProfileDrop_Init(self, level)
   local active  = MakersPath.UI.ActiveProfileKey
   local roster  = BuildProfileRoster()
   do
-    local info = UIDropDownMenu_CreateInfo()
+    local info = LibDD:UIDropDownMenu_CreateInfo()
     info.text         = L["PROFILE_ACTIVE"]
     info.func         = function() SetActiveProfile(nil) end
     info.checked      = (not active or active == thisKey)
     info.notCheckable = false
-    UIDropDownMenu_AddButton(info, level)
+    LibDD:UIDropDownMenu_AddButton(info, level)
   end
   if #roster > 0 then
-    local sep = UIDropDownMenu_CreateInfo()
+    local sep = LibDD:UIDropDownMenu_CreateInfo()
     sep.isTitle      = true
     sep.notCheckable = true
     sep.text         = L["PROFILE_ALT"]
-    UIDropDownMenu_AddButton(sep, level)
+    LibDD:UIDropDownMenu_AddButton(sep, level)
   end
   for _, row in ipairs(roster) do
-    local info = UIDropDownMenu_CreateInfo()
+    local info = LibDD:UIDropDownMenu_CreateInfo()
     info.text         = row.label
     info.arg1         = row.key
     info.notCheckable = false
@@ -854,15 +867,15 @@ local function ProfileDrop_Init(self, level)
     info.func = function(_, key)
       SetActiveProfile(key)
     end
-    UIDropDownMenu_AddButton(info, level)
+    LibDD:UIDropDownMenu_AddButton(info, level)
   end
 end
 
-UIDropDownMenu_Initialize(profileDrop, ProfileDrop_Init)
-UIDropDownMenu_SetText(profileDrop, MakersPath.UI.CurrentProfileText())
+LibDD:UIDropDownMenu_Initialize(profileDrop, ProfileDrop_Init)
+LibDD:UIDropDownMenu_SetText(profileDrop, MakersPath.UI.CurrentProfileText())
 
 MakersPathFrame:HookScript("OnShow", function()
-  UIDropDownMenu_SetText(profileDrop, MakersPath.UI.CurrentProfileText())
+  LibDD:UIDropDownMenu_SetText(profileDrop, MakersPath.UI.CurrentProfileText())
 end)
 
 -- Refresh Button
@@ -980,6 +993,8 @@ frame:SetScript("OnEvent", function(_, event, arg1)
     DB.pos   = DB.pos   or { point="CENTER", relativePoint="CENTER", x=0, y=0 }
     DB.size  = DB.size  or { w=MIN_W, h=MIN_H }
     DB.scale = DB.scale or 1.0
+    DB.config = DB.config or {}
+    if MakersPath.SyncDebugMirror then MakersPath.SyncDebugMirror() end
     RestorePanelPosition()
 
   elseif event == "PLAYER_LOGIN" or event == "PLAYER_ENTERING_WORLD" then
@@ -1008,8 +1023,9 @@ frame:SetScript("OnEvent", function(_, event, arg1)
     RebuildCurrentSummaryView()
 
   elseif event == "GET_ITEM_INFO_RECEIVED" then
-    if MakersPathFrame and MakersPathFrame:IsShown() and RefreshList then
-      RefreshList()
+    if MakersPathFrame and MakersPathFrame:IsShown() then
+      if RefreshList then RefreshList() end
+      if MakersPath.RequestUIRefresh then MakersPath.RequestUIRefresh(0.25) end
     end
 
   elseif event == "PLAYER_LOGOUT" then
@@ -1170,9 +1186,9 @@ function MakersPath.SpecUI.Init(parent)
   lbl:SetText("Spec:")
   lbl:SetPoint("LEFT", profBookBtn, "RIGHT", 8, 0)
 
-  local dd = CreateFrame("Frame", "MakersPathSpecDropdown", parent, "UIDropDownMenuTemplate")
+  local dd = LibDD:Create_UIDropDownMenu("MakersPathSpecDropdown", parent)
   dd:SetPoint("LEFT", lbl, "RIGHT", 4, -2)
-  UIDropDownMenu_SetWidth(dd, 170)
+  LibDD:UIDropDownMenu_SetWidth(dd, 170)
 
   local function currentText()
     local cur = CurrentSpec() or ""
@@ -1184,7 +1200,7 @@ function MakersPath.SpecUI.Init(parent)
 
   local function OnSelect(_, arg1)
     SetCurrentSpec(arg1 or "")
-    UIDropDownMenu_SetText(dd, currentText())
+    LibDD:UIDropDownMenu_SetText(dd, currentText())
     RebuildCurrentSummaryView()
   end
 
@@ -1192,20 +1208,20 @@ function MakersPath.SpecUI.Init(parent)
     if level ~= 1 then return end
     local cur = CurrentSpec() or ""
     for _, opt in ipairs(choices) do
-      local info = UIDropDownMenu_CreateInfo()
+      local info = LibDD:UIDropDownMenu_CreateInfo()
       info.text    = opt.text
       info.arg1    = opt.value
       info.func    = OnSelect
       info.checked = (cur == (opt.value or ""))
-      UIDropDownMenu_AddButton(info, 1)
+      LibDD:UIDropDownMenu_AddButton(info, 1)
     end
   end
 
-  UIDropDownMenu_Initialize(dd, Initialize)
-  UIDropDownMenu_SetText(dd, currentText())
+  LibDD:UIDropDownMenu_Initialize(dd, Initialize)
+  LibDD:UIDropDownMenu_SetText(dd, currentText())
 
   parent:HookScript("OnShow", function()
-    UIDropDownMenu_SetText(dd, currentText())
+    LibDD:UIDropDownMenu_SetText(dd, currentText())
   end)
 end
 do

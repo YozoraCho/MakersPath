@@ -53,6 +53,7 @@ local function InvTypeInsert(invType, row)
     if t[i].itemID == row.itemID then return end
   end
   table.insert(t, row)
+  if MakersPath.BumpCandidateGen then MakersPath.BumpCandidateGen() end
 end
 
 -- =====================================================================
@@ -65,6 +66,7 @@ local function BucketInsertLegacy(equipLoc, itemID, meta)
   if not bucket then bucket = {}; MakersPathGlobalDB.buckets[equipLoc] = bucket end
   for _, e in ipairs(bucket) do if e.itemID == itemID then return end end
   table.insert(bucket, { itemID = itemID })
+  if MakersPath.BumpCandidateGen then MakersPath.BumpCandidateGen() end
 
   MakersPath.CraftDB[equipLoc] = MakersPath.CraftDB[equipLoc] or {}
   local rb = MakersPath.CraftDB[equipLoc]
@@ -81,13 +83,34 @@ end
 -- =====================================================================
 -- Cache & fan-out into DBs
 -- =====================================================================
+local NON_GEAR = {}
+local retryCount = {}
+local MAX_RETRIES = 25
+
 local function CacheAndBucket(itemID, profName)
+  if NON_GEAR[itemID] then return end
+
   local _, _, _, equipLoc, _, classID, subClassID = GetItemInfoInstant(itemID)
   local name, _, _, _, reqLevel = GetItemInfo(itemID)
-  if not equipLoc or equipLoc == "" then
+
+  if equipLoc == "" then
+    NON_GEAR[itemID] = true
+    retryCount[itemID] = nil
+    return
+  end
+
+  if not equipLoc or not name then
+    local n = (retryCount[itemID] or 0) + 1
+    if n > MAX_RETRIES then
+      retryCount[itemID] = nil
+      return
+    end
+    retryCount[itemID] = n
     C_Timer.After(0.2, function() CacheAndBucket(itemID, profName) end)
     return
   end
+
+  retryCount[itemID] = nil
 
   local profSkillLine = PROF_SKILLLINE_BY_NAME[profName] or 0
   local armor = ArmorTokenByIDs(classID, subClassID)
