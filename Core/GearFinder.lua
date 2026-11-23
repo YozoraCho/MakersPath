@@ -11,7 +11,11 @@ MakersPath.GearFinder = GearFinder
 GearFinder._summaryDirty = true
 GearFinder._lastSummary = nil
 local NormalizeToMaker
-function GearFinder:MarkDirty() self._summaryDirty = true end
+function GearFinder:MarkDirty()
+  self._summaryDirty = true
+  if self._MarkSavedStale then self:_MarkSavedStale() end
+end
+GearFinder._pendingItems = GearFinder._pendingItems or {}
 local debugprofilestop = debugprofilestop or function() return 0 end
 local StatsCache = {}
 MakersPath.Spec = MakersPath.Spec or {}
@@ -2079,7 +2083,10 @@ local function GetEquippedScore(slotName)
   local scores = {}
   for _, iid in ipairs(worn) do
     local total, pend, breakdown = ScoreItemWithBreakdown(iid, slotName)
-    if pend then pending = true end
+    if pend then
+      pending = true
+      GearFinder._pendingItems[iid] = true
+    end
     dbglist[#dbglist+1] = { kind="equipped", total = total, br = breakdown }
     scores[#scores+1] = total or 0
   end
@@ -2433,6 +2440,7 @@ function GearFinder:GetBestCraftable(slotName, excludeIDs, opts)
 
     local total, pend, br = ScoreItemWithBreakdown(entry.itemID, slotName, entry.armor, entry.invType)
     if pend then
+      GearFinder._pendingItems[entry.itemID] = true
       diag.pending = diag.pending + 1
       if not _pendingKick[slotName] then
         _pendingKick[slotName] = true
@@ -2608,9 +2616,62 @@ GearFinder._buildToken = 0
 GearFinder._isBuildingSummary = false
 
 -- ==============================
+-- Input signature
+-- Everything a summary depends on that can change without the user touching
+-- a setting. Settings and stat weights call MarkDirty() themselves.
+-- If the signature matches the one a summary was built with, that summary is
+-- still valid and does not need rebuilding (also across /reload).
+-- ==============================
+function GearFinder:InputSignature()
+  local parts = {}
+  local function add(v) parts[#parts+1] = tostring(v) end
+
+  add(CurrentCharKey())
+  add(UnitLevel("player") or 0)
+
+  for invSlot = 1, 19 do
+    add(GetInventoryItemID("player", invSlot) or 0)
+  end
+
+  local profs = MakersPath.Util and MakersPath.Util.CurrentProfMap and MakersPath.Util.CurrentProfMap() or {}
+  local pk = {}
+  for spellID, rank in pairs(profs) do pk[#pk+1] = tostring(spellID) .. "=" .. tostring(rank) end
+  table.sort(pk)
+  add(table.concat(pk, ","))
+
+  -- Only which weapon types are known matters, not the skill level.
+  local wk = {}
+  local byId = MakersPath.Util and MakersPath.Util.CurrentWeaponSubIds and MakersPath.Util.CurrentWeaponSubIds() or {}
+  for subId in pairs(byId) do wk[#wk+1] = tostring(subId) end
+  table.sort(wk)
+  add(table.concat(wk, ","))
+
+  add(self:GetIndexedCount())
+
+  local nSpells = 0
+  for _ in pairs(GetKnownSpellNames() or {}) do nSpells = nSpells + 1 end
+  add(nSpells)
+
+  add(FutureCap())
+  add(GetTrainerOnly() and 1 or 0)
+  add(GetIgnoreFilters() and 1 or 0)
+  add(GetPrefNativeArmor() and 1 or 0)
+  add(CurrentSpec() or "")
+
+  return table.concat(parts, "|")
+end
+
+-- The saved copy can't be trusted after MarkDirty(); drop its signature so
+-- it is never restored, but keep the rows for the alt (profile) view.
+function GearFinder:_MarkSavedStale()
+  local rec = MakersPathDB and MakersPathDB.chars and MakersPathDB.chars[CurrentCharKey()]
+  if rec and rec.gearSummary then rec.gearSummary.sig = nil end
+end
+
+-- ==============================
 -- Summary for UI
 -- ==============================
-local function SaveSummaryForCurrentChar(rows)
+local function SaveSummaryForCurrentChar(rows, sig)
   if not MakersPath then return end
 
   MakersPathDB = MakersPathDB or {}
@@ -2629,6 +2690,7 @@ local function SaveSummaryForCurrentChar(rows)
   rec.gearSummary = {
     version = 1,
     time    = time and time() or nil,
+    sig     = sig,   -- nil = incomplete or stale, never restored
     slots   = {},
   }
 
@@ -2832,6 +2894,9 @@ function GearFinder:BuildSummary()
 
   local t0 = debugprofilestop()
   self:BeginSession()
+  wipe(self._pendingItems)
+  self._summaryDirty = false
+  local sig = self:InputSignature()
 
   local orderedSlots = {
     "HeadSlot","NeckSlot","ShoulderSlot","BackSlot","ChestSlot","WristSlot",
@@ -2887,10 +2952,10 @@ function GearFinder:BuildSummary()
     ))
   end
 
-  SaveSummaryForCurrentChar(rows)
+  self._builtSig = sig
+  SaveSummaryForCurrentChar(rows, next(self._pendingItems) == nil and sig or nil)
 
   self._lastSummary = rows
-  self._summaryDirty = false
   return rows
 end
 
@@ -2906,6 +2971,10 @@ function GearFinder:BuildSummaryAsync(onProgress, onDone)
 
   self:BeginSession()
   self._isBuildingSummary = true
+  wipe(self._pendingItems)
+  self._summaryDirty = false
+  local sig = self:InputSignature()
+  self._buildingSig = sig
 
   local slots = {
     "HeadSlot","NeckSlot","ShoulderSlot","BackSlot","ChestSlot","WristSlot",
@@ -2934,6 +3003,7 @@ function GearFinder:BuildSummaryAsync(onProgress, onDone)
     if myToken ~= self._buildToken then
       frame:SetScript("OnUpdate", nil)
       self._isBuildingSummary = false
+      self._buildingSig = nil
       return
     end
 
@@ -2972,20 +3042,28 @@ function GearFinder:BuildSummaryAsync(onProgress, onDone)
       end
     end
 
-    self._lastSummary = rows
-
+    -- Rows are handed to the callbacks; callers decide whether to show a
+    -- partial list (first build) or keep the previous one until done.
     if onProgress then
       onProgress(rows, i - 1, #slots)
     end
 
     if i > #slots then
       frame:SetScript("OnUpdate", nil)
-      self._summaryDirty = false
       self._isBuildingSummary = false
-      SaveSummaryForCurrentChar(rows)
+      self._buildingSig = nil
+      self._builtSig = sig
+      self._lastSummary = rows
+      -- Only a complete result is saved with a signature (restorable).
+      SaveSummaryForCurrentChar(rows, next(self._pendingItems) == nil and sig or nil)
 
       if onDone then
         onDone(rows)
+      end
+
+      -- Inputs changed while building: go again (debounced).
+      if self._summaryDirty and MakersPath.RequestUIRefresh then
+        MakersPath.RequestUIRefresh(0.3)
       end
     end
   end)
@@ -2993,6 +3071,8 @@ end
 
 function GearFinder:InvalidateSummary()
   self._summaryDirty = true
+  self._builtSig = nil
+  if self._MarkSavedStale then self:_MarkSavedStale() end
   self._lastSummary = nil
   self._equippedScoreCache = nil
   self._scoreCache = nil
@@ -3001,6 +3081,7 @@ function GearFinder:InvalidateSummary()
   if self._isBuildingSummary and self._summaryWorker then
     self._summaryWorker:SetScript("OnUpdate", nil)
     self._isBuildingSummary = false
+    self._buildingSig = nil
   end
 end
 
