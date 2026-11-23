@@ -3,7 +3,7 @@ local API = MakersPath.API or {}  -- see Core/Compat.lua
 
 MakersPath = MakersPath or {}
 MakersPath.name = ADDON_NAME
-MakersPath.version = "1.6.0"
+MakersPath.version = "1.6.1"
 _G.MakersPath = MakersPath
 local debugprofilestop = debugprofilestop
 MakersPath.Config = MakersPath.Config or {}
@@ -432,16 +432,9 @@ local function GetSummaryBySlot()
   local summary
 
   if not activeKey or activeKey == thisKey then
-    if finder.BeginSession then
-      finder:BeginSession()
-    end
-
+    -- Draw whatever we have. Building happens in the background
+    -- (EnsureSummaryFresh); a synchronous build here caused frame stutter.
     summary = finder._lastSummary or {}
-
-    if (not summary or #summary == 0) and finder.BuildSummary then
-      summary = finder:BuildSummary() or {}
-      finder._lastSummary = summary
-    end
   else
     local cached = GetCachedSummaryForKey(activeKey)
     summary = SummaryRowsFromCached(cached)
@@ -456,6 +449,8 @@ local function GetSummaryBySlot()
   return bySlot
 end
 
+-- Forced rebuild (Refresh button, spec change, /mpcap). If the window is
+-- closed it only marks the summary dirty; the next open rebuilds it.
 function RebuildCurrentSummaryView()
   local finder = GF()
   if not finder then return end
@@ -465,6 +460,11 @@ function RebuildCurrentSummaryView()
 
   if activeKey and activeKey ~= thisKey then
     if RefreshList then RefreshList() end
+    return
+  end
+
+  if not (MakersPathFrame and MakersPathFrame:IsShown()) then
+    if finder.MarkDirty then finder:MarkDirty() end
     return
   end
 
@@ -496,14 +496,94 @@ function RebuildCurrentSummaryView()
   end
 end
 
+-- Restore the summary saved for this character if nothing it depends on has
+-- changed since it was built (e.g. right after /reload or login).
+local function TryRestoreSavedSummary(finder)
+  if finder._lastSummary and #finder._lastSummary > 0 then return end
+  if not finder.InputSignature then return end
+  local gs = GetCachedSummaryForKey(MakersPath.Util.CurrentCharKey())
+  if not (gs and gs.sig) then return end
+  if gs.sig ~= finder:InputSignature() then return end
+  local rows = SummaryRowsFromCached(gs)
+  if #rows == 0 then return end
+  finder._lastSummary = rows
+  finder._builtSig    = gs.sig
+  finder._summaryDirty = false
+end
+
+-- Rebuild only when something the summary depends on changed; otherwise
+-- just redraw. While rebuilding, the previous list stays on screen.
+local function EnsureSummaryFresh()
+  if not (MakersPathFrame and MakersPathFrame:IsShown()) then return end
+  local finder = GF()
+  if not finder then return end
+
+  local activeKey = MakersPath.UI.ActiveProfileKey
+  if activeKey and activeKey ~= MakersPath.Util.CurrentCharKey() then
+    if RefreshList then RefreshList() end
+    return
+  end
+
+  TryRestoreSavedSummary(finder)
+
+  local sig = finder.InputSignature and finder:InputSignature()
+  local hasRows = finder._lastSummary and #finder._lastSummary > 0
+  if hasRows and not finder._summaryDirty and sig == finder._builtSig then
+    if RefreshList then RefreshList() end
+    return
+  end
+
+  -- Already building exactly this? Let it finish.
+  if finder._isBuildingSummary and not finder._summaryDirty and sig == finder._buildingSig then
+    return
+  end
+
+  if not finder.BuildSummaryAsync then
+    if finder.BuildSummary then finder:BuildSummary() end
+    if RefreshList then RefreshList() end
+    return
+  end
+
+  local showPartial = not hasRows
+  finder:BuildSummaryAsync(
+    function(rows)
+      if showPartial and MakersPathFrame:IsShown() and RefreshList then
+        finder._lastSummary = rows
+        RefreshList()
+      end
+    end,
+    function(rows)
+      finder._lastSummary = rows
+      if MakersPathFrame:IsShown() and RefreshList then RefreshList() end
+    end
+  )
+  if RefreshList then RefreshList() end
+end
+MakersPath.UI.EnsureSummaryFresh = EnsureSummaryFresh
+
+-- Debounced: many requests in a burst cause one check after things settle.
 do
-  local refreshPending = false
+  local requestGen = 0
   function MakersPath.RequestUIRefresh(delay)
-    if refreshPending then return end
-    refreshPending = true
-    C_Timer.After(delay or 0.10, function()
-      refreshPending = false
-      RebuildCurrentSummaryView()
+    requestGen = requestGen + 1
+    local myGen = requestGen
+    C_Timer.After(math.max(delay or 0.10, 0.10), function()
+      if myGen ~= requestGen then return end
+      EnsureSummaryFresh()
+    end)
+  end
+end
+
+-- Cheap redraw (names/icons only), throttled.
+local QueueRedraw
+do
+  local queued = false
+  QueueRedraw = function()
+    if queued then return end
+    queued = true
+    C_Timer.After(0.2, function()
+      queued = false
+      if MakersPathFrame and MakersPathFrame:IsShown() and RefreshList then RefreshList() end
     end)
   end
 end
@@ -651,7 +731,7 @@ local function ShowAltMenu(anchor, alts)
   LibDD:ToggleDropDownMenu(1, nil, MPAltDropdown, anchor, 0, 0)
 end
 
-local function RenderSlot(slotName, data)
+local function RenderSlot(slotName, data, building)
   local w = slotWidgets[slotName]
   if not w then return end
 
@@ -659,7 +739,9 @@ local function RenderSlot(slotName, data)
   if not best then
     w.icon:SetTexture("Interface\\ICONS\\INV_Misc_QuestionMark")
     w.iconBtn.itemID = nil
-    w.name:SetText("|cffbbbbbb" .. (L["NO_CRAFT_UPGRADE"] or "No upgrade found") .. "|r")
+    local msg = (not data and building) and (L["CALCULATING"] or "Calculating...")
+             or (L["NO_CRAFT_UPGRADE"] or "No upgrade found")
+    w.name:SetText("|cffbbbbbb" .. msg .. "|r")
     w.meta:SetText("")
     w.altBtn:Hide()
     w.altBtn:SetScript("OnClick", nil)
@@ -708,12 +790,14 @@ end
 
 RefreshList = function()
   local bySlot = GetSummaryBySlot()
+  local finder = GF()
+  local building = finder and finder._isBuildingSummary or false
 
   for _, slotName in ipairs(LEFT_SLOTS) do
-    RenderSlot(slotName, bySlot[slotName])
+    RenderSlot(slotName, bySlot[slotName], building)
   end
   for _, slotName in ipairs(RIGHT_SLOTS) do
-    RenderSlot(slotName, bySlot[slotName])
+    RenderSlot(slotName, bySlot[slotName], building)
   end
 end
 
@@ -808,7 +892,7 @@ local function SetActiveProfile(key)
 
   local thisKey = MakersPath.Util.CurrentCharKey()
   if not key or key == thisKey then
-    RebuildCurrentSummaryView()
+    EnsureSummaryFresh()
   else
     if RefreshList then RefreshList() end
   end
@@ -940,9 +1024,6 @@ end)
 
 MakersPathFrame:HookScript("OnShow", function()
   local finder = GF()
-  if finder and finder.BeginSession then
-    finder:BeginSession()
-  end
 
   local count = finder and finder.GetIndexedCount and finder:GetIndexedCount() or 0
   if MakersPathFrame.status then
@@ -951,28 +1032,9 @@ MakersPathFrame:HookScript("OnShow", function()
 
   UpdateEmptyHint()
 
-  if finder and finder._lastSummary and RefreshList then
-    RefreshList()
-  end
-
-  if finder and finder.BuildSummaryAsync then
-    finder:BuildSummaryAsync(
-      function(rows)
-        if MakersPathFrame and MakersPathFrame:IsShown() and RefreshList then
-          finder._lastSummary = rows
-          RefreshList()
-        end
-      end,
-      function(rows)
-        if MakersPathFrame and MakersPathFrame:IsShown() and RefreshList then
-          finder._lastSummary = rows
-          RefreshList()
-        end
-      end
-    )
-  else
-    SafeRefresh(0.10)
-  end
+  -- Shows the last (or saved) results immediately; rebuilds in the
+  -- background only if something they depend on has changed.
+  EnsureSummaryFresh()
 end)
 
 -- ===================== Events =====================
@@ -998,35 +1060,40 @@ frame:SetScript("OnEvent", function(_, event, arg1)
     if MakersPath.SyncDebugMirror then MakersPath.SyncDebugMirror() end
     RestorePanelPosition()
 
-  elseif event == "PLAYER_LOGIN" or event == "PLAYER_ENTERING_WORLD" then
-    if GF() and GF().BeginSession then GF():BeginSession() end
-    if GF() and GF().MarkDirty then GF():MarkDirty() end
+  -- None of these force a rebuild. They rescan what changed and ask for a
+  -- refresh; EnsureSummaryFresh compares the input signature and only
+  -- rebuilds if something the suggestions depend on is different.
+  -- (SKILL_LINES_CHANGED fires on every weapon skill-up, and
+  -- PLAYER_ENTERING_WORLD on every loading screen.)
+  elseif event == "PLAYER_LOGIN" or event == "PLAYER_ENTERING_WORLD"
+      or event == "SKILL_LINES_CHANGED" or event == "TRADE_SKILL_SHOW" then
     if GF() and GF().InvalidateKnownSpellNames then GF():InvalidateKnownSpellNames() end
-    if MakersPath.ScanProfessions then MakersPath.ScanProfessions() end
+    if MakersPath.ScanProfessions then
+      MakersPath.ScanProfessions(function()
+        if MakersPath.RequestUIRefresh then MakersPath.RequestUIRefresh(0.5) end
+      end)
+    end
     RefreshStatus()
     UpdateEmptyHint()
-
-  elseif event == "SKILL_LINES_CHANGED"
-      or event == "TRADE_SKILL_SHOW" then
-    if GF() and GF().BeginSession then GF():BeginSession() end
-    if GF() and GF().MarkDirty then GF():MarkDirty() end
-    if GF() and GF().InvalidateKnownSpellNames then GF():InvalidateKnownSpellNames() end
-    RefreshStatus()
-    UpdateEmptyHint()
-    RebuildCurrentSummaryView()
 
   elseif event == "PLAYER_EQUIPMENT_CHANGED"
       or event == "PLAYER_LEVEL_UP" then
-    if GF() and GF().BeginSession then GF():BeginSession() end
-    if GF() and GF().MarkDirty then GF():MarkDirty() end
     RefreshStatus()
     UpdateEmptyHint()
-    RebuildCurrentSummaryView()
+    if MakersPath.RequestUIRefresh then MakersPath.RequestUIRefresh(0.3) end
 
   elseif event == "GET_ITEM_INFO_RECEIVED" then
+    -- Fires for every item the game loads, ours or not. Redraw names and
+    -- icons; rebuild only if the last build was waiting on this item.
+    local itemID = tonumber(arg1)
+    local finder = GF()
+    if itemID and finder and finder._pendingItems and finder._pendingItems[itemID] then
+      finder._pendingItems[itemID] = nil
+      finder._summaryDirty = true
+      if MakersPath.RequestUIRefresh then MakersPath.RequestUIRefresh(0.5) end
+    end
     if MakersPathFrame and MakersPathFrame:IsShown() then
-      if RefreshList then RefreshList() end
-      if MakersPath.RequestUIRefresh then MakersPath.RequestUIRefresh(0.25) end
+      QueueRedraw()
     end
 
   elseif event == "PLAYER_LOGOUT" then
