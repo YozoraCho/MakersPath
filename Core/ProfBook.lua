@@ -1,4 +1,5 @@
 local ADDON, MakersPath = ...
+local API = MakersPath.API or {}  -- see Core/Compat.lua
 MakersPath = MakersPath or {}
 MakersPath.UI = MakersPath.UI or {}
 
@@ -59,7 +60,7 @@ local SHORT_PROF_FROM_SPELL = setmetatable({}, {
   __index = function(t, spellID)
     local short = SHORT_TAG_BY_SPELL[spellID]
     if not short then
-      short = GetSpellInfo(spellID) or "?"
+      short = API.GetSpellInfo(spellID) or "?"
     end
     rawset(t, spellID, short)
     return short

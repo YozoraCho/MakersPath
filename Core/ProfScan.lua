@@ -1,4 +1,5 @@
 local _, MakersPath = ...
+local API = MakersPath.API or {}  -- see Core/Compat.lua
 MakersPath = MakersPath or {}
 MakersPath.Util = MakersPath.Util or {}
 local C = MakersPath.Const or {}
@@ -15,7 +16,7 @@ local PROF_NAME_TO_SPELL = {}
 do
   local src = SKILLLINE_TO_SPELL or {}
   for _, spellID in pairs(src) do
-    local n = GetSpellInfo(spellID)
+    local n = API.GetSpellInfo(spellID)
     if n and n ~= "" then
       PROF_NAME_TO_SPELL[n] = spellID
     end
@@ -56,7 +57,7 @@ local function BuildWeaponLocaleTables()
 
   local itemClassWeapons = 2
   for _, subId in ipairs(WEAPON_SUB_IDS) do
-    local localizedSubtype = GetItemSubClassInfo(itemClassWeapons, subId)
+    local localizedSubtype = API.GetItemSubClassInfo(itemClassWeapons, subId)
     if localizedSubtype and localizedSubtype ~= "" then
       WEAPON_LINE_SET[localizedSubtype] = true
       SUBTYPE_TO_WEAPONLINE[localizedSubtype] = localizedSubtype
@@ -64,7 +65,7 @@ local function BuildWeaponLocaleTables()
     end
   end
 
-  local unarmedName = GetSpellInfo(203)
+  local unarmedName = API.GetSpellInfo(203)
   if unarmedName and unarmedName ~= "" then
     WEAPON_LINE_SET[unarmedName] = true
   end
@@ -91,48 +92,59 @@ local function charKey()
   return name.."-"..realm
 end
 
+-- Classic SkillLine IDs for weapon skills. Clients that report a skillID
+-- (WoW Forever's C_SkillInfo) are matched by ID, which does not depend on
+-- the client language or on skill names matching item subtype names.
+local WEAPON_SKILLLINE_TO_SUB = {}
+if C.WEAPON_SUB then
+  local W = C.WEAPON_SUB
+  WEAPON_SKILLLINE_TO_SUB = {
+    [44]  = W.ONE_HAND_AXES,   [172] = W.TWO_HAND_AXES,
+    [54]  = W.ONE_HAND_MACES,  [160] = W.TWO_HAND_MACES,
+    [43]  = W.ONE_HAND_SWORDS, [55]  = W.TWO_HAND_SWORDS,
+    [229] = W.POLEARMS,        [136] = W.STAVES,
+    [173] = W.DAGGERS,         [473] = W.FIST_WEAPONS,
+    [45]  = W.BOWS,            [46]  = W.GUNS,
+    [226] = W.CROSSBOWS,       [176] = W.THROWN,
+    [228] = W.WANDS,
+  }
+end
+
 local function doScan()
   MakersPathDB = MakersPathDB or {}
   MakersPathDB.chars = MakersPathDB.chars or {}
   local key = charKey()
   local outProfs, outWeps, outWepsById = {}, {}, {}
 
-  local realProfSkillLines = {}
-  if GetProfessions and GetProfessionInfo then
-    local p1, p2, p3, p4, p5, p6 = GetProfessions()
-    local plist = { p1, p2, p3, p4, p5, p6 }
-    for _, idx in ipairs(plist) do
-      if idx then
-        local _, _, skillLine = GetProfessionInfo(idx)
-        if skillLine then
-          realProfSkillLines[skillLine] = true
-        end
+  for _, line in ipairs(API.GetSkillLines()) do
+    local skillName = line.name
+    local rank = tonumber(line.rank) or 0
+    if not line.isHeader and rank > 0 and skillName and skillName ~= "" then
+      local subId = line.skillID and WEAPON_SKILLLINE_TO_SUB[line.skillID]
+      local profSpell = (line.skillID and SKILLLINE_TO_SPELL[line.skillID]) or PROF_NAME_TO_SPELL[skillName]
+
+      if subId then
+        -- Key by the item subtype name so CanUseItemSubType() can find it.
+        local subName = API.GetItemSubClassInfo and API.GetItemSubClassInfo(C.CLASS_WEAPON or 2, subId)
+        outWeps[subName or skillName] = rank
+        outWepsById[subId] = rank
+      elseif isWeaponSkillLine(skillName) then
+        outWeps[skillName] = rank
+        local byName = MakersPath.Util.WeaponSubIdFromSkillName(skillName)
+        if byName then outWepsById[byName] = rank end
+      elseif profSpell then
+        outProfs[profSpell] = rank
       end
     end
   end
 
-  local num = GetNumSkillLines and GetNumSkillLines() or 0
-  for i = 1, num do
-    local skillName, isHeader, _, skillRank, _, _, maybeSkillLineID = GetSkillLineInfo(i)
-    if not isHeader then
-      local rank = tonumber(skillRank) or 0
-      if rank > 0 and skillName and skillName ~= "" then
-        local weaponLine = isWeaponSkillLine(skillName)
-        if weaponLine then
-          outWeps[skillName] = rank
-          local subId = MakersPath.Util.WeaponSubIdFromSkillName(skillName)
-          if subId then outWepsById[subId] = rank end
-        else
-          local profSpell = PROF_NAME_TO_SPELL[skillName]
-          if profSpell then
-            outProfs[profSpell] = rank
-          else
-            if maybeSkillLineID and realProfSkillLines[maybeSkillLineID] and PROF_BY_ID[maybeSkillLineID] then
-              outProfs[PROF_BY_ID[maybeSkillLineID]] = rank
-            end
-          end
-        end
-      end
+  -- Professions from the profession API as well, so a collapsed header in
+  -- the Skills panel can't hide them.
+  for _, p in ipairs(API.GetProfessionList()) do
+    local spellId = (p.skillLine and SKILLLINE_TO_SPELL[p.skillLine]) or PROF_NAME_TO_SPELL[p.name or ""]
+    local rank = tonumber(p.rank) or 0
+    if spellId and rank > (outProfs[spellId] or 0) then
+      outProfs[spellId] = rank
     end
   end
 
@@ -177,7 +189,7 @@ end
 function MakersPath.Util.ProfNames(map)
   local names = {}
   for spellID,_ in pairs(map or {}) do
-    local n = GetSpellInfo(spellID) or tostring(spellID)
+    local n = API.GetSpellInfo(spellID) or tostring(spellID)
     names[#names+1] = n
   end
   table.sort(names)
@@ -187,18 +199,13 @@ end
 function MakersPath.Util.CurrentProfMap()
   local map = {}
 
-  if GetProfessions and GetProfessionInfo then
-    local p1, p2, p3, p4, p5, p6 = GetProfessions()
-    local list = { p1, p2, p3, p4, p5, p6 }
-
-    for _, profIndex in ipairs(list) do
-      if profIndex then
-        local name, icon, skillLine, rank = GetProfessionInfo(profIndex)
-        local spellId = SKILLLINE_TO_SPELL[skillLine]
-        if spellId and rank and rank > 0 then
-          map[spellId] = rank
-        end
-      end
+  -- GetProfessionInfo returns name, icon, rank, maxRank, ..., skillLine (7th);
+  -- API.GetProfessionList() unpacks it and handles Forever's 7 slots.
+  for _, p in ipairs(API.GetProfessionList()) do
+    local spellId = (p.skillLine and SKILLLINE_TO_SPELL[p.skillLine]) or PROF_NAME_TO_SPELL[p.name or ""]
+    local rank = tonumber(p.rank) or 0
+    if spellId and rank > 0 then
+      map[spellId] = rank
     end
   end
 
@@ -233,11 +240,20 @@ SlashCmdList["MPPROFMAP"] = function()
   local any = false
   for id, r in pairs(p) do
     any = true
-    local name = GetSpellInfo(id) or "?"
+    local name = API.GetSpellInfo(id) or "?"
     print(string.format("  %d -> %s (%d)", id, name, r or 0))
   end
   if not any then
     print("  (no entries)")
+  end
+end
+
+SLASH_MPSKILLS1 = "/mpskills"
+SlashCmdList["MPSKILLS"] = function()
+  print("|cff66ccff[Maker's Path]|r skill lines (name  rank/max  skillID):")
+  for i, l in ipairs(API.GetSkillLines()) do
+    print(string.format("  %d %s%s  %s/%s  id=%s", i, l.isHeader and "[H] " or "",
+      tostring(l.name), tostring(l.rank), tostring(l.maxRank), tostring(l.skillID)))
   end
 end
 

@@ -29,7 +29,11 @@ if not lib then return end
 -- Determine WoW TOC Version
 local WoWClassicEra, WoWClassicTBC, WoWWOTLKC, WoWRetail
 local wowversion  = select(4, GetBuildInfo())
-if wowversion < 20000 then
+-- MakersPath patch: WoW Forever (Camelot) reports interface 16xxx but runs the
+-- modern (Retail) UI, so it must take the Retail code paths.
+if WOW_PROJECT_CAMELOT and WOW_PROJECT_ID == WOW_PROJECT_CAMELOT then
+	WoWRetail = true
+elseif wowversion < 20000 then
 	WoWClassicEra = true
 elseif wowversion < 30000 then 
 	WoWClassicTBC = true

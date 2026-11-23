@@ -1,8 +1,9 @@
 local ADDON_NAME, MakersPath = ...
+local API = MakersPath.API or {}  -- see Core/Compat.lua
 
 MakersPath = MakersPath or {}
 MakersPath.name = ADDON_NAME
-MakersPath.version = "1.5.0"
+MakersPath.version = "1.6.0"
 _G.MakersPath = MakersPath
 local debugprofilestop = debugprofilestop
 MakersPath.Config = MakersPath.Config or {}
@@ -570,7 +571,7 @@ local function CreateSlotWidget(parent, side, slotName, index)
     local id = btn.itemID
     if not id then return end
     GameTooltip:SetOwner(btn, "ANCHOR_CURSOR_RIGHT")
-    local link = select(2, GetItemInfo(id))
+    local link = select(2, API.GetItemInfo(id))
     if link then
       GameTooltip:SetHyperlink(link)
     else
@@ -587,7 +588,7 @@ local function CreateSlotWidget(parent, side, slotName, index)
   wrap.iconBtn:SetScript("OnClick", function(btn)
     local id = btn.itemID
     if not id then return end
-    local link = select(2, GetItemInfo(id))
+    local link = select(2, API.GetItemInfo(id))
     if not link then
       if C_Item and C_Item.RequestLoadItemDataByID then
         C_Item.RequestLoadItemDataByID(id)
@@ -616,7 +617,7 @@ end
 
 local function ResolveRequiredLevel(iid2, fallback)
   if not iid2 then return fallback or 0 end
-  local _, _, _, _, reqLevel = GetItemInfo(iid2)
+  local _, _, _, _, reqLevel = API.GetItemInfo(iid2)
   if type(reqLevel) == "number" then return reqLevel end
   return fallback or 0
 end
@@ -633,11 +634,11 @@ local function ShowAltMenu(anchor, alts)
     for _, alt in ipairs(alts) do
       if alt and alt.itemID then
         local info = LibDD:UIDropDownMenu_CreateInfo()
-        local link = select(2, GetItemInfo(alt.itemID))
+        local link = select(2, API.GetItemInfo(alt.itemID))
         info.text = link or ("item:" .. tostring(alt.itemID))
         info.notCheckable = true
         info.func = function()
-          local itemLink = select(2, GetItemInfo(alt.itemID))
+          local itemLink = select(2, API.GetItemInfo(alt.itemID))
           if itemLink and IsModifiedClick("CHATLINK") then
             ChatEdit_InsertLink(itemLink)
           end
@@ -666,11 +667,11 @@ local function RenderSlot(slotName, data)
   end
 
   local iid = best.itemID
-  local link = iid and select(2, GetItemInfo(iid)) or nil
+  local link = iid and select(2, API.GetItemInfo(iid)) or nil
   local shown = link or (best.name or L["ITEM_ID_FMT"]:format(iid or 0))
   w.name:SetText(shown)
 
-  local icon = iid and GetItemIcon(iid) or "Interface\\ICONS\\INV_Misc_QuestionMark"
+  local icon = iid and API.GetItemIcon(iid) or "Interface\\ICONS\\INV_Misc_QuestionMark"
   w.icon:SetTexture(icon)
   w.iconBtn.itemID = iid
 
@@ -1293,12 +1294,12 @@ SlashCmdList["MPCPU"] = function()
 
   UpdateAddOnCPUUsage()
 
-  local num = GetNumAddOns()
+  local num = API.GetNumAddOns()
   local totals = {}
 
   for i = 1, num do
-    local name, _, _, loadable, reason, security = GetAddOnInfo(i)
-    if name and IsAddOnLoaded(i) then
+    local name, _, _, loadable, reason, security = API.GetAddOnInfo(i)
+    if name and API.IsAddOnLoaded(i) then
       local cpu = GetAddOnCPUUsage(i) or 0
       totals[#totals+1] = { name = name, cpu = cpu }
     end

@@ -5,8 +5,9 @@ local pid = WOW_PROJECT_ID
 
 MakersPath.client = {
   projectId = pid,
-  isEra = (pid == WOW_PROJECT_CLASSIC),
-  isTBC = (pid == WOW_PROJECT_BURNING_CRUSADE_CLASSIC),
+  isEra     = (pid == WOW_PROJECT_CLASSIC),
+  isTBC     = (pid == WOW_PROJECT_BURNING_CRUSADE_CLASSIC),
+  isForever = (WOW_PROJECT_CAMELOT ~= nil and pid == WOW_PROJECT_CAMELOT),
 }
 
 MakersPath.features = MakersPath.features or {}

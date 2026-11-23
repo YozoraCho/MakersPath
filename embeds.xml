@@ -15,6 +15,7 @@
 
   <!-- Core -->
   <Script file="Core/Client.lua" />
+  <Script file="Core/Compat.lua" />
   <Script file="Core/Constants.lua" />
 
   <!-- Data (Classic) -->

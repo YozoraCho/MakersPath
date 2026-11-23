@@ -1,4 +1,5 @@
 local _, MakersPath = ...
+local API = MakersPath.API or {}  -- see Core/Compat.lua
 MakersPath = MakersPath or {}
 MakersPath.Util = MakersPath.Util or {}
 _G.MakersPath = MakersPath
@@ -90,7 +91,7 @@ end
 if not MakersPath.Util.ArmorTokenForItemID then
   function MakersPath.Util.ArmorTokenForItemID(itemID)
     if not itemID then return nil end
-    local _, _, _, _, _, classID, subClassID = GetItemInfoInstant(itemID)
+    local _, _, _, _, _, classID, subClassID = API.GetItemInfoInstant(itemID)
     if classID == C.CLASS_ARMOR then
       if subClassID == C.ARMOR_SUB.CLOTH   then return "CLOTH"
       elseif subClassID == C.ARMOR_SUB.LEATHER then return "LEATHER"
@@ -221,13 +222,13 @@ local function ArmorTokenFromIDs(classID, subClassID)
 end
 
 local function ArmorTokenByStrings(itemType, itemSubType)
-  local armorName = GetItemClassInfo and GetItemClassInfo(C.CLASS_ARMOR or 4)
+  local armorName = API.GetItemClassInfo and API.GetItemClassInfo(C.CLASS_ARMOR or 4)
   if not armorName or itemType ~= armorName then return nil end
 
-  local cloth   = GetItemSubClassInfo and GetItemSubClassInfo(C.CLASS_ARMOR or 4, C.ARMOR_SUB.CLOTH or 1)
-  local leather = GetItemSubClassInfo and GetItemSubClassInfo(C.CLASS_ARMOR or 4, C.ARMOR_SUB.LEATHER or 2)
-  local mail    = GetItemSubClassInfo and GetItemSubClassInfo(C.CLASS_ARMOR or 4, C.ARMOR_SUB.MAIL or 3)
-  local plate   = GetItemSubClassInfo and GetItemSubClassInfo(C.CLASS_ARMOR or 4, C.ARMOR_SUB.PLATE or 4)
+  local cloth   = API.GetItemSubClassInfo and API.GetItemSubClassInfo(C.CLASS_ARMOR or 4, C.ARMOR_SUB.CLOTH or 1)
+  local leather = API.GetItemSubClassInfo and API.GetItemSubClassInfo(C.CLASS_ARMOR or 4, C.ARMOR_SUB.LEATHER or 2)
+  local mail    = API.GetItemSubClassInfo and API.GetItemSubClassInfo(C.CLASS_ARMOR or 4, C.ARMOR_SUB.MAIL or 3)
+  local plate   = API.GetItemSubClassInfo and API.GetItemSubClassInfo(C.CLASS_ARMOR or 4, C.ARMOR_SUB.PLATE or 4)
 
   if cloth   and itemSubType == cloth   then return "CLOTH"   end
   if leather and itemSubType == leather then return "LEATHER" end
@@ -247,7 +248,7 @@ local function ArmorTokenForItemID(itemID)
   local tok = ArmorTokenFromIDs(_classID, _subClassID)
   if tok then return tok end
 
-  local itemType, itemSubType = select(6, GetItemInfo(itemID))
+  local itemType, itemSubType = select(6, API.GetItemInfo(itemID))
   if not itemType then
     if C_Item and C_Item.RequestLoadItemDataByID then C_Item.RequestLoadItemDataByID(itemID) end
     return nil
@@ -278,8 +279,8 @@ local function WeaponLineForItem(itemID)
     classID, subClassID = _classID, _subClassID
   end
   if not classID then
-    local _ = GetItemInfo(itemID)
-    local _, _, _, _, _, _, _, _, _, _, _, cID, scID = GetItemInfo(itemID)
+    local _ = API.GetItemInfo(itemID)
+    local _, _, _, _, _, _, _, _, _, _, _, cID, scID = API.GetItemInfo(itemID)
     classID, subClassID = cID, scID
   end
   if classID ~= C.CLASS_WEAPON then return nil end
@@ -287,15 +288,15 @@ local function WeaponLineForItem(itemID)
 end
 
 local function IsMiscJunkOrOther(itemID)
-  local itemType, itemSubType = select(6, GetItemInfo(itemID))
+  local itemType, itemSubType = select(6, API.GetItemInfo(itemID))
   if not itemType then
     if C_Item and C_Item.RequestLoadItemDataByID then C_Item.RequestLoadItemDataByID(itemID) end
     return false
   end
-  local miscName = GetItemClassInfo and GetItemClassInfo(LE_ITEM_CLASS_MISCELLANEOUS or 15)
+  local miscName = API.GetItemClassInfo and API.GetItemClassInfo(LE_ITEM_CLASS_MISCELLANEOUS or 15)
   if not miscName or itemType ~= miscName then return false end
-  local junkName  = GetItemSubClassInfo and GetItemSubClassInfo(LE_ITEM_CLASS_MISCELLANEOUS or 15, 0) -- "Junk"
-  local otherName = GetItemSubClassInfo and GetItemSubClassInfo(LE_ITEM_CLASS_MISCELLANEOUS or 15, 1) -- "Reagent"/"Other"
+  local junkName  = API.GetItemSubClassInfo and API.GetItemSubClassInfo(LE_ITEM_CLASS_MISCELLANEOUS or 15, 0) -- "Junk"
+  local otherName = API.GetItemSubClassInfo and API.GetItemSubClassInfo(LE_ITEM_CLASS_MISCELLANEOUS or 15, 1) -- "Reagent"/"Other"
   if junkName  and itemSubType == junkName  then return true end
   if otherName and itemSubType == otherName then return true end
   return false
@@ -457,7 +458,7 @@ local function ParseTooltipStatsToTable(itemID)
   GF_BuildTooltipPatterns()
 
   local t = {}
-  local link = select(2, GetItemInfo(itemID))
+  local link = select(2, API.GetItemInfo(itemID))
   if not link then
     if C_Item and C_Item.RequestLoadItemDataByID then C_Item.RequestLoadItemDataByID(itemID) end
     return nil
@@ -660,10 +661,10 @@ local function GetKnownSpellNames()
   local known = {}
   local i = 1
   while true do
-    local skillType, spellID = GetSpellBookItemInfo(i, BOOKTYPE_SPELL)
+    local skillType, spellID = API.GetSpellBookItemInfo(i, BOOKTYPE_SPELL)
     if not skillType then break end
     if skillType == "SPELL" and spellID then
-      local name = GetSpellInfo(spellID)
+      local name = API.GetSpellInfo(spellID)
       if name and name ~= "" then
         known[name] = true
       end
@@ -695,7 +696,7 @@ end
 local function IsBindOnPickupItem(entry)
   if not entry or not entry.itemID then return false end
 
-  local link = select(2, GetItemInfo(entry.itemID))
+  local link = select(2, API.GetItemInfo(entry.itemID))
   if not link then
     if C_Item and C_Item.RequestLoadItemDataByID then
       C_Item.RequestLoadItemDataByID(entry.itemID)
@@ -752,7 +753,7 @@ local function IsProfessionRestrictedItem(entry)
     (Const.SKILLLINE_TO_SPELL and Const.SKILLLINE_TO_SPELL[755]) or 25229, -- Jewelcrafting
   }
 
-  local link = select(2, GetItemInfo(entry.itemID))
+  local link = select(2, API.GetItemInfo(entry.itemID))
   if not link then
     if C_Item and C_Item.RequestLoadItemDataByID then
       C_Item.RequestLoadItemDataByID(entry.itemID)
@@ -762,7 +763,7 @@ local function IsProfessionRestrictedItem(entry)
 
   local profNameToSpell = {}
   for _, spellID in ipairs(profSpellIDs) do
-    local name = GetSpellInfo(spellID)
+    local name = API.GetSpellInfo(spellID)
     if name and name ~= "" then
       profNameToSpell[name] = spellID
     end
@@ -830,7 +831,7 @@ local function LooksBogus(entry)
     return true
   end
 
-  local name = entry.name or GetItemInfo(entry.itemID)
+  local name = entry.name or API.GetItemInfo(entry.itemID)
   if name then
     if name:find("^Monster%s*%-")  then return true end
     if name:upper():find("^TEST")  then return true end
@@ -1290,7 +1291,7 @@ local function GetItemStatsTable(iid)
     return cached or nil
   end
 
-  local link = select(2, GetItemInfo(iid))
+  local link = select(2, API.GetItemInfo(iid))
   if not link then
     if C_Item and C_Item.RequestLoadItemDataByID then
       C_Item.RequestLoadItemDataByID(iid)
@@ -1298,7 +1299,7 @@ local function GetItemStatsTable(iid)
     return nil
   end
 
-  local s = GetItemStats(link) or {}
+  local s = API.GetItemStats(link) or {}
   local tip = ParseTooltipStatsToTable(iid)
 
   if tip then
@@ -1330,7 +1331,7 @@ local function EquippedStatForSlot(slotName, statKey)
     if not slotId then return 0 end
     local link = GetInventoryItemLink("player", slotId)
     if not link then return 0 end
-    local iid = GetItemInfoInstant(link)
+    local iid = API.GetItemInfoInstant(link)
     if not iid then return 0 end
     local s = GetItemStatsTable(iid)
     return StatFromStats(s, statKey)
@@ -1397,7 +1398,7 @@ local function ScoreItemWithBreakdown(iid, slotName, preKnownArmorTok, preKnownI
     return 0, false, { reason = "no-iid" }
   end
 
-  local link = select(2, GetItemInfo(iid))
+  local link = select(2, API.GetItemInfo(iid))
   if not link then
     if C_Item and C_Item.RequestLoadItemDataByID then
       C_Item.RequestLoadItemDataByID(iid)
@@ -1423,7 +1424,7 @@ local function ScoreItemWithBreakdown(iid, slotName, preKnownArmorTok, preKnownI
   local armorAdd = 0
   local dpsAdd   = 0
 
-  local invType  = preKnownInvType or select(9, GetItemInfo(iid)) or ""
+  local invType  = preKnownInvType or select(9, API.GetItemInfo(iid)) or ""
   local armorTok = preKnownArmorTok or _ArmorTokenForItemID(iid)
 
   local statBonus = 0
@@ -1485,7 +1486,7 @@ local function EquippedArmorForSlot(slotName)
     if not slotID then return end
     local link = GetInventoryItemLink("player", slotID)
     if not link then return end
-    local iid = GetItemInfoInstant(link)
+    local iid = API.GetItemInfoInstant(link)
     if not iid then return end
 
     local tok = ArmorTokenForItemID(iid)
@@ -1612,11 +1613,11 @@ end
 
 local function WeaponSkillAllows(entry)
   if not entry or not entry.itemID then return true end
-  local invType = entry.invType or select(9, GetItemInfo(entry.itemID)) or ""
+  local invType = entry.invType or select(9, API.GetItemInfo(entry.itemID)) or ""
   if not (invType:find("WEAPON") or invType:find("RANGED")) then
     return true
   end
-  local _, _, _, _, _, _, itemSubType = GetItemInfo(entry.itemID)
+  local _, _, _, _, _, _, itemSubType = API.GetItemInfo(entry.itemID)
   if not itemSubType then
     if C_Item and C_Item.RequestLoadItemDataByID then C_Item.RequestLoadItemDataByID(entry.itemID) end
     return true
@@ -1661,7 +1662,7 @@ local function IsEquippedTwoHander()
   if not slotId then return false end
   local link = GetInventoryItemLink("player", slotId)
   if not link then return false end
-  local _, _, _, _, _, _, _, _, invType = GetItemInfo(link)
+  local _, _, _, _, _, _, _, _, invType = API.GetItemInfo(link)
   return invType == "INVTYPE_2HWEAPON"
 end
 
@@ -1675,7 +1676,7 @@ local function CanUseAsOffhand(entry, slotName, assumeMainHandInvType)
 
   local inv = entry.invType
   if not inv then
-    inv = select(9, GetItemInfo(entry.itemID))
+    inv = select(9, API.GetItemInfo(entry.itemID))
   end
   if not inv then
     return true
@@ -1908,7 +1909,7 @@ local function RealRequiredLevel(entry)
   local fallbackReq = tonumber(entry.reqLevel or entry.minLevel or 0) or 0
 
   if iid then
-    local name, _, _, itemLevel, requiredLevel = GetItemInfo(iid)
+    local name, _, _, itemLevel, requiredLevel = API.GetItemInfo(iid)
     if type(requiredLevel) == "number" and requiredLevel > 0 then
       return requiredLevel
     end
@@ -1928,7 +1929,7 @@ local function RealRequiredLevel(entry)
   end
 
   if fallbackReq > 0 and iid then
-    local _, _, _, itemLevel = GetItemInfo(iid)
+    local _, _, _, itemLevel = API.GetItemInfo(iid)
     if type(itemLevel) == "number" and itemLevel > 0 then
       if fallbackReq > itemLevel then
         return 0
@@ -2014,7 +2015,7 @@ local function HasValueForSlot(slotName, iid)
   end
 
   if slotName == "SecondaryHandSlot" then
-    local inv = select(9, GetItemInfo(iid)) or ""
+    local inv = select(9, API.GetItemInfo(iid)) or ""
     if inv:find("WEAPON") or inv:find("RANGED") then
       return (tonumber(dps) or 0) > 0
     else
@@ -2063,7 +2064,7 @@ local function GetEquippedScore(slotName)
     if not slotId then return end
     local link = GetInventoryItemLink("player", slotId)
     if not link then return end
-    local iid = GetItemInfoInstant(link)
+    local iid = API.GetItemInfoInstant(link)
     if not iid then return end
     equippedIDs[iid] = true
     worn[#worn+1] = iid
@@ -2116,8 +2117,8 @@ local function betterTiebreak(a, b)
   local rb = tonumber(b.reqLevel or b.minLevel or 0) or 0
   if ra ~= rb then return ra < rb end
 
-  local invA = a.invType or select(9, GetItemInfo(a.itemID)) or ""
-  local invB = b.invType or select(9, GetItemInfo(b.itemID)) or ""
+  local invA = a.invType or select(9, API.GetItemInfo(a.itemID)) or ""
+  local invB = b.invType or select(9, API.GetItemInfo(b.itemID)) or ""
   local wepA = invA:find("WEAPON") or invA:find("RANGED") or invA=="INVTYPE_HOLDABLE" or invA=="INVTYPE_SHIELD"
   local wepB = invB:find("WEAPON") or invB:find("RANGED") or invB=="INVTYPE_HOLDABLE" or invB=="INVTYPE_SHIELD"
 
@@ -2144,7 +2145,7 @@ local function CraftSourceMakesSense(entry)
     return true
   end
 
-  local inv = entry.invType or select(9, GetItemInfo(entry.itemID)) or ""
+  local inv = entry.invType or select(9, API.GetItemInfo(entry.itemID)) or ""
   if inv == "" then
     if C_Item and C_Item.RequestLoadItemDataByID then C_Item.RequestLoadItemDataByID(entry.itemID) end
     return true
@@ -2313,7 +2314,7 @@ SlashCmdList["MPAUGTEST"] = function(msg)
 
   AugmentNeedHave(e)
 
-  local spellName = (e.__profSpellID and GetSpellInfo(e.__profSpellID)) or "?"
+  local spellName = (e.__profSpellID and API.GetSpellInfo(e.__profSpellID)) or "?"
   print(string.format(
     "|cff66ccff[Maker's Path]|r item=%d prof=%s (%d) need=%d have=%d hasProf=%s",
     itemID,
@@ -2337,7 +2338,7 @@ local function EquippedMinReqLevel(equippedIDs)
   local minReq = nil
   for iid in pairs(equippedIDs) do
     if iid then
-      local _, _, _, _, reqLevel = GetItemInfo(iid)
+      local _, _, _, _, reqLevel = API.GetItemInfo(iid)
       if type(reqLevel) == "number" and reqLevel > 0 then
         if not minReq or reqLevel < minReq then
           minReq = reqLevel
@@ -2372,7 +2373,7 @@ function GearFinder:GetBestCraftable(slotName, excludeIDs, opts)
   local eqArmorTok = EquippedArmorForSlot(slotName)
   for i = 1, math.min(20, #cs) do
     if cs[i].itemID then
-      GetItemInfo(cs[i].itemID)
+      API.GetItemInfo(cs[i].itemID)
     end
   end
 
@@ -2397,7 +2398,7 @@ function GearFinder:GetBestCraftable(slotName, excludeIDs, opts)
     AugmentNeedHave(entry)
 
     if not entry.invType or not InvTypeMatchesSlot(entry.invType, slotName) then
-      local equipLoc = select(9, GetItemInfo(entry.itemID))
+      local equipLoc = select(9, API.GetItemInfo(entry.itemID))
       if equipLoc then
         entry.invType = entry.invType or equipLoc
       end
@@ -2706,7 +2707,7 @@ local function IsUniqueEquipped(itemID)
   if cached ~= nil then return cached end
 
   -- Don't cache a verdict from an unloaded tooltip.
-  if not GetItemInfo(itemID) then return false end
+  if not API.GetItemInfo(itemID) then return false end
 
   if not uniqueScanner then
     uniqueScanner = CreateFrame("GameTooltip", "MakersPathUniqueScanner", nil, "GameTooltipTemplate")
@@ -2764,7 +2765,7 @@ local function EquippedInvTypeFor(token)
   if not slotId then return nil end
   local link = GetInventoryItemLink("player", slotId)
   if not link then return nil end
-  return select(9, GetItemInfo(link))
+  return select(9, API.GetItemInfo(link))
 end
 
 function GearFinder:SolveWeaponSet()
@@ -3017,7 +3018,7 @@ MakersPath.GearFinderScan = MakersPath.GearFinderScan or function()
     local candidates = CandidatesForSlot(slot)
     for i = 1, math.min(25, #candidates) do 
       local id = candidates[i].itemID
-      if id then GetItemInfo(id) end
+      if id then API.GetItemInfo(id) end
     end
   end
 end
@@ -3044,7 +3045,7 @@ SlashCmdList["MPGF"] = function(msg)
     if dbgEquipped then
       for _,row in ipairs(dbgEquipped) do
         local br = row.br or {}
-        local name = select(1, GetItemInfo(br.iid or 0)) or ("item:"..tostring(br.iid))
+        local name = select(1, API.GetItemInfo(br.iid or 0)) or ("item:"..tostring(br.iid))
         DBG("  EQ", name, "tot=", string.format("%.2f", row.total or 0),
             " base=", string.format("%.2f", br.base or 0),
             " +armor=", string.format("%.2f", br.armorAdd or 0),
@@ -3062,7 +3063,7 @@ SlashCmdList["MPGF"] = function(msg)
       _say("no craftable upgrade for", slotName)
       return
     end
-    local bname = best.name or (GetItemInfo(best.itemID) or ("item:"..tostring(best.itemID)))
+    local bname = best.name or (API.GetItemInfo(best.itemID) or ("item:"..tostring(best.itemID)))
     local br = (best.__dbg and best.__dbg.br) or {}
 
     _say("BEST", bname, "tot=", string.format("%.2f", bestScore or 0), "vs eq=", string.format("%.2f", eqScore or 0))
@@ -3119,11 +3120,11 @@ SlashCmdList["MPGFLIST"] = function(arg)
   for _, e in ipairs(CandidatesForSlot(slot)) do
     if e.itemID and not seen[e.itemID] then
       seen[e.itemID] = true
-      local name = GetItemInfo(e.itemID) or ("item:"..e.itemID)
-      local inv  = e.invType or select(9, GetItemInfo(e.itemID)) or "?"
+      local name = API.GetItemInfo(e.itemID) or ("item:"..e.itemID)
+      local inv  = e.invType or select(9, API.GetItemInfo(e.itemID)) or "?"
       local stats= (function()
-        local link = select(2, GetItemInfo(e.itemID))
-        local s = link and GetItemStats(link) or nil
+        local link = select(2, API.GetItemInfo(e.itemID))
+        local s = link and API.GetItemStats(link) or nil
         if not s or next(s) == nil then s = ParseTooltipStatsToTable(e.itemID) end
         return s
       end)()

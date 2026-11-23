@@ -1,4 +1,5 @@
 local _, MakersPath = ...
+local API = MakersPath.API or {}  -- see Core/Compat.lua
 MakersPath = MakersPath or {}
 
 MakersPath.Data = MakersPath.Data or {}
@@ -30,13 +31,13 @@ local function armorTagByIDs(classID, subClassID)
 end
 
 local function armorTagFallbackStrings(itemType, itemSubType)
-  local armorName = GetItemClassInfo and GetItemClassInfo(4) or nil
+  local armorName = API.GetItemClassInfo and API.GetItemClassInfo(4) or nil
   if not armorName or itemType ~= armorName then return nil end
 
-  local cloth   = GetItemSubClassInfo and GetItemSubClassInfo(4, 1) or nil
-  local leather = GetItemSubClassInfo and GetItemSubClassInfo(4, 2) or nil
-  local mail    = GetItemSubClassInfo and GetItemSubClassInfo(4, 3) or nil
-  local plate   = GetItemSubClassInfo and GetItemSubClassInfo(4, 4) or nil
+  local cloth   = API.GetItemSubClassInfo and API.GetItemSubClassInfo(4, 1) or nil
+  local leather = API.GetItemSubClassInfo and API.GetItemSubClassInfo(4, 2) or nil
+  local mail    = API.GetItemSubClassInfo and API.GetItemSubClassInfo(4, 3) or nil
+  local plate   = API.GetItemSubClassInfo and API.GetItemSubClassInfo(4, 4) or nil
 
   if cloth   and itemSubType == cloth   then return "CLOTH"   end
   if leather and itemSubType == leather then return "LEATHER" end
@@ -46,7 +47,7 @@ local function armorTagFallbackStrings(itemType, itemSubType)
 end
 
 local function armorTag(itemID, itemType, itemSubType)
-  local _, _, _, _, _, _, _, _, _, _, _, classID, subClassID = GetItemInfo(itemID)
+  local _, _, _, _, _, _, _, _, _, _, _, classID, subClassID = API.GetItemInfo(itemID)
   if not classID and C_Item and C_Item.GetItemInfoInstant then
     local _, _, _, _, _, _classID, _subClassID = C_Item.GetItemInfoInstant(itemID)
     classID, subClassID = _classID, _subClassID
@@ -141,7 +142,7 @@ local function bucketInsert(inv, row)
 end
 
 local function bucketStaticItem(itemID, profId, learnedAt, source)
-  local name, _, _, reqLevel, _, itemType, itemSubType, _, equipLoc = GetItemInfo(itemID)
+  local name, _, _, reqLevel, _, itemType, itemSubType, _, equipLoc = API.GetItemInfo(itemID)
 
   if not name then return false end
   if not equipLoc or equipLoc=="" then return true end
