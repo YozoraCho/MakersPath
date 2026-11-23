@@ -1,4 +1,5 @@
-local _, MakersPath = ...
+local ADDON, MakersPath = ...
+local API = MakersPath.API or {}  -- see Core/Compat.lua
 MakersPath = MakersPath or {}
 
 -- =====================================================================
@@ -21,7 +22,7 @@ local C = MakersPath.Const
 local PROF_SKILLLINE_BY_NAME = setmetatable({}, {
   __index = function(t, k)
     for skillLineID, spellID in pairs(C.SKILLLINE_TO_SPELL or {}) do
-      local name = GetSpellInfo(spellID)
+      local name = API.GetSpellInfo(spellID)
       if name then rawset(t, name, skillLineID) end
     end
     return rawget(t, k)
@@ -90,8 +91,8 @@ local MAX_RETRIES = 25
 local function CacheAndBucket(itemID, profName)
   if NON_GEAR[itemID] then return end
 
-  local _, _, _, equipLoc, _, classID, subClassID = GetItemInfoInstant(itemID)
-  local name, _, _, _, reqLevel = GetItemInfo(itemID)
+  local _, _, _, equipLoc, _, classID, subClassID = API.GetItemInfoInstant(itemID)
+  local name, _, _, _, reqLevel = API.GetItemInfo(itemID)
 
   if equipLoc == "" then
     NON_GEAR[itemID] = true
@@ -147,50 +148,95 @@ end
 -- =====================================================================
 -- TradeSkill scanning
 -- =====================================================================
-local function ScanCurrentTrade()
+local function IndexCraftedItem(itemID, profName)
+  if not MakersPathGlobalDB.itemRecords[itemID] then
+    CacheAndBucket(itemID, profName)
+  else
+    local rec = MakersPathGlobalDB.itemRecords[itemID]
+    if rec then
+      InvTypeInsert(rec.equipLoc, {
+        itemID         = itemID,
+        name           = rec.name,
+        invType        = rec.equipLoc,
+        source         = "crafted",
+        reqSkill       = rec.profId or 0,
+        reqSkillLevel  = 0,
+        reqLevel       = rec.minLevel or 0,
+        armor          = rec.armor,
+      })
+      BucketInsertLegacy(rec.equipLoc, itemID, {
+        prof     = rec.prof,
+        profId   = rec.profId or 0,
+        minLevel = rec.minLevel or 0,
+        armor    = rec.armor,
+      })
+    end
+  end
+end
+
+-- Classic Era / TBC: the old TradeSkillFrame API, which lists learned recipes.
+local function CollectClassicTrade()
+  if not (GetTradeSkillLine and GetNumTradeSkills) then return end
   if not TradeSkillFrame or not TradeSkillFrame:IsShown() then return end
 
   local profName = GetTradeSkillLine()
   if not profName or profName == "" then return end
 
-  local num = GetNumTradeSkills and GetNumTradeSkills() or 0
+  local num = GetNumTradeSkills() or 0
   if type(num) ~= "number" or num <= 0 then return end
 
-  EnsureGlobals()
-
+  local ids = {}
   for i = 1, num do
     local _, skillType = GetTradeSkillInfo(i)
     if skillType ~= "header" then
       local link = GetTradeSkillItemLink(i)
       if link and link:find("|Hitem:") then
         local itemID = tonumber(link:match("item:(%d+)"))
-        if itemID then
-          if not MakersPathGlobalDB.itemRecords[itemID] then
-            CacheAndBucket(itemID, profName)
-          else
-            local rec = MakersPathGlobalDB.itemRecords[itemID]
-            if rec then
-              InvTypeInsert(rec.equipLoc, {
-                itemID         = itemID,
-                name           = rec.name,
-                invType        = rec.equipLoc,
-                source         = "crafted",
-                reqSkill       = rec.profId or 0,
-                reqSkillLevel  = 0,
-                reqLevel       = rec.minLevel or 0,
-                armor          = rec.armor,
-              })
-              BucketInsertLegacy(rec.equipLoc, itemID, {
-                prof     = rec.prof,
-                profId   = rec.profId or 0,
-                minLevel = rec.minLevel or 0,
-                armor    = rec.armor,
-              })
-            end
-          end
-        end
+        if itemID then ids[#ids+1] = itemID end
       end
     end
+  end
+  return profName, ids
+end
+
+-- WoW Forever (modern client): C_TradeSkillUI. Only learned recipes, and only
+-- for the player's own profession window (not linked or guild views).
+local function CollectModernTrade()
+  local T = C_TradeSkillUI
+  if not (T and T.GetAllRecipeIDs and T.GetRecipeInfo and T.GetBaseProfessionInfo) then return end
+  if T.IsTradeSkillReady and not T.IsTradeSkillReady() then return end
+  if T.IsTradeSkillLinked and T.IsTradeSkillLinked() then return end
+  if T.IsTradeSkillGuild and T.IsTradeSkillGuild() then return end
+  if T.IsNPCCrafting and T.IsNPCCrafting() then return end
+
+  local base = T.GetBaseProfessionInfo()
+  local profName = base and base.professionName
+  if not profName or profName == "" then return end
+
+  local ids = {}
+  for _, recipeID in ipairs(T.GetAllRecipeIDs() or {}) do
+    local info = T.GetRecipeInfo(recipeID)
+    if info and info.learned then
+      local schem = T.GetRecipeSchematic and T.GetRecipeSchematic(recipeID, false)
+      local itemID = schem and schem.outputItemID
+      if not itemID and T.GetRecipeItemLink then
+        local link = T.GetRecipeItemLink(recipeID)
+        itemID = link and tonumber(link:match("item:(%d+)"))
+      end
+      if itemID then ids[#ids+1] = itemID end
+    end
+  end
+  return profName, ids
+end
+
+local function ScanCurrentTrade()
+  local profName, ids = CollectClassicTrade()
+  if not profName then profName, ids = CollectModernTrade() end
+  if not profName or not ids or #ids == 0 then return end
+
+  EnsureGlobals()
+  for _, itemID in ipairs(ids) do
+    IndexCraftedItem(itemID, profName)
   end
 end
 
@@ -225,12 +271,25 @@ f:RegisterEvent("ADDON_LOADED")
 f:RegisterEvent("PLAYER_LOGIN")
 f:RegisterEvent("TRADE_SKILL_SHOW")
 f:RegisterEvent("GET_ITEM_INFO_RECEIVED")
+-- Modern clients fill the recipe list after TRADE_SKILL_SHOW. pcall because
+-- registering an event a client doesn't know is an error on some builds.
+pcall(f.RegisterEvent, f, "TRADE_SKILL_LIST_UPDATE")
+
+local scanQueued = false
+local function QueueTradeScan(delay)
+  if scanQueued then return end
+  scanQueued = true
+  C_Timer.After(delay or 0.05, function()
+    scanQueued = false
+    ScanCurrentTrade()
+  end)
+end
 
 f:SetScript("OnEvent", function(_, event, arg1)
   if event == "ADDON_LOADED" and arg1 == ADDON then
     EnsureGlobals()
     for skillLineID, spellID in pairs(C.SKILLLINE_TO_SPELL or {}) do
-      local name = GetSpellInfo(spellID)
+      local name = API.GetSpellInfo(spellID)
       if name then PROF_SKILLLINE_BY_NAME[name] = skillLineID end
     end
   elseif event == "PLAYER_LOGIN" then
@@ -238,7 +297,9 @@ f:SetScript("OnEvent", function(_, event, arg1)
     RebuildRuntimeBuckets()
   elseif event == "TRADE_SKILL_SHOW" then
     EnsureGlobals()
-    C_Timer.After(0.05, ScanCurrentTrade)
+    QueueTradeScan(0.05)
+  elseif event == "TRADE_SKILL_LIST_UPDATE" then
+    QueueTradeScan(0.25)
   elseif event == "GET_ITEM_INFO_RECEIVED" then
   end
 end)

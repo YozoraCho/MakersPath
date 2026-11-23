@@ -1,4 +1,5 @@
 local ADDON, MakersPath = ...
+local API = MakersPath.API or {}  -- see Core/Compat.lua
 MakersPath = MakersPath or {}
 MakersPath.UI = MakersPath.UI or {}
 
@@ -219,7 +220,11 @@ local function CreateStatRow(parent)
   label:SetJustifyH("LEFT")
   row.label = label
 
-  local slider = CreateFrame("Slider", nil, row, "OptionsSliderTemplate")
+  local sliderTemplate = API.PickTemplate("OptionsSliderTemplate", "UISliderTemplate")
+  local slider = CreateFrame("Slider", nil, row, sliderTemplate)
+  if not slider:GetThumbTexture() then
+    slider:SetThumbTexture("Interface\\Buttons\\UI-SliderBar-Button-Horizontal")
+  end
   slider:SetPoint("LEFT", row, "LEFT", 158, 0)
   slider:SetWidth(140)
   slider:SetHeight(16)

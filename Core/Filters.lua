@@ -1,4 +1,5 @@
 local _, MakersPath = ...
+local API = MakersPath.API or {}  -- see Core/Compat.lua
 MakersPath             = MakersPath or {}
 MakersPath.Config      = MakersPath.Config or {}
 MakersPath.Filters     = MakersPath.Filters or {}
@@ -43,7 +44,7 @@ local function GetClassSubClass(itemID)
     local _, _, _, invType, _, cID, scID = C_Item.GetItemInfoInstant(itemID)
     equipLoc, classID, subclassID = invType, cID, scID
   else
-    local _, _, _, _, _, _, _, _, invType, _, _, cID, scID = GetItemInfo(itemID)
+    local _, _, _, _, _, _, _, _, invType, _, _, cID, scID = API.GetItemInfo(itemID)
     equipLoc, classID, subclassID = invType, cID, scID
   end
   return classID, subclassID, equipLoc
@@ -80,7 +81,7 @@ MPScanTT:SetOwner(UIParent, "ANCHOR_NONE")
 local NAME_TO_SKILLLINE = {}
 do
   for skillLineID, spellID in pairs(C.SKILLLINE_TO_SPELL or {}) do
-    local name = GetSpellInfo(spellID)
+    local name = API.GetSpellInfo(spellID)
     if name and name ~= "" then
       NAME_TO_SKILLLINE[name] = skillLineID
     end
@@ -89,7 +90,7 @@ end
 
 local function ScanEquipProfession(itemID)
   if not itemID then return nil end
-  local link = select(2, GetItemInfo(itemID))
+  local link = select(2, API.GetItemInfo(itemID))
   if not link then
     if C_Item and C_Item.RequestLoadItemDataByID then C_Item.RequestLoadItemDataByID(itemID) end
     return nil
@@ -272,7 +273,7 @@ local function HardNeverForClass(entry)
   local _, classTag = UnitClass("player")
 
   local _, _, inv = GetClassSubClass(entry.itemID)
-  if not inv then inv = select(9, GetItemInfo(entry.itemID)) end
+  if not inv then inv = select(9, API.GetItemInfo(entry.itemID)) end
   if not inv then return false end
   if IsRangedInv(inv) then
     return false
@@ -321,7 +322,7 @@ local ARMOR_TOKEN_FROM_SUB = {
 
 local function ArmorTokenFromItem(itemID)
   if not itemID then return nil end
-  local _, _, _, _, _, classID, subID = GetItemInfoInstant(itemID)
+  local _, _, _, _, _, classID, subID = API.GetItemInfoInstant(itemID)
   if classID == 4 then
     return ARMOR_TOKEN_FROM_SUB[subID]
   end
@@ -336,7 +337,7 @@ function F:ArmorOkForClass(entry)
 
   local inv = entry.invType
   if not inv and entry.itemID then
-    inv = select(9, GetItemInfo(entry.itemID))
+    inv = select(9, API.GetItemInfo(entry.itemID))
   end
   if inv == "INVTYPE_SHIELD" then
     return SHIELD_OK[class] or false
@@ -372,14 +373,14 @@ local function HasRangedThatUsesAmmo()
   if not slot then return false end
   local link = GetInventoryItemLink("player", slot)
   if not link then return false end
-  local _, _, _, _, _, classID, subClassID = GetItemInfoInstant(link)
+  local _, _, _, _, _, classID, subClassID = API.GetItemInfoInstant(link)
   return subClassID and (subClassID == C.WEAPON_SUB.BOWS or subClassID == C.WEAPON_SUB.GUNS or subClassID == C.WEAPON_SUB.CROSSBOWS)
 end
 
 local function RangedOkForClass(entry)
   if not entry or not entry.itemID then return true end
   local _, subclassID, inv = GetClassSubClass(entry.itemID)
-  if not inv then inv = select(9, GetItemInfo(entry.itemID)) end
+  if not inv then inv = select(9, API.GetItemInfo(entry.itemID)) end
   if not inv then return true end
 
   local _, classTag = UnitClass("player")
@@ -417,7 +418,7 @@ local ALLOW_BY_CLASS = {
 local function WeaponOkForClass(entry)
   if not entry or not entry.itemID then return true end
   local _, subclassID, inv = GetClassSubClass(entry.itemID)
-  if not inv then inv = select(9, GetItemInfo(entry.itemID)) end
+  if not inv then inv = select(9, API.GetItemInfo(entry.itemID)) end
   if not inv then
     return true
   end
@@ -460,7 +461,7 @@ end
 local function WeaponProficiencyOk(entry)
   if not entry or not entry.itemID then return true end
   local _, _, inv = GetClassSubClass(entry.itemID)
-  if not inv then inv = select(9, GetItemInfo(entry.itemID)) end
+  if not inv then inv = select(9, API.GetItemInfo(entry.itemID)) end
   if not inv then return true end
   if not (inv:find("WEAPON") or inv:find("RANGED") or inv=="INVTYPE_SHIELD" or inv=="INVTYPE_HOLDABLE") then return true end
   if inv=="INVTYPE_SHIELD" then
@@ -506,7 +507,7 @@ function F:LevelOk(entry)
   local base = (MakersPath and MakersPath.FutureWindow) or 1
   local req = tonumber(entry and (entry.reqLevel or entry.minLevel)) or 0
   if entry and entry.itemID then
-    local _, _, _, _, reqLevel = GetItemInfo(entry.itemID)
+    local _, _, _, _, reqLevel = API.GetItemInfo(entry.itemID)
     if type(reqLevel)=="number" and reqLevel > 0 then
       req = reqLevel
     else
@@ -540,13 +541,13 @@ SlashCmdList["MPFAC"]=function(msg)
   local db = GDB(); db.factionLocks = db.factionLocks or {}; db.factionLocks.items = db.factionLocks.items or {}
   local add = function(iid)
     db.factionLocks.items[iid]=fac
-    print("|cff66ccff[Maker'sPath]|r faction lock:", fac, "for", (GetItemInfo(iid) or ("item:"..iid)), "("..iid..")")
+    print("|cff66ccff[Maker'sPath]|r faction lock:", fac, "for", (API.GetItemInfo(iid) or ("item:"..iid)), "("..iid..")")
   end
   local seen, hit = {}, false
   local function consider(iid)
     if iid and not seen[iid] then
       seen[iid]=true
-      local iname = GetItemInfo(iid)
+      local iname = API.GetItemInfo(iid)
       if iname and iname:lower()==name:lower() then add(iid); hit=true end
     end
   end
