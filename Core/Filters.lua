@@ -368,18 +368,27 @@ local RANGED_ALLOWED = {
   PALADIN = {},
 }
 
-local function HasRangedThatUsesAmmo()
-  local slot = GetInventorySlotInfo("RangedSlot")
-  if not slot then return false end
+local PROJECTILE_CLASS = (Enum and Enum.ItemClass and Enum.ItemClass.Projectile) or 6
+local AMMO_ARROW  = (Enum and Enum.ItemProjectileSubclass and Enum.ItemProjectileSubclass.Arrow)  or 2
+local AMMO_BULLET = (Enum and Enum.ItemProjectileSubclass and Enum.ItemProjectileSubclass.Bullet) or 3
+
+local function EquippedAmmoSubclass()
+  local ok, slot = pcall(GetInventorySlotInfo, "RangedSlot")
+  if not ok or not slot then slot = INVSLOT_RANGED or 18 end
   local link = GetInventoryItemLink("player", slot)
-  if not link then return false end
-  local _, _, _, _, _, classID, subClassID = API.GetItemInfoInstant(link)
-  return subClassID and (subClassID == C.WEAPON_SUB.BOWS or subClassID == C.WEAPON_SUB.GUNS or subClassID == C.WEAPON_SUB.CROSSBOWS)
+  if not link then return nil end
+  local _, _, _, _, _, _, subClassID = API.GetItemInfoInstant(link)
+  if subClassID == C.WEAPON_SUB.BOWS or subClassID == C.WEAPON_SUB.CROSSBOWS then
+    return AMMO_ARROW
+  elseif subClassID == C.WEAPON_SUB.GUNS then
+    return AMMO_BULLET
+  end
+  return nil
 end
 
 local function RangedOkForClass(entry)
   if not entry or not entry.itemID then return true end
-  local _, subclassID, inv = GetClassSubClass(entry.itemID)
+  local classID, subclassID, inv = GetClassSubClass(entry.itemID)
   if not inv then inv = select(9, API.GetItemInfo(entry.itemID)) end
   if not inv then return true end
 
@@ -397,8 +406,10 @@ local function RangedOkForClass(entry)
   end
 
   if inv=="INVTYPE_AMMO" then
-    local hasAmmoRanged = HasRangedThatUsesAmmo()
-    return hasAmmoRanged
+    local wants = EquippedAmmoSubclass()
+    if not wants then return false end
+    if classID ~= PROJECTILE_CLASS or subclassID == nil then return true end
+    return subclassID == wants
   elseif inv=="INVTYPE_THROWN" or inv=="INVTYPE_RANGED" or inv=="INVTYPE_RANGEDRIGHT" then
     local allow = RANGED_ALLOWED[classTag] or {}
     return allow[subclassID] == true

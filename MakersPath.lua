@@ -3,7 +3,7 @@ local API = MakersPath.API or {}  -- see Core/Compat.lua
 
 MakersPath = MakersPath or {}
 MakersPath.name = ADDON_NAME
-MakersPath.version = "1.6.1"
+MakersPath.version = "1.6.2"
 _G.MakersPath = MakersPath
 local debugprofilestop = debugprofilestop
 MakersPath.Config = MakersPath.Config or {}
