@@ -6,173 +6,80 @@ MakersPath.UI = MakersPath.UI or {}
 -- ===== Locale & Consts =====
 local C = MakersPath.Const or {}
 local L = LibStub("AceLocale-3.0"):GetLocale("MakersPath", true) or {}
+local function Lx(key, fallback) return rawget(L, key) or fallback or key end
 
--- =================== Styling ===================
-local NAME_W       = 180
-local ROWS         = 12
-local ROW_H        = 22
-local LEVEL_COL_W  = 52
-local GAP_BETWEEN  = 8
+local T, W = MakersPath.Theme, MakersPath.Widgets
+local Tex = T.Tex
 
-local function SetReadableFont(fs, size)
-  local ok = fs:SetFont(STANDARD_TEXT_FONT, size or 13, "OUTLINE")
-  fs:SetShadowOffset(0.75, -0.75)
-  fs:SetShadowColor(0, 0, 0, 0.6)
-  return ok
-end
-
-local HIDE_IN_BOOK = {
-  [2550] = true,  -- Cooking
-  [3273] = true,  -- First Aid
-  [7620] = true,  -- Fishing
+local SECONDARY = {
+  [185] = true,  -- Cooking
+  [129] = true,  -- First Aid
+  [356] = true,  -- Fishing
 }
 
-local PROF_COLOR = {
-  Tailor = "ffc8e0ff",  -- light blue
-  Ench = "ffd0b0ff",  -- light purple/pink
-  Alc  = "ffb0ffb0",  -- light green
-  LW   = "ffffe0a0",  -- sand
-  BS   = "ffffc0c0",  -- rosy
-  JC   = "ff40e0d0",  -- turquoise
-  Eng  = "fff0e090",  -- amber
-  Herb = "ffa0ffb0",  -- mint
-  Mine = "ffd0d0d0",  -- steel
-  Skin = "ffffe8c0",  -- leather
-}
-
-local SHORT_TAG_BY_SPELL = {
-  [C.SKILLLINE_TO_SPELL and C.SKILLLINE_TO_SPELL[165] or 2108] = "LW",
-  [C.SKILLLINE_TO_SPELL and C.SKILLLINE_TO_SPELL[164] or 2018] = "BS",
-  [C.SKILLLINE_TO_SPELL and C.SKILLLINE_TO_SPELL[202] or 4036] = "Eng",
-  [C.SKILLLINE_TO_SPELL and C.SKILLLINE_TO_SPELL[333] or 7411] = "Ench",
-  [C.SKILLLINE_TO_SPELL and C.SKILLLINE_TO_SPELL[197] or 3908] = "Tailor",
-  [C.SKILLLINE_TO_SPELL and C.SKILLLINE_TO_SPELL[171] or 2259] = "Alc",
-  [C.SKILLLINE_TO_SPELL and C.SKILLLINE_TO_SPELL[755] or 25229] = "JC",
-  [C.SKILLLINE_TO_SPELL and C.SKILLLINE_TO_SPELL[182] or 2366] = "Herb",
-  [C.SKILLLINE_TO_SPELL and C.SKILLLINE_TO_SPELL[186] or 2575] = "Mine",
-  [C.SKILLLINE_TO_SPELL and C.SKILLLINE_TO_SPELL[393] or 8613] = "Skin",
-  [C.SKILLLINE_TO_SPELL and C.SKILLLINE_TO_SPELL[185] or 2550] = "Cook",
-  [C.SKILLLINE_TO_SPELL and C.SKILLLINE_TO_SPELL[356] or 7620] = "Fish",
-  [C.SKILLLINE_TO_SPELL and C.SKILLLINE_TO_SPELL[129] or 3273] = "FA",
-}
-
-local SHORT_PROF_FROM_SPELL = setmetatable({}, {
-  __index = function(t, spellID)
-    local short = SHORT_TAG_BY_SPELL[spellID]
-    if not short then
-      short = API.GetSpellInfo(spellID) or "?"
-    end
-    rawset(t, spellID, short)
-    return short
-  end
-})
-
-local function LocalizedProfShort(short)
-  if not short or short == "" then
-    return short or ""
-  end
-  if L and L[short] then
-    return L[short]
-  end
-  return short
+local function ProfName(line)
+  local sp = C.SKILLLINE_TO_SPELL and C.SKILLLINE_TO_SPELL[line]
+  return sp and API.GetSpellInfo(sp) or ("#" .. tostring(line))
+end
+local function ProfIcon(line)
+  local sp = C.SKILLLINE_TO_SPELL and C.SKILLLINE_TO_SPELL[line]
+  return sp and API.GetSpellTexture and API.GetSpellTexture(sp) or Tex.question
 end
 
-local function ColorizeProf(short, rank)
-  local hex   = PROF_COLOR[short] or "ffeaeaea"
-  local label = LocalizedProfShort(short)
-  if rank and rank > 0 then
-    return string.format("|c%s%s %d|r", hex, label, rank)
-  else
-    return string.format("|c%s%s|r", hex, label)
-  end
+local SPELL_TO_LINE = {}
+for line, sp in pairs(C.SKILLLINE_TO_SPELL or {}) do SPELL_TO_LINE[sp] = line end
+
+local function CurrentKey()
+  return (MakersPath.Util and MakersPath.Util.CurrentCharKey and MakersPath.Util.CurrentCharKey())
+      or ((UnitName("player") or "?") .. "-" .. (GetRealmName() or "?"))
 end
 
-local function ClassColored(class)
-  if not class or class == "" then return "" end
-  local c = RAID_CLASS_COLORS and RAID_CLASS_COLORS[class:upper()]
-  if c then
-    return string.format("|cFF%02X%02X%02X%s|r", c.r*255, c.g*255, c.b*255, class)
-  end
-  return class
-end
-
-local function FallbackGetAllChars()
-  local roster = {}
+local function Roster()
+  local out = {}
   MakersPathDB = MakersPathDB or {}; MakersPathDB.chars = MakersPathDB.chars or {}
+  local cur = CurrentKey()
   for key, rec in pairs(MakersPathDB.chars) do
-    local name = key:match("^[^-]+") or key
-    roster[#roster+1] = {
-      key   = key,
-      name  = name,
-      level = rec.level,
-      class = rec.class,
-      profs = rec.profs or {},
-    }
+    if type(rec) == "table" then
+      out[#out + 1] = { key = key, rec = rec, name = rec.name or key:match("^[^-]+") or key, current = key == cur }
+    end
   end
-  table.sort(roster, function(a,b) return a.key < b.key end)
-  return roster
+  table.sort(out, function(a, b)
+    if a.current ~= b.current then return a.current end
+    return a.key < b.key
+  end)
+  return out
 end
-local GetAllChars = (MakersPath.Util and MakersPath.Util.GetAllChars) or FallbackGetAllChars
- 
+
 -- =================== Frame ===================
-local frame = CreateFrame("Frame", "MakersPathProfBook", UIParent, "BackdropTemplate")
-frame:SetSize(640, 420)
+local frame = CreateFrame("Frame", "MakersPathProfBook", UIParent)
+frame:SetSize(460, 560)
 frame:SetFrameStrata("DIALOG")
 frame:SetFrameLevel(50)
 frame:SetClampedToScreen(true)
 frame:Hide()
-frame:SetMovable(true)
 frame:EnableMouse(true)
-frame:RegisterForDrag("LeftButton")
 table.insert(UISpecialFrames, "MakersPathProfBook")
 
-frame:SetBackdrop({
-  bgFile = "Interface\\Buttons\\WHITE8X8",
-  edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
-  tile = false,
-  edgeSize = 12,
-  insets = { left = 2, right = 2, top = 2, bottom = 2 },
-})
-frame:SetBackdropColor(0, 0, 0, 0.84)
-frame:SetBackdropBorderColor(0.3, 0.1, 0.1, 0.85)
-
-frame:SetScript("OnDragStart", function(self)
-  self:StartMoving()
-end)
-
-frame:SetScript("OnDragStop", function(self)
-  self:StopMovingOrSizing()
+local page = W.Window(frame)
+W.MakeMovable(frame, frame, function(p, rp, x, y)
   MakersPathDB = MakersPathDB or {}
   MakersPathDB.ui = MakersPathDB.ui or {}
-  local p, _, rp, x, y = self:GetPoint(1)
   MakersPathDB.ui.profbook = { point = p, relPoint = rp, x = x, y = y }
 end)
 
--- Top header strip
-frame.header = CreateFrame("Frame", nil, frame, "BackdropTemplate")
-frame.header:SetPoint("TOPLEFT", frame, "TOPLEFT", 8, -8)
-frame.header:SetPoint("TOPRIGHT", frame, "TOPRIGHT", -8, -8)
-frame.header:SetHeight(28)
-frame.header:SetBackdrop({
-  bgFile = "Interface\\Buttons\\WHITE8X8",
-  edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
-  tile = false,
-  edgeSize = 12,
-  insets = { left = 2, right = 2, top = 2, bottom = 2 },
-})
-frame.header:SetBackdropColor(0.12, 0.12, 0.16, 0.95)
-frame.header:SetBackdropBorderColor(0.28, 0.28, 0.34, 0.9)
+local header = W.Header(page, Lx("PROFBOOK_HEADER", "Profession Book"), function() frame:Hide() end)
+header:EnableMouse(true)
+header:RegisterForDrag("LeftButton")
+header:SetScript("OnDragStart", function() frame:StartMoving() end)
+header:SetScript("OnDragStop", function() frame:GetScript("OnDragStop")(frame) end)
+header.count = W.Text(header, "body", "secondary")
+header.count:SetPoint("LEFT", header.title, "RIGHT", 10, -1)
+frame.header, frame.title = header, header.title
 
--- Title
-frame.title = frame.header:CreateFontString(nil, "OVERLAY", "GameFontNormalLarge")
-frame.title:SetPoint("LEFT", frame.header, "LEFT", 10, 0)
-frame.title:SetJustifyH("LEFT")
-frame.title:SetText(L["PROFBOOK_TITLE"])
-SetReadableFont(frame.title, 14)
-
--- Close button
-frame.close = CreateFrame("Button", nil, frame, "UIPanelCloseButton")
-frame.close:SetPoint("TOPRIGHT", frame, "TOPRIGHT", -6, -6)
+local footer = W.Footer(page)
+footer.hint = W.Text(footer, "small", "muted")
+footer.hint:SetPoint("LEFT", 10, 0)
+footer.hint:SetText(Lx("PROFBOOK_FORGET_HINT", "Shift + right-click a character to remove it"))
 
 -- ============== Scaling (Ctrl + MouseWheel) ==============
 local BOOK_MIN_SCALE, BOOK_MAX_SCALE, BOOK_STEP = 0.7, 1.4, 0.05
@@ -190,160 +97,224 @@ local function RestoreBookScale()
   ApplyBookScale(MakersPathDB.ui.profbookScale or 1.0)
 end
 
-ApplyBookScale(1.0)
+-- =================== Content ===================
+local scroll = CreateFrame("ScrollFrame", nil, page)
+scroll:SetPoint("TOPLEFT", header, "BOTTOMLEFT", 8, -8)
+scroll:SetPoint("BOTTOMRIGHT", footer, "TOPRIGHT", -8, 6)
+local content = CreateFrame("Frame", nil, scroll)
+content:SetSize(1, 1)
+scroll:SetScrollChild(content)
+scroll:EnableMouseWheel(true)
+local bar = W.ScrollBar(scroll)
+local function UpdateThumb() bar:Update() end
 
 frame:EnableMouseWheel(true)
-frame:HookScript("OnMouseWheel", function(self, delta)
-  if not IsControlKeyDown() then return end
-  local cur = (MakersPathDB and MakersPathDB.ui and MakersPathDB.ui.profbookScale) or self:GetScale() or 1.0
-  local new = cur + (delta > 0 and BOOK_STEP or -BOOK_STEP)
-  ApplyBookScale(new)
-  UIErrorsFrame:AddMessage(string.format(L["BOOK_SCALE_CHANGED"], new), 0.2, 0.8, 1.0)
+frame:SetScript("OnMouseWheel", function(self, delta)
+  if IsControlKeyDown() then
+    local cur = (MakersPathDB and MakersPathDB.ui and MakersPathDB.ui.profbookScale) or self:GetScale() or 1.0
+    local new = cur + (delta > 0 and BOOK_STEP or -BOOK_STEP)
+    ApplyBookScale(new)
+    UIErrorsFrame:AddMessage(string.format(L["BOOK_SCALE_CHANGED"], new), 0.2, 0.8, 1.0)
+    return
+  end
+  bar:Scroll(delta * 40)
 end)
 
-function MakersPath.UI.ToggleProfBook()
-  if frame:IsShown() then frame:Hide() else MakersPath.UI.RefreshProfBook(); frame:Show() end
-end
+local expanded = {}
+local sections = {}
 
--- =================== Content ===================
-local content = CreateFrame("Frame", nil, frame)
-content:SetPoint("TOPLEFT", 12, -44)
-content:SetPoint("BOTTOMRIGHT", -12, 40)
+local function Section(i)
+  local s = sections[i]
+  if s then return s end
+  s = CreateFrame("Frame", nil, content)
+  s.bg = W.Fill(s, "panel", "BACKGROUND"); s.bg:SetAllPoints()
+  s.edge = W.Line(s, "ruleDark", "BORDER"); s.edge:SetPoint("TOPLEFT"); s.edge:SetPoint("TOPRIGHT")
+  s.edge2 = W.Line(s, "ruleLight", "BORDER"); s.edge2:SetPoint("BOTTOMLEFT"); s.edge2:SetPoint("BOTTOMRIGHT")
+  s.mark = W.Fill(s, "brass", "ARTWORK"); s.mark:SetWidth(2); s.mark:SetPoint("TOPLEFT"); s.mark:SetPoint("BOTTOMLEFT")
 
-local scroll = CreateFrame("ScrollFrame", nil, content, "FauxScrollFrameTemplate")
-scroll:SetPoint("TOPLEFT")
-scroll:SetPoint("BOTTOMRIGHT")
-
-local rows = {}
-local dataset = {}
-
-local function createRow(i)
-  local row = CreateFrame("Frame", nil, content)
-  row:SetSize(1, ROW_H)
-  row.bg = row:CreateTexture(nil, "BACKGROUND")
-  row.bg:SetAllPoints(true)
-  if i % 2 == 1 then
-    row.bg:SetColorTexture(1, 1, 1, 0.025)
-  else
-    row.bg:SetColorTexture(1, 1, 1, 0.01)
-  end
-
-  row.h1 = row:CreateTexture(nil, "HIGHLIGHT")
-  row.h1:SetAllPoints(true)
-  row.h1:SetColorTexture(1, 0.82, 0.2, 0.06)
-  if i == 1 then
-    row:SetPoint("TOPLEFT", content, "TOPLEFT", 0, 0)
-  else
-    row:SetPoint("TOPLEFT", rows[i-1], "BOTTOMLEFT", 0, -2)
-  end
-  row:SetPoint("RIGHT", content, "RIGHT")
-
-  row.name = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-  row.name:SetPoint("LEFT", row, "LEFT", 6, 0)
-  row.name:SetWidth(NAME_W)
-  row.name:SetJustifyH("LEFT")
-  SetReadableFont(row.name, 13)
-
-  row.level = row:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
-  row.level:SetPoint("LEFT", row.name, "RIGHT", 10, 0)
-  row.level:SetWidth(LEVEL_COL_W)
-  row.level:SetJustifyH("LEFT")
-  row.level:SetWordWrap(false)
-  row.level:SetNonSpaceWrap(false)
-  row.level:SetMaxLines(1)
-  SetReadableFont(row.level, 13)
-
-  row.class = row:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
-  row.class:ClearAllPoints()
-  row.class:SetPoint("LEFT", row.level, "RIGHT", GAP_BETWEEN, 0)
-  row.class:SetJustifyH("LEFT")
-  row.class:SetWordWrap(false)
-  row.class:SetNonSpaceWrap(true)
-  row.class:SetMaxLines(1)
-  SetReadableFont(row.class, 13)
-
-  row.profs = row:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
-  row.profs:SetPoint("LEFT", row.class, "RIGHT", 12, 0)
-  row.profs:SetPoint("RIGHT", row, "RIGHT", -6, 0)
-  row.profs:SetJustifyH("LEFT")
-  row.profs:SetWordWrap(false)
-  row.profs:SetNonSpaceWrap(true)
-  row.profs:SetMaxLines(1)
-  SetReadableFont(row.profs, 12)
-
-  row.btn = CreateFrame("Button", nil, row)
-  row.btn:SetAllPoints(row)
-  row.btn:EnableMouse(true)
-  row.btn:RegisterForClicks("RightButtonUp")
-
-  row.btn:SetScript("OnEnter", function(self)
+  s.head = CreateFrame("Button", nil, s)
+  s.head:SetPoint("TOPLEFT"); s.head:SetPoint("TOPRIGHT")
+  s.head:SetHeight(36)
+  s.head.hl = W.Fill(s.head, "hover", "BACKGROUND", 1); s.head.hl:SetAllPoints(); s.head.hl:Hide()
+  s.classIcon = W.ItemIcon(s.head, 24); s.classIcon:SetPoint("LEFT", 10, 0)
+  s.name = W.Text(s.head, "name", "bone"); s.name:SetPoint("LEFT", s.classIcon, "RIGHT", 9, 0)
+  s.sub = W.Text(s.head, "body", "secondary"); s.sub:SetPoint("LEFT", s.name, "RIGHT", 8, -1)
+  s.chev = s.head:CreateTexture(nil, "ARTWORK"); s.chev:SetTexture(Tex.chevron); s.chev:SetSize(9, 9); s.chev:SetPoint("RIGHT", -10, 0)
+  s.chev:SetVertexColor(T.C.secondary[1], T.C.secondary[2], T.C.secondary[3])
+  s.summary = W.Text(s.head, "body", "muted"); s.summary:SetPoint("RIGHT", s.chev, "LEFT", -8, 0); s.summary:SetJustifyH("RIGHT")
+  s.summary:SetPoint("LEFT", s.sub, "RIGHT", 8, 0)
+  s.head:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+  s.head:SetScript("OnEnter", function(self)
+    self.hl:Show()
     GameTooltip:SetOwner(self, "ANCHOR_TOPRIGHT")
     GameTooltip:AddLine(L["ROW_HINT_FORGET"], 1, 1, 1)
     GameTooltip:Show()
   end)
-  row.btn:SetScript("OnLeave", function() GameTooltip:Hide() end)
-
-  row.btn:SetScript("OnClick", function()
-    if not IsShiftKeyDown() then
-      UIErrorsFrame:AddMessage(L["ROW_HINT_FORGET_ERR"], 1, 0.82, 0, 1)
-      return
-    end
-    if row._key then
+  s.head:SetScript("OnLeave", function(self) self.hl:Hide(); GameTooltip:Hide() end)
+  s.head:SetScript("OnClick", function(self, button)
+    local key = self:GetParent().key
+    if button == "RightButton" then
+      if not IsShiftKeyDown() then
+        UIErrorsFrame:AddMessage(L["ROW_HINT_FORGET_ERR"], 1, 0.82, 0, 1)
+        return
+      end
       MakersPathDB = MakersPathDB or {}; MakersPathDB.chars = MakersPathDB.chars or {}
-      if MakersPathDB.chars[row._key] then
-        MakersPathDB.chars[row._key] = nil
-        print("|cff00ccff[Maker's Path]|r " .. string.format(L["REMOVED_FROM_ROSTER"], row._key))
+      if key and MakersPathDB.chars[key] then
+        MakersPathDB.chars[key] = nil
+        print("|cff00ccff[Maker's Path]|r " .. string.format(L["REMOVED_FROM_ROSTER"], key))
         MakersPath.UI.RefreshProfBook()
       end
+      return
     end
+    expanded[key] = not expanded[key]
+    MakersPath.UI.RefreshProfBook()
   end)
 
-  return row
+  s.rows = {}
+  s.secondary = W.Text(s, "body", "muted")
+  sections[i] = s
+  return s
 end
 
-for i=1,ROWS do rows[i] = createRow(i) end
+local function ProfRow(s, i)
+  local r = s.rows[i]
+  if r then return r end
+  r = CreateFrame("Frame", nil, s)
+  r:SetHeight(24)
+  r.icon = W.ItemIcon(r, 18); r.icon:SetPoint("LEFT", 44, 0)
+  r.name = W.Text(r, "body", "bone"); r.name:SetPoint("LEFT", r.icon, "RIGHT", 8, 0); r.name:SetWidth(110)
+  r.rank = W.Text(r, "num", "bone"); r.rank:SetPoint("LEFT", r.name, "RIGHT", 6, 0); r.rank:SetWidth(70)
+  r.note = W.Text(r, "small", "muted"); r.note:SetPoint("LEFT", r.rank, "RIGHT", 6, 0); r.note:SetPoint("RIGHT", -10, 0)
+  s.rows[i] = r
+  return r
+end
 
 -- =================== Refresh ===================
 function MakersPath.UI.RefreshProfBook()
-  local dataset = GetAllChars() or {}
-  local total   = #dataset
-  local offset  = FauxScrollFrame_GetOffset(scroll)
+  local roster = Roster()
+  header.count:SetText(string.format(Lx("PROFBOOK_COUNT_FMT", "%d |4character:characters;"), #roster))
+  local width = scroll:GetWidth() or 420
+  content:SetWidth(width)
+  for _, s in ipairs(sections) do s:Hide() end
+  local cur = CurrentKey()
+  local y = 0
+  for i, e in ipairs(roster) do
+    local s = Section(i)
+    s.key = e.key
+    if expanded[e.key] == nil then expanded[e.key] = (#roster <= 4) or e.current end
+    local open = expanded[e.key]
+    local rec = e.rec
+    local cc = T.ClassColor(rec.class)
 
-  for i = 1, ROWS do
-    local r = rows[i]
-    if not r then
-      r = createRow(i)
-      rows[i] = r
-    end
-
-    local idx = offset + i
-    if idx <= total then
-      local rec = dataset[idx]
-      r:Show()
-      r._key = rec.key
-      r.name:SetText(rec.name or rec.key or "?")
-      r.level:SetText(rec.level and (L["LEVEL_PREFIX"] .. " " .. tostring(rec.level)) or "")
-      r.class:SetText(ClassColored(rec.class))
-
-      local parts = {}
-      for spellID, rank in pairs(rec.profs or {}) do
-        if not HIDE_IN_BOOK[spellID] then
-          local short = SHORT_PROF_FROM_SPELL[spellID]
-          parts[#parts+1] = ColorizeProf(short, tonumber(rank) or 0)
-        end
-      end
-      table.sort(parts, function(a,b) return a < b end)
-      if #parts > 0 then
-        r.profs:SetText(table.concat(parts, "  |  "))
-      else
-        r.profs:SetText("|cff888888" .. L["NO_PROFS"] .. "|r")
-      end
+    local path, coords
+    if API.ClassIcon then path, coords = API.ClassIcon(rec.class) end
+    if path then
+      s.classIcon.icon:SetTexture(path)
+      s.classIcon.icon:SetTexCoord(coords[1], coords[2], coords[3], coords[4])
     else
-      r:Hide()
+      s.classIcon.icon:SetTexture(Tex.question)
+      s.classIcon.icon:SetTexCoord(0.08, 0.92, 0.08, 0.92)
     end
-  end
+    for _, edge in ipairs(s.classIcon.edges) do W.SetColor(edge, cc) end
 
-  FauxScrollFrame_Update(scroll, total, ROWS, ROW_H+2)
+    s.name:SetText(e.name); W.TextColor(s.name, cc)
+    local className = rec.class and LOCALIZED_CLASS_NAMES_MALE and LOCALIZED_CLASS_NAMES_MALE[rec.class] or (rec.class or "")
+    s.sub:SetText(rec.level and string.format(Lx("HEADER_LEVEL_FMT", "Level %d %s"), rec.level, className) or className)
+    s.mark:SetShown(e.key == cur)
+    if s.chev.SetRotation then s.chev:SetRotation(open and 0 or (math.pi / 2)) end
+
+    -- professions
+    local main, sec = {}, {}
+    for sp, rank in pairs(rec.profs or {}) do
+      local line = SPELL_TO_LINE[sp]
+      rank = tonumber(rank) or 0
+      if line and rank > 0 then
+        if SECONDARY[line] then sec[#sec + 1] = { line = line, rank = rank }
+        else main[#main + 1] = { line = line, rank = rank } end
+      end
+    end
+    table.sort(main, function(a, b) return a.rank > b.rank end)
+    table.sort(sec, function(a, b) return a.rank > b.rank end)
+    local secText = {}
+    for _, p in ipairs(sec) do secText[#secText + 1] = ProfName(p.line) .. " " .. p.rank end
+
+    if open then
+      s.summary:SetText(e.current and Lx("PROFBOOK_THIS_CHAR", "this character") or "")
+    else
+      local parts = {}
+      for _, p in ipairs(main) do parts[#parts + 1] = ProfName(p.line) .. " " .. p.rank end
+      if #parts > 0 then
+        s.summary:SetText(table.concat(parts, " · "))
+      elseif #sec > 0 then
+        s.summary:SetText(Lx("PROFBOOK_NO_PRIMARY", "No primary professions"))
+      else
+        s.summary:SetText(Lx("NO_PROFS", "No professions recorded"))
+      end
+    end
+
+    for _, r in ipairs(s.rows) do r:Hide() end
+    local h = 36
+    if open then
+      for k, p in ipairs(main) do
+        local r = ProfRow(s, k)
+        r.icon:Set(ProfIcon(p.line), T.C.buttonEdge)
+        r.icon:Show()
+        r.name:SetText(ProfName(p.line))
+        r.rank:SetText(T.Wrap("bone", tostring(p.rank)))
+        local crafting = p.line == 164 or p.line == 165 or p.line == 197 or p.line == 202 or p.line == 755 or p.line == 171 or p.line == 333
+        local n = crafting and MakersPath.RecipeInfo and MakersPath.RecipeInfo.KnownCount(p.line, e.key)
+        if not crafting then
+          r.note:SetText("")
+        elseif n then
+          r.note:SetText(string.format(Lx("PROFBOOK_KNOWN_FMT", "%d recipes known"), n)); W.TextColor(r.note, "muted")
+        else
+          r.note:SetText(string.format(Lx("PROFBOOK_OPEN_FMT", "open %s once to record recipes"), ProfName(p.line))); W.TextColor(r.note, "amber")
+        end
+        r:ClearAllPoints()
+        r:SetPoint("TOPLEFT", 0, -(h + (k - 1) * 24)); r:SetPoint("RIGHT")
+        r:Show()
+      end
+      h = h + #main * 24
+      if #main == 0 then
+        s.empty = s.empty or W.Text(s, "body", "muted")
+        s.empty:ClearAllPoints()
+        s.empty:SetPoint("TOPLEFT", 44, -(h + 4))
+        s.empty:SetPoint("RIGHT", -10, 0)
+        s.empty:SetText(#sec > 0 and Lx("PROFBOOK_NO_PRIMARY", "No primary professions") or Lx("NO_PROFS", "No professions recorded"))
+        s.empty:Show()
+        h = h + 24
+      elseif s.empty then
+        s.empty:Hide()
+      end
+      if #secText > 0 then
+        s.secondary:ClearAllPoints()
+        s.secondary:SetPoint("TOPLEFT", 44, -(h + 2))
+        s.secondary:SetPoint("RIGHT", -10, 0)
+        s.secondary:SetText(T.Wrap("secondary", Lx("PROFBOOK_SECONDARY", "Secondary") .. ":") .. "  " .. table.concat(secText, " · "))
+        s.secondary:Show()
+        h = h + 20
+      else
+        s.secondary:Hide()
+      end
+      h = h + 6
+    else
+      s.secondary:Hide()
+      if s.empty then s.empty:Hide() end
+    end
+
+    s:SetHeight(h)
+    s:ClearAllPoints()
+    s:SetPoint("TOPLEFT", content, "TOPLEFT", 0, -y)
+    s:SetPoint("RIGHT", content, "RIGHT", -14, 0)
+    s:Show()
+    y = y + h + 6
+  end
+  content:SetHeight(math.max(1, y))
+  UpdateThumb()
+end
+
+function MakersPath.UI.ToggleProfBook()
+  if frame:IsShown() then frame:Hide() else MakersPath.UI.RefreshProfBook(); frame:Show() end
 end
 
 local function RestorePos()
@@ -360,28 +331,18 @@ local function RestorePos()
   end
 end
 
-scroll:SetScript("OnVerticalScroll", function(self, delta)
-  FauxScrollFrame_OnVerticalScroll(self, delta, ROW_H+2, MakersPath.UI.RefreshProfBook)
-end)
-
 -- Buttons
-local rescan = CreateFrame("Button", nil, frame, "UIPanelButtonTemplate")
-rescan:SetSize(120, 22)
-rescan:SetPoint("BOTTOMLEFT", frame, "BOTTOMLEFT", 14, 12)
-rescan:SetText(L["BTN_RESCAN"])
-rescan:SetScript("OnClick", function()
+local rescan = W.Button(footer, L["BTN_RESCAN"], function()
   if MakersPath.ScanProfessions then
     MakersPath.ScanProfessions(MakersPath.UI.RefreshProfBook)
   else
     MakersPath.UI.RefreshProfBook()
   end
-end)
+end, { primary = true })
+rescan:SetPoint("RIGHT", -8, 0)
+footer.hint:SetPoint("RIGHT", rescan, "LEFT", -8, 0)
 
-local close = CreateFrame("Button", nil, frame, "UIPanelButtonTemplate")
-close:SetSize(80, 22)
-close:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", -14, 12)
-close:SetText(L["BTN_CLOSE"])
-close:SetScript("OnClick", function() frame:Hide() end)
+frame:SetScript("OnShow", function() MakersPath.UI.RefreshProfBook() end)
 
 do
   local ef = CreateFrame("Frame")
