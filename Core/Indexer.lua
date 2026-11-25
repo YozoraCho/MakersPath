@@ -238,6 +238,14 @@ local function ScanCurrentTrade()
   for _, itemID in ipairs(ids) do
     IndexCraftedItem(itemID, profName)
   end
+
+  local skillLine = PROF_SKILLLINE_BY_NAME[profName]
+  if skillLine and MakersPath.RecipeInfo and MakersPath.RecipeInfo.RecordLearned then
+    local added = MakersPath.RecipeInfo.RecordLearned(skillLine, ids)
+    if added and added > 0 and MakersPath.UI and MakersPath.UI.QueueRedraw then
+      MakersPath.UI.QueueRedraw()
+    end
+  end
 end
 
 -- =====================================================================
