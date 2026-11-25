@@ -87,9 +87,7 @@ MakersPath.Util.WEAPON_LINE_FROM_SUBTYPE = function(itemSubType)
 end
 
 local function charKey()
-  local name  = UnitName("player") or "?"
-  local realm = GetRealmName() or "?"
-  return name.."-"..realm
+  return MakersPath.Util.CurrentCharKey()
 end
 
 -- Classic SkillLine IDs for weapon skills. Clients that report a skillID
@@ -156,6 +154,7 @@ local function doScan()
   local _, classTag = UnitClass("player")
   rec.class = classTag
   rec.level = UnitLevel("player") or rec.level
+  rec.name  = MakersPath.Util.CurrentCharName and MakersPath.Util.CurrentCharName() or rec.name
   rec.seen  = time()
 
   MakersPathDB.chars[key] = rec
@@ -218,7 +217,7 @@ function MakersPath.Util.CurrentProfMap()
   if empty then
     MakersPathDB       = MakersPathDB or {}
     MakersPathDB.chars = MakersPathDB.chars or {}
-    local key          = (UnitName("player") or "?") .. "-" .. (GetRealmName() or "?")
+    local key          = charKey()
     local rec          = MakersPathDB.chars[key]
 
     if rec and rec.profs then
