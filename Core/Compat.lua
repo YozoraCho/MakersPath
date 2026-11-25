@@ -19,6 +19,7 @@ API.GetItemStats        = pick(_G.GetItemStats,        C_Item, "GetItemStats")
 API.GetItemClassInfo    = pick(_G.GetItemClassInfo,    C_Item, "GetItemClassInfo")
 API.GetItemSubClassInfo = pick(_G.GetItemSubClassInfo, C_Item, "GetItemSubClassInfo")
 API.GetItemIcon         = pick(_G.GetItemIcon,         C_Item, "GetItemIconByID")
+API.GetItemCount        = pick(_G.GetItemCount,        C_Item, "GetItemCount")
 
 -- ---------- AddOns ----------
 API.GetNumAddOns  = pick(C_AddOns and C_AddOns.GetNumAddOns,  nil, nil) or _G.GetNumAddOns
@@ -37,6 +38,14 @@ elseif C_Spell and C_Spell.GetSpellInfo then
   end
 else
   API.GetSpellInfo = function() return nil end
+end
+
+if _G.GetSpellTexture then
+  API.GetSpellTexture = _G.GetSpellTexture
+elseif C_Spell and C_Spell.GetSpellTexture then
+  API.GetSpellTexture = function(spell) return C_Spell.GetSpellTexture(spell) end
+else
+  API.GetSpellTexture = function(spell) return select(3, API.GetSpellInfo(spell)) end
 end
 
 if _G.GetSpellBookItemInfo then
@@ -109,4 +118,11 @@ function API.PickTemplate(...)
     if t and C_XMLUtil.GetTemplateInfo(t) then return t end
   end
   return nil
+end
+
+-- ---------- Class icons ----------
+function API.ClassIcon(classTag)
+  local coords = classTag and CLASS_ICON_TCOORDS and CLASS_ICON_TCOORDS[classTag:upper()]
+  if not coords then return nil end
+  return "Interface\\Glues\\CharacterCreate\\UI-CharacterCreate-Classes", coords
 end
