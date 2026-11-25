@@ -3,7 +3,7 @@ local API = MakersPath.API or {}  -- see Core/Compat.lua
 
 MakersPath = MakersPath or {}
 MakersPath.name = ADDON_NAME
-MakersPath.version = "1.6.2"
+MakersPath.version = "2.0.0"
 _G.MakersPath = MakersPath
 local debugprofilestop = debugprofilestop
 MakersPath.Config = MakersPath.Config or {}
@@ -139,16 +139,6 @@ local function SummaryRowsFromCached(gs)
   return rows
 end
 
-function MakersPath.Util.CharKey(name, realm)
-  name = name or UnitName("player") or "?"
-  realm = realm or GetRealmName() or "?"
-  return name .."-".. realm
-end
-
-function MakersPath.Util.CurrentCharKey()
-  return MakersPath.Util.CharKey()
-end
-
 -- ===================== Panel =====================
 local panel = CreateFrame("Frame", "MakersPathFrame", UIParent, "BackdropTemplate")
 table.insert(UISpecialFrames, "MakersPathFrame")
@@ -160,15 +150,8 @@ panel:EnableMouse(true)
 panel:RegisterForDrag("LeftButton")
 panel:SetScript("OnDragStart", panel.StartMoving)
 panel:SetScript("OnDragStop", panel.StopMovingOrSizing)
-panel:SetBackdrop({
-  bgFile = "Interface\\Buttons\\WHITE8X8",
-  edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
-  tile = false,
-  edgeSize = 12,
-  insets = { left = 2, right = 2, top = 2, bottom = 2 },
-})
-panel:SetBackdropColor(0, 0, 0, 0.8)
-panel:SetBackdropBorderColor(0.3, 0.1, 0.1, 0.85)
+local W, Theme = MakersPath.Widgets, MakersPath.Theme
+local page = W.Window(panel)
 
 panel:SetMovable(true)
 panel:EnableMouse(true)
@@ -210,35 +193,18 @@ function MakersPath.UI.EnsureMainPanelSize()
   end
 end
 
--- Top header strip
-panel.header = CreateFrame("Frame", nil, panel, "BackdropTemplate")
-panel.header:SetPoint("TOPLEFT", panel, "TOPLEFT", 8, -8)
-panel.header:SetPoint("TOPRIGHT", panel, "TOPRIGHT", -8, -8)
-panel.header:SetHeight(28)
-panel.header:SetBackdrop({
-  bgFile = "Interface\\Buttons\\WHITE8X8",
-  edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
-  tile = false,
-  edgeSize = 12,
-  insets = { left = 2, right = 2, top = 2, bottom = 2 },
-})
-panel.header:SetBackdropColor(0.12, 0.12, 0.16, 0.95)
-panel.header:SetBackdropBorderColor(0.28, 0.28, 0.34, 0.9)
+-- Header
+panel.header = W.Header(page, L["ADDON_NAME"], function() panel:Hide() end)
+panel.title = panel.header.title
+panel.header:EnableMouse(true)
+panel.header:RegisterForDrag("LeftButton")
+panel.header:SetScript("OnDragStart", function() panel:StartMoving() end)
+panel.header:SetScript("OnDragStop", function() panel:GetScript("OnDragStop")(panel) end)
 
--- Title
-panel.title = panel.header:CreateFontString(nil, "OVERLAY", "GameFontNormalLarge")
-panel.title:SetPoint("LEFT", panel.header, "LEFT", 10, 0)
-panel.title:SetJustifyH("LEFT")
-panel.title:SetText(L["ADDON_NAME"])
+panel.footer = W.Footer(page)
 
--- Close button
-panel.close = CreateFrame("Button", nil, panel, "UIPanelCloseButton")
-panel.close:SetPoint("TOPRIGHT", panel, "TOPRIGHT", -6, -6)
-
--- Status line
 panel.status = panel:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
-panel.status:SetPoint("TOPLEFT", panel, "TOPLEFT", 16, -42)
-panel.status:SetText((L["INDEXED_CRAFTABLES_FMT"] or "Indexed Craftables: %d"):format(0))
+panel.status:Hide()
 
 -- ===================== Accessors =====================
 local function GF()
@@ -303,6 +269,7 @@ end)
 local sizer = CreateFrame("Button", nil, panel)
 sizer:SetPoint("BOTTOMRIGHT", panel, "BOTTOMRIGHT", -2, 2)
 sizer:SetSize(16, 16)
+sizer:SetFrameLevel(panel:GetFrameLevel() + 20)
 sizer:SetNormalTexture("Interface\\ChatFrame\\UI-ChatIM-SizeGrabber-Up")
 sizer:SetHighlightTexture("Interface\\ChatFrame\\UI-ChatIM-SizeGrabber-Highlight")
 sizer:SetPushedTexture("Interface\\ChatFrame\\UI-ChatIM-SizeGrabber-Down")
@@ -363,64 +330,6 @@ local function SafeRefresh(delay)
     end
     RebuildCurrentSummaryView()
   end)
-end
-
-local SLOT_LABEL = {
-  HeadSlot          = _G.HEADSLOT or L["HEAD"],
-  NeckSlot          = _G.NECKSLOT or L["NECK"],
-  ShoulderSlot      = _G.SHOULDERSLOT or L["SHOULDER"],
-  BackSlot          = _G.BACKSLOT or L["BACK"],
-  ChestSlot         = _G.CHESTSLOT or L["CHEST"],
-  WristSlot         = _G.WRISTSLOT or L["WRIST"],
-  HandsSlot         = _G.HANDSSLOT or L["HANDS"],
-  WaistSlot         = _G.WAISTSLOT or L["WAIST"],
-  LegsSlot          = _G.LEGSSLOT or L["LEGS"],
-  FeetSlot          = _G.FEETSLOT or L["FEET"],
-  Finger0Slot       = (_G.INVTYPE_FINGER or L["RING"]) .. " 1",
-  Finger1Slot       = (_G.INVTYPE_FINGER or L["RING"]) .. " 2",
-  Trinket0Slot      = (_G.INVTYPE_TRINKET or L["TRINKET"]) .. " 1",
-  Trinket1Slot      = (_G.INVTYPE_TRINKET or L["TRINKET"]) .. " 2",
-  MainHandSlot      = _G.MAINHANDSLOT or L["MAIN_HAND"],
-  SecondaryHandSlot = _G.SECONDARYHANDSLOT or L["OFF_HAND"],
-  RangedSlot        = _G.RANGEDSLOT or L["RANGED"],
-  AmmoSlot          = _G.AMMOSLOT or L["AMMO"],
-}
-
-local LEFT_SLOTS = {
-  "HeadSlot",
-  "NeckSlot",
-  "ShoulderSlot",
-  "BackSlot",
-  "ChestSlot",
-  "WristSlot",
-  "HandsSlot",
-  "WaistSlot",
-}
-
-local RIGHT_SLOTS = {
-  "LegsSlot",
-  "FeetSlot",
-  "Finger0Slot",
-  "Finger1Slot",
-  "Trinket0Slot",
-  "Trinket1Slot",
-  "MainHandSlot",
-  "SecondaryHandSlot",
-  "RangedSlot",
-  "AmmoSlot",
-}
-
-local slotWidgets = {}
-
-local function ProfShort(id)
-  if id == 164 then return L["BS"] or "BS"
-  elseif id == 165 then return L["LW"] or "LW"
-  elseif id == 197 then return L["Tailor"] or "Tailor"
-  elseif id == 202 then return L["Eng"] or "Eng"
-  elseif id == 333 then return L["Ench"] or "Ench"
-  elseif id == 755 then return L["JC"] or "JC"
-  elseif id == 171 then return L["Alc"] or "Alc"
-  else return tostring(id or "?") end
 end
 
 local function GetSummaryBySlot()
@@ -586,219 +495,14 @@ do
       if MakersPathFrame and MakersPathFrame:IsShown() and RefreshList then RefreshList() end
     end)
   end
-end
-
-local function CreateSlotWidget(parent, side, slotName, index)
-  local wrap = CreateFrame("Frame", nil, parent)
-  wrap:SetSize(250, 42)
-
-  local topY = -74 - ((index - 1) * 40)
-
-  if side == "LEFT" then
-    wrap:SetPoint("TOPLEFT", parent, "TOPLEFT", 70, topY)
-  else
-    wrap:SetPoint("TOPRIGHT", parent, "TOPRIGHT", -26, topY)
-  end
-
-  wrap.iconBtn = CreateFrame("Button", nil, wrap, "BackdropTemplate")
-  wrap.iconBtn:SetSize(34, 34)
-  wrap.iconBtn:SetBackdrop({
-    bgFile = "Interface\\Buttons\\WHITE8X8",
-    edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
-    tile = false,
-    edgeSize = 10,
-    insets = { left = 2, right = 2, top = 2, bottom = 2 },
-  })
-  wrap.iconBtn:SetBackdropColor(0, 0, 0, 0.55)
-  wrap.iconBtn:SetBackdropBorderColor(0.55, 0.12, 0.12, 0.9)
-
-  wrap.icon = wrap.iconBtn:CreateTexture(nil, "ARTWORK")
-  wrap.icon:SetPoint("TOPLEFT", 3, -3)
-  wrap.icon:SetPoint("BOTTOMRIGHT", -3, 3)
-  wrap.icon:SetTexCoord(0.08, 0.92, 0.08, 0.92)
-
-  wrap.iconBtn:SetPoint("LEFT", wrap, "LEFT", 0, 0)
-
-  wrap.name = wrap:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
-  wrap.name:SetPoint("TOPLEFT", wrap.iconBtn, "TOPRIGHT", 8, -2)
-  wrap.name:SetWidth(145)
-  wrap.name:SetJustifyH("LEFT")
-
-  wrap.meta = wrap:CreateFontString(nil, "OVERLAY", "GameFontDisableSmall")
-  wrap.meta:SetPoint("TOPLEFT", wrap.name, "BOTTOMLEFT", 0, -1)
-  wrap.meta:SetWidth(145)
-  wrap.meta:SetJustifyH("LEFT")
-
-  wrap.altBtn = CreateFrame("Button", nil, wrap, "UIPanelButtonTemplate")
-  wrap.altBtn:SetSize(42, 18)
-  wrap.altBtn:SetPoint("TOPRIGHT", wrap, "TOPRIGHT", 0, -2)
-  wrap.altBtn:SetText("Alts")
-  wrap.altBtn:Hide()
-
-  wrap.slotLabel = parent:CreateFontString(nil, "OVERLAY", "GameFontDisableSmall")
-  wrap.slotLabel:SetWidth(72)
-  wrap.slotLabel:SetText(SLOT_LABEL[slotName] or slotName)
-
-  if side == "LEFT" then
-    wrap.slotLabel:SetJustifyH("RIGHT")
-    wrap.slotLabel:SetPoint("RIGHT", wrap, "LEFT", -8, 0)
-  else
-    wrap.slotLabel:SetJustifyH("CENTER")
-    wrap.slotLabel:SetPoint("RIGHT", wrap, "LEFT", -8, 0)
-  end
-
-  wrap.iconBtn:SetScript("OnEnter", function(btn)
-    local id = btn.itemID
-    if not id then return end
-    GameTooltip:SetOwner(btn, "ANCHOR_CURSOR_RIGHT")
-    local link = select(2, API.GetItemInfo(id))
-    if link then
-      GameTooltip:SetHyperlink(link)
-    else
-      GameTooltip:SetText(L["ITEM_ID_FMT"]:format(id))
-    end
-    GameTooltip:Show()
-  end)
-
-  wrap.iconBtn:SetScript("OnLeave", function()
-    GameTooltip:Hide()
-  end)
-
-  wrap.iconBtn:RegisterForClicks("AnyUp")
-  wrap.iconBtn:SetScript("OnClick", function(btn)
-    local id = btn.itemID
-    if not id then return end
-    local link = select(2, API.GetItemInfo(id))
-    if not link then
-      if C_Item and C_Item.RequestLoadItemDataByID then
-        C_Item.RequestLoadItemDataByID(id)
-      end
-      return
-    end
-
-    if IsModifiedClick("DRESSUP") then
-      DressUpItemLink(link)
-    elseif IsModifiedClick("CHATLINK") then
-      ChatEdit_InsertLink(link)
-    end
-  end)
-
-  slotWidgets[slotName] = wrap
-  return wrap
-end
-
-for i, slotName in ipairs(LEFT_SLOTS) do
-  CreateSlotWidget(panel, "LEFT", slotName, i)
-end
-
-for i, slotName in ipairs(RIGHT_SLOTS) do
-  CreateSlotWidget(panel, "RIGHT", slotName, i)
-end
-
-local function ResolveRequiredLevel(iid2, fallback)
-  if not iid2 then return fallback or 0 end
-  local _, _, _, _, reqLevel = API.GetItemInfo(iid2)
-  if type(reqLevel) == "number" then return reqLevel end
-  return fallback or 0
-end
-
-local MPAltDropdown = LibDD:Create_UIDropDownMenu("MakersPathAltDropdown", UIParent)
-MPAltDropdown.displayMode = "MENU"
-
-local function ShowAltMenu(anchor, alts)
-  if not alts or #alts == 0 then return end
-
-  LibDD:UIDropDownMenu_Initialize(MPAltDropdown, function(self, level)
-    if level ~= 1 then return end
-
-    for _, alt in ipairs(alts) do
-      if alt and alt.itemID then
-        local info = LibDD:UIDropDownMenu_CreateInfo()
-        local link = select(2, API.GetItemInfo(alt.itemID))
-        info.text = link or ("item:" .. tostring(alt.itemID))
-        info.notCheckable = true
-        info.func = function()
-          local itemLink = select(2, API.GetItemInfo(alt.itemID))
-          if itemLink and IsModifiedClick("CHATLINK") then
-            ChatEdit_InsertLink(itemLink)
-          end
-        end
-        LibDD:UIDropDownMenu_AddButton(info, level)
-      end
-    end
-  end, "MENU")
-
-  LibDD:ToggleDropDownMenu(1, nil, MPAltDropdown, anchor, 0, 0)
-end
-
-local function RenderSlot(slotName, data, building)
-  local w = slotWidgets[slotName]
-  if not w then return end
-
-  local best = data and data.best or nil
-  if not best then
-    w.icon:SetTexture("Interface\\ICONS\\INV_Misc_QuestionMark")
-    w.iconBtn.itemID = nil
-    local msg = (not data and building) and (L["CALCULATING"] or "Calculating...")
-             or (L["NO_CRAFT_UPGRADE"] or "No upgrade found")
-    w.name:SetText("|cffbbbbbb" .. msg .. "|r")
-    w.meta:SetText("")
-    w.altBtn:Hide()
-    w.altBtn:SetScript("OnClick", nil)
-    return
-  end
-
-  local iid = best.itemID
-  local link = iid and select(2, API.GetItemInfo(iid)) or nil
-  local shown = link or (best.name or L["ITEM_ID_FMT"]:format(iid or 0))
-  w.name:SetText(shown)
-
-  local icon = iid and API.GetItemIcon(iid) or "Interface\\ICONS\\INV_Misc_QuestionMark"
-  w.icon:SetTexture(icon)
-  w.iconBtn.itemID = iid
-
-  local prof  = ProfShort(best.__profId or best.reqSkill)
-  local need  = tonumber(best.__needRank or best.reqSkillLevel or 0) or 0
-  local have  = tonumber(best.__haveRank or 0) or 0
-  local delta = math.max(0, need - have)
-  local reqL  = ResolveRequiredLevel(iid, tonumber(best.reqLevel or 0) or 0)
-
-  local meta = "|cffff6666" .. prof .. "|r " .. need
-  if delta > 0 then
-    meta = meta .. "  |cffffff88+" .. delta .. "|r"
-  end
-  if reqL > 0 then
-    meta = meta .. "  |cffaaaaaaLv " .. reqL .. "|r"
-  end
-
-  w.meta:SetText(meta)
-  local alts = data and data.alts or nil
-  if alts and #alts > 0 then
-    w.altBtn:Show()
-    w.altBtn:SetScript("OnClick", function(self)
-      ShowAltMenu(self, alts)
-    end)
-  else
-    w.altBtn:Hide()
-    w.altBtn:SetScript("OnClick", nil)
-  end
-
-  if iid and not link and C_Item and C_Item.RequestLoadItemDataByID then
-    C_Item.RequestLoadItemDataByID(iid)
-  end
+  MakersPath.UI.QueueRedraw = QueueRedraw
 end
 
 RefreshList = function()
-  local bySlot = GetSummaryBySlot()
+  local view = MakersPath.UI and MakersPath.UI.MainView
+  if not view then return end
   local finder = GF()
-  local building = finder and finder._isBuildingSummary or false
-
-  for _, slotName in ipairs(LEFT_SLOTS) do
-    RenderSlot(slotName, bySlot[slotName], building)
-  end
-  for _, slotName in ipairs(RIGHT_SLOTS) do
-    RenderSlot(slotName, bySlot[slotName], building)
-  end
+  view.Refresh(GetSummaryBySlot(), finder and finder._isBuildingSummary or false)
 end
 
 local function UpdateEmptyHint()
@@ -846,45 +550,8 @@ end
 -- ===================== Profile viewer (alts) =====================
 MakersPath.UI.ActiveProfileKey = MakersPath.UI.ActiveProfileKey or nil
 
-local profileLabel = panel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
-profileLabel:SetText(L["PROFILE_LABEL"])
-
-local profileDrop = LibDD:Create_UIDropDownMenu("MakersPathProfileDropdown", panel)
-LibDD:UIDropDownMenu_SetWidth(profileDrop, 120)
-
-do
-  local left   = profileDrop.Left
-  local mid    = profileDrop.Middle
-  local right  = profileDrop.Right
-  local button = profileDrop.Button
-  local text   = profileDrop.Text
-
-  if left  then left:Hide() end
-  if mid   then mid:Hide() end
-  if right then right:Hide() end
-
-  if text then
-    text:ClearAllPoints()
-    text:SetPoint("LEFT", profileDrop, "LEFT", 8, 0)
-    text:SetFontObject(GameFontDisableSmall)
-    text:SetTextColor(0.75, 0.75, 0.75)
-  end
-  if button then
-    button:ClearAllPoints()
-    button:SetPoint("TOPRIGHT", profileDrop, "TOPRIGHT", 0, 0)
-    button:SetPoint("BOTTOMLEFT", profileDrop, "BOTTOMLEFT", 0, 0)
-  end
-end
-
-profileDrop:ClearAllPoints()
-profileDrop:SetPoint("TOPRIGHT", panel, "TOPRIGHT", -32, -28)
-
-profileLabel:ClearAllPoints()
-profileLabel:SetPoint("RIGHT", profileDrop, "LEFT", -8, 2)
-
 local function SetActiveProfile(key)
   MakersPath.UI.ActiveProfileKey = key
-  LibDD:UIDropDownMenu_SetText(profileDrop, MakersPath.UI.CurrentProfileText())
 
   if not MakersPathFrame:IsShown() then
     return
@@ -956,18 +623,14 @@ local function ProfileDrop_Init(self, level)
   end
 end
 
-LibDD:UIDropDownMenu_Initialize(profileDrop, ProfileDrop_Init)
-LibDD:UIDropDownMenu_SetText(profileDrop, MakersPath.UI.CurrentProfileText())
-
-MakersPathFrame:HookScript("OnShow", function()
-  LibDD:UIDropDownMenu_SetText(profileDrop, MakersPath.UI.CurrentProfileText())
-end)
+panel.charsBtn = W.Dropdown(panel.header, "MakersPathProfileDropdown", ProfileDrop_Init)
+panel.charsBtn:SetText(L["PROFILE_BUTTON"] or "Characters")
+panel.charsBtn:SetPoint("RIGHT", panel.header.close, "LEFT", -4, 0)
 
 -- Refresh Button
-local refreshBtn = CreateFrame("Button", nil, MakersPathFrame, "UIPanelButtonTemplate")
-refreshBtn:SetSize(90, 22)
-refreshBtn:SetPoint("BOTTOMRIGHT", MakersPathFrame, "BOTTOMRIGHT", -12, 12)
-refreshBtn:SetText(L["BTN_REFRESH"])
+local refreshBtn = W.Button(panel.footer, L["BTN_REFRESH"], nil, { primary = true, minWidth = 70 })
+refreshBtn:SetPoint("RIGHT", panel.footer, "RIGHT", -8, 0)
+panel.refreshBtn = refreshBtn
 refreshBtn:SetScript("OnClick", function(self)
   self:SetEnabled(false)
   self._oldText = self._oldText or self:GetText()
@@ -994,10 +657,8 @@ refreshBtn:SetScript("OnClick", function(self)
 end)
 
 -- Profession Book Button
-local profBookBtn = CreateFrame("Button", nil, MakersPathFrame, "UIPanelButtonTemplate")
-profBookBtn:SetSize(110, 22)
-profBookBtn:SetPoint("BOTTOMLEFT", MakersPathFrame, "BOTTOMLEFT", 12, 12)
-profBookBtn:SetText(L["BTN_PROF_BOOK"])
+local profBookBtn = W.Button(panel.footer, L["BTN_PROF_BOOK"])
+profBookBtn:SetPoint("LEFT", panel.footer, "LEFT", 8, 0)
 profBookBtn:SetScript("OnClick", function()
   if MakersPath and MakersPath.UI and MakersPath.UI.ToggleProfBook then
     MakersPath.UI.ToggleProfBook()
@@ -1012,10 +673,9 @@ profBookBtn:SetScript("OnClick", function()
 end)
 
 -- Options Button
-local optionsBtn = CreateFrame("Button", nil, MakersPathFrame, "UIPanelButtonTemplate")
-optionsBtn:SetSize(90, 22)
-optionsBtn:SetPoint("BOTTOMRIGHT", MakersPathFrame, "BOTTOMRIGHT", -120, 12)
-optionsBtn:SetText("Options")
+local optionsBtn = W.Button(panel.footer, L["BTN_OPTIONS"] or "Options")
+optionsBtn:SetPoint("LEFT", profBookBtn, "RIGHT", 6, 0)
+panel.optionsBtn = optionsBtn
 optionsBtn:SetScript("OnClick", function()
   if MakersPath and MakersPath.UI and MakersPath.UI.ToggleOptions then
     MakersPath.UI:ToggleOptions()
@@ -1057,6 +717,7 @@ frame:SetScript("OnEvent", function(_, event, arg1)
     DB.size  = DB.size  or { w=MIN_W, h=MIN_H }
     DB.scale = DB.scale or 1.0
     DB.config = DB.config or {}
+    if DB.config.FUTURE_WINDOW then MakersPath.FutureWindow = DB.config.FUTURE_WINDOW end
     if MakersPath.SyncDebugMirror then MakersPath.SyncDebugMirror() end
     RestorePanelPosition()
 
@@ -1250,13 +911,11 @@ function MakersPath.SpecUI.Init(parent)
   local choices = MakersPath.Spec.CHOICES[class]
   if not choices then return end
 
-  local lbl = parent:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-  lbl:SetText("Spec:")
-  lbl:SetPoint("LEFT", profBookBtn, "RIGHT", 8, 0)
+  local lbl = W.Text(parent.footer, "body", "muted")
+  lbl:SetText(L["SPEC_LABEL"] or "Spec")
+  lbl:SetPoint("LEFT", parent.optionsBtn, "RIGHT", 14, 0)
 
-  local dd = LibDD:Create_UIDropDownMenu("MakersPathSpecDropdown", parent)
-  dd:SetPoint("LEFT", lbl, "RIGHT", 4, -2)
-  LibDD:UIDropDownMenu_SetWidth(dd, 170)
+  local dd
 
   local function currentText()
     local cur = CurrentSpec() or ""
@@ -1268,7 +927,7 @@ function MakersPath.SpecUI.Init(parent)
 
   local function OnSelect(_, arg1)
     SetCurrentSpec(arg1 or "")
-    LibDD:UIDropDownMenu_SetText(dd, currentText())
+    dd:SetText(currentText())
     RebuildCurrentSummaryView()
   end
 
@@ -1285,11 +944,13 @@ function MakersPath.SpecUI.Init(parent)
     end
   end
 
-  LibDD:UIDropDownMenu_Initialize(dd, Initialize)
-  LibDD:UIDropDownMenu_SetText(dd, currentText())
+  dd = W.Dropdown(parent.footer, "MakersPathSpecDropdown", Initialize, { minWidth = 60 })
+  dd:SetPoint("LEFT", lbl, "RIGHT", 6, 0)
+  dd:SetText(currentText())
+  parent.specBtn = dd
 
   parent:HookScript("OnShow", function()
-    LibDD:UIDropDownMenu_SetText(dd, currentText())
+    dd:SetText(currentText())
   end)
 end
 do
@@ -1343,6 +1004,7 @@ SlashCmdList["MPCAP"] = function(msg)
     print("|cff66ccff["..Ls("ADDON_NAME").."]|r "..Ls("USAGE_MPCAP"))
     return
   end
+  if DB and DB.config then DB.config.FUTURE_WINDOW = MakersPath.FutureWindow end
   print("|cff66ccff["..Ls("ADDON_NAME").."]|r "..Ls("FUTUREWINDOW_SET"):format(MakersPath.FutureWindow))
   if MakersPath and MakersPath.GearFinder and MakersPath.GearFinder.MarkDirty then
     MakersPath.GearFinder:MarkDirty()

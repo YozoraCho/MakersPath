@@ -17,6 +17,8 @@
   <Script file="Core/Client.lua" />
   <Script file="Core/Compat.lua" />
   <Script file="Core/Constants.lua" />
+  <Script file="Core/UI/Theme.lua" />
+  <Script file="Core/UI/Widgets.lua" />
 
   <!-- Data (WoW Forever) -->
   <Script file="Data/Recipes_Classic.lua" />
@@ -30,6 +32,8 @@
   <Script file="Core/RecipesAdapter.lua" />
   <Script file="Core/Filters.lua" />
   <Script file="Core/GearFinder.lua" />
+  <Script file="Core/RecipeInfo.lua" />
+  <Script file="Core/PathModel.lua" />
   <Script file="Core/Indexer.lua" />
   <Script file="Core/ProfScan.lua" />
   <Script file="Core/ProfBook.lua" />
@@ -37,6 +41,7 @@
 
   <!-- Entry -->
   <Script file="MakersPath.lua" />
+  <Script file="Core/UI/MainView.lua" />
   <Script file="Core/Options.lua" />
   <Script file="Core/WeightsUI.lua" />
 
