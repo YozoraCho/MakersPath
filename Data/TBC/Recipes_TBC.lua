@@ -13,6 +13,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 2385,
 			["productid"] = 2568,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2320,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2996,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "10",
 		},
@@ -21,6 +31,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 2386,
 			["productid"] = 2569,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2320,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2318,
+				},
+				{
+					["num"] = 3,
+					["id"] = 2996,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "65",
 		},
@@ -29,6 +53,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 2387,
 			["productid"] = 2570,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2320,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2996,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "1",
 		},
@@ -37,6 +71,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 2389,
 			["productid"] = 2572,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2604,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2320,
+				},
+				{
+					["num"] = 3,
+					["id"] = 2996,
+				},
+			},
 			["source"] = "worlddrop",
 			["learnedat"] = "40",
 		},
@@ -45,6 +93,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 2392,
 			["productid"] = 2575,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2604,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2320,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2996,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "40",
 		},
@@ -53,6 +115,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 2393,
 			["productid"] = 2576,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2320,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2996,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2324,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "1",
 		},
@@ -61,6 +137,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 2394,
 			["productid"] = 2577,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2320,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2996,
+				},
+				{
+					["num"] = 1,
+					["id"] = 6260,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "40",
 		},
@@ -69,6 +159,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 2395,
 			["productid"] = 2578,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2318,
+				},
+				{
+					["num"] = 4,
+					["id"] = 2996,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "70",
 		},
@@ -77,6 +181,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 2396,
 			["productid"] = 2579,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2605,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 3,
+					["id"] = 2996,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "70",
 		},
@@ -85,6 +203,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 2397,
 			["productid"] = 2580,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 2320,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2996,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "60",
 		},
@@ -93,6 +221,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 2399,
 			["productid"] = 2582,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2605,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2997,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "85",
 		},
@@ -101,6 +243,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 2401,
 			["productid"] = 2583,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2318,
+				},
+				{
+					["num"] = 4,
+					["id"] = 2997,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "95",
 		},
@@ -109,6 +265,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 2402,
 			["productid"] = 2584,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2997,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "75",
 		},
@@ -117,6 +283,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 2403,
 			["productid"] = 2585,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 4,
+					["id"] = 2997,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4340,
+				},
+			},
 			["source"] = "worlddrop",
 			["learnedat"] = "105",
 		},
@@ -125,6 +305,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 2406,
 			["productid"] = 2587,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2997,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4340,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "100",
 		},
@@ -133,6 +327,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3840,
 			["productid"] = 4307,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2320,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2996,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "35",
 		},
@@ -141,6 +345,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3841,
 			["productid"] = 4308,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2605,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2320,
+				},
+				{
+					["num"] = 3,
+					["id"] = 2996,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "60",
 		},
@@ -149,6 +367,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3842,
 			["productid"] = 4309,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 4,
+					["id"] = 2996,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "70",
 		},
@@ -157,6 +385,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3843,
 			["productid"] = 4310,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 3,
+					["id"] = 2997,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "85",
 		},
@@ -165,6 +403,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3844,
 			["productid"] = 4311,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 2,
+					["id"] = 5498,
+				},
+				{
+					["num"] = 3,
+					["id"] = 2997,
+				},
+			},
 			["source"] = "worlddrop",
 			["learnedat"] = "100",
 		},
@@ -173,6 +425,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3845,
 			["productid"] = 4312,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2318,
+				},
+				{
+					["num"] = 5,
+					["id"] = 2996,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "80",
 		},
@@ -181,6 +447,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3847,
 			["productid"] = 4313,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2604,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2318,
+				},
+				{
+					["num"] = 4,
+					["id"] = 2997,
+				},
+			},
 			["source"] = "worlddrop",
 			["learnedat"] = "95",
 		},
@@ -189,6 +473,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3848,
 			["productid"] = 4314,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 3,
+					["id"] = 2997,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "110",
 		},
@@ -197,6 +491,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3849,
 			["productid"] = 4315,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2319,
+				},
+				{
+					["num"] = 6,
+					["id"] = 2997,
+				},
+			},
 			["source"] = "worlddrop",
 			["learnedat"] = "120",
 		},
@@ -205,6 +513,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3850,
 			["productid"] = 4316,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 5,
+					["id"] = 2997,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "110",
 		},
@@ -213,6 +531,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3851,
 			["productid"] = 4317,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 1,
+					["id"] = 5500,
+				},
+				{
+					["num"] = 6,
+					["id"] = 2997,
+				},
+			},
 			["source"] = "worlddrop",
 			["learnedat"] = "125",
 		},
@@ -221,6 +553,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3852,
 			["productid"] = 4318,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3383,
+				},
+				{
+					["num"] = 4,
+					["id"] = 2997,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "130",
 		},
@@ -229,6 +575,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3854,
 			["productid"] = 4319,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 2,
+					["id"] = 6260,
+				},
+				{
+					["num"] = 3,
+					["id"] = 4305,
+				},
+			},
 			["source"] = "vendor",
 			["learnedat"] = "145",
 		},
@@ -237,6 +601,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3855,
 			["productid"] = 4320,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 2319,
+				},
+				{
+					["num"] = 2,
+					["id"] = 5500,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4305,
+				},
+				{
+					["num"] = 4,
+					["id"] = 3182,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "125",
 		},
@@ -245,6 +627,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3856,
 			["productid"] = 4321,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3182,
+				},
+				{
+					["num"] = 3,
+					["id"] = 4305,
+				},
+			},
 			["source"] = "worlddrop",
 			["learnedat"] = "140",
 		},
@@ -253,6 +649,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3857,
 			["productid"] = 4322,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 4337,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 3,
+					["id"] = 4305,
+				},
+			},
 			["source"] = "vendor",
 			["learnedat"] = "165",
 		},
@@ -261,6 +671,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3858,
 			["productid"] = 4323,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3824,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4291,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4305,
+				},
+			},
 			["source"] = "worlddrop",
 			["learnedat"] = "170",
 		},
@@ -269,6 +693,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3859,
 			["productid"] = 4324,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 6260,
+				},
+				{
+					["num"] = 5,
+					["id"] = 4305,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "150",
 		},
@@ -277,6 +711,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3860,
 			["productid"] = 4325,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 4337,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4291,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4305,
+				},
+			},
 			["source"] = "worlddrop",
 			["learnedat"] = "175",
 		},
@@ -285,6 +733,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3861,
 			["productid"] = 4326,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3827,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4291,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4305,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "185",
 		},
@@ -293,6 +755,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3862,
 			["productid"] = 4327,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 4337,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4291,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3829,
+				},
+				{
+					["num"] = 3,
+					["id"] = 4339,
+				},
+			},
 			["source"] = "vendor",
 			["learnedat"] = "200",
 		},
@@ -301,6 +781,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3863,
 			["productid"] = 4328,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 4337,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7071,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4305,
+				},
+			},
 			["source"] = "worlddrop",
 			["learnedat"] = "180",
 		},
@@ -309,6 +803,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3864,
 			["productid"] = 4329,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 4339,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4291,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7071,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3864,
+				},
+			},
 			["source"] = "worlddrop",
 			["learnedat"] = "200",
 		},
@@ -317,6 +833,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3866,
 			["productid"] = 4330,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2604,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 3,
+					["id"] = 2997,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "110",
 		},
@@ -325,6 +855,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3868,
 			["productid"] = 4331,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2324,
+				},
+				{
+					["num"] = 1,
+					["id"] = 5500,
+				},
+				{
+					["num"] = 4,
+					["id"] = 2997,
+				},
+			},
 			["source"] = "worlddrop",
 			["learnedat"] = "125",
 		},
@@ -333,6 +881,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3869,
 			["productid"] = 4332,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4341,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4305,
+				},
+			},
 			["source"] = "vendor",
 			["learnedat"] = "135",
 		},
@@ -341,6 +903,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3870,
 			["productid"] = 4333,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4305,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4340,
+				},
+			},
 			["source"] = "vendor",
 			["learnedat"] = "155",
 		},
@@ -349,6 +925,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3871,
 			["productid"] = 4334,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 3,
+					["id"] = 4305,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2324,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "170",
 		},
@@ -357,6 +947,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3872,
 			["productid"] = 4335,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 4291,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4342,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4305,
+				},
+			},
 			["source"] = "worlddrop",
 			["learnedat"] = "185",
 		},
@@ -365,6 +969,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3873,
 			["productid"] = 4336,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 4291,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2325,
+				},
+				{
+					["num"] = 5,
+					["id"] = 4305,
+				},
+			},
 			["source"] = "vendor",
 			["learnedat"] = "200",
 		},
@@ -373,6 +991,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3914,
 			["productid"] = 4343,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2320,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2996,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "30",
 		},
@@ -381,6 +1009,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3915,
 			["productid"] = 4344,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2320,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2996,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "1",
 		},
@@ -389,6 +1027,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 6521,
 			["productid"] = 5542,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 1,
+					["id"] = 5498,
+				},
+				{
+					["num"] = 3,
+					["id"] = 2997,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "90",
 		},
@@ -397,6 +1049,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 6690,
 			["productid"] = 5766,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3182,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4305,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "135",
 		},
@@ -405,6 +1071,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 6692,
 			["productid"] = 5770,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3182,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4305,
+				},
+			},
 			["source"] = "worlddrop",
 			["learnedat"] = "150",
 		},
@@ -413,6 +1093,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 7623,
 			["productid"] = 6238,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2320,
+				},
+				{
+					["num"] = 3,
+					["id"] = 2996,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "30",
 		},
@@ -421,6 +1111,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 7624,
 			["productid"] = 6241,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2320,
+				},
+				{
+					["num"] = 3,
+					["id"] = 2996,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2324,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "30",
 		},
@@ -429,6 +1133,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 7629,
 			["productid"] = 6239,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2604,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2320,
+				},
+				{
+					["num"] = 3,
+					["id"] = 2996,
+				},
+			},
 			["source"] = "worlddrop",
 			["learnedat"] = "55",
 		},
@@ -437,6 +1155,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 7630,
 			["productid"] = 6240,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2320,
+				},
+				{
+					["num"] = 3,
+					["id"] = 2996,
+				},
+				{
+					["num"] = 1,
+					["id"] = 6260,
+				},
+			},
 			["source"] = "vendor",
 			["learnedat"] = "55",
 		},
@@ -445,6 +1177,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 7633,
 			["productid"] = 6242,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2320,
+				},
+				{
+					["num"] = 4,
+					["id"] = 2996,
+				},
+				{
+					["num"] = 2,
+					["id"] = 6260,
+				},
+			},
 			["source"] = "vendor",
 			["learnedat"] = "70",
 		},
@@ -453,6 +1199,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 7639,
 			["productid"] = 6263,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 2,
+					["id"] = 6260,
+				},
+				{
+					["num"] = 4,
+					["id"] = 2997,
+				},
+			},
 			["source"] = "vendor",
 			["learnedat"] = "100",
 		},
@@ -461,6 +1221,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 7643,
 			["productid"] = 6264,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 2604,
+				},
+				{
+					["num"] = 3,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 5,
+					["id"] = 2997,
+				},
+			},
 			["source"] = "vendor",
 			["learnedat"] = "115",
 		},
@@ -469,6 +1243,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 7892,
 			["productid"] = 6384,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 4,
+					["id"] = 2997,
+				},
+				{
+					["num"] = 2,
+					["id"] = 6260,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4340,
+				},
+			},
 			["source"] = "worlddrop",
 			["learnedat"] = "120",
 		},
@@ -477,6 +1269,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 7893,
 			["productid"] = 6385,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2605,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 4,
+					["id"] = 2997,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4340,
+				},
+			},
 			["source"] = "worlddrop",
 			["learnedat"] = "120",
 		},
@@ -485,6 +1295,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 8465,
 			["productid"] = 6786,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2320,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2996,
+				},
+				{
+					["num"] = 1,
+					["id"] = 6260,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2324,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "40",
 		},
@@ -493,6 +1321,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 8467,
 			["productid"] = 6787,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 3,
+					["id"] = 2997,
+				},
+				{
+					["num"] = 4,
+					["id"] = 2324,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "110",
 		},
@@ -501,6 +1343,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 8483,
 			["productid"] = 6795,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 4291,
+				},
+				{
+					["num"] = 3,
+					["id"] = 4305,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2324,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "160",
 		},
@@ -509,6 +1365,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 8489,
 			["productid"] = 6796,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2604,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4291,
+				},
+				{
+					["num"] = 3,
+					["id"] = 4305,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "175",
 		},
@@ -517,6 +1387,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 8758,
 			["productid"] = 7046,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 2,
+					["id"] = 6260,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4305,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "140",
 		},
@@ -525,6 +1409,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 8760,
 			["productid"] = 7048,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 2,
+					["id"] = 6260,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4305,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "145",
 		},
@@ -533,6 +1431,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 8762,
 			["productid"] = 7050,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 3,
+					["id"] = 4305,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "160",
 		},
@@ -541,6 +1449,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 8764,
 			["productid"] = 7051,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7067,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 3,
+					["id"] = 4305,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "170",
 		},
@@ -549,6 +1471,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 8766,
 			["productid"] = 7052,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7070,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7071,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4305,
+				},
+				{
+					["num"] = 2,
+					["id"] = 6260,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "175",
 		},
@@ -557,6 +1501,32 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 8770,
 			["productid"] = 7054,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 7069,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7068,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7067,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4291,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4339,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7070,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "190",
 		},
@@ -565,6 +1535,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 8772,
 			["productid"] = 7055,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2604,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4291,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7071,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4305,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "175",
 		},
@@ -573,6 +1561,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 8774,
 			["productid"] = 7057,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 4291,
+				},
+				{
+					["num"] = 5,
+					["id"] = 4305,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "180",
 		},
@@ -581,6 +1579,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 8776,
 			["productid"] = 7026,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2320,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2996,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "15",
 		},
@@ -589,6 +1597,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 8780,
 			["productid"] = 7047,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 6048,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 3,
+					["id"] = 4305,
+				},
+			},
 			["source"] = "worlddrop",
 			["learnedat"] = "145",
 		},
@@ -597,6 +1623,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 8782,
 			["productid"] = 7049,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 929,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 3,
+					["id"] = 4305,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "150",
 		},
@@ -605,6 +1649,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 8784,
 			["productid"] = 7065,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2605,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4291,
+				},
+				{
+					["num"] = 5,
+					["id"] = 4305,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "165",
 		},
@@ -613,6 +1671,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 8786,
 			["productid"] = 7053,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 2,
+					["id"] = 6260,
+				},
+				{
+					["num"] = 3,
+					["id"] = 4305,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "175",
 		},
@@ -621,6 +1693,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 8789,
 			["productid"] = 7056,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2604,
+				},
+				{
+					["num"] = 2,
+					["id"] = 6371,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4291,
+				},
+				{
+					["num"] = 5,
+					["id"] = 4305,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "180",
 		},
@@ -629,6 +1719,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 8791,
 			["productid"] = 7058,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2604,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4305,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "185",
 		},
@@ -637,6 +1741,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 8793,
 			["productid"] = 7059,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2604,
+				},
+				{
+					["num"] = 2,
+					["id"] = 6371,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4291,
+				},
+				{
+					["num"] = 5,
+					["id"] = 4305,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "190",
 		},
@@ -645,6 +1767,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 8795,
 			["productid"] = 7060,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 4291,
+				},
+				{
+					["num"] = 6,
+					["id"] = 4305,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7072,
+				},
+				{
+					["num"] = 2,
+					["id"] = 6260,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "190",
 		},
@@ -653,6 +1793,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 8797,
 			["productid"] = 7061,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 7067,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4291,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7071,
+				},
+				{
+					["num"] = 5,
+					["id"] = 4305,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "195",
 		},
@@ -661,6 +1823,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 8799,
 			["productid"] = 7062,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2604,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4291,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4305,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "195",
 		},
@@ -669,6 +1845,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 8802,
 			["productid"] = 7063,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 3827,
+				},
+				{
+					["num"] = 4,
+					["id"] = 2604,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4291,
+				},
+				{
+					["num"] = 8,
+					["id"] = 4305,
+				},
+				{
+					["num"] = 4,
+					["id"] = 7068,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "205",
 		},
@@ -677,6 +1875,32 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 8804,
 			["productid"] = 7064,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 2604,
+				},
+				{
+					["num"] = 6,
+					["id"] = 4305,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7068,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4304,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4291,
+				},
+				{
+					["num"] = 2,
+					["id"] = 6371,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "210",
 		},
@@ -685,6 +1909,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12044,
 			["productid"] = 10045,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2320,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2996,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "1",
 		},
@@ -693,6 +1927,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12045,
 			["productid"] = 10046,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2320,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2318,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2996,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "20",
 		},
@@ -701,6 +1949,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12046,
 			["productid"] = 10047,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 4,
+					["id"] = 2996,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "75",
 		},
@@ -709,6 +1967,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12047,
 			["productid"] = 10048,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 2604,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 5,
+					["id"] = 2997,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "120",
 		},
@@ -717,6 +1989,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12048,
 			["productid"] = 9998,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 4291,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4339,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "205",
 		},
@@ -725,6 +2007,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12049,
 			["productid"] = 9999,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 4291,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4339,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "205",
 		},
@@ -733,6 +2025,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12050,
 			["productid"] = 10001,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 3,
+					["id"] = 4339,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "210",
 		},
@@ -741,6 +2043,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12052,
 			["productid"] = 10002,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 2,
+					["id"] = 10285,
+				},
+				{
+					["num"] = 3,
+					["id"] = 4339,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "210",
 		},
@@ -749,6 +2065,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12053,
 			["productid"] = 10003,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4339,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "215",
 		},
@@ -757,6 +2083,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12055,
 			["productid"] = 10004,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 2,
+					["id"] = 10285,
+				},
+				{
+					["num"] = 3,
+					["id"] = 4339,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "215",
 		},
@@ -765,6 +2105,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12056,
 			["productid"] = 10007,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2604,
+				},
+				{
+					["num"] = 1,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 3,
+					["id"] = 4339,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "215",
 		},
@@ -773,6 +2127,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12059,
 			["productid"] = 10008,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2324,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4339,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "215",
 		},
@@ -781,6 +2149,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12060,
 			["productid"] = 10009,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2604,
+				},
+				{
+					["num"] = 1,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 3,
+					["id"] = 4339,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "215",
 		},
@@ -789,6 +2171,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12061,
 			["productid"] = 10056,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 1,
+					["id"] = 6261,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4339,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "215",
 		},
@@ -797,6 +2193,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12064,
 			["productid"] = 10052,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 2,
+					["id"] = 6261,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4339,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "220",
 		},
@@ -805,6 +2215,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12066,
 			["productid"] = 10018,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2604,
+				},
+				{
+					["num"] = 2,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 3,
+					["id"] = 4339,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "225",
 		},
@@ -813,6 +2237,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12067,
 			["productid"] = 10019,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 10286,
+				},
+				{
+					["num"] = 2,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 4,
+					["id"] = 8153,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4339,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "225",
 		},
@@ -821,6 +2263,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12069,
 			["productid"] = 10042,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7077,
+				},
+				{
+					["num"] = 5,
+					["id"] = 4339,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "225",
 		},
@@ -829,6 +2285,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12070,
 			["productid"] = 10021,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 10286,
+				},
+				{
+					["num"] = 2,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 6,
+					["id"] = 8153,
+				},
+				{
+					["num"] = 6,
+					["id"] = 4339,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "225",
 		},
@@ -837,6 +2311,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12071,
 			["productid"] = 10023,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 5,
+					["id"] = 10285,
+				},
+				{
+					["num"] = 5,
+					["id"] = 4339,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "225",
 		},
@@ -845,6 +2333,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12072,
 			["productid"] = 10024,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 3,
+					["id"] = 4339,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "230",
 		},
@@ -853,6 +2351,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12073,
 			["productid"] = 10026,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 3,
+					["id"] = 4339,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "230",
 		},
@@ -861,6 +2373,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12074,
 			["productid"] = 10027,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 3,
+					["id"] = 4339,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "230",
 		},
@@ -869,6 +2391,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12075,
 			["productid"] = 10054,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4342,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4339,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "230",
 		},
@@ -877,6 +2413,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12076,
 			["productid"] = 10028,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 4,
+					["id"] = 10285,
+				},
+				{
+					["num"] = 5,
+					["id"] = 4339,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "235",
 		},
@@ -885,6 +2435,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12077,
 			["productid"] = 10053,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2324,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2325,
+				},
+				{
+					["num"] = 3,
+					["id"] = 4339,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "235",
 		},
@@ -893,6 +2461,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12078,
 			["productid"] = 10029,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2604,
+				},
+				{
+					["num"] = 3,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4339,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "235",
 		},
@@ -901,6 +2483,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12080,
 			["productid"] = 10055,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10290,
+				},
+				{
+					["num"] = 3,
+					["id"] = 4339,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "235",
 		},
@@ -909,6 +2505,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12081,
 			["productid"] = 10030,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 6,
+					["id"] = 4589,
+				},
+				{
+					["num"] = 3,
+					["id"] = 4339,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "240",
 		},
@@ -917,6 +2527,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12082,
 			["productid"] = 10031,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 6,
+					["id"] = 10285,
+				},
+				{
+					["num"] = 6,
+					["id"] = 4339,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "240",
 		},
@@ -925,6 +2553,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12084,
 			["productid"] = 10033,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2604,
+				},
+				{
+					["num"] = 2,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4339,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "240",
 		},
@@ -933,6 +2575,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12085,
 			["productid"] = 10034,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4339,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "240",
 		},
@@ -941,6 +2593,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12086,
 			["productid"] = 10025,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 8,
+					["id"] = 10285,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4339,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "245",
 		},
@@ -949,6 +2615,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12088,
 			["productid"] = 10044,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 5,
+					["id"] = 4339,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7077,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "245",
 		},
@@ -957,6 +2641,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12089,
 			["productid"] = 10035,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4339,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "245",
 		},
@@ -965,6 +2659,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12091,
 			["productid"] = 10040,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2324,
+				},
+				{
+					["num"] = 5,
+					["id"] = 4339,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "250",
 		},
@@ -973,6 +2681,32 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12092,
 			["productid"] = 10041,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 4339,
+				},
+				{
+					["num"] = 2,
+					["id"] = 10286,
+				},
+				{
+					["num"] = 4,
+					["id"] = 8153,
+				},
+				{
+					["num"] = 3,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 1,
+					["id"] = 6037,
+				},
+				{
+					["num"] = 1,
+					["id"] = 1529,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "250",
 		},
@@ -981,6 +2715,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12093,
 			["productid"] = 10036,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 5,
+					["id"] = 4339,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "250",
 		},
@@ -989,6 +2733,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 18402,
 			["productid"] = 13856,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "255",
 		},
@@ -997,6 +2751,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 18403,
 			["productid"] = 13869,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 5,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7079,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "255",
 		},
@@ -1005,6 +2773,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 18404,
 			["productid"] = 13868,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 5,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7079,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "255",
 		},
@@ -1013,6 +2795,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 18406,
 			["productid"] = 13858,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 5,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14227,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "260",
 		},
@@ -1021,6 +2817,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 18407,
 			["productid"] = 13857,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 5,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14227,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "260",
 		},
@@ -1029,6 +2839,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 18408,
 			["productid"] = 14042,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 7077,
+				},
+				{
+					["num"] = 5,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "260",
 		},
@@ -1037,6 +2861,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 18409,
 			["productid"] = 13860,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14227,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "265",
 		},
@@ -1045,6 +2883,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 18410,
 			["productid"] = 14143,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 9210,
+				},
+				{
+					["num"] = 3,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14227,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "265",
 		},
@@ -1053,6 +2909,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 18411,
 			["productid"] = 13870,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7080,
+				},
+				{
+					["num"] = 3,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "265",
 		},
@@ -1061,6 +2931,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 18412,
 			["productid"] = 14043,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 7077,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "270",
 		},
@@ -1069,6 +2953,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 18413,
 			["productid"] = 14142,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 9210,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14227,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "270",
 		},
@@ -1077,6 +2979,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 18414,
 			["productid"] = 14100,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 3577,
+				},
+				{
+					["num"] = 5,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "270",
 		},
@@ -1085,6 +3001,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 18415,
 			["productid"] = 14101,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 3577,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "270",
 		},
@@ -1093,6 +3023,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 18416,
 			["productid"] = 14141,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 9210,
+				},
+				{
+					["num"] = 6,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14227,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "275",
 		},
@@ -1101,6 +3049,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 18417,
 			["productid"] = 13863,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "275",
 		},
@@ -1109,6 +3071,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 18418,
 			["productid"] = 14044,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7078,
+				},
+				{
+					["num"] = 5,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "275",
 		},
@@ -1117,6 +3093,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 18419,
 			["productid"] = 14107,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 14256,
+				},
+				{
+					["num"] = 5,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "275",
 		},
@@ -1125,6 +3115,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 18420,
 			["productid"] = 14103,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 3577,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "275",
 		},
@@ -1133,6 +3137,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 18421,
 			["productid"] = 14132,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 1,
+					["id"] = 11176,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "275",
 		},
@@ -1141,6 +3159,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 18422,
 			["productid"] = 14134,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 4,
+					["id"] = 7078,
+				},
+				{
+					["num"] = 4,
+					["id"] = 7077,
+				},
+				{
+					["num"] = 4,
+					["id"] = 7068,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "275",
 		},
@@ -1149,6 +3189,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 18423,
 			["productid"] = 13864,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14227,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "280",
 		},
@@ -1157,6 +3215,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 18424,
 			["productid"] = 13871,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7080,
+				},
+				{
+					["num"] = 6,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "280",
 		},
@@ -1165,6 +3237,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 18434,
 			["productid"] = 14045,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7078,
+				},
+				{
+					["num"] = 6,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "280",
 		},
@@ -1173,6 +3259,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 18436,
 			["productid"] = 14136,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 7080,
+				},
+				{
+					["num"] = 12,
+					["id"] = 14256,
+				},
+				{
+					["num"] = 10,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12808,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "285",
 		},
@@ -1181,6 +3289,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 18437,
 			["productid"] = 14108,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14256,
+				},
+				{
+					["num"] = 6,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "285",
 		},
@@ -1189,6 +3315,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 18438,
 			["productid"] = 13865,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14227,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "285",
 		},
@@ -1197,6 +3337,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 18439,
 			["productid"] = 14104,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 3577,
+				},
+				{
+					["num"] = 6,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14227,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "290",
 		},
@@ -1205,6 +3363,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 18440,
 			["productid"] = 14137,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14342,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "290",
 		},
@@ -1213,6 +3385,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 18441,
 			["productid"] = 14144,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 9210,
+				},
+				{
+					["num"] = 6,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "290",
 		},
@@ -1221,6 +3407,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 18442,
 			["productid"] = 14111,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 14256,
+				},
+				{
+					["num"] = 5,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "290",
 		},
@@ -1229,6 +3429,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 18444,
 			["productid"] = 13866,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14227,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "295",
 		},
@@ -1237,6 +3451,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 18446,
 			["productid"] = 14128,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 2,
+					["id"] = 11176,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -1245,6 +3473,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 18447,
 			["productid"] = 14138,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14342,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -1253,6 +3495,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 18448,
 			["productid"] = 14139,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 5,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 5,
+					["id"] = 14342,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -1261,6 +3517,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 18449,
 			["productid"] = 13867,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 7,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14227,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -1269,6 +3543,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 18450,
 			["productid"] = 14130,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7910,
+				},
+				{
+					["num"] = 6,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 4,
+					["id"] = 11176,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -1277,6 +3569,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 18451,
 			["productid"] = 14106,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 12662,
+				},
+				{
+					["num"] = 8,
+					["id"] = 14256,
+				},
+				{
+					["num"] = 8,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -1285,6 +3595,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 18452,
 			["productid"] = 14140,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12810,
+				},
+				{
+					["num"] = 1,
+					["id"] = 12800,
+				},
+				{
+					["num"] = 6,
+					["id"] = 14342,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -1293,6 +3625,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 18453,
 			["productid"] = 14112,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12662,
+				},
+				{
+					["num"] = 6,
+					["id"] = 14256,
+				},
+				{
+					["num"] = 7,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -1301,6 +3655,36 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 18454,
 			["productid"] = 14146,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 12364,
+				},
+				{
+					["num"] = 10,
+					["id"] = 14342,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 10,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 8,
+					["id"] = 12810,
+				},
+				{
+					["num"] = 6,
+					["id"] = 13926,
+				},
+				{
+					["num"] = 10,
+					["id"] = 9210,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -1309,6 +3693,32 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 18456,
 			["productid"] = 14154,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 14342,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 12,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12811,
+				},
+				{
+					["num"] = 4,
+					["id"] = 13926,
+				},
+				{
+					["num"] = 10,
+					["id"] = 9210,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -1317,6 +3727,32 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 18457,
 			["productid"] = 14152,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 7080,
+				},
+				{
+					["num"] = 10,
+					["id"] = 7082,
+				},
+				{
+					["num"] = 10,
+					["id"] = 7078,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 10,
+					["id"] = 7076,
+				},
+				{
+					["num"] = 12,
+					["id"] = 14048,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -1325,6 +3761,32 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 18458,
 			["productid"] = 14153,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 12,
+					["id"] = 7078,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 12,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 20,
+					["id"] = 12662,
+				},
+				{
+					["num"] = 40,
+					["id"] = 14256,
+				},
+				{
+					["num"] = 12,
+					["id"] = 12808,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -1333,6 +3795,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19435,
 			["productid"] = 15802,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 7971,
+				},
+				{
+					["num"] = 6,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14342,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "quest",
 			["learnedat"] = "290",
 		},
@@ -1341,6 +3821,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 20848,
 			["productid"] = 16980,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 17010,
+				},
+				{
+					["num"] = 4,
+					["id"] = 17011,
+				},
+				{
+					["num"] = 12,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 6,
+					["id"] = 12810,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -1349,6 +3851,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 20849,
 			["productid"] = 16979,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 7078,
+				},
+				{
+					["num"] = 6,
+					["id"] = 17010,
+				},
+				{
+					["num"] = 8,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12810,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -1357,6 +3881,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 21945,
 			["productid"] = 17723,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 2605,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4291,
+				},
+				{
+					["num"] = 5,
+					["id"] = 4305,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "190",
 		},
@@ -1365,6 +3903,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 22759,
 			["productid"] = 18263,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 17010,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7078,
+				},
+				{
+					["num"] = 6,
+					["id"] = 14342,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 6,
+					["id"] = 12810,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -1373,6 +3933,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 22813,
 			["productid"] = 18258,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 4,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18240,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "285",
 		},
@@ -1381,6 +3959,36 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 22866,
 			["productid"] = 18405,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 12,
+					["id"] = 7080,
+				},
+				{
+					["num"] = 6,
+					["id"] = 14344,
+				},
+				{
+					["num"] = 12,
+					["id"] = 7078,
+				},
+				{
+					["num"] = 10,
+					["id"] = 14342,
+				},
+				{
+					["num"] = 6,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 16,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 10,
+					["id"] = 9210,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -1389,6 +3997,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 22867,
 			["productid"] = 18407,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 12662,
+				},
+				{
+					["num"] = 20,
+					["id"] = 14256,
+				},
+				{
+					["num"] = 12,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 8,
+					["id"] = 12808,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -1397,6 +4027,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 22868,
 			["productid"] = 18408,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 7078,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7910,
+				},
+				{
+					["num"] = 12,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -1405,6 +4053,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 22869,
 			["productid"] = 18409,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 13926,
+				},
+				{
+					["num"] = 12,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 6,
+					["id"] = 14342,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -1413,6 +4079,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 22870,
 			["productid"] = 18413,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 12360,
+				},
+				{
+					["num"] = 12,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12809,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -1421,6 +4105,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 22902,
 			["productid"] = 18486,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 13926,
+				},
+				{
+					["num"] = 6,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14342,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -1429,6 +4131,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 23662,
 			["productid"] = 19047,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 7076,
+				},
+				{
+					["num"] = 8,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 3,
+					["id"] = 12803,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14227,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "290",
 		},
@@ -1437,6 +4157,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 23663,
 			["productid"] = 19050,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 5,
+					["id"] = 7076,
+				},
+				{
+					["num"] = 5,
+					["id"] = 14342,
+				},
+				{
+					["num"] = 5,
+					["id"] = 12803,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14227,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -1445,6 +4183,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 23664,
 			["productid"] = 19056,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 13926,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14227,
+				},
+				{
+					["num"] = 6,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12810,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12809,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "290",
 		},
@@ -1453,6 +4213,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 23665,
 			["productid"] = 19059,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 14227,
+				},
+				{
+					["num"] = 5,
+					["id"] = 14342,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12809,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -1461,6 +4235,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 23666,
 			["productid"] = 19156,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 17010,
+				},
+				{
+					["num"] = 3,
+					["id"] = 17011,
+				},
+				{
+					["num"] = 6,
+					["id"] = 7078,
+				},
+				{
+					["num"] = 10,
+					["id"] = 14342,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14227,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -1469,6 +4265,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 23667,
 			["productid"] = 19165,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 5,
+					["id"] = 17010,
+				},
+				{
+					["num"] = 3,
+					["id"] = 17011,
+				},
+				{
+					["num"] = 10,
+					["id"] = 7078,
+				},
+				{
+					["num"] = 8,
+					["id"] = 14342,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14227,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -1477,6 +4295,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 24091,
 			["productid"] = 19682,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 5,
+					["id"] = 19726,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12804,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 3,
+					["id"] = 14342,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14227,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -1485,6 +4325,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 24092,
 			["productid"] = 19683,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 19726,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12804,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14342,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14227,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -1493,6 +4355,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 24093,
 			["productid"] = 19684,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 19726,
+				},
+				{
+					["num"] = 3,
+					["id"] = 14342,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12810,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14227,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -1501,6 +4385,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 24901,
 			["productid"] = 20538,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 20520,
+				},
+				{
+					["num"] = 6,
+					["id"] = 14256,
+				},
+				{
+					["num"] = 6,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14227,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -1509,6 +4411,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 24902,
 			["productid"] = 20539,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 20520,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14256,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12810,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14227,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -1517,6 +4441,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 24903,
 			["productid"] = 20537,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 20520,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14256,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12810,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14227,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -1525,6 +4471,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26403,
 			["productid"] = 21154,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2604,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4625,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "250",
 		},
@@ -1533,6 +4497,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26407,
 			["productid"] = 21542,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2604,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4625,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "250",
 		},
@@ -1541,6 +4523,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 28205,
 			["productid"] = 22654,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 7080,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 5,
+					["id"] = 22682,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14227,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -1549,6 +4549,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 28207,
 			["productid"] = 22652,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 7080,
+				},
+				{
+					["num"] = 8,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 7,
+					["id"] = 22682,
+				},
+				{
+					["num"] = 8,
+					["id"] = 14227,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -1557,6 +4575,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 28208,
 			["productid"] = 22658,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 7080,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 5,
+					["id"] = 22682,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14227,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -1565,6 +4601,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 28209,
 			["productid"] = 22655,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 7080,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 4,
+					["id"] = 22682,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14227,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -1573,6 +4627,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 28210,
 			["productid"] = 22660,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 19726,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14342,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12803,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14227,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -1581,6 +4653,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 28480,
 			["productid"] = 22756,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 19726,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12803,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14227,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -1589,6 +4679,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 28481,
 			["productid"] = 22757,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 14342,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12803,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14227,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -1597,6 +4705,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 28482,
 			["productid"] = 22758,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12803,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14227,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -1605,6 +4727,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 18422,
 			["productid"] = 14134,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 4,
+					["id"] = 7078,
+				},
+				{
+					["num"] = 4,
+					["id"] = 7077,
+				},
+				{
+					["num"] = 4,
+					["id"] = 7068,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "275",
 		},
@@ -1613,6 +4757,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26752,
 			["productid"] = 21846,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 24271,
+				},
+				{
+					["num"] = 10,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 2,
+					["id"] = 21881,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "355",
 		},
@@ -1621,6 +4779,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26753,
 			["productid"] = 21847,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 24271,
+				},
+				{
+					["num"] = 12,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 4,
+					["id"] = 21881,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -1629,6 +4801,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26754,
 			["productid"] = 21848,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 14,
+					["id"] = 24271,
+				},
+				{
+					["num"] = 16,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 4,
+					["id"] = 21881,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -1637,6 +4823,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26756,
 			["productid"] = 21869,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 24272,
+				},
+				{
+					["num"] = 10,
+					["id"] = 21885,
+				},
+				{
+					["num"] = 2,
+					["id"] = 21881,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "355",
 		},
@@ -1645,6 +4845,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26757,
 			["productid"] = 21870,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 24272,
+				},
+				{
+					["num"] = 12,
+					["id"] = 21885,
+				},
+				{
+					["num"] = 2,
+					["id"] = 21881,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -1653,6 +4867,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26758,
 			["productid"] = 21871,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 14,
+					["id"] = 24272,
+				},
+				{
+					["num"] = 16,
+					["id"] = 21885,
+				},
+				{
+					["num"] = 4,
+					["id"] = 21881,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -1661,6 +4889,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26760,
 			["productid"] = 21873,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 21845,
+				},
+				{
+					["num"] = 2,
+					["id"] = 21881,
+				},
+				{
+					["num"] = 8,
+					["id"] = 21886,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "355",
 		},
@@ -1669,6 +4911,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26761,
 			["productid"] = 21874,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 21845,
+				},
+				{
+					["num"] = 2,
+					["id"] = 21881,
+				},
+				{
+					["num"] = 8,
+					["id"] = 21886,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -1677,6 +4933,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26762,
 			["productid"] = 21875,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 14,
+					["id"] = 21845,
+				},
+				{
+					["num"] = 12,
+					["id"] = 22457,
+				},
+				{
+					["num"] = 4,
+					["id"] = 21881,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -1685,6 +4955,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26764,
 			["productid"] = 21849,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 21840,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "310",
 		},
@@ -1693,6 +4973,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26765,
 			["productid"] = 21850,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 21840,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "310",
 		},
@@ -1701,6 +4991,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26770,
 			["productid"] = 21851,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 21840,
+				},
+				{
+					["num"] = 2,
+					["id"] = 21887,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "320",
 		},
@@ -1709,6 +5013,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26771,
 			["productid"] = 21852,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 21840,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "325",
 		},
@@ -1717,6 +5031,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26772,
 			["productid"] = 21853,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 21840,
+				},
+				{
+					["num"] = 2,
+					["id"] = 21887,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "335",
 		},
@@ -1725,6 +5053,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26773,
 			["productid"] = 21854,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 21840,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "340",
 		},
@@ -1733,6 +5071,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26774,
 			["productid"] = 21855,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 21840,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "345",
 		},
@@ -1741,6 +5089,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26775,
 			["productid"] = 21859,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 5,
+					["id"] = 21842,
+				},
+				{
+					["num"] = 2,
+					["id"] = 21881,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "340",
 		},
@@ -1749,6 +5111,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26776,
 			["productid"] = 21860,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 21842,
+				},
+				{
+					["num"] = 6,
+					["id"] = 21887,
+				},
+				{
+					["num"] = 2,
+					["id"] = 21881,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "350",
 		},
@@ -1757,6 +5137,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26777,
 			["productid"] = 21861,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 21842,
+				},
+				{
+					["num"] = 2,
+					["id"] = 21881,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "360",
 		},
@@ -1765,6 +5159,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26778,
 			["productid"] = 21862,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 21842,
+				},
+				{
+					["num"] = 2,
+					["id"] = 21881,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "360",
 		},
@@ -1773,6 +5181,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26779,
 			["productid"] = 21863,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 5,
+					["id"] = 21844,
+				},
+				{
+					["num"] = 6,
+					["id"] = 21887,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "355",
 		},
@@ -1781,6 +5203,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26780,
 			["productid"] = 21864,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 21844,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -1789,6 +5221,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26781,
 			["productid"] = 21865,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 21844,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -1797,6 +5239,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26782,
 			["productid"] = 21866,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 21840,
+				},
+				{
+					["num"] = 12,
+					["id"] = 22445,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "350",
 		},
@@ -1805,6 +5261,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26783,
 			["productid"] = 21867,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 21840,
+				},
+				{
+					["num"] = 16,
+					["id"] = 22445,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "360",
 		},
@@ -1813,6 +5283,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26784,
 			["productid"] = 21868,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 12,
+					["id"] = 21840,
+				},
+				{
+					["num"] = 20,
+					["id"] = 22445,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "370",
 		},
@@ -1821,6 +5305,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31434,
 			["productid"] = 24249,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 21842,
+				},
+				{
+					["num"] = 8,
+					["id"] = 22452,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "350",
 		},
@@ -1829,6 +5323,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31435,
 			["productid"] = 24250,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 21842,
+				},
+				{
+					["num"] = 4,
+					["id"] = 22452,
+				},
+				{
+					["num"] = 4,
+					["id"] = 22456,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "350",
 		},
@@ -1837,6 +5345,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31437,
 			["productid"] = 24251,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 21842,
+				},
+				{
+					["num"] = 8,
+					["id"] = 21884,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "350",
 		},
@@ -1845,6 +5363,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31438,
 			["productid"] = 24252,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 21842,
+				},
+				{
+					["num"] = 3,
+					["id"] = 22457,
+				},
+				{
+					["num"] = 3,
+					["id"] = 22456,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "350",
 		},
@@ -1853,6 +5385,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31440,
 			["productid"] = 24253,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 21842,
+				},
+				{
+					["num"] = 6,
+					["id"] = 22452,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "350",
 		},
@@ -1861,6 +5403,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31441,
 			["productid"] = 24254,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 21842,
+				},
+				{
+					["num"] = 6,
+					["id"] = 21886,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "350",
 		},
@@ -1869,6 +5421,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31442,
 			["productid"] = 24255,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 21845,
+				},
+				{
+					["num"] = 16,
+					["id"] = 22452,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -1877,6 +5443,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31443,
 			["productid"] = 24256,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 24272,
+				},
+				{
+					["num"] = 16,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -1885,6 +5465,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31444,
 			["productid"] = 24257,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 21842,
+				},
+				{
+					["num"] = 14,
+					["id"] = 22457,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -1893,6 +5487,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31448,
 			["productid"] = 24258,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 21845,
+				},
+				{
+					["num"] = 12,
+					["id"] = 22452,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -1901,6 +5509,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31449,
 			["productid"] = 24259,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 24272,
+				},
+				{
+					["num"] = 14,
+					["id"] = 22451,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -1909,6 +5531,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31450,
 			["productid"] = 24260,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 24271,
+				},
+				{
+					["num"] = 12,
+					["id"] = 22457,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -1917,6 +5553,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31451,
 			["productid"] = 24261,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 21845,
+				},
+				{
+					["num"] = 5,
+					["id"] = 23571,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -1925,6 +5575,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31452,
 			["productid"] = 24262,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 24271,
+				},
+				{
+					["num"] = 5,
+					["id"] = 23571,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -1933,6 +5597,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31453,
 			["productid"] = 24263,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 12,
+					["id"] = 21842,
+				},
+				{
+					["num"] = 8,
+					["id"] = 23571,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -1941,6 +5619,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31454,
 			["productid"] = 24264,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 21845,
+				},
+				{
+					["num"] = 5,
+					["id"] = 23571,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -1949,6 +5641,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31455,
 			["productid"] = 24266,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 24271,
+				},
+				{
+					["num"] = 5,
+					["id"] = 23571,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -1957,6 +5663,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31456,
 			["productid"] = 24267,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 12,
+					["id"] = 21842,
+				},
+				{
+					["num"] = 8,
+					["id"] = 23571,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -1965,6 +5685,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 36315,
 			["productid"] = 30038,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 30183,
+				},
+				{
+					["num"] = 4,
+					["id"] = 21842,
+				},
+				{
+					["num"] = 15,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -1973,6 +5711,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 36316,
 			["productid"] = 30036,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 30183,
+				},
+				{
+					["num"] = 4,
+					["id"] = 21842,
+				},
+				{
+					["num"] = 10,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 10,
+					["id"] = 21885,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -1981,6 +5741,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 36317,
 			["productid"] = 30037,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 23572,
+				},
+				{
+					["num"] = 4,
+					["id"] = 24272,
+				},
+				{
+					["num"] = 4,
+					["id"] = 24271,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -1989,6 +5767,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 36318,
 			["productid"] = 30035,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 23572,
+				},
+				{
+					["num"] = 4,
+					["id"] = 21845,
+				},
+				{
+					["num"] = 4,
+					["id"] = 24271,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -1997,6 +5793,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 37873,
 			["productid"] = 30831,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 21842,
+				},
+				{
+					["num"] = 3,
+					["id"] = 22457,
+				},
+				{
+					["num"] = 3,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 2,
+					["id"] = 21881,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "350",
 		},
@@ -2005,6 +5819,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 37882,
 			["productid"] = 30837,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 5,
+					["id"] = 21840,
+				},
+				{
+					["num"] = 5,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "350",
 		},
@@ -2013,6 +5841,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 37883,
 			["productid"] = 30838,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 7,
+					["id"] = 21840,
+				},
+				{
+					["num"] = 7,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "360",
 		},
@@ -2021,6 +5863,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 37884,
 			["productid"] = 30839,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 9,
+					["id"] = 21840,
+				},
+				{
+					["num"] = 9,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "370",
 		},
@@ -2029,6 +5885,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 40020,
 			["productid"] = 32391,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 32428,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22450,
+				},
+				{
+					["num"] = 2,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 4,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 1,
+					["id"] = 21842,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -2037,6 +5915,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 40021,
 			["productid"] = 32392,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32428,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22450,
+				},
+				{
+					["num"] = 2,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 2,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 1,
+					["id"] = 21842,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -2045,6 +5945,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 40023,
 			["productid"] = 32389,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 32428,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22450,
+				},
+				{
+					["num"] = 4,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 6,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 2,
+					["id"] = 21842,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -2053,6 +5975,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 40024,
 			["productid"] = 32390,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 32428,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22450,
+				},
+				{
+					["num"] = 3,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 4,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 1,
+					["id"] = 21842,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -2061,6 +6005,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 40060,
 			["productid"] = 32420,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32428,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22450,
+				},
+				{
+					["num"] = 2,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 2,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 1,
+					["id"] = 21842,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -2069,6 +6035,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 41205,
 			["productid"] = 32586,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 21842,
+				},
+				{
+					["num"] = 4,
+					["id"] = 24271,
+				},
+				{
+					["num"] = 8,
+					["id"] = 22457,
+				},
+				{
+					["num"] = 4,
+					["id"] = 32428,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -2077,6 +6061,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 41206,
 			["productid"] = 32587,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 21842,
+				},
+				{
+					["num"] = 2,
+					["id"] = 24271,
+				},
+				{
+					["num"] = 6,
+					["id"] = 22457,
+				},
+				{
+					["num"] = 2,
+					["id"] = 32428,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -2085,6 +6087,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 41207,
 			["productid"] = 32584,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 21842,
+				},
+				{
+					["num"] = 4,
+					["id"] = 21845,
+				},
+				{
+					["num"] = 8,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 4,
+					["id"] = 32428,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -2093,6 +6113,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 41208,
 			["productid"] = 32585,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 21842,
+				},
+				{
+					["num"] = 2,
+					["id"] = 21845,
+				},
+				{
+					["num"] = 6,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 2,
+					["id"] = 32428,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -2101,6 +6139,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 44950,
 			["productid"] = 34087,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2997,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2605,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "250",
 		},
@@ -2109,6 +6165,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 44958,
 			["productid"] = 34085,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2997,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2604,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "250",
 		},
@@ -2117,6 +6191,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 46128,
 			["productid"] = 34366,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 24271,
+				},
+				{
+					["num"] = 10,
+					["id"] = 24272,
+				},
+				{
+					["num"] = 6,
+					["id"] = 34664,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -2125,6 +6213,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 46129,
 			["productid"] = 34367,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 18,
+					["id"] = 21845,
+				},
+				{
+					["num"] = 12,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 12,
+					["id"] = 21885,
+				},
+				{
+					["num"] = 6,
+					["id"] = 34664,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -2133,6 +6239,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 46130,
 			["productid"] = 34364,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 12,
+					["id"] = 24271,
+				},
+				{
+					["num"] = 12,
+					["id"] = 24272,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -2141,6 +6261,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 46131,
 			["productid"] = 34365,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 20,
+					["id"] = 21845,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -2149,6 +6279,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 49677,
 			["productid"] = 6836,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 4339,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "250",
 		},
@@ -2157,6 +6297,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 50644,
 			["productid"] = 38277,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 5,
+					["id"] = 4339,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2325,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2604,
+				},
+				{
+					["num"] = 3,
+					["id"] = 8343,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "250",
 		},
@@ -2165,6 +6323,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 50647,
 			["productid"] = 38278,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 4339,
+				},
+				{
+					["num"] = 3,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 3,
+					["id"] = 2325,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "245",
 		},
@@ -2176,6 +6348,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3920,
 			["productid"] = 8067,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 4357,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2840,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "30",
 		},
@@ -2184,6 +6366,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3930,
 			["productid"] = 8068,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 4364,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2840,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "75",
 		},
@@ -2192,6 +6384,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3934,
 			["productid"] = 4368,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 818,
+				},
+				{
+					["num"] = 6,
+					["id"] = 2318,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "100",
 		},
@@ -2200,6 +6402,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3936,
 			["productid"] = 4369,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 4399,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4361,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4359,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2319,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "105",
 		},
@@ -2208,6 +6428,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3939,
 			["productid"] = 4372,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 1206,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4371,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4400,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4359,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "120",
 		},
@@ -2216,6 +6454,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3940,
 			["productid"] = 4373,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 1210,
+				},
+				{
+					["num"] = 4,
+					["id"] = 2319,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "120",
 		},
@@ -2224,6 +6472,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3947,
 			["productid"] = 8069,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 4377,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2841,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "125",
 		},
@@ -2232,6 +6490,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3949,
 			["productid"] = 4379,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 2842,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4371,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4400,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4375,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "130",
 		},
@@ -2240,6 +6516,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3954,
 			["productid"] = 4383,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 4371,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4400,
+				},
+				{
+					["num"] = 2,
+					["id"] = 1705,
+				},
+				{
+					["num"] = 3,
+					["id"] = 4375,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "145",
 		},
@@ -2248,6 +6542,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3956,
 			["productid"] = 4385,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 1206,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4368,
+				},
+				{
+					["num"] = 4,
+					["id"] = 2319,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "150",
 		},
@@ -2256,6 +6564,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3966,
 			["productid"] = 4393,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3864,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "185",
 		},
@@ -2264,6 +6582,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12594,
 			["productid"] = 10500,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7068,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4385,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3864,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "205",
 		},
@@ -2272,6 +6608,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12595,
 			["productid"] = 10508,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10559,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10560,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4400,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7068,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "205",
 		},
@@ -2280,6 +6638,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12596,
 			["productid"] = 10512,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10505,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "210",
 		},
@@ -2288,6 +6656,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12599,
 			["productid"] = 10561,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 3860,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "215",
 		},
@@ -2296,6 +6670,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12607,
 			["productid"] = 10501,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 10592,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7909,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "220",
 		},
@@ -2304,6 +6692,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12614,
 			["productid"] = 10510,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 2,
+					["id"] = 10559,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10560,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4400,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3864,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "220",
 		},
@@ -2312,6 +6722,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12615,
 			["productid"] = 10502,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 7910,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "225",
 		},
@@ -2320,6 +6740,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12616,
 			["productid"] = 10518,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 10285,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10560,
+				},
+				{
+					["num"] = 4,
+					["id"] = 10505,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4339,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "225",
 		},
@@ -2328,6 +6766,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12617,
 			["productid"] = 10506,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 818,
+				},
+				{
+					["num"] = 4,
+					["id"] = 774,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10561,
+				},
+				{
+					["num"] = 8,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 1,
+					["id"] = 6037,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "230",
 		},
@@ -2336,6 +6796,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12618,
 			["productid"] = 10503,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 7910,
+				},
+				{
+					["num"] = 6,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "230",
 		},
@@ -2344,6 +6814,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12621,
 			["productid"] = 10513,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 2,
+					["id"] = 10505,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "245",
 		},
@@ -2352,6 +6832,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12717,
 			["productid"] = 10542,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 7067,
+				},
+				{
+					["num"] = 8,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3864,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "205",
 		},
@@ -2360,6 +6854,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12718,
 			["productid"] = 10543,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 7068,
+				},
+				{
+					["num"] = 8,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3864,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "205",
 		},
@@ -2368,6 +6876,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12758,
 			["productid"] = 10588,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 9061,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10560,
+				},
+				{
+					["num"] = 4,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10543,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "245",
 		},
@@ -2376,6 +6902,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12759,
 			["productid"] = 10645,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 10559,
+				},
+				{
+					["num"] = 1,
+					["id"] = 9060,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10560,
+				},
+				{
+					["num"] = 1,
+					["id"] = 12808,
+				},
+				{
+					["num"] = 4,
+					["id"] = 7972,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "240",
 		},
@@ -2384,6 +6932,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12897,
 			["productid"] = 10545,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 10559,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10500,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 2,
+					["id"] = 10558,
+				},
+				{
+					["num"] = 2,
+					["id"] = 8151,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "210",
 		},
@@ -2392,6 +6962,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12899,
 			["productid"] = 10716,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 10559,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10560,
+				},
+				{
+					["num"] = 4,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 2,
+					["id"] = 1529,
+				},
+				{
+					["num"] = 4,
+					["id"] = 8151,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "205",
 		},
@@ -2400,6 +6992,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12902,
 			["productid"] = 10720,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4337,
+				},
+				{
+					["num"] = 2,
+					["id"] = 10285,
+				},
+				{
+					["num"] = 2,
+					["id"] = 10505,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10559,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "210",
 		},
@@ -2408,6 +7022,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12903,
 			["productid"] = 10721,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 6037,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10560,
+				},
+				{
+					["num"] = 4,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7387,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7909,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "215",
 		},
@@ -2416,6 +7052,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12905,
 			["productid"] = 10724,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 10026,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4389,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 8,
+					["id"] = 10505,
+				},
+				{
+					["num"] = 2,
+					["id"] = 10559,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "225",
 		},
@@ -2424,6 +7082,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12907,
 			["productid"] = 10726,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 6037,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7910,
+				},
+				{
+					["num"] = 10,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10558,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4338,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "235",
 		},
@@ -2432,6 +7112,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12908,
 			["productid"] = 10727,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 4,
+					["id"] = 9061,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10560,
+				},
+				{
+					["num"] = 6,
+					["id"] = 6037,
+				},
+				{
+					["num"] = 2,
+					["id"] = 10559,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "240",
 		},
@@ -2440,6 +7142,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19792,
 			["productid"] = 15995,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 15994,
+				},
+				{
+					["num"] = 2,
+					["id"] = 10561,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12359,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10546,
+				},
+				{
+					["num"] = 2,
+					["id"] = 10559,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "260",
 		},
@@ -2448,6 +7172,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19794,
 			["productid"] = 15999,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 14047,
+				},
+				{
+					["num"] = 4,
+					["id"] = 7910,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12810,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10502,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "270",
 		},
@@ -2456,6 +7198,32 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19796,
 			["productid"] = 16004,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12799,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12361,
+				},
+				{
+					["num"] = 6,
+					["id"] = 11371,
+				},
+				{
+					["num"] = 2,
+					["id"] = 16000,
+				},
+				{
+					["num"] = 2,
+					["id"] = 10546,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "275",
 		},
@@ -2464,6 +7232,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19800,
 			["productid"] = 15997,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 12359,
+				},
+				{
+					["num"] = 1,
+					["id"] = 15992,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "285",
 		},
@@ -2472,6 +7250,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19825,
 			["productid"] = 16008,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 10500,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12364,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12810,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "290",
 		},
@@ -2480,6 +7272,32 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19833,
 			["productid"] = 16007,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 7078,
+				},
+				{
+					["num"] = 10,
+					["id"] = 12360,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7076,
+				},
+				{
+					["num"] = 2,
+					["id"] = 16000,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12810,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12800,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -2488,6 +7306,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 22795,
 			["productid"] = 18282,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 16000,
+				},
+				{
+					["num"] = 2,
+					["id"] = 17011,
+				},
+				{
+					["num"] = 2,
+					["id"] = 16006,
+				},
+				{
+					["num"] = 4,
+					["id"] = 17010,
+				},
+				{
+					["num"] = 6,
+					["id"] = 12360,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -2496,6 +7336,32 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 23077,
 			["productid"] = 18634,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 7078,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12361,
+				},
+				{
+					["num"] = 4,
+					["id"] = 13467,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3829,
+				},
+				{
+					["num"] = 2,
+					["id"] = 18631,
+				},
+				{
+					["num"] = 6,
+					["id"] = 15994,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "260",
 		},
@@ -2504,6 +7370,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 23078,
 			["productid"] = 18587,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 15994,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7191,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7910,
+				},
+				{
+					["num"] = 2,
+					["id"] = 18631,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14227,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "265",
 		},
@@ -2512,6 +7400,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 23079,
 			["productid"] = 18637,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 16000,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14047,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18631,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "275",
 		},
@@ -2520,6 +7422,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 23081,
 			["productid"] = 18638,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 7080,
+				},
+				{
+					["num"] = 4,
+					["id"] = 7910,
+				},
+				{
+					["num"] = 4,
+					["id"] = 11371,
+				},
+				{
+					["num"] = 3,
+					["id"] = 18631,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12800,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "290",
 		},
@@ -2528,6 +7452,32 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 23082,
 			["productid"] = 18639,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 18631,
+				},
+				{
+					["num"] = 8,
+					["id"] = 11371,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12799,
+				},
+				{
+					["num"] = 6,
+					["id"] = 12803,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12800,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12808,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -2536,6 +7486,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 23486,
 			["productid"] = 18984,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 7910,
+				},
+				{
+					["num"] = 10,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 4,
+					["id"] = 7077,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18631,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10586,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "285",
 		},
@@ -2544,6 +7516,32 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 23489,
 			["productid"] = 18986,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 9060,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7079,
+				},
+				{
+					["num"] = 4,
+					["id"] = 7075,
+				},
+				{
+					["num"] = 12,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 4,
+					["id"] = 7909,
+				},
+				{
+					["num"] = 2,
+					["id"] = 18631,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "285",
 		},
@@ -2552,6 +7550,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 24356,
 			["productid"] = 19999,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 19726,
+				},
+				{
+					["num"] = 8,
+					["id"] = 12804,
+				},
+				{
+					["num"] = 2,
+					["id"] = 16006,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12810,
+				},
+				{
+					["num"] = 5,
+					["id"] = 19774,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -2560,6 +7580,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 24357,
 			["productid"] = 19998,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 5,
+					["id"] = 19726,
+				},
+				{
+					["num"] = 8,
+					["id"] = 12804,
+				},
+				{
+					["num"] = 1,
+					["id"] = 16006,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12810,
+				},
+				{
+					["num"] = 5,
+					["id"] = 19774,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -2568,6 +7610,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26011,
 			["productid"] = 21277,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 15994,
+				},
+				{
+					["num"] = 1,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7079,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10558,
+				},
+				{
+					["num"] = 2,
+					["id"] = 18631,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "250",
 		},
@@ -2576,6 +7640,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 22797,
 			["productid"] = 18168,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 12360,
+				},
+				{
+					["num"] = 2,
+					["id"] = 16006,
+				},
+				{
+					["num"] = 8,
+					["id"] = 7082,
+				},
+				{
+					["num"] = 12,
+					["id"] = 12803,
+				},
+				{
+					["num"] = 8,
+					["id"] = 7076,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -2584,6 +7670,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 30312,
 			["productid"] = 23742,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 4400,
+				},
+				{
+					["num"] = 3,
+					["id"] = 23782,
+				},
+				{
+					["num"] = 6,
+					["id"] = 23783,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "320",
 		},
@@ -2592,6 +7692,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 30313,
 			["productid"] = 23746,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 23782,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23784,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23783,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "350",
 		},
@@ -2600,6 +7714,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 30314,
 			["productid"] = 23747,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23785,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23787,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23783,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "360",
 		},
@@ -2608,6 +7736,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 30315,
 			["productid"] = 23748,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 23785,
+				},
+				{
+					["num"] = 12,
+					["id"] = 23449,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23783,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23439,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -2616,6 +7762,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 30316,
 			["productid"] = 23758,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23077,
+				},
+				{
+					["num"] = 8,
+					["id"] = 22445,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "340",
 		},
@@ -2624,6 +7784,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 30317,
 			["productid"] = 23761,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 2,
+					["id"] = 21929,
+				},
+				{
+					["num"] = 8,
+					["id"] = 22445,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "340",
 		},
@@ -2632,6 +7806,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 30318,
 			["productid"] = 23762,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23449,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23079,
+				},
+				{
+					["num"] = 2,
+					["id"] = 22448,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "350",
 		},
@@ -2640,6 +7832,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 30325,
 			["productid"] = 23763,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23449,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23441,
+				},
+				{
+					["num"] = 2,
+					["id"] = 22449,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "360",
 		},
@@ -2648,6 +7858,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 30346,
 			["productid"] = 23772,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 23445,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23781,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "310",
 		},
@@ -2656,6 +7876,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 30556,
 			["productid"] = 23824,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23786,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23785,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23787,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "355",
 		},
@@ -2664,6 +7902,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 30565,
 			["productid"] = 23838,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 24272,
+				},
+				{
+					["num"] = 12,
+					["id"] = 22457,
+				},
+				{
+					["num"] = 12,
+					["id"] = 22451,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "375",
 		},
@@ -2672,6 +7924,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 30566,
 			["productid"] = 23839,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 23573,
+				},
+				{
+					["num"] = 12,
+					["id"] = 22452,
+				},
+				{
+					["num"] = 12,
+					["id"] = 21884,
+				},
+			},
 
 			["source"] = "trainer",
 			["learnedat"] = "375",
@@ -2681,6 +7947,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 30570,
 			["productid"] = 23825,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23786,
+				},
+				{
+					["num"] = 10,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 10,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 2,
+					["id"] = 16006,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "350",
 		},
@@ -2689,6 +7977,32 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 30574,
 			["productid"] = 23828,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 24271,
+				},
+				{
+					["num"] = 8,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 8,
+					["id"] = 22451,
+				},
+				{
+					["num"] = 8,
+					["id"] = 22452,
+				},
+				{
+					["num"] = 8,
+					["id"] = 21885,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23437,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "375",
 		},
@@ -2697,6 +8011,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 30575,
 			["productid"] = 23829,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 12,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 12,
+					["id"] = 22452,
+				},
+				{
+					["num"] = 12,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23436,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "375",
 		},
@@ -2705,6 +8041,32 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 40274,
 			["productid"] = 32461,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23786,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23785,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23787,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23436,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "370",
 		},
@@ -2713,6 +8075,32 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 41307,
 			["productid"] = 32756,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23785,
+				},
+				{
+					["num"] = 20,
+					["id"] = 23449,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23787,
+				},
+				{
+					["num"] = 12,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 12,
+					["id"] = 22451,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -2721,6 +8109,32 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 41312,
 			["productid"] = 32473,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23786,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23785,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23787,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23437,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "370",
 		},
@@ -2729,6 +8143,32 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 41314,
 			["productid"] = 32474,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23786,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23785,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23787,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23441,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "370",
 		},
@@ -2737,6 +8177,32 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 41315,
 			["productid"] = 32476,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23786,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23785,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23787,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23436,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "370",
 		},
@@ -2745,6 +8211,32 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 41317,
 			["productid"] = 32478,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23786,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23785,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23787,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23436,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "370",
 		},
@@ -2753,6 +8245,32 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 41318,
 			["productid"] = 32479,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23786,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23785,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23787,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23440,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "370",
 		},
@@ -2761,6 +8279,32 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 41320,
 			["productid"] = 32494,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23786,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23785,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23787,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23438,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "370",
 		},
@@ -2769,6 +8313,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 46106,
 			["productid"] = 35183,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32479,
+				},
+				{
+					["num"] = 4,
+					["id"] = 21885,
+				},
+				{
+					["num"] = 8,
+					["id"] = 22457,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -2777,6 +8339,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 46110,
 			["productid"] = 35184,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32475,
+				},
+				{
+					["num"] = 5,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 5,
+					["id"] = 22457,
+				},
+				{
+					["num"] = 5,
+					["id"] = 21885,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -2785,6 +8369,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 46111,
 			["productid"] = 34847,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32494,
+				},
+				{
+					["num"] = 4,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 4,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 4,
+					["id"] = 22457,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -2793,6 +8399,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 46113,
 			["productid"] = 34356,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32474,
+				},
+				{
+					["num"] = 12,
+					["id"] = 22451,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -2801,6 +8421,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 46114,
 			["productid"] = 34354,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32461,
+				},
+				{
+					["num"] = 10,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -2809,6 +8443,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 46115,
 			["productid"] = 34357,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32473,
+				},
+				{
+					["num"] = 2,
+					["id"] = 35128,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23571,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -2817,6 +8469,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 46116,
 			["productid"] = 34353,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32478,
+				},
+				{
+					["num"] = 12,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -2825,6 +8491,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 46697,
 			["productid"] = 35581,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 21840,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23786,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23785,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23787,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "355",
 		},
@@ -2836,6 +8520,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 7418,
 			["productid"] = 7418,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 10940,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "70",
 		},
@@ -2844,6 +8534,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 7420,
 			["productid"] = 7420,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 10940,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "15",
 		},
@@ -2852,6 +8548,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 7426,
 			["productid"] = 7426,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 10940,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10938,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "40",
 		},
@@ -2860,6 +8566,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 7428,
 			["productid"] = 7428,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 10940,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10938,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "80",
 		},
@@ -2868,6 +8584,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 7443,
 			["productid"] = 7443,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 10938,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "20",
 		},
@@ -2876,6 +8598,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 7454,
 			["productid"] = 7454,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 10940,
+				},
+				{
+					["num"] = 2,
+					["id"] = 10938,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "45",
 		},
@@ -2884,6 +8616,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 7457,
 			["productid"] = 7457,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 10940,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "50",
 		},
@@ -2892,6 +8630,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 7745,
 			["productid"] = 7745,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 10978,
+				},
+				{
+					["num"] = 4,
+					["id"] = 10940,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "100",
 		},
@@ -2900,6 +8648,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 7748,
 			["productid"] = 7748,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 10940,
+				},
+				{
+					["num"] = 2,
+					["id"] = 10938,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "60",
 		},
@@ -2908,6 +8666,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 7766,
 			["productid"] = 7766,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 10938,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "60",
 		},
@@ -2916,6 +8680,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 7771,
 			["productid"] = 7771,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 10940,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10939,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "70",
 		},
@@ -2924,6 +8698,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 7776,
 			["productid"] = 7776,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 10938,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10939,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "80",
 		},
@@ -2932,6 +8716,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 7779,
 			["productid"] = 7779,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 10940,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10939,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "80",
 		},
@@ -2940,6 +8734,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 7782,
 			["productid"] = 7782,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 5,
+					["id"] = 10940,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "80",
 		},
@@ -2948,6 +8748,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 7786,
 			["productid"] = 7786,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 10940,
+				},
+				{
+					["num"] = 2,
+					["id"] = 10939,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "90",
 		},
@@ -2956,6 +8766,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 7788,
 			["productid"] = 7788,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 10978,
+				},
+				{
+					["num"] = 2,
+					["id"] = 10940,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10939,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "90",
 		},
@@ -2964,6 +8788,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 7793,
 			["productid"] = 7793,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 10939,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "100",
 		},
@@ -2972,6 +8802,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 7857,
 			["productid"] = 7857,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 10940,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10998,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "120",
 		},
@@ -2980,6 +8820,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 7859,
 			["productid"] = 7859,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 10998,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "120",
 		},
@@ -2988,6 +8834,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 7861,
 			["productid"] = 7861,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 6371,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10998,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "125",
 		},
@@ -2996,6 +8852,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 7863,
 			["productid"] = 7863,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 10940,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "125",
 		},
@@ -3004,6 +8866,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 7867,
 			["productid"] = 7867,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 10940,
+				},
+				{
+					["num"] = 2,
+					["id"] = 10998,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "125",
 		},
@@ -3012,6 +8884,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13378,
 			["productid"] = 13378,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 10940,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10998,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "105",
 		},
@@ -3020,6 +8902,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13380,
 			["productid"] = 13380,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 10940,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10998,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "110",
 		},
@@ -3028,6 +8920,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13419,
 			["productid"] = 13419,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 10998,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "110",
 		},
@@ -3036,6 +8934,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13421,
 			["productid"] = 13421,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 10978,
+				},
+				{
+					["num"] = 6,
+					["id"] = 10940,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "115",
 		},
@@ -3044,6 +8952,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13464,
 			["productid"] = 13464,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 10978,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10940,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10998,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "115",
 		},
@@ -3052,6 +8974,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13485,
 			["productid"] = 13485,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 10940,
+				},
+				{
+					["num"] = 2,
+					["id"] = 10998,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "130",
 		},
@@ -3060,6 +8992,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13501,
 			["productid"] = 13501,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 11083,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "130",
 		},
@@ -3068,6 +9006,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13503,
 			["productid"] = 13503,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 11083,
+				},
+				{
+					["num"] = 1,
+					["id"] = 11084,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "140",
 		},
@@ -3076,6 +9024,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13522,
 			["productid"] = 13522,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 11082,
+				},
+				{
+					["num"] = 1,
+					["id"] = 6048,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "135",
 		},
@@ -3084,6 +9042,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13529,
 			["productid"] = 13529,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 11083,
+				},
+				{
+					["num"] = 1,
+					["id"] = 11084,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "145",
 		},
@@ -3092,6 +9060,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13536,
 			["productid"] = 13536,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 11083,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "140",
 		},
@@ -3100,6 +9074,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13538,
 			["productid"] = 13538,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 11082,
+				},
+				{
+					["num"] = 2,
+					["id"] = 10940,
+				},
+				{
+					["num"] = 1,
+					["id"] = 11084,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "140",
 		},
@@ -3108,6 +9096,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13607,
 			["productid"] = 13607,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 11082,
+				},
+				{
+					["num"] = 2,
+					["id"] = 10998,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "145",
 		},
@@ -3116,6 +9114,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13612,
 			["productid"] = 13612,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 11083,
+				},
+				{
+					["num"] = 3,
+					["id"] = 2772,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "145",
 		},
@@ -3124,6 +9132,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13617,
 			["productid"] = 13617,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 11083,
+				},
+				{
+					["num"] = 3,
+					["id"] = 3356,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "145",
 		},
@@ -3132,6 +9150,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13620,
 			["productid"] = 13620,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 6370,
+				},
+				{
+					["num"] = 1,
+					["id"] = 11083,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "145",
 		},
@@ -3140,6 +9168,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13622,
 			["productid"] = 13622,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 11082,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "150",
 		},
@@ -3148,6 +9182,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13626,
 			["productid"] = 13626,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 11083,
+				},
+				{
+					["num"] = 1,
+					["id"] = 11082,
+				},
+				{
+					["num"] = 1,
+					["id"] = 11084,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "150",
 		},
@@ -3156,6 +9204,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13631,
 			["productid"] = 13631,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 11083,
+				},
+				{
+					["num"] = 1,
+					["id"] = 11134,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "155",
 		},
@@ -3164,6 +9222,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13635,
 			["productid"] = 13635,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 11083,
+				},
+				{
+					["num"] = 1,
+					["id"] = 11138,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "155",
 		},
@@ -3172,6 +9240,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13637,
 			["productid"] = 13637,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 11083,
+				},
+				{
+					["num"] = 1,
+					["id"] = 11134,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "160",
 		},
@@ -3180,6 +9258,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13640,
 			["productid"] = 13640,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 11083,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "160",
 		},
@@ -3188,6 +9272,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13642,
 			["productid"] = 13642,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 11134,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "165",
 		},
@@ -3196,6 +9286,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13644,
 			["productid"] = 13644,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 11083,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "170",
 		},
@@ -3204,6 +9300,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13646,
 			["productid"] = 13646,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 11083,
+				},
+				{
+					["num"] = 1,
+					["id"] = 11134,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "170",
 		},
@@ -3212,6 +9318,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13648,
 			["productid"] = 13648,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 11083,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "170",
 		},
@@ -3220,6 +9332,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13653,
 			["productid"] = 13653,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 5637,
+				},
+				{
+					["num"] = 1,
+					["id"] = 11134,
+				},
+				{
+					["num"] = 1,
+					["id"] = 11138,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "175",
 		},
@@ -3228,6 +9354,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13655,
 			["productid"] = 13655,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7067,
+				},
+				{
+					["num"] = 1,
+					["id"] = 11134,
+				},
+				{
+					["num"] = 1,
+					["id"] = 11138,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "175",
 		},
@@ -3236,6 +9376,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13657,
 			["productid"] = 13657,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 11134,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7068,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "175",
 		},
@@ -3244,6 +9394,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13659,
 			["productid"] = 13659,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 11137,
+				},
+				{
+					["num"] = 1,
+					["id"] = 11135,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "180",
 		},
@@ -3252,6 +9412,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13661,
 			["productid"] = 13661,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 11137,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "180",
 		},
@@ -3260,6 +9426,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13663,
 			["productid"] = 13663,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 11135,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "185",
 		},
@@ -3268,6 +9440,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13687,
 			["productid"] = 13687,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 11135,
+				},
+				{
+					["num"] = 2,
+					["id"] = 11134,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "190",
 		},
@@ -3276,6 +9458,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13689,
 			["productid"] = 13689,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 11137,
+				},
+				{
+					["num"] = 2,
+					["id"] = 11135,
+				},
+				{
+					["num"] = 1,
+					["id"] = 11139,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "195",
 		},
@@ -3284,6 +9480,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13693,
 			["productid"] = 13693,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 11135,
+				},
+				{
+					["num"] = 1,
+					["id"] = 11139,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "195",
 		},
@@ -3292,6 +9498,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13695,
 			["productid"] = 13695,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 11137,
+				},
+				{
+					["num"] = 1,
+					["id"] = 11139,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "200",
 		},
@@ -3300,6 +9516,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13698,
 			["productid"] = 13698,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 11137,
+				},
+				{
+					["num"] = 3,
+					["id"] = 7392,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "200",
 		},
@@ -3308,6 +9534,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13700,
 			["productid"] = 13700,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 11137,
+				},
+				{
+					["num"] = 2,
+					["id"] = 11135,
+				},
+				{
+					["num"] = 1,
+					["id"] = 11139,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "200",
 		},
@@ -3316,6 +9556,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13746,
 			["productid"] = 13746,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 11137,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "205",
 		},
@@ -3324,6 +9570,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13794,
 			["productid"] = 13794,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 11174,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "205",
 		},
@@ -3332,6 +9584,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13815,
 			["productid"] = 13815,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 11137,
+				},
+				{
+					["num"] = 1,
+					["id"] = 11174,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "210",
 		},
@@ -3340,6 +9602,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13817,
 			["productid"] = 13817,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 5,
+					["id"] = 11137,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "210",
 		},
@@ -3348,6 +9616,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13822,
 			["productid"] = 13822,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 11174,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "210",
 		},
@@ -3356,6 +9630,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13836,
 			["productid"] = 13836,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 5,
+					["id"] = 11137,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "215",
 		},
@@ -3364,6 +9644,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13841,
 			["productid"] = 13841,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 11137,
+				},
+				{
+					["num"] = 3,
+					["id"] = 6037,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "215",
 		},
@@ -3372,6 +9662,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13846,
 			["productid"] = 13846,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 11137,
+				},
+				{
+					["num"] = 3,
+					["id"] = 11174,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "220",
 		},
@@ -3380,6 +9680,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13858,
 			["productid"] = 13858,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 11137,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "220",
 		},
@@ -3388,6 +9694,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13868,
 			["productid"] = 13868,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 11137,
+				},
+				{
+					["num"] = 3,
+					["id"] = 8838,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "225",
 		},
@@ -3396,6 +9712,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13882,
 			["productid"] = 13882,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 11174,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "225",
 		},
@@ -3404,6 +9726,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13887,
 			["productid"] = 13887,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 11137,
+				},
+				{
+					["num"] = 2,
+					["id"] = 11174,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "225",
 		},
@@ -3412,6 +9744,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13890,
 			["productid"] = 13890,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7909,
+				},
+				{
+					["num"] = 1,
+					["id"] = 11177,
+				},
+				{
+					["num"] = 1,
+					["id"] = 11174,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "225",
 		},
@@ -3420,6 +9766,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13898,
 			["productid"] = 13898,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7078,
+				},
+				{
+					["num"] = 4,
+					["id"] = 11177,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "265",
 		},
@@ -3428,6 +9784,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13905,
 			["productid"] = 13905,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 11176,
+				},
+				{
+					["num"] = 1,
+					["id"] = 11175,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "230",
 		},
@@ -3436,6 +9802,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13915,
 			["productid"] = 13915,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 9224,
+				},
+				{
+					["num"] = 1,
+					["id"] = 11177,
+				},
+				{
+					["num"] = 2,
+					["id"] = 11176,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "230",
 		},
@@ -3444,6 +9824,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13917,
 			["productid"] = 13917,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 11175,
+				},
+				{
+					["num"] = 2,
+					["id"] = 11174,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "230",
 		},
@@ -3452,6 +9842,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13931,
 			["productid"] = 13931,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 11176,
+				},
+				{
+					["num"] = 1,
+					["id"] = 11175,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "235",
 		},
@@ -3460,6 +9860,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13933,
 			["productid"] = 13933,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 11178,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3829,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "235",
 		},
@@ -3468,6 +9878,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13935,
 			["productid"] = 13935,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 11175,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "235",
 		},
@@ -3476,6 +9892,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13937,
 			["productid"] = 13937,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 11178,
+				},
+				{
+					["num"] = 2,
+					["id"] = 11176,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "240",
 		},
@@ -3484,6 +9910,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13939,
 			["productid"] = 13939,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 11176,
+				},
+				{
+					["num"] = 1,
+					["id"] = 11175,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "240",
 		},
@@ -3492,6 +9928,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13941,
 			["productid"] = 13941,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 11178,
+				},
+				{
+					["num"] = 3,
+					["id"] = 11176,
+				},
+				{
+					["num"] = 2,
+					["id"] = 11175,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "245",
 		},
@@ -3500,6 +9950,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13943,
 			["productid"] = 13943,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 11178,
+				},
+				{
+					["num"] = 2,
+					["id"] = 11175,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "245",
 		},
@@ -3508,6 +9968,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13945,
 			["productid"] = 13945,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 5,
+					["id"] = 11176,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "245",
 		},
@@ -3516,6 +9982,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13947,
 			["productid"] = 13947,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 11178,
+				},
+				{
+					["num"] = 3,
+					["id"] = 11176,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "250",
 		},
@@ -3524,6 +10000,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 13948,
 			["productid"] = 13948,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 11178,
+				},
+				{
+					["num"] = 2,
+					["id"] = 8153,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "250",
 		},
@@ -3532,6 +10018,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 15596,
 			["productid"] = 11811,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 14343,
+				},
+				{
+					["num"] = 1,
+					["id"] = 11382,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7078,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "265",
 		},
@@ -3540,6 +10040,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 20008,
 			["productid"] = 20008,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 16202,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "255",
 		},
@@ -3548,6 +10054,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 20009,
 			["productid"] = 20009,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 16202,
+				},
+				{
+					["num"] = 10,
+					["id"] = 11176,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "270",
 		},
@@ -3556,6 +10072,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 20010,
 			["productid"] = 20010,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 16203,
+				},
+				{
+					["num"] = 6,
+					["id"] = 16204,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "295",
 		},
@@ -3564,6 +10090,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 20011,
 			["productid"] = 20011,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 15,
+					["id"] = 16204,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -3572,6 +10104,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 20012,
 			["productid"] = 20012,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 16202,
+				},
+				{
+					["num"] = 3,
+					["id"] = 16204,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "270",
 		},
@@ -3580,6 +10122,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 20013,
 			["productid"] = 20013,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 16203,
+				},
+				{
+					["num"] = 4,
+					["id"] = 16204,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "295",
 		},
@@ -3588,6 +10140,32 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 20014,
 			["productid"] = 20014,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7081,
+				},
+				{
+					["num"] = 2,
+					["id"] = 16202,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7079,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7075,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7077,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7972,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "265",
 		},
@@ -3596,6 +10174,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 20015,
 			["productid"] = 20015,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 16204,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "285",
 		},
@@ -3604,6 +10188,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 20016,
 			["productid"] = 20016,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 16203,
+				},
+				{
+					["num"] = 4,
+					["id"] = 16204,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "280",
 		},
@@ -3612,6 +10206,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 20017,
 			["productid"] = 20017,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 11176,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "265",
 		},
@@ -3620,6 +10220,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 20020,
 			["productid"] = 20020,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 11176,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "260",
 		},
@@ -3628,6 +10234,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 20023,
 			["productid"] = 20023,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 16203,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "295",
 		},
@@ -3636,6 +10248,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 20024,
 			["productid"] = 20024,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 16202,
+				},
+				{
+					["num"] = 2,
+					["id"] = 16203,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "275",
 		},
@@ -3644,6 +10266,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 20025,
 			["productid"] = 20025,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 14344,
+				},
+				{
+					["num"] = 15,
+					["id"] = 16204,
+				},
+				{
+					["num"] = 10,
+					["id"] = 16203,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -3652,6 +10288,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 20026,
 			["productid"] = 20026,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 14343,
+				},
+				{
+					["num"] = 6,
+					["id"] = 16204,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "275",
 		},
@@ -3660,6 +10306,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 20028,
 			["productid"] = 20028,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 16203,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14343,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "290",
 		},
@@ -3668,6 +10324,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 20029,
 			["productid"] = 20029,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7080,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7082,
+				},
+				{
+					["num"] = 1,
+					["id"] = 13467,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14343,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "285",
 		},
@@ -3676,6 +10350,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 20030,
 			["productid"] = 20030,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 14344,
+				},
+				{
+					["num"] = 10,
+					["id"] = 16204,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "295",
 		},
@@ -3684,6 +10368,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 20031,
 			["productid"] = 20031,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 14344,
+				},
+				{
+					["num"] = 10,
+					["id"] = 16203,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -3692,6 +10386,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 20032,
 			["productid"] = 20032,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 14344,
+				},
+				{
+					["num"] = 6,
+					["id"] = 12803,
+				},
+				{
+					["num"] = 6,
+					["id"] = 12808,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -3700,6 +10408,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 20033,
 			["productid"] = 20033,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 14344,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12808,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "295",
 		},
@@ -3708,6 +10426,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 20034,
 			["productid"] = 20034,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 14344,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12811,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -3716,6 +10444,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 20035,
 			["productid"] = 20035,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 14344,
+				},
+				{
+					["num"] = 12,
+					["id"] = 16203,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -3724,6 +10462,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 20036,
 			["productid"] = 20036,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 14344,
+				},
+				{
+					["num"] = 12,
+					["id"] = 16203,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -3732,6 +10480,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 21931,
 			["productid"] = 21931,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 11137,
+				},
+				{
+					["num"] = 3,
+					["id"] = 11135,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3819,
+				},
+				{
+					["num"] = 1,
+					["id"] = 11139,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "190",
 		},
@@ -3740,6 +10506,32 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 22749,
 			["productid"] = 22749,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 7080,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14344,
+				},
+				{
+					["num"] = 4,
+					["id"] = 7078,
+				},
+				{
+					["num"] = 12,
+					["id"] = 16203,
+				},
+				{
+					["num"] = 2,
+					["id"] = 13926,
+				},
+				{
+					["num"] = 4,
+					["id"] = 7082,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -3748,6 +10540,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 22750,
 			["productid"] = 22750,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 7080,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14344,
+				},
+				{
+					["num"] = 1,
+					["id"] = 12811,
+				},
+				{
+					["num"] = 6,
+					["id"] = 12803,
+				},
+				{
+					["num"] = 8,
+					["id"] = 16203,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -3756,6 +10570,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 23799,
 			["productid"] = 23799,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 7076,
+				},
+				{
+					["num"] = 6,
+					["id"] = 14344,
+				},
+				{
+					["num"] = 4,
+					["id"] = 16204,
+				},
+				{
+					["num"] = 6,
+					["id"] = 16203,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "290",
 		},
@@ -3764,6 +10596,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 23800,
 			["productid"] = 23800,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 14344,
+				},
+				{
+					["num"] = 4,
+					["id"] = 16204,
+				},
+				{
+					["num"] = 6,
+					["id"] = 16203,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7082,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "290",
 		},
@@ -3772,6 +10622,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 23801,
 			["productid"] = 23801,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 7080,
+				},
+				{
+					["num"] = 4,
+					["id"] = 16203,
+				},
+				{
+					["num"] = 16,
+					["id"] = 16204,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "290",
 		},
@@ -3780,6 +10644,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 23802,
 			["productid"] = 23802,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 14344,
+				},
+				{
+					["num"] = 20,
+					["id"] = 16204,
+				},
+				{
+					["num"] = 6,
+					["id"] = 12803,
+				},
+				{
+					["num"] = 4,
+					["id"] = 16203,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -3788,6 +10670,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 23803,
 			["productid"] = 23803,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 14344,
+				},
+				{
+					["num"] = 15,
+					["id"] = 16204,
+				},
+				{
+					["num"] = 8,
+					["id"] = 16203,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -3796,6 +10692,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 23804,
 			["productid"] = 23804,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 15,
+					["id"] = 14344,
+				},
+				{
+					["num"] = 20,
+					["id"] = 16204,
+				},
+				{
+					["num"] = 12,
+					["id"] = 16203,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -3804,6 +10714,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 25072,
 			["productid"] = 25072,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 18512,
+				},
+				{
+					["num"] = 6,
+					["id"] = 14344,
+				},
+				{
+					["num"] = 4,
+					["id"] = 20725,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -3812,6 +10736,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 25073,
 			["productid"] = 25073,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 14344,
+				},
+				{
+					["num"] = 6,
+					["id"] = 12808,
+				},
+				{
+					["num"] = 3,
+					["id"] = 20725,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -3820,6 +10758,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 25074,
 			["productid"] = 25074,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 7080,
+				},
+				{
+					["num"] = 10,
+					["id"] = 14344,
+				},
+				{
+					["num"] = 3,
+					["id"] = 20725,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -3828,6 +10780,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 25078,
 			["productid"] = 25078,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 14344,
+				},
+				{
+					["num"] = 4,
+					["id"] = 7078,
+				},
+				{
+					["num"] = 2,
+					["id"] = 20725,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -3836,6 +10802,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 25079,
 			["productid"] = 25079,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 14344,
+				},
+				{
+					["num"] = 1,
+					["id"] = 12811,
+				},
+				{
+					["num"] = 3,
+					["id"] = 20725,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -3844,6 +10824,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 25080,
 			["productid"] = 25080,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 20725,
+				},
+				{
+					["num"] = 8,
+					["id"] = 14344,
+				},
+				{
+					["num"] = 4,
+					["id"] = 7082,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -3852,12 +10846,40 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 25081,
 			["productid"] = 25081,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 14344,
+				},
+				{
+					["num"] = 4,
+					["id"] = 7078,
+				},
+				{
+					["num"] = 3,
+					["id"] = 20725,
+				},
+			},
 		},
 		[25082] = {
 			["name"] = "Enchant Cloak - Greater Nature Resistance",
 			["spell"] = 25082,
 			["productid"] = 25082,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 14344,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12803,
+				},
+				{
+					["num"] = 2,
+					["id"] = 20725,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -3866,6 +10888,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 25083,
 			["productid"] = 25083,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 14344,
+				},
+				{
+					["num"] = 2,
+					["id"] = 13468,
+				},
+				{
+					["num"] = 3,
+					["id"] = 20725,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -3874,6 +10910,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 25084,
 			["productid"] = 25084,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 20725,
+				},
+				{
+					["num"] = 6,
+					["id"] = 14344,
+				},
+				{
+					["num"] = 2,
+					["id"] = 11754,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -3882,6 +10932,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 25086,
 			["productid"] = 25086,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 20725,
+				},
+				{
+					["num"] = 8,
+					["id"] = 14344,
+				},
+				{
+					["num"] = 8,
+					["id"] = 12809,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -3890,6 +10954,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 27837,
 			["productid"] = 27837,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 14344,
+				},
+				{
+					["num"] = 14,
+					["id"] = 16204,
+				},
+				{
+					["num"] = 6,
+					["id"] = 16203,
+				},
+				{
+					["num"] = 4,
+					["id"] = 7082,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "290",
 		},
@@ -3901,6 +10983,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 2661,
 			["productid"] = 2851,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 2840,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "35",
 		},
@@ -3909,6 +10997,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 2662,
 			["productid"] = 2852,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 2840,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "1",
 		},
@@ -3917,6 +11011,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 2663,
 			["productid"] = 2853,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2840,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "1",
 		},
@@ -3925,6 +11025,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 2664,
 			["productid"] = 2854,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 3470,
+				},
+				{
+					["num"] = 10,
+					["id"] = 2840,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "90",
 		},
@@ -3933,6 +11043,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 2666,
 			["productid"] = 2857,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 2840,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "70",
 		},
@@ -3941,6 +11057,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 2667,
 			["productid"] = 2864,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 1210,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3470,
+				},
+				{
+					["num"] = 12,
+					["id"] = 2840,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "80",
 		},
@@ -3949,6 +11079,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 2668,
 			["productid"] = 2865,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 2841,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "105",
 		},
@@ -3957,6 +11093,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 2670,
 			["productid"] = 2866,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 7,
+					["id"] = 2841,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "105",
 		},
@@ -3965,6 +11107,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 2672,
 			["productid"] = 2868,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 3478,
+				},
+				{
+					["num"] = 5,
+					["id"] = 2841,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "120",
 		},
@@ -3973,6 +11125,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 2673,
 			["productid"] = 2869,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 3478,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2842,
+				},
+				{
+					["num"] = 1,
+					["id"] = 1705,
+				},
+				{
+					["num"] = 10,
+					["id"] = 2841,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "130",
 		},
@@ -3981,6 +11151,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 2675,
 			["productid"] = 2870,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 1206,
+				},
+				{
+					["num"] = 4,
+					["id"] = 2842,
+				},
+				{
+					["num"] = 2,
+					["id"] = 1705,
+				},
+				{
+					["num"] = 2,
+					["id"] = 5500,
+				},
+				{
+					["num"] = 20,
+					["id"] = 2841,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "145",
 		},
@@ -3989,6 +11181,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 2737,
 			["productid"] = 2844,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2880,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2589,
+				},
+				{
+					["num"] = 6,
+					["id"] = 2840,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "15",
 		},
@@ -3997,6 +11203,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 2738,
 			["productid"] = 2845,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2880,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2589,
+				},
+				{
+					["num"] = 6,
+					["id"] = 2840,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "20",
 		},
@@ -4005,6 +11225,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 2739,
 			["productid"] = 2847,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2880,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2589,
+				},
+				{
+					["num"] = 6,
+					["id"] = 2840,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "25",
 		},
@@ -4013,6 +11247,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 2740,
 			["productid"] = 2848,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 2880,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2319,
+				},
+				{
+					["num"] = 6,
+					["id"] = 2841,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "110",
 		},
@@ -4021,6 +11269,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 2741,
 			["productid"] = 2849,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 2880,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2319,
+				},
+				{
+					["num"] = 7,
+					["id"] = 2841,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "115",
 		},
@@ -4029,6 +11291,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 2742,
 			["productid"] = 2850,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 2880,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2319,
+				},
+				{
+					["num"] = 5,
+					["id"] = 2841,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "120",
 		},
@@ -4037,6 +11313,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3292,
 			["productid"] = 3487,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 818,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2880,
+				},
+				{
+					["num"] = 14,
+					["id"] = 2840,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2319,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "95",
 		},
@@ -4045,6 +11339,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3293,
 			["productid"] = 3488,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 774,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2880,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3470,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2318,
+				},
+				{
+					["num"] = 12,
+					["id"] = 2840,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "35",
 		},
@@ -4053,6 +11369,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3294,
 			["productid"] = 3489,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 3470,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2880,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2842,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2318,
+				},
+				{
+					["num"] = 10,
+					["id"] = 2840,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "70",
 		},
@@ -4061,6 +11399,32 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3295,
 			["productid"] = 3490,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3466,
+				},
+				{
+					["num"] = 2,
+					["id"] = 1210,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2459,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2319,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3478,
+				},
+				{
+					["num"] = 4,
+					["id"] = 2841,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "125",
 		},
@@ -4069,6 +11433,32 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3296,
 			["productid"] = 3491,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3466,
+				},
+				{
+					["num"] = 1,
+					["id"] = 1210,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2319,
+				},
+				{
+					["num"] = 1,
+					["id"] = 1206,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3478,
+				},
+				{
+					["num"] = 8,
+					["id"] = 2841,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "130",
 		},
@@ -4077,6 +11467,32 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3297,
 			["productid"] = 3492,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3391,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3466,
+				},
+				{
+					["num"] = 2,
+					["id"] = 1705,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2319,
+				},
+				{
+					["num"] = 6,
+					["id"] = 3575,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3478,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "145",
 		},
@@ -4085,6 +11501,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3319,
 			["productid"] = 3469,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 2840,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "20",
 		},
@@ -4093,6 +11515,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3321,
 			["productid"] = 3471,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 774,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3470,
+				},
+				{
+					["num"] = 8,
+					["id"] = 2840,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "35",
 		},
@@ -4101,6 +11537,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3323,
 			["productid"] = 3472,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 3470,
+				},
+				{
+					["num"] = 8,
+					["id"] = 2840,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "40",
 		},
@@ -4109,6 +11555,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3324,
 			["productid"] = 3473,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 3,
+					["id"] = 3470,
+				},
+				{
+					["num"] = 8,
+					["id"] = 2840,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "45",
 		},
@@ -4117,6 +11577,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3325,
 			["productid"] = 3474,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 818,
+				},
+				{
+					["num"] = 1,
+					["id"] = 774,
+				},
+				{
+					["num"] = 8,
+					["id"] = 2840,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "60",
 		},
@@ -4125,6 +11599,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3328,
 			["productid"] = 3480,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 1210,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3478,
+				},
+				{
+					["num"] = 5,
+					["id"] = 2841,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "110",
 		},
@@ -4133,6 +11621,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3330,
 			["productid"] = 3481,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 3478,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2842,
+				},
+				{
+					["num"] = 8,
+					["id"] = 2841,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "125",
 		},
@@ -4141,6 +11643,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3331,
 			["productid"] = 3482,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 3478,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2842,
+				},
+				{
+					["num"] = 6,
+					["id"] = 2841,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "130",
 		},
@@ -4149,6 +11665,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3333,
 			["productid"] = 3483,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 3478,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2842,
+				},
+				{
+					["num"] = 8,
+					["id"] = 2841,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "135",
 		},
@@ -4157,6 +11687,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3334,
 			["productid"] = 3484,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 3575,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2605,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3478,
+				},
+				{
+					["num"] = 2,
+					["id"] = 1705,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "145",
 		},
@@ -4165,6 +11713,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3336,
 			["productid"] = 3485,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 3575,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2605,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3478,
+				},
+				{
+					["num"] = 2,
+					["id"] = 5498,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "150",
 		},
@@ -4173,6 +11739,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3491,
 			["productid"] = 3848,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 818,
+				},
+				{
+					["num"] = 4,
+					["id"] = 2880,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2319,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3470,
+				},
+				{
+					["num"] = 6,
+					["id"] = 2841,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "100",
 		},
@@ -4181,6 +11769,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3492,
 			["productid"] = 3849,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 3575,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3466,
+				},
+				{
+					["num"] = 3,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 2,
+					["id"] = 1705,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3486,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "160",
 		},
@@ -4189,6 +11799,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3493,
 			["productid"] = 3850,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 3575,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3466,
+				},
+				{
+					["num"] = 3,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 2,
+					["id"] = 1529,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3486,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "175",
 		},
@@ -4197,6 +11829,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3494,
 			["productid"] = 3851,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 3575,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3466,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 4,
+					["id"] = 2842,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3486,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "155",
 		},
@@ -4205,6 +11859,32 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3495,
 			["productid"] = 3852,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 3466,
+				},
+				{
+					["num"] = 2,
+					["id"] = 1705,
+				},
+				{
+					["num"] = 10,
+					["id"] = 3575,
+				},
+				{
+					["num"] = 4,
+					["id"] = 3577,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3486,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4234,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "170",
 		},
@@ -4213,6 +11893,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3496,
 			["productid"] = 3853,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 3466,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3486,
+				},
+				{
+					["num"] = 3,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 3,
+					["id"] = 1705,
+				},
+				{
+					["num"] = 8,
+					["id"] = 3859,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "180",
 		},
@@ -4221,6 +11923,32 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3497,
 			["productid"] = 3854,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 3466,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3829,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3486,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 2,
+					["id"] = 1529,
+				},
+				{
+					["num"] = 8,
+					["id"] = 3859,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "200",
 		},
@@ -4229,6 +11957,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3498,
 			["productid"] = 3855,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 14,
+					["id"] = 3575,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3466,
+				},
+				{
+					["num"] = 4,
+					["id"] = 3577,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3486,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "185",
 		},
@@ -4237,6 +11987,32 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3500,
 			["productid"] = 3856,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 3466,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3824,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3864,
+				},
+				{
+					["num"] = 3,
+					["id"] = 3486,
+				},
+				{
+					["num"] = 3,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 10,
+					["id"] = 3859,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "200",
 		},
@@ -4245,6 +12021,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3501,
 			["productid"] = 3835,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 3575,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2605,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "165",
 		},
@@ -4253,6 +12039,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3502,
 			["productid"] = 3836,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 12,
+					["id"] = 3575,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2605,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3864,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "170",
 		},
@@ -4261,6 +12061,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3503,
 			["productid"] = 3837,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 3577,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3486,
+				},
+				{
+					["num"] = 8,
+					["id"] = 3859,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "190",
 		},
@@ -4269,6 +12083,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3504,
 			["productid"] = 3840,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 7,
+					["id"] = 3575,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2605,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3486,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "160",
 		},
@@ -4277,6 +12105,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3505,
 			["productid"] = 3841,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 3577,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3486,
+				},
+				{
+					["num"] = 6,
+					["id"] = 3859,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "175",
 		},
@@ -4285,6 +12127,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3506,
 			["productid"] = 3842,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 3575,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2605,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3486,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "155",
 		},
@@ -4293,6 +12149,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3507,
 			["productid"] = 3843,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 3575,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3577,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3486,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "170",
 		},
@@ -4301,6 +12171,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3508,
 			["productid"] = 3844,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 20,
+					["id"] = 3575,
+				},
+				{
+					["num"] = 2,
+					["id"] = 1206,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4255,
+				},
+				{
+					["num"] = 2,
+					["id"] = 1529,
+				},
+				{
+					["num"] = 4,
+					["id"] = 3486,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "180",
 		},
@@ -4309,6 +12201,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3511,
 			["productid"] = 3845,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 3577,
+				},
+				{
+					["num"] = 4,
+					["id"] = 3486,
+				},
+				{
+					["num"] = 2,
+					["id"] = 1529,
+				},
+				{
+					["num"] = 12,
+					["id"] = 3859,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "195",
 		},
@@ -4317,6 +12227,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3513,
 			["productid"] = 3846,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 3486,
+				},
+				{
+					["num"] = 8,
+					["id"] = 3859,
+				},
+				{
+					["num"] = 1,
+					["id"] = 1705,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3864,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "185",
 		},
@@ -4325,6 +12253,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3515,
 			["productid"] = 3847,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 3577,
+				},
+				{
+					["num"] = 10,
+					["id"] = 3859,
+				},
+				{
+					["num"] = 4,
+					["id"] = 3486,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3864,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "200",
 		},
@@ -4333,6 +12279,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 6517,
 			["productid"] = 5540,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3466,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3478,
+				},
+				{
+					["num"] = 2,
+					["id"] = 5498,
+				},
+				{
+					["num"] = 6,
+					["id"] = 2841,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "110",
 		},
@@ -4341,6 +12305,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 6518,
 			["productid"] = 5541,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3466,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2319,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3478,
+				},
+				{
+					["num"] = 1,
+					["id"] = 5500,
+				},
+				{
+					["num"] = 10,
+					["id"] = 2841,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "140",
 		},
@@ -4349,6 +12335,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 7223,
 			["productid"] = 6040,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 3486,
+				},
+				{
+					["num"] = 5,
+					["id"] = 3859,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "185",
 		},
@@ -4357,6 +12353,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 7408,
 			["productid"] = 6214,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2880,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2318,
+				},
+				{
+					["num"] = 12,
+					["id"] = 2840,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "65",
 		},
@@ -4365,6 +12375,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 7817,
 			["productid"] = 6350,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 3470,
+				},
+				{
+					["num"] = 6,
+					["id"] = 2841,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "95",
 		},
@@ -4373,6 +12393,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 8367,
 			["productid"] = 6731,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 818,
+				},
+				{
+					["num"] = 3,
+					["id"] = 3470,
+				},
+				{
+					["num"] = 16,
+					["id"] = 2840,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "100",
 		},
@@ -4381,6 +12415,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 8880,
 			["productid"] = 7166,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2880,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3470,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2318,
+				},
+				{
+					["num"] = 6,
+					["id"] = 2840,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "30",
 		},
@@ -4389,6 +12441,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9811,
 			["productid"] = 7913,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 3575,
+				},
+				{
+					["num"] = 4,
+					["id"] = 5635,
+				},
+				{
+					["num"] = 2,
+					["id"] = 1210,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3486,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "160",
 		},
@@ -4397,6 +12467,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9813,
 			["productid"] = 7914,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 20,
+					["id"] = 3575,
+				},
+				{
+					["num"] = 4,
+					["id"] = 3486,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "160",
 		},
@@ -4405,6 +12485,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9814,
 			["productid"] = 7915,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 3575,
+				},
+				{
+					["num"] = 2,
+					["id"] = 5635,
+				},
+				{
+					["num"] = 2,
+					["id"] = 5637,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "175",
 		},
@@ -4413,6 +12507,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9818,
 			["productid"] = 7916,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 818,
+				},
+				{
+					["num"] = 12,
+					["id"] = 3575,
+				},
+				{
+					["num"] = 4,
+					["id"] = 5637,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3486,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "180",
 		},
@@ -4421,6 +12533,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9820,
 			["productid"] = 7917,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 14,
+					["id"] = 3575,
+				},
+				{
+					["num"] = 2,
+					["id"] = 5637,
+				},
+				{
+					["num"] = 3,
+					["id"] = 3486,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "185",
 		},
@@ -4429,6 +12555,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9916,
 			["productid"] = 7963,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 3486,
+				},
+				{
+					["num"] = 16,
+					["id"] = 3859,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "200",
 		},
@@ -4437,6 +12573,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9926,
 			["productid"] = 7918,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 8,
+					["id"] = 3860,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "205",
 		},
@@ -4445,6 +12591,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9928,
 			["productid"] = 7919,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4338,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "205",
 		},
@@ -4453,6 +12609,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9931,
 			["productid"] = 7920,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 12,
+					["id"] = 3860,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "210",
 		},
@@ -4461,6 +12623,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9933,
 			["productid"] = 7921,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 2,
+					["id"] = 1705,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "210",
 		},
@@ -4469,6 +12641,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9935,
 			["productid"] = 7922,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7966,
+				},
+				{
+					["num"] = 14,
+					["id"] = 3859,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "215",
 		},
@@ -4477,6 +12659,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9937,
 			["productid"] = 7924,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3864,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "215",
 		},
@@ -4485,6 +12677,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9945,
 			["productid"] = 7926,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7966,
+				},
+				{
+					["num"] = 12,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 1,
+					["id"] = 6037,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7909,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "220",
 		},
@@ -4493,6 +12703,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9950,
 			["productid"] = 7927,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7966,
+				},
+				{
+					["num"] = 10,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 1,
+					["id"] = 6037,
+				},
+				{
+					["num"] = 6,
+					["id"] = 4338,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "220",
 		},
@@ -4501,6 +12729,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9952,
 			["productid"] = 7928,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 12,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 1,
+					["id"] = 6037,
+				},
+				{
+					["num"] = 6,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "225",
 		},
@@ -4509,6 +12751,32 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9954,
 			["productid"] = 7938,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 3,
+					["id"] = 3864,
+				},
+				{
+					["num"] = 3,
+					["id"] = 7909,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7966,
+				},
+				{
+					["num"] = 8,
+					["id"] = 6037,
+				},
+				{
+					["num"] = 1,
+					["id"] = 5966,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "225",
 		},
@@ -4517,6 +12785,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9957,
 			["productid"] = 7929,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7067,
+				},
+				{
+					["num"] = 12,
+					["id"] = 3860,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "230",
 		},
@@ -4525,6 +12803,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9959,
 			["productid"] = 7930,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 16,
+					["id"] = 3860,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "230",
 		},
@@ -4533,6 +12817,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9961,
 			["productid"] = 7931,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 6,
+					["id"] = 4338,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "230",
 		},
@@ -4541,6 +12835,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9964,
 			["productid"] = 7969,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 3,
+					["id"] = 7966,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "235",
 		},
@@ -4549,6 +12853,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9966,
 			["productid"] = 7932,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 3864,
+				},
+				{
+					["num"] = 14,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "235",
 		},
@@ -4557,6 +12875,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9968,
 			["productid"] = 7933,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 14,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "235",
 		},
@@ -4565,6 +12893,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9970,
 			["productid"] = 7934,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7909,
+				},
+				{
+					["num"] = 14,
+					["id"] = 3860,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "245",
 		},
@@ -4573,6 +12911,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9972,
 			["productid"] = 7935,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7966,
+				},
+				{
+					["num"] = 16,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 6,
+					["id"] = 6037,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7077,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "240",
 		},
@@ -4581,6 +12937,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9974,
 			["productid"] = 7939,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 7910,
+				},
+				{
+					["num"] = 4,
+					["id"] = 7971,
+				},
+				{
+					["num"] = 12,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7966,
+				},
+				{
+					["num"] = 24,
+					["id"] = 6037,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "245",
 		},
@@ -4589,6 +12967,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9979,
 			["productid"] = 7936,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7966,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7909,
+				},
+				{
+					["num"] = 14,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 2,
+					["id"] = 6037,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "245",
 		},
@@ -4597,6 +12997,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9980,
 			["productid"] = 7937,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7966,
+				},
+				{
+					["num"] = 2,
+					["id"] = 6037,
+				},
+				{
+					["num"] = 16,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7971,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "245",
 		},
@@ -4605,6 +13023,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9983,
 			["productid"] = 7955,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2880,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3470,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2318,
+				},
+				{
+					["num"] = 10,
+					["id"] = 2840,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "30",
 		},
@@ -4613,6 +13049,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9985,
 			["productid"] = 7956,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3466,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2319,
+				},
+				{
+					["num"] = 8,
+					["id"] = 2841,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "125",
 		},
@@ -4621,6 +13071,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9986,
 			["productid"] = 7957,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 3466,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2319,
+				},
+				{
+					["num"] = 12,
+					["id"] = 2841,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "130",
 		},
@@ -4629,6 +13093,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9987,
 			["productid"] = 7958,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3466,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2319,
+				},
+				{
+					["num"] = 14,
+					["id"] = 2841,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "135",
 		},
@@ -4637,6 +13115,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9993,
 			["productid"] = 7941,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7966,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 12,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3864,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "210",
 		},
@@ -4645,6 +13141,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9995,
 			["productid"] = 7942,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 7909,
+				},
+				{
+					["num"] = 16,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7966,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "220",
 		},
@@ -4653,6 +13167,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9997,
 			["productid"] = 7943,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7966,
+				},
+				{
+					["num"] = 14,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 4,
+					["id"] = 6037,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "225",
 		},
@@ -4661,6 +13193,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 10001,
 			["productid"] = 7945,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7966,
+				},
+				{
+					["num"] = 4,
+					["id"] = 1210,
+				},
+				{
+					["num"] = 16,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7971,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "230",
 		},
@@ -4669,6 +13223,36 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 10003,
 			["productid"] = 7954,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 4304,
+				},
+				{
+					["num"] = 4,
+					["id"] = 7075,
+				},
+				{
+					["num"] = 24,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 5,
+					["id"] = 3864,
+				},
+				{
+					["num"] = 4,
+					["id"] = 7966,
+				},
+				{
+					["num"] = 6,
+					["id"] = 6037,
+				},
+				{
+					["num"] = 5,
+					["id"] = 1529,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "235",
 		},
@@ -4677,6 +13261,32 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 10005,
 			["productid"] = 7944,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 1206,
+				},
+				{
+					["num"] = 2,
+					["id"] = 1705,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4338,
+				},
+				{
+					["num"] = 14,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7909,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7966,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "240",
 		},
@@ -4685,6 +13295,36 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 10007,
 			["productid"] = 7961,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 7081,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3823,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4304,
+				},
+				{
+					["num"] = 28,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 6,
+					["id"] = 7909,
+				},
+				{
+					["num"] = 4,
+					["id"] = 7966,
+				},
+				{
+					["num"] = 8,
+					["id"] = 6037,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "245",
 		},
@@ -4693,6 +13333,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 10009,
 			["productid"] = 7946,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 7075,
+				},
+				{
+					["num"] = 18,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7966,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "245",
 		},
@@ -4701,6 +13359,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 10011,
 			["productid"] = 7959,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 7966,
+				},
+				{
+					["num"] = 10,
+					["id"] = 6037,
+				},
+				{
+					["num"] = 10,
+					["id"] = 7972,
+				},
+				{
+					["num"] = 28,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 6,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "250",
 		},
@@ -4709,6 +13389,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 10013,
 			["productid"] = 7947,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 7910,
+				},
+				{
+					["num"] = 6,
+					["id"] = 6037,
+				},
+				{
+					["num"] = 12,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7966,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "255",
 		},
@@ -4717,6 +13419,32 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 10015,
 			["productid"] = 7960,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 7081,
+				},
+				{
+					["num"] = 6,
+					["id"] = 4304,
+				},
+				{
+					["num"] = 30,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 8,
+					["id"] = 7966,
+				},
+				{
+					["num"] = 6,
+					["id"] = 7910,
+				},
+				{
+					["num"] = 16,
+					["id"] = 6037,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "260",
 		},
@@ -4725,6 +13453,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 11643,
 			["productid"] = 9366,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 3577,
+				},
+				{
+					["num"] = 10,
+					["id"] = 3859,
+				},
+				{
+					["num"] = 4,
+					["id"] = 3486,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3864,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "205",
 		},
@@ -4733,6 +13479,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12259,
 			["productid"] = 10423,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 3478,
+				},
+				{
+					["num"] = 4,
+					["id"] = 2842,
+				},
+				{
+					["num"] = 12,
+					["id"] = 2841,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "155",
 		},
@@ -4741,6 +13501,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 12260,
 			["productid"] = 10421,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 2840,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "1",
 		},
@@ -4749,6 +13515,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 15292,
 			["productid"] = 11608,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 7077,
+				},
+				{
+					["num"] = 18,
+					["id"] = 11371,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "265",
 		},
@@ -4757,6 +13533,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 15293,
 			["productid"] = 11606,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 7077,
+				},
+				{
+					["num"] = 10,
+					["id"] = 11371,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "270",
 		},
@@ -4765,6 +13551,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 15294,
 			["productid"] = 11607,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 7077,
+				},
+				{
+					["num"] = 26,
+					["id"] = 11371,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "275",
 		},
@@ -4773,6 +13569,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 15295,
 			["productid"] = 11605,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7077,
+				},
+				{
+					["num"] = 6,
+					["id"] = 11371,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "280",
 		},
@@ -4781,6 +13587,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 15296,
 			["productid"] = 11604,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 7077,
+				},
+				{
+					["num"] = 20,
+					["id"] = 11371,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "285",
 		},
@@ -4789,6 +13605,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 15972,
 			["productid"] = 12259,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7067,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3466,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 1,
+					["id"] = 1206,
+				},
+				{
+					["num"] = 10,
+					["id"] = 3859,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "180",
 		},
@@ -4797,6 +13635,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 15973,
 			["productid"] = 12260,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 3577,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7068,
+				},
+				{
+					["num"] = 10,
+					["id"] = 3859,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "190",
 		},
@@ -4805,6 +13661,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16642,
 			["productid"] = 12405,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 11188,
+				},
+				{
+					["num"] = 16,
+					["id"] = 12359,
+				},
+				{
+					["num"] = 1,
+					["id"] = 12361,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "250",
 		},
@@ -4813,6 +13683,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16643,
 			["productid"] = 12406,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 12,
+					["id"] = 12359,
+				},
+				{
+					["num"] = 4,
+					["id"] = 11186,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "250",
 		},
@@ -4821,6 +13701,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16644,
 			["productid"] = 12408,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 12,
+					["id"] = 12359,
+				},
+				{
+					["num"] = 4,
+					["id"] = 11184,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "255",
 		},
@@ -4829,6 +13719,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16645,
 			["productid"] = 12416,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 7077,
+				},
+				{
+					["num"] = 10,
+					["id"] = 12359,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "260",
 		},
@@ -4837,6 +13737,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16646,
 			["productid"] = 12428,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 24,
+					["id"] = 12359,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3864,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "265",
 		},
@@ -4845,6 +13759,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16647,
 			["productid"] = 12424,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7909,
+				},
+				{
+					["num"] = 22,
+					["id"] = 12359,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "265",
 		},
@@ -4853,6 +13781,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16648,
 			["productid"] = 12415,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7910,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7077,
+				},
+				{
+					["num"] = 18,
+					["id"] = 12359,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "270",
 		},
@@ -4861,6 +13803,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16649,
 			["productid"] = 12425,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7910,
+				},
+				{
+					["num"] = 20,
+					["id"] = 12359,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "270",
 		},
@@ -4869,6 +13821,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16650,
 			["productid"] = 12624,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 40,
+					["id"] = 12359,
+				},
+				{
+					["num"] = 1,
+					["id"] = 12364,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12803,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12655,
+				},
+				{
+					["num"] = 4,
+					["id"] = 8153,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "270",
 		},
@@ -4877,6 +13851,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16652,
 			["productid"] = 12409,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 20,
+					["id"] = 12359,
+				},
+				{
+					["num"] = 4,
+					["id"] = 11185,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "280",
 		},
@@ -4885,6 +13873,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16653,
 			["productid"] = 12410,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 11188,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7910,
+				},
+				{
+					["num"] = 24,
+					["id"] = 12359,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "280",
 		},
@@ -4893,6 +13895,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16654,
 			["productid"] = 12418,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 7077,
+				},
+				{
+					["num"] = 18,
+					["id"] = 12359,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "285",
 		},
@@ -4901,6 +13913,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16655,
 			["productid"] = 12631,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 7910,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7078,
+				},
+				{
+					["num"] = 20,
+					["id"] = 12359,
+				},
+				{
+					["num"] = 6,
+					["id"] = 12655,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "290",
 		},
@@ -4909,6 +13939,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16656,
 			["productid"] = 12419,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 7077,
+				},
+				{
+					["num"] = 14,
+					["id"] = 12359,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "290",
 		},
@@ -4917,6 +13957,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16657,
 			["productid"] = 12426,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7909,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7910,
+				},
+				{
+					["num"] = 34,
+					["id"] = 12359,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "295",
 		},
@@ -4925,6 +13979,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16658,
 			["productid"] = 12427,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 7910,
+				},
+				{
+					["num"] = 34,
+					["id"] = 12359,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "295",
 		},
@@ -4933,6 +13997,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16659,
 			["productid"] = 12417,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 7077,
+				},
+				{
+					["num"] = 18,
+					["id"] = 12359,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "295",
 		},
@@ -4941,6 +14015,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16660,
 			["productid"] = 12625,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 7080,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12364,
+				},
+				{
+					["num"] = 20,
+					["id"] = 12359,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12360,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "290",
 		},
@@ -4949,6 +14041,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16661,
 			["productid"] = 12632,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 7080,
+				},
+				{
+					["num"] = 20,
+					["id"] = 12359,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12655,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12361,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "295",
 		},
@@ -4957,6 +14067,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16662,
 			["productid"] = 12414,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 26,
+					["id"] = 12359,
+				},
+				{
+					["num"] = 4,
+					["id"] = 11186,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -4965,6 +14085,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16663,
 			["productid"] = 12422,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 7910,
+				},
+				{
+					["num"] = 40,
+					["id"] = 12359,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -4973,6 +14103,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16664,
 			["productid"] = 12610,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 3577,
+				},
+				{
+					["num"] = 20,
+					["id"] = 12359,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12360,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -4981,6 +14125,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16665,
 			["productid"] = 12611,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 20,
+					["id"] = 12359,
+				},
+				{
+					["num"] = 10,
+					["id"] = 2842,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12360,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -4989,6 +14147,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16667,
 			["productid"] = 12628,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 7910,
+				},
+				{
+					["num"] = 10,
+					["id"] = 12662,
+				},
+				{
+					["num"] = 40,
+					["id"] = 12359,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12361,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "285",
 		},
@@ -4997,6 +14173,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16724,
 			["productid"] = 12633,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 3577,
+				},
+				{
+					["num"] = 20,
+					["id"] = 12359,
+				},
+				{
+					["num"] = 6,
+					["id"] = 6037,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12655,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12800,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5005,6 +14203,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16725,
 			["productid"] = 12420,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 7077,
+				},
+				{
+					["num"] = 20,
+					["id"] = 12359,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5013,6 +14221,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16726,
 			["productid"] = 12612,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 12364,
+				},
+				{
+					["num"] = 2,
+					["id"] = 6037,
+				},
+				{
+					["num"] = 30,
+					["id"] = 12359,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12360,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5021,6 +14247,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16728,
 			["productid"] = 12636,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 40,
+					["id"] = 12359,
+				},
+				{
+					["num"] = 60,
+					["id"] = 8168,
+				},
+				{
+					["num"] = 6,
+					["id"] = 12799,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12655,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12364,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5029,6 +14277,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16729,
 			["productid"] = 12640,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 80,
+					["id"] = 12359,
+				},
+				{
+					["num"] = 40,
+					["id"] = 8146,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12800,
+				},
+				{
+					["num"] = 10,
+					["id"] = 12361,
+				},
+				{
+					["num"] = 12,
+					["id"] = 12360,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5037,6 +14307,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16730,
 			["productid"] = 12429,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 7910,
+				},
+				{
+					["num"] = 44,
+					["id"] = 12359,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5045,6 +14325,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16731,
 			["productid"] = 12613,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7910,
+				},
+				{
+					["num"] = 40,
+					["id"] = 12359,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12360,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5053,6 +14347,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16732,
 			["productid"] = 12614,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7910,
+				},
+				{
+					["num"] = 40,
+					["id"] = 12359,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12360,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5061,6 +14369,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16741,
 			["productid"] = 12639,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 7076,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12799,
+				},
+				{
+					["num"] = 20,
+					["id"] = 12655,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12361,
+				},
+				{
+					["num"] = 15,
+					["id"] = 12360,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5069,6 +14399,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16742,
 			["productid"] = 12620,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 7076,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12799,
+				},
+				{
+					["num"] = 16,
+					["id"] = 12655,
+				},
+				{
+					["num"] = 1,
+					["id"] = 12800,
+				},
+				{
+					["num"] = 6,
+					["id"] = 12360,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5077,6 +14429,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16744,
 			["productid"] = 12619,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 7080,
+				},
+				{
+					["num"] = 1,
+					["id"] = 12364,
+				},
+				{
+					["num"] = 20,
+					["id"] = 12655,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12361,
+				},
+				{
+					["num"] = 10,
+					["id"] = 12360,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5085,6 +14459,32 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16745,
 			["productid"] = 12618,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 7080,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12364,
+				},
+				{
+					["num"] = 8,
+					["id"] = 12360,
+				},
+				{
+					["num"] = 4,
+					["id"] = 7076,
+				},
+				{
+					["num"] = 24,
+					["id"] = 12655,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12800,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5093,6 +14493,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16746,
 			["productid"] = 12641,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 12364,
+				},
+				{
+					["num"] = 30,
+					["id"] = 12655,
+				},
+				{
+					["num"] = 6,
+					["id"] = 12800,
+				},
+				{
+					["num"] = 30,
+					["id"] = 12360,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5101,6 +14519,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16969,
 			["productid"] = 12773,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12644,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12799,
+				},
+				{
+					["num"] = 20,
+					["id"] = 12359,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "275",
 		},
@@ -5109,6 +14545,32 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16970,
 			["productid"] = 12774,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12361,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12655,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12644,
+				},
+				{
+					["num"] = 30,
+					["id"] = 12359,
+				},
+				{
+					["num"] = 4,
+					["id"] = 7910,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "275",
 		},
@@ -5117,6 +14579,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16971,
 			["productid"] = 12775,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 6,
+					["id"] = 12644,
+				},
+				{
+					["num"] = 40,
+					["id"] = 12359,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "280",
 		},
@@ -5125,6 +14601,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16973,
 			["productid"] = 12776,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12804,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12364,
+				},
+				{
+					["num"] = 20,
+					["id"] = 12359,
+				},
+				{
+					["num"] = 6,
+					["id"] = 12655,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "280",
 		},
@@ -5133,6 +14631,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16978,
 			["productid"] = 12777,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 12644,
+				},
+				{
+					["num"] = 4,
+					["id"] = 7077,
+				},
+				{
+					["num"] = 4,
+					["id"] = 7078,
+				},
+				{
+					["num"] = 10,
+					["id"] = 12655,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12800,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "280",
 		},
@@ -5141,6 +14661,32 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16983,
 			["productid"] = 12781,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 12364,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12361,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12360,
+				},
+				{
+					["num"] = 6,
+					["id"] = 12655,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12804,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12799,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "285",
 		},
@@ -5149,6 +14695,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16984,
 			["productid"] = 12792,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 4,
+					["id"] = 7077,
+				},
+				{
+					["num"] = 4,
+					["id"] = 7910,
+				},
+				{
+					["num"] = 30,
+					["id"] = 12359,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "290",
 		},
@@ -5157,6 +14721,36 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16985,
 			["productid"] = 12782,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12361,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12360,
+				},
+				{
+					["num"] = 16,
+					["id"] = 12662,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12644,
+				},
+				{
+					["num"] = 40,
+					["id"] = 12359,
+				},
+				{
+					["num"] = 8,
+					["id"] = 12808,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "290",
 		},
@@ -5165,6 +14759,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16988,
 			["productid"] = 12796,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 50,
+					["id"] = 12359,
+				},
+				{
+					["num"] = 10,
+					["id"] = 7076,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12809,
+				},
+				{
+					["num"] = 6,
+					["id"] = 12810,
+				},
+				{
+					["num"] = 15,
+					["id"] = 12360,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5173,6 +14789,32 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16990,
 			["productid"] = 12790,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 15,
+					["id"] = 12360,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12644,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12799,
+				},
+				{
+					["num"] = 1,
+					["id"] = 12811,
+				},
+				{
+					["num"] = 8,
+					["id"] = 12810,
+				},
+				{
+					["num"] = 8,
+					["id"] = 12800,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5181,6 +14823,32 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16991,
 			["productid"] = 12798,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 12364,
+				},
+				{
+					["num"] = 12,
+					["id"] = 12360,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12644,
+				},
+				{
+					["num"] = 40,
+					["id"] = 12359,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12810,
+				},
+				{
+					["num"] = 10,
+					["id"] = 12808,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5189,6 +14857,32 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16992,
 			["productid"] = 12797,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 7080,
+				},
+				{
+					["num"] = 8,
+					["id"] = 12361,
+				},
+				{
+					["num"] = 18,
+					["id"] = 12360,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12644,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12810,
+				},
+				{
+					["num"] = 8,
+					["id"] = 12800,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5197,6 +14891,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16993,
 			["productid"] = 12794,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 7076,
+				},
+				{
+					["num"] = 8,
+					["id"] = 12799,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12810,
+				},
+				{
+					["num"] = 20,
+					["id"] = 12655,
+				},
+				{
+					["num"] = 8,
+					["id"] = 12364,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5205,6 +14921,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16994,
 			["productid"] = 12784,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 12644,
+				},
+				{
+					["num"] = 6,
+					["id"] = 12810,
+				},
+				{
+					["num"] = 20,
+					["id"] = 12360,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5213,6 +14943,36 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 16995,
 			["productid"] = 12783,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 12360,
+				},
+				{
+					["num"] = 10,
+					["id"] = 12655,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12644,
+				},
+				{
+					["num"] = 6,
+					["id"] = 12799,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12810,
+				},
+				{
+					["num"] = 6,
+					["id"] = 12800,
+				},
+				{
+					["num"] = 6,
+					["id"] = 7910,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5221,6 +14981,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 20872,
 			["productid"] = 16989,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 17010,
+				},
+				{
+					["num"] = 3,
+					["id"] = 17011,
+				},
+				{
+					["num"] = 6,
+					["id"] = 11371,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "295",
 		},
@@ -5229,6 +15003,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 20873,
 			["productid"] = 16988,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 17010,
+				},
+				{
+					["num"] = 5,
+					["id"] = 17011,
+				},
+				{
+					["num"] = 16,
+					["id"] = 11371,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5237,6 +15025,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 20874,
 			["productid"] = 17014,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 17010,
+				},
+				{
+					["num"] = 2,
+					["id"] = 17011,
+				},
+				{
+					["num"] = 4,
+					["id"] = 11371,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "295",
 		},
@@ -5245,6 +15047,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 20876,
 			["productid"] = 17013,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 17010,
+				},
+				{
+					["num"] = 6,
+					["id"] = 17011,
+				},
+				{
+					["num"] = 16,
+					["id"] = 11371,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5253,6 +15069,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 20890,
 			["productid"] = 17015,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 12,
+					["id"] = 17010,
+				},
+				{
+					["num"] = 2,
+					["id"] = 11382,
+				},
+				{
+					["num"] = 16,
+					["id"] = 11371,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12810,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5261,6 +15095,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 20897,
 			["productid"] = 17016,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 11382,
+				},
+				{
+					["num"] = 12,
+					["id"] = 17011,
+				},
+				{
+					["num"] = 18,
+					["id"] = 11371,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12810,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5269,6 +15121,36 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 21161,
 			["productid"] = 17193,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 11382,
+				},
+				{
+					["num"] = 25,
+					["id"] = 7078,
+				},
+				{
+					["num"] = 50,
+					["id"] = 12360,
+				},
+				{
+					["num"] = 8,
+					["id"] = 17203,
+				},
+				{
+					["num"] = 20,
+					["id"] = 11371,
+				},
+				{
+					["num"] = 10,
+					["id"] = 17010,
+				},
+				{
+					["num"] = 10,
+					["id"] = 17011,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5277,6 +15159,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 21913,
 			["productid"] = 17704,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7070,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7069,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3829,
+				},
+				{
+					["num"] = 10,
+					["id"] = 3859,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "190",
 		},
@@ -5285,6 +15189,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 23628,
 			["productid"] = 19043,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 7076,
+				},
+				{
+					["num"] = 12,
+					["id"] = 12359,
+				},
+				{
+					["num"] = 3,
+					["id"] = 12803,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "290",
 		},
@@ -5293,6 +15211,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 23629,
 			["productid"] = 19048,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 7076,
+				},
+				{
+					["num"] = 6,
+					["id"] = 12803,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12360,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5301,6 +15233,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 23632,
 			["productid"] = 19051,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 6037,
+				},
+				{
+					["num"] = 8,
+					["id"] = 12359,
+				},
+				{
+					["num"] = 1,
+					["id"] = 12811,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "290",
 		},
@@ -5309,6 +15255,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 23633,
 			["productid"] = 19057,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 6037,
+				},
+				{
+					["num"] = 1,
+					["id"] = 12811,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12360,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5317,6 +15277,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 23636,
 			["productid"] = 19148,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 17010,
+				},
+				{
+					["num"] = 4,
+					["id"] = 17011,
+				},
+				{
+					["num"] = 4,
+					["id"] = 11371,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5325,6 +15299,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 23637,
 			["productid"] = 19164,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 17012,
+				},
+				{
+					["num"] = 5,
+					["id"] = 17010,
+				},
+				{
+					["num"] = 3,
+					["id"] = 17011,
+				},
+				{
+					["num"] = 4,
+					["id"] = 11371,
+				},
+				{
+					["num"] = 2,
+					["id"] = 11382,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5333,6 +15329,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 23638,
 			["productid"] = 19166,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 17010,
+				},
+				{
+					["num"] = 3,
+					["id"] = 17011,
+				},
+				{
+					["num"] = 4,
+					["id"] = 11371,
+				},
+				{
+					["num"] = 1,
+					["id"] = 11382,
+				},
+				{
+					["num"] = 12,
+					["id"] = 12360,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5341,6 +15359,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 23639,
 			["productid"] = 19167,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 17010,
+				},
+				{
+					["num"] = 5,
+					["id"] = 17011,
+				},
+				{
+					["num"] = 6,
+					["id"] = 11371,
+				},
+				{
+					["num"] = 16,
+					["id"] = 12360,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5349,6 +15385,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 23650,
 			["productid"] = 19170,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 7,
+					["id"] = 17010,
+				},
+				{
+					["num"] = 4,
+					["id"] = 17011,
+				},
+				{
+					["num"] = 8,
+					["id"] = 11371,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12800,
+				},
+				{
+					["num"] = 12,
+					["id"] = 12360,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5357,6 +15415,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 23652,
 			["productid"] = 19168,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 17010,
+				},
+				{
+					["num"] = 6,
+					["id"] = 17011,
+				},
+				{
+					["num"] = 6,
+					["id"] = 11371,
+				},
+				{
+					["num"] = 12,
+					["id"] = 12809,
+				},
+				{
+					["num"] = 10,
+					["id"] = 12360,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5365,6 +15445,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 23653,
 			["productid"] = 19169,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 12364,
+				},
+				{
+					["num"] = 5,
+					["id"] = 17010,
+				},
+				{
+					["num"] = 8,
+					["id"] = 17011,
+				},
+				{
+					["num"] = 12,
+					["id"] = 11371,
+				},
+				{
+					["num"] = 10,
+					["id"] = 12360,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5373,6 +15475,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 24136,
 			["productid"] = 19690,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 19726,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7910,
+				},
+				{
+					["num"] = 10,
+					["id"] = 19774,
+				},
+				{
+					["num"] = 20,
+					["id"] = 12359,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5381,6 +15501,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 24137,
 			["productid"] = 19691,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 19726,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7910,
+				},
+				{
+					["num"] = 8,
+					["id"] = 19774,
+				},
+				{
+					["num"] = 16,
+					["id"] = 12359,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5389,6 +15527,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 24138,
 			["productid"] = 19692,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 19726,
+				},
+				{
+					["num"] = 12,
+					["id"] = 12359,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12810,
+				},
+				{
+					["num"] = 6,
+					["id"] = 19774,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5397,6 +15553,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 24139,
 			["productid"] = 19693,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 12799,
+				},
+				{
+					["num"] = 14,
+					["id"] = 19774,
+				},
+				{
+					["num"] = 20,
+					["id"] = 12359,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5405,6 +15575,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 24140,
 			["productid"] = 19694,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 12799,
+				},
+				{
+					["num"] = 12,
+					["id"] = 19774,
+				},
+				{
+					["num"] = 18,
+					["id"] = 12359,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5413,6 +15597,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 24141,
 			["productid"] = 19695,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 12799,
+				},
+				{
+					["num"] = 10,
+					["id"] = 19774,
+				},
+				{
+					["num"] = 16,
+					["id"] = 12359,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5421,6 +15619,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 24399,
 			["productid"] = 20039,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 17012,
+				},
+				{
+					["num"] = 3,
+					["id"] = 17010,
+				},
+				{
+					["num"] = 3,
+					["id"] = 17011,
+				},
+				{
+					["num"] = 6,
+					["id"] = 11371,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5429,6 +15645,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 24912,
 			["productid"] = 20549,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 20520,
+				},
+				{
+					["num"] = 12,
+					["id"] = 12359,
+				},
+				{
+					["num"] = 6,
+					["id"] = 6037,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12810,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5437,6 +15671,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 24913,
 			["productid"] = 20551,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 20520,
+				},
+				{
+					["num"] = 1,
+					["id"] = 11754,
+				},
+				{
+					["num"] = 8,
+					["id"] = 6037,
+				},
+				{
+					["num"] = 16,
+					["id"] = 12359,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5445,6 +15697,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 24914,
 			["productid"] = 20550,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 20520,
+				},
+				{
+					["num"] = 20,
+					["id"] = 12359,
+				},
+				{
+					["num"] = 10,
+					["id"] = 6037,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5453,6 +15719,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 27585,
 			["productid"] = 22197,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 14,
+					["id"] = 22202,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7076,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12655,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5461,6 +15741,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 27586,
 			["productid"] = 22198,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 22203,
+				},
+				{
+					["num"] = 24,
+					["id"] = 22202,
+				},
+				{
+					["num"] = 4,
+					["id"] = 7076,
+				},
+				{
+					["num"] = 8,
+					["id"] = 12655,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5469,6 +15767,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 27587,
 			["productid"] = 22196,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 18,
+					["id"] = 22203,
+				},
+				{
+					["num"] = 40,
+					["id"] = 22202,
+				},
+				{
+					["num"] = 10,
+					["id"] = 7076,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12364,
+				},
+				{
+					["num"] = 12,
+					["id"] = 12655,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5477,6 +15797,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 27588,
 			["productid"] = 22195,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 14,
+					["id"] = 22202,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12810,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5485,6 +15815,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 27589,
 			["productid"] = 22194,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 22203,
+				},
+				{
+					["num"] = 24,
+					["id"] = 22202,
+				},
+				{
+					["num"] = 1,
+					["id"] = 13512,
+				},
+				{
+					["num"] = 8,
+					["id"] = 12810,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5493,6 +15841,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 27590,
 			["productid"] = 22191,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 15,
+					["id"] = 22203,
+				},
+				{
+					["num"] = 36,
+					["id"] = 22202,
+				},
+				{
+					["num"] = 12,
+					["id"] = 12810,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12800,
+				},
+				{
+					["num"] = 10,
+					["id"] = 12809,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5501,6 +15871,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 27829,
 			["productid"] = 22385,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 7076,
+				},
+				{
+					["num"] = 2,
+					["id"] = 13510,
+				},
+				{
+					["num"] = 20,
+					["id"] = 12655,
+				},
+				{
+					["num"] = 12,
+					["id"] = 12360,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5509,6 +15897,32 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 27830,
 			["productid"] = 22384,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 20,
+					["id"] = 20520,
+				},
+				{
+					["num"] = 15,
+					["id"] = 12360,
+				},
+				{
+					["num"] = 10,
+					["id"] = 11371,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12753,
+				},
+				{
+					["num"] = 10,
+					["id"] = 15417,
+				},
+				{
+					["num"] = 20,
+					["id"] = 12808,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5517,6 +15931,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 27832,
 			["productid"] = 22383,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 12810,
+				},
+				{
+					["num"] = 2,
+					["id"] = 20725,
+				},
+				{
+					["num"] = 2,
+					["id"] = 13512,
+				},
+				{
+					["num"] = 12,
+					["id"] = 12360,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5525,6 +15957,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 28242,
 			["productid"] = 22669,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 7080,
+				},
+				{
+					["num"] = 16,
+					["id"] = 12359,
+				},
+				{
+					["num"] = 7,
+					["id"] = 22682,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12360,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5533,6 +15983,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 28243,
 			["productid"] = 22670,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 7080,
+				},
+				{
+					["num"] = 12,
+					["id"] = 12359,
+				},
+				{
+					["num"] = 5,
+					["id"] = 22682,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12360,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5541,6 +16009,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 28244,
 			["productid"] = 22671,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 7080,
+				},
+				{
+					["num"] = 12,
+					["id"] = 12359,
+				},
+				{
+					["num"] = 4,
+					["id"] = 22682,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12360,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5549,6 +16035,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 28461,
 			["productid"] = 22762,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 19726,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12803,
+				},
+				{
+					["num"] = 12,
+					["id"] = 12655,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12360,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5557,6 +16061,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 28462,
 			["productid"] = 22763,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 19726,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12803,
+				},
+				{
+					["num"] = 8,
+					["id"] = 12655,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5565,6 +16083,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 28463,
 			["productid"] = 22764,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 12803,
+				},
+				{
+					["num"] = 6,
+					["id"] = 12655,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -5573,6 +16101,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29545,
 			["productid"] = 23482,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23445,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "310",
 		},
@@ -5581,6 +16115,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29547,
 			["productid"] = 23484,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23445,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "315",
 		},
@@ -5589,6 +16129,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29548,
 			["productid"] = 23487,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23445,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "325",
 		},
@@ -5597,6 +16143,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29549,
 			["productid"] = 23488,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 23445,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "325",
 		},
@@ -5605,6 +16157,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29550,
 			["productid"] = 23489,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 23445,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "335",
 		},
@@ -5613,6 +16171,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29551,
 			["productid"] = 23493,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23445,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "310",
 		},
@@ -5621,6 +16185,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29552,
 			["productid"] = 23491,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 5,
+					["id"] = 23445,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "320",
 		},
@@ -5629,6 +16199,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29553,
 			["productid"] = 23494,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23445,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "325",
 		},
@@ -5637,6 +16213,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29556,
 			["productid"] = 23490,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 9,
+					["id"] = 23445,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "330",
 		},
@@ -5645,6 +16227,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29557,
 			["productid"] = 23497,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 9,
+					["id"] = 23445,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "320",
 		},
@@ -5653,6 +16241,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29558,
 			["productid"] = 23498,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 23445,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "325",
 		},
@@ -5661,6 +16255,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29565,
 			["productid"] = 23499,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 12,
+					["id"] = 23445,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "330",
 		},
@@ -5669,6 +16269,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29566,
 			["productid"] = 23502,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 23446,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "325",
 		},
@@ -5677,6 +16283,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29568,
 			["productid"] = 23503,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 23446,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "330",
 		},
@@ -5685,6 +16297,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29569,
 			["productid"] = 23504,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 7,
+					["id"] = 23446,
+				},
+				{
+					["num"] = 2,
+					["id"] = 21887,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "330",
 		},
@@ -5693,6 +16315,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29571,
 			["productid"] = 23505,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 12,
+					["id"] = 23446,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "335",
 		},
@@ -5701,6 +16329,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29603,
 			["productid"] = 23506,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23446,
+				},
+				{
+					["num"] = 2,
+					["id"] = 22452,
+				},
+				{
+					["num"] = 2,
+					["id"] = 21884,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "335",
 		},
@@ -5709,6 +16351,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29605,
 			["productid"] = 23508,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 23446,
+				},
+				{
+					["num"] = 2,
+					["id"] = 21887,
+				},
+				{
+					["num"] = 3,
+					["id"] = 22452,
+				},
+				{
+					["num"] = 2,
+					["id"] = 21884,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "335",
 		},
@@ -5717,6 +16377,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29606,
 			["productid"] = 23507,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 12,
+					["id"] = 23446,
+				},
+				{
+					["num"] = 4,
+					["id"] = 22452,
+				},
+				{
+					["num"] = 2,
+					["id"] = 21884,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "340",
 		},
@@ -5725,6 +16399,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29608,
 			["productid"] = 23510,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 23573,
+				},
+				{
+					["num"] = 8,
+					["id"] = 22445,
+				},
+				{
+					["num"] = 2,
+					["id"] = 22449,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "355",
 		},
@@ -5733,6 +16421,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29610,
 			["productid"] = 23509,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23573,
+				},
+				{
+					["num"] = 20,
+					["id"] = 22445,
+				},
+				{
+					["num"] = 4,
+					["id"] = 22449,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "360",
 		},
@@ -5741,6 +16443,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29611,
 			["productid"] = 23511,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 23573,
+				},
+				{
+					["num"] = 12,
+					["id"] = 22445,
+				},
+				{
+					["num"] = 2,
+					["id"] = 22449,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "355",
 		},
@@ -5749,6 +16465,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29613,
 			["productid"] = 23512,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23573,
+				},
+				{
+					["num"] = 24,
+					["id"] = 22445,
+				},
+				{
+					["num"] = 4,
+					["id"] = 22449,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -5757,6 +16487,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29614,
 			["productid"] = 23515,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23445,
+				},
+				{
+					["num"] = 3,
+					["id"] = 21885,
+				},
+				{
+					["num"] = 2,
+					["id"] = 21884,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "350",
 		},
@@ -5765,6 +16509,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29615,
 			["productid"] = 23516,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 12,
+					["id"] = 23445,
+				},
+				{
+					["num"] = 5,
+					["id"] = 21885,
+				},
+				{
+					["num"] = 3,
+					["id"] = 21884,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "355",
 		},
@@ -5773,6 +16531,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29616,
 			["productid"] = 23514,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 23445,
+				},
+				{
+					["num"] = 4,
+					["id"] = 21885,
+				},
+				{
+					["num"] = 4,
+					["id"] = 21884,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "360",
 		},
@@ -5781,6 +16553,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29617,
 			["productid"] = 23513,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 16,
+					["id"] = 23445,
+				},
+				{
+					["num"] = 6,
+					["id"] = 21885,
+				},
+				{
+					["num"] = 4,
+					["id"] = 21884,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -5789,6 +16575,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29619,
 			["productid"] = 23517,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23448,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "360",
 		},
@@ -5797,6 +16589,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29620,
 			["productid"] = 23518,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 23448,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "360",
 		},
@@ -5805,6 +16603,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29621,
 			["productid"] = 23519,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 23448,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -5813,6 +16617,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29622,
 			["productid"] = 23532,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 23573,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23571,
+				},
+				{
+					["num"] = 15,
+					["id"] = 22452,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -5821,6 +16643,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29628,
 			["productid"] = 23524,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 23449,
+				},
+				{
+					["num"] = 2,
+					["id"] = 21885,
+				},
+				{
+					["num"] = 2,
+					["id"] = 22457,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "360",
 		},
@@ -5829,6 +16665,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29629,
 			["productid"] = 23523,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23449,
+				},
+				{
+					["num"] = 4,
+					["id"] = 21885,
+				},
+				{
+					["num"] = 4,
+					["id"] = 22457,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "360",
 		},
@@ -5837,6 +16687,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29630,
 			["productid"] = 23525,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23449,
+				},
+				{
+					["num"] = 3,
+					["id"] = 21885,
+				},
+				{
+					["num"] = 3,
+					["id"] = 22457,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -5845,6 +16709,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29642,
 			["productid"] = 23520,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 23445,
+				},
+				{
+					["num"] = 6,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 3,
+					["id"] = 23449,
+				},
+				{
+					["num"] = 2,
+					["id"] = 22824,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -5853,6 +16735,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29643,
 			["productid"] = 23521,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 23445,
+				},
+				{
+					["num"] = 10,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23449,
+				},
+				{
+					["num"] = 4,
+					["id"] = 22824,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -5861,6 +16761,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29645,
 			["productid"] = 23522,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 12,
+					["id"] = 23445,
+				},
+				{
+					["num"] = 10,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 6,
+					["id"] = 23449,
+				},
+				{
+					["num"] = 4,
+					["id"] = 22824,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "370",
 		},
@@ -5869,6 +16787,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29648,
 			["productid"] = 23526,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23448,
+				},
+				{
+					["num"] = 2,
+					["id"] = 22449,
+				},
+				{
+					["num"] = 4,
+					["id"] = 22831,
+				},
+				{
+					["num"] = 4,
+					["id"] = 22451,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "370",
 		},
@@ -5877,6 +16813,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29649,
 			["productid"] = 23527,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23573,
+				},
+				{
+					["num"] = 6,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 4,
+					["id"] = 22452,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "370",
 		},
@@ -5885,6 +16835,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29658,
 			["productid"] = 23531,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 23448,
+				},
+				{
+					["num"] = 3,
+					["id"] = 23571,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -5893,6 +16857,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29662,
 			["productid"] = 23533,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 23448,
+				},
+				{
+					["num"] = 5,
+					["id"] = 23571,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -5901,6 +16879,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29663,
 			["productid"] = 23534,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 23573,
+				},
+				{
+					["num"] = 16,
+					["id"] = 22451,
+				},
+				{
+					["num"] = 16,
+					["id"] = 21885,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -5909,6 +16905,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29664,
 			["productid"] = 23535,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 23573,
+				},
+				{
+					["num"] = 22,
+					["id"] = 22452,
+				},
+				{
+					["num"] = 12,
+					["id"] = 22457,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -5917,6 +16931,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29668,
 			["productid"] = 23536,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 23573,
+				},
+				{
+					["num"] = 3,
+					["id"] = 23571,
+				},
+				{
+					["num"] = 18,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -5925,6 +16957,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29669,
 			["productid"] = 23537,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23448,
+				},
+				{
+					["num"] = 15,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -5933,6 +16979,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29671,
 			["productid"] = 23538,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23573,
+				},
+				{
+					["num"] = 20,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -5941,6 +17001,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29672,
 			["productid"] = 23539,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23573,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23571,
+				},
+				{
+					["num"] = 15,
+					["id"] = 21885,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -5949,6 +17027,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29692,
 			["productid"] = 23540,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 23449,
+				},
+				{
+					["num"] = 10,
+					["id"] = 23448,
+				},
+				{
+					["num"] = 6,
+					["id"] = 23571,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -5957,6 +17053,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29693,
 			["productid"] = 23541,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 20,
+					["id"] = 23449,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23573,
+				},
+				{
+					["num"] = 6,
+					["id"] = 23571,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -5965,6 +17079,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29694,
 			["productid"] = 23542,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 23449,
+				},
+				{
+					["num"] = 10,
+					["id"] = 23448,
+				},
+				{
+					["num"] = 8,
+					["id"] = 23571,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -5973,6 +17105,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29695,
 			["productid"] = 23543,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 23449,
+				},
+				{
+					["num"] = 10,
+					["id"] = 23448,
+				},
+				{
+					["num"] = 8,
+					["id"] = 23571,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -5981,6 +17131,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29696,
 			["productid"] = 23544,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 23449,
+				},
+				{
+					["num"] = 10,
+					["id"] = 23448,
+				},
+				{
+					["num"] = 8,
+					["id"] = 23571,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -5989,6 +17157,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29697,
 			["productid"] = 23546,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 23449,
+				},
+				{
+					["num"] = 10,
+					["id"] = 23448,
+				},
+				{
+					["num"] = 8,
+					["id"] = 23571,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -5997,6 +17183,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29698,
 			["productid"] = 23554,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 23449,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23573,
+				},
+				{
+					["num"] = 10,
+					["id"] = 23447,
+				},
+				{
+					["num"] = 8,
+					["id"] = 23571,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -6005,6 +17213,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29699,
 			["productid"] = 23555,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 23449,
+				},
+				{
+					["num"] = 10,
+					["id"] = 23448,
+				},
+				{
+					["num"] = 8,
+					["id"] = 23571,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -6013,6 +17239,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 29700,
 			["productid"] = 23556,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 23449,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23573,
+				},
+				{
+					["num"] = 10,
+					["id"] = 23447,
+				},
+				{
+					["num"] = 8,
+					["id"] = 23571,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -6021,6 +17269,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 34529,
 			["productid"] = 23563,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 20,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 20,
+					["id"] = 22451,
+				},
+				{
+					["num"] = 6,
+					["id"] = 23573,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23448,
+				},
+				{
+					["num"] = 8,
+					["id"] = 23449,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "350",
 		},
@@ -6029,6 +17299,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 34530,
 			["productid"] = 23564,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23563,
+				},
+				{
+					["num"] = 10,
+					["id"] = 23572,
+				},
+				{
+					["num"] = 10,
+					["id"] = 22457,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -6037,6 +17321,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 34533,
 			["productid"] = 28483,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 23571,
+				},
+				{
+					["num"] = 6,
+					["id"] = 23573,
+				},
+				{
+					["num"] = 6,
+					["id"] = 23447,
+				},
+				{
+					["num"] = 8,
+					["id"] = 23449,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "350",
 		},
@@ -6045,6 +17347,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 34534,
 			["productid"] = 28484,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 28483,
+				},
+				{
+					["num"] = 10,
+					["id"] = 23572,
+				},
+				{
+					["num"] = 10,
+					["id"] = 22457,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "375",
 		},
@@ -6053,6 +17369,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 34535,
 			["productid"] = 28425,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 20,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 20,
+					["id"] = 22457,
+				},
+				{
+					["num"] = 14,
+					["id"] = 23448,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "350",
 		},
@@ -6061,6 +17391,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 34537,
 			["productid"] = 28426,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 28425,
+				},
+				{
+					["num"] = 8,
+					["id"] = 23572,
+				},
+				{
+					["num"] = 10,
+					["id"] = 22451,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "375",
 		},
@@ -6069,6 +17413,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 34538,
 			["productid"] = 28428,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 23571,
+				},
+				{
+					["num"] = 14,
+					["id"] = 23449,
+				},
+				{
+					["num"] = 6,
+					["id"] = 23573,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "350",
 		},
@@ -6077,6 +17435,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 34540,
 			["productid"] = 28429,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 28428,
+				},
+				{
+					["num"] = 8,
+					["id"] = 23572,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23571,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "375",
 		},
@@ -6085,6 +17457,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 34541,
 			["productid"] = 28431,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 5,
+					["id"] = 23571,
+				},
+				{
+					["num"] = 20,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23573,
+				},
+				{
+					["num"] = 12,
+					["id"] = 23448,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "350",
 		},
@@ -6093,6 +17483,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 34542,
 			["productid"] = 28432,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 28431,
+				},
+				{
+					["num"] = 8,
+					["id"] = 23572,
+				},
+				{
+					["num"] = 6,
+					["id"] = 23448,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "375",
 		},
@@ -6101,6 +17505,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 34543,
 			["productid"] = 28434,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 12,
+					["id"] = 22451,
+				},
+				{
+					["num"] = 12,
+					["id"] = 22452,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23571,
+				},
+				{
+					["num"] = 22,
+					["id"] = 23447,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "350",
 		},
@@ -6109,6 +17531,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 34544,
 			["productid"] = 28435,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 28434,
+				},
+				{
+					["num"] = 8,
+					["id"] = 23572,
+				},
+				{
+					["num"] = 10,
+					["id"] = 22457,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "375",
 		},
@@ -6117,6 +17553,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 34545,
 			["productid"] = 28437,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 20,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 20,
+					["id"] = 22452,
+				},
+				{
+					["num"] = 12,
+					["id"] = 23447,
+				},
+				{
+					["num"] = 8,
+					["id"] = 23449,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "350",
 		},
@@ -6125,6 +17579,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 34546,
 			["productid"] = 28438,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 28437,
+				},
+				{
+					["num"] = 8,
+					["id"] = 23572,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23571,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "375",
 		},
@@ -6133,6 +17601,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 34547,
 			["productid"] = 28440,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 20,
+					["id"] = 22451,
+				},
+				{
+					["num"] = 20,
+					["id"] = 21885,
+				},
+				{
+					["num"] = 6,
+					["id"] = 23573,
+				},
+				{
+					["num"] = 12,
+					["id"] = 23449,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "350",
 		},
@@ -6141,6 +17627,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 34548,
 			["productid"] = 28441,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 28440,
+				},
+				{
+					["num"] = 8,
+					["id"] = 23572,
+				},
+				{
+					["num"] = 10,
+					["id"] = 22457,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "375",
 		},
@@ -6149,6 +17649,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 34979,
 			["productid"] = 29201,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 2841,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3470,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2319,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "100",
 		},
@@ -6157,6 +17671,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 34981,
 			["productid"] = 29202,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 5,
+					["id"] = 3859,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7069,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3486,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4234,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "200",
 		},
@@ -6165,6 +17697,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 34982,
 			["productid"] = 29203,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 12655,
+				},
+				{
+					["num"] = 6,
+					["id"] = 12359,
+				},
+				{
+					["num"] = 1,
+					["id"] = 8170,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "300",
 		},
@@ -6173,6 +17719,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 34983,
 			["productid"] = 29204,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23448,
+				},
+				{
+					["num"] = 2,
+					["id"] = 22451,
+				},
+				{
+					["num"] = 2,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23793,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "360",
 		},
@@ -6181,6 +17745,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 36122,
 			["productid"] = 30069,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 16,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7075,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "260",
 		},
@@ -6189,6 +17763,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 36124,
 			["productid"] = 30070,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 16,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7081,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "260",
 		},
@@ -6197,6 +17781,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 36125,
 			["productid"] = 30071,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 12,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 4,
+					["id"] = 7075,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "260",
 		},
@@ -6205,6 +17799,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 36126,
 			["productid"] = 30072,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 12,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 4,
+					["id"] = 7081,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "260",
 		},
@@ -6213,6 +17817,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 36128,
 			["productid"] = 30073,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 12,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 4,
+					["id"] = 7077,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "260",
 		},
@@ -6221,6 +17835,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 36129,
 			["productid"] = 30074,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 23446,
+				},
+				{
+					["num"] = 4,
+					["id"] = 22452,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "330",
 		},
@@ -6229,6 +17853,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 36130,
 			["productid"] = 30076,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 23446,
+				},
+				{
+					["num"] = 2,
+					["id"] = 21885,
+				},
+				{
+					["num"] = 2,
+					["id"] = 22451,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "330",
 		},
@@ -6237,6 +17875,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 36131,
 			["productid"] = 30077,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23446,
+				},
+				{
+					["num"] = 6,
+					["id"] = 22451,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "330",
 		},
@@ -6245,6 +17893,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 36133,
 			["productid"] = 30086,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 23446,
+				},
+				{
+					["num"] = 6,
+					["id"] = 22452,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "330",
 		},
@@ -6253,6 +17911,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 36134,
 			["productid"] = 30087,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 23446,
+				},
+				{
+					["num"] = 3,
+					["id"] = 21885,
+				},
+				{
+					["num"] = 3,
+					["id"] = 22451,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "330",
 		},
@@ -6261,6 +17933,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 36135,
 			["productid"] = 30088,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 23446,
+				},
+				{
+					["num"] = 6,
+					["id"] = 22451,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "330",
 		},
@@ -6269,6 +17951,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 36136,
 			["productid"] = 30089,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 23446,
+				},
+				{
+					["num"] = 6,
+					["id"] = 21884,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "330",
 		},
@@ -6277,6 +17969,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 36137,
 			["productid"] = 30093,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 12,
+					["id"] = 23446,
+				},
+				{
+					["num"] = 6,
+					["id"] = 22452,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "330",
 		},
@@ -6285,6 +17987,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 36256,
 			["productid"] = 23565,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23564,
+				},
+				{
+					["num"] = 2,
+					["id"] = 30183,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -6293,6 +18005,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 36257,
 			["productid"] = 28485,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 28484,
+				},
+				{
+					["num"] = 2,
+					["id"] = 30183,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "375",
 		},
@@ -6301,6 +18023,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 36258,
 			["productid"] = 28427,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 28426,
+				},
+				{
+					["num"] = 5,
+					["id"] = 30183,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "375",
 		},
@@ -6309,6 +18041,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 36259,
 			["productid"] = 28430,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 28429,
+				},
+				{
+					["num"] = 5,
+					["id"] = 30183,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "375",
 		},
@@ -6317,6 +18059,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 36260,
 			["productid"] = 28433,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 28432,
+				},
+				{
+					["num"] = 5,
+					["id"] = 30183,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "375",
 		},
@@ -6325,6 +18077,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 36261,
 			["productid"] = 28436,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 28435,
+				},
+				{
+					["num"] = 5,
+					["id"] = 30183,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "375",
 		},
@@ -6333,6 +18095,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 36262,
 			["productid"] = 28439,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 28438,
+				},
+				{
+					["num"] = 5,
+					["id"] = 30183,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "375",
 		},
@@ -6341,6 +18113,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 36263,
 			["productid"] = 28442,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 28441,
+				},
+				{
+					["num"] = 5,
+					["id"] = 30183,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "375",
 		},
@@ -6349,6 +18131,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 36389,
 			["productid"] = 30034,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 30183,
+				},
+				{
+					["num"] = 5,
+					["id"] = 23573,
+				},
+				{
+					["num"] = 10,
+					["id"] = 21885,
+				},
+				{
+					["num"] = 5,
+					["id"] = 22452,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -6357,6 +18157,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 36390,
 			["productid"] = 30032,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 30183,
+				},
+				{
+					["num"] = 5,
+					["id"] = 23573,
+				},
+				{
+					["num"] = 10,
+					["id"] = 21884,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -6365,6 +18179,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 36391,
 			["productid"] = 30033,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 23572,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23573,
+				},
+				{
+					["num"] = 12,
+					["id"] = 21885,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -6373,6 +18201,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 36392,
 			["productid"] = 30031,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 23572,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23573,
+				},
+				{
+					["num"] = 12,
+					["id"] = 21884,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -6381,6 +18223,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 38473,
 			["productid"] = 31364,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 23448,
+				},
+				{
+					["num"] = 12,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 12,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -6389,6 +18249,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 38475,
 			["productid"] = 31367,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 23448,
+				},
+				{
+					["num"] = 12,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 12,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -6397,6 +18275,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 38476,
 			["productid"] = 31368,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 23448,
+				},
+				{
+					["num"] = 12,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 12,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -6405,6 +18301,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 38477,
 			["productid"] = 31369,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 23449,
+				},
+				{
+					["num"] = 12,
+					["id"] = 21885,
+				},
+				{
+					["num"] = 12,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -6413,6 +18327,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 38478,
 			["productid"] = 31370,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 23449,
+				},
+				{
+					["num"] = 12,
+					["id"] = 21885,
+				},
+				{
+					["num"] = 12,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -6421,6 +18353,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 38479,
 			["productid"] = 31371,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 23449,
+				},
+				{
+					["num"] = 12,
+					["id"] = 21885,
+				},
+				{
+					["num"] = 12,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -6429,6 +18379,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 40033,
 			["productid"] = 32402,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 32428,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22450,
+				},
+				{
+					["num"] = 2,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 4,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23446,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -6437,6 +18409,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 40034,
 			["productid"] = 32403,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32428,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22450,
+				},
+				{
+					["num"] = 2,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 2,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23446,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -6445,6 +18439,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 40035,
 			["productid"] = 32404,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 32428,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22450,
+				},
+				{
+					["num"] = 4,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 6,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 12,
+					["id"] = 23446,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -6453,6 +18469,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 40036,
 			["productid"] = 32401,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 32428,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22450,
+				},
+				{
+					["num"] = 3,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 4,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 8,
+					["id"] = 23446,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -6461,6 +18499,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 41132,
 			["productid"] = 32568,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 14,
+					["id"] = 23448,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23573,
+				},
+				{
+					["num"] = 6,
+					["id"] = 22451,
+				},
+				{
+					["num"] = 4,
+					["id"] = 32428,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -6469,6 +18525,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 41133,
 			["productid"] = 32570,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 18,
+					["id"] = 23448,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23573,
+				},
+				{
+					["num"] = 8,
+					["id"] = 22451,
+				},
+				{
+					["num"] = 2,
+					["id"] = 32428,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -6477,6 +18551,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 41134,
 			["productid"] = 32571,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 14,
+					["id"] = 23449,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23573,
+				},
+				{
+					["num"] = 6,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 4,
+					["id"] = 32428,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -6485,6 +18577,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 41135,
 			["productid"] = 32573,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 18,
+					["id"] = 23449,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23573,
+				},
+				{
+					["num"] = 8,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 2,
+					["id"] = 32428,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -6493,6 +18603,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 42662,
 			["productid"] = 33173,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 12,
+					["id"] = 23445,
+				},
+				{
+					["num"] = 2,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 8,
+					["id"] = 23449,
+				},
+				{
+					["num"] = 2,
+					["id"] = 27503,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -6501,6 +18629,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 43549,
 			["productid"] = 33791,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 2840,
+				},
+				{
+					["num"] = 1,
+					["id"] = 818,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3470,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "35",
 		},
@@ -6509,6 +18651,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 43846,
 			["productid"] = 32854,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 16,
+					["id"] = 23449,
+				},
+				{
+					["num"] = 12,
+					["id"] = 23448,
+				},
+				{
+					["num"] = 6,
+					["id"] = 23571,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -6517,6 +18677,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 46140,
 			["productid"] = 34380,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 35128,
+				},
+				{
+					["num"] = 20,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 6,
+					["id"] = 23571,
+				},
+				{
+					["num"] = 6,
+					["id"] = 34664,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -6525,6 +18703,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 46141,
 			["productid"] = 34378,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 35128,
+				},
+				{
+					["num"] = 12,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 12,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 12,
+					["id"] = 22451,
+				},
+				{
+					["num"] = 6,
+					["id"] = 34664,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -6533,6 +18733,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 46142,
 			["productid"] = 34379,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 20,
+					["id"] = 23449,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23573,
+				},
+				{
+					["num"] = 15,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 15,
+					["id"] = 21885,
+				},
+				{
+					["num"] = 6,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -6541,6 +18763,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 46144,
 			["productid"] = 34377,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 20,
+					["id"] = 23449,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23573,
+				},
+				{
+					["num"] = 10,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 10,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 6,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -6552,6 +18796,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 2149,
 			["productid"] = 2302,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2320,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2318,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "1",
 		},
@@ -6560,6 +18814,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 2152,
 			["productid"] = 2304,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2318,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "1",
 		},
@@ -6568,6 +18828,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 2153,
 			["productid"] = 2303,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2320,
+				},
+				{
+					["num"] = 4,
+					["id"] = 2318,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "15",
 		},
@@ -6576,6 +18846,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 2158,
 			["productid"] = 2307,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2320,
+				},
+				{
+					["num"] = 7,
+					["id"] = 2318,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "90",
 		},
@@ -6584,6 +18864,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 2159,
 			["productid"] = 2308,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 10,
+					["id"] = 2318,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "85",
 		},
@@ -6592,6 +18882,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 2160,
 			["productid"] = 2300,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 2320,
+				},
+				{
+					["num"] = 8,
+					["id"] = 2318,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "40",
 		},
@@ -6600,6 +18900,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 2161,
 			["productid"] = 2309,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 5,
+					["id"] = 2320,
+				},
+				{
+					["num"] = 8,
+					["id"] = 2318,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "55",
 		},
@@ -6608,6 +18918,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 2162,
 			["productid"] = 2310,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2320,
+				},
+				{
+					["num"] = 5,
+					["id"] = 2318,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "60",
 		},
@@ -6616,6 +18936,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 2163,
 			["productid"] = 2311,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2320,
+				},
+				{
+					["num"] = 8,
+					["id"] = 2318,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2324,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "60",
 		},
@@ -6624,6 +18958,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 2164,
 			["productid"] = 2312,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2320,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4231,
+				},
+				{
+					["num"] = 4,
+					["id"] = 2318,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "75",
 		},
@@ -6632,6 +18980,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 2166,
 			["productid"] = 2314,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4231,
+				},
+				{
+					["num"] = 10,
+					["id"] = 2319,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "120",
 		},
@@ -6640,6 +19002,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 2167,
 			["productid"] = 2315,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 4,
+					["id"] = 2319,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4340,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "100",
 		},
@@ -6648,6 +19024,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 2168,
 			["productid"] = 2316,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 8,
+					["id"] = 2319,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4340,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "110",
 		},
@@ -6656,6 +19046,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 2169,
 			["productid"] = 2317,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 6,
+					["id"] = 2319,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4340,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "100",
 		},
@@ -6664,6 +19068,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3753,
 			["productid"] = 4237,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2320,
+				},
+				{
+					["num"] = 6,
+					["id"] = 2318,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "25",
 		},
@@ -6672,6 +19086,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3756,
 			["productid"] = 4239,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2320,
+				},
+				{
+					["num"] = 3,
+					["id"] = 2318,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "55",
 		},
@@ -6680,6 +19104,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3759,
 			["productid"] = 4242,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2320,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4231,
+				},
+				{
+					["num"] = 6,
+					["id"] = 2318,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "75",
 		},
@@ -6688,6 +19126,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3760,
 			["productid"] = 3719,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 5,
+					["id"] = 4234,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "150",
 		},
@@ -6696,6 +19144,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3761,
 			["productid"] = 4243,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 2320,
+				},
+				{
+					["num"] = 3,
+					["id"] = 4231,
+				},
+				{
+					["num"] = 6,
+					["id"] = 2318,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "85",
 		},
@@ -6704,6 +19166,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3762,
 			["productid"] = 4244,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2320,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4243,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4231,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "100",
 		},
@@ -6712,6 +19188,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3763,
 			["productid"] = 4246,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2320,
+				},
+				{
+					["num"] = 6,
+					["id"] = 2318,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "80",
 		},
@@ -6720,6 +19206,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3764,
 			["productid"] = 4247,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 14,
+					["id"] = 2319,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "145",
 		},
@@ -6728,6 +19224,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3765,
 			["productid"] = 4248,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 4233,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2312,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4340,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "120",
 		},
@@ -6736,6 +19250,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3766,
 			["productid"] = 4249,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 4246,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4233,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4340,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "125",
 		},
@@ -6744,6 +19276,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3767,
 			["productid"] = 4250,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3383,
+				},
+				{
+					["num"] = 8,
+					["id"] = 2319,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "120",
 		},
@@ -6752,6 +19298,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3768,
 			["productid"] = 4251,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4233,
+				},
+				{
+					["num"] = 4,
+					["id"] = 2319,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "130",
 		},
@@ -6760,6 +19320,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3769,
 			["productid"] = 4252,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3390,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 12,
+					["id"] = 2319,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4340,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "140",
 		},
@@ -6768,6 +19346,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3770,
 			["productid"] = 4253,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 4,
+					["id"] = 2319,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4233,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3182,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3389,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "135",
 		},
@@ -6776,6 +19376,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3771,
 			["productid"] = 4254,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 6,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 2,
+					["id"] = 5637,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "150",
 		},
@@ -6784,6 +19398,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3772,
 			["productid"] = 4255,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2605,
+				},
+				{
+					["num"] = 4,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 9,
+					["id"] = 4234,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "155",
 		},
@@ -6792,6 +19420,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3773,
 			["productid"] = 4256,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 12,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4236,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3824,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "175",
 		},
@@ -6800,6 +19446,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3774,
 			["productid"] = 4257,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 4236,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 5,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7071,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2605,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "160",
 		},
@@ -6808,6 +19476,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3775,
 			["productid"] = 4258,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 4236,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7071,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "170",
 		},
@@ -6816,6 +19502,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3776,
 			["productid"] = 4259,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 4236,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 6,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2605,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "180",
 		},
@@ -6824,6 +19528,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3777,
 			["productid"] = 4260,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 4236,
+				},
+				{
+					["num"] = 6,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4291,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "195",
 		},
@@ -6832,6 +19550,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3778,
 			["productid"] = 4262,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 4236,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 2,
+					["id"] = 1529,
+				},
+				{
+					["num"] = 2,
+					["id"] = 5500,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3864,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "185",
 		},
@@ -6840,6 +19580,32 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 3779,
 			["productid"] = 4264,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 4096,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4291,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7071,
+				},
+				{
+					["num"] = 1,
+					["id"] = 5633,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4236,
+				},
+				{
+					["num"] = 6,
+					["id"] = 4234,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "200",
 		},
@@ -6848,6 +19614,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 4096,
 			["productid"] = 4455,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 6,
+					["id"] = 4461,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "165",
 		},
@@ -6856,6 +19636,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 4097,
 			["productid"] = 4456,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4461,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "165",
 		},
@@ -6864,6 +19658,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 6661,
 			["productid"] = 5739,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 14,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7071,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "190",
 		},
@@ -6872,6 +19680,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 6702,
 			["productid"] = 5780,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 5784,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 6,
+					["id"] = 2318,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "90",
 		},
@@ -6880,6 +19702,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 6703,
 			["productid"] = 5781,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 12,
+					["id"] = 5784,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4231,
+				},
+				{
+					["num"] = 8,
+					["id"] = 2318,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "95",
 		},
@@ -6888,6 +19728,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 6704,
 			["productid"] = 5782,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 12,
+					["id"] = 5785,
+				},
+				{
+					["num"] = 3,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 10,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4236,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "170",
 		},
@@ -6896,6 +19754,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 6705,
 			["productid"] = 5783,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 16,
+					["id"] = 5785,
+				},
+				{
+					["num"] = 14,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4291,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4236,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "190",
 		},
@@ -6904,6 +19780,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 7126,
 			["productid"] = 5957,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2320,
+				},
+				{
+					["num"] = 3,
+					["id"] = 2318,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "1",
 		},
@@ -6912,6 +19798,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 7133,
 			["productid"] = 5958,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 8,
+					["id"] = 2319,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2997,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "105",
 		},
@@ -6920,6 +19820,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 7135,
 			["productid"] = 5961,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 12,
+					["id"] = 2319,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4340,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "115",
 		},
@@ -6928,6 +19842,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 7147,
 			["productid"] = 5962,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 12,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4305,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "160",
 		},
@@ -6936,6 +19864,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 7149,
 			["productid"] = 5963,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 10,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 1,
+					["id"] = 1206,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "170",
 		},
@@ -6944,6 +19886,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 7151,
 			["productid"] = 5964,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 4236,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 8,
+					["id"] = 4234,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "175",
 		},
@@ -6952,6 +19908,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 7153,
 			["productid"] = 5965,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 14,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4291,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4305,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "185",
 		},
@@ -6960,6 +19930,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 7156,
 			["productid"] = 5966,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 4236,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4291,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "190",
 		},
@@ -6968,6 +19952,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 7953,
 			["productid"] = 6466,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 8,
+					["id"] = 6470,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4231,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "90",
 		},
@@ -6976,6 +19974,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 7954,
 			["productid"] = 6467,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 6,
+					["id"] = 6470,
+				},
+				{
+					["num"] = 2,
+					["id"] = 6471,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "105",
 		},
@@ -6984,6 +19996,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 7955,
 			["productid"] = 6468,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 10,
+					["id"] = 6470,
+				},
+				{
+					["num"] = 10,
+					["id"] = 6471,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "115",
 		},
@@ -6992,6 +20018,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 8322,
 			["productid"] = 6709,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 2320,
+				},
+				{
+					["num"] = 1,
+					["id"] = 5498,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4231,
+				},
+				{
+					["num"] = 6,
+					["id"] = 2318,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "90",
 		},
@@ -7000,6 +20044,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9058,
 			["productid"] = 7276,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2320,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2318,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "1",
 		},
@@ -7008,6 +20062,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9059,
 			["productid"] = 7277,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 2320,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2318,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "1",
 		},
@@ -7016,6 +20080,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9064,
 			["productid"] = 7280,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 5,
+					["id"] = 2320,
+				},
+				{
+					["num"] = 5,
+					["id"] = 2318,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "35",
 		},
@@ -7024,6 +20098,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9065,
 			["productid"] = 7281,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 2320,
+				},
+				{
+					["num"] = 6,
+					["id"] = 2318,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "70",
 		},
@@ -7032,6 +20116,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9068,
 			["productid"] = 7282,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4231,
+				},
+				{
+					["num"] = 10,
+					["id"] = 2318,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "95",
 		},
@@ -7040,6 +20138,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9070,
 			["productid"] = 7283,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 12,
+					["id"] = 7286,
+				},
+				{
+					["num"] = 4,
+					["id"] = 2319,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "100",
 		},
@@ -7048,6 +20160,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9072,
 			["productid"] = 7284,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 6,
+					["id"] = 7287,
+				},
+				{
+					["num"] = 4,
+					["id"] = 2319,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "120",
 		},
@@ -7056,6 +20182,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9074,
 			["productid"] = 7285,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2457,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 6,
+					["id"] = 2319,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "120",
 		},
@@ -7064,6 +20204,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9145,
 			["productid"] = 7348,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 4,
+					["id"] = 5116,
+				},
+				{
+					["num"] = 8,
+					["id"] = 2319,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "125",
 		},
@@ -7072,6 +20226,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9146,
 			["productid"] = 7349,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 4,
+					["id"] = 3356,
+				},
+				{
+					["num"] = 8,
+					["id"] = 2319,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "135",
 		},
@@ -7080,6 +20248,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9147,
 			["productid"] = 7352,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7067,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 6,
+					["id"] = 2319,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "135",
 		},
@@ -7088,6 +20270,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9148,
 			["productid"] = 7358,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 2,
+					["id"] = 5373,
+				},
+				{
+					["num"] = 10,
+					["id"] = 2319,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "140",
 		},
@@ -7096,6 +20292,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9149,
 			["productid"] = 7359,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 7067,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 12,
+					["id"] = 2319,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2997,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "145",
 		},
@@ -7104,6 +20318,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9195,
 			["productid"] = 7373,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 10,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2325,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "165",
 		},
@@ -7112,6 +20340,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9196,
 			["productid"] = 7374,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3824,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "175",
 		},
@@ -7120,6 +20362,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9197,
 			["productid"] = 7375,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 10,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 4,
+					["id"] = 7392,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "175",
 		},
@@ -7128,6 +20384,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9198,
 			["productid"] = 7377,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 7067,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 6,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7070,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "180",
 		},
@@ -7136,6 +20410,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9201,
 			["productid"] = 7378,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 16,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4291,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2325,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "185",
 		},
@@ -7144,6 +20432,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9202,
 			["productid"] = 7386,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4291,
+				},
+				{
+					["num"] = 6,
+					["id"] = 7392,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "190",
 		},
@@ -7152,6 +20454,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9206,
 			["productid"] = 7387,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2325,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4305,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7071,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "195",
 		},
@@ -7160,6 +20480,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9207,
 			["productid"] = 7390,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3824,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4291,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7428,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "200",
 		},
@@ -7168,6 +20506,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 9208,
 			["productid"] = 7391,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 4337,
+				},
+				{
+					["num"] = 10,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2459,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4291,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "200",
 		},
@@ -7176,6 +20532,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 10490,
 			["productid"] = 8174,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 4236,
+				},
+				{
+					["num"] = 12,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4291,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "200",
 		},
@@ -7184,6 +20554,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 10499,
 			["productid"] = 8175,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 4291,
+				},
+				{
+					["num"] = 7,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "205",
 		},
@@ -7192,6 +20572,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 10507,
 			["productid"] = 8176,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 4291,
+				},
+				{
+					["num"] = 5,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "205",
 		},
@@ -7200,6 +20590,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 10509,
 			["productid"] = 8187,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 8,
+					["id"] = 8167,
+				},
+				{
+					["num"] = 6,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "205",
 		},
@@ -7208,6 +20612,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 10511,
 			["productid"] = 8189,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 12,
+					["id"] = 8167,
+				},
+				{
+					["num"] = 6,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "210",
 		},
@@ -7216,6 +20634,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 10516,
 			["productid"] = 8192,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 4291,
+				},
+				{
+					["num"] = 6,
+					["id"] = 4338,
+				},
+				{
+					["num"] = 8,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "210",
 		},
@@ -7224,6 +20656,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 10518,
 			["productid"] = 8198,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 12,
+					["id"] = 8167,
+				},
+				{
+					["num"] = 8,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "210",
 		},
@@ -7232,6 +20678,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 10520,
 			["productid"] = 8200,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 4,
+					["id"] = 8151,
+				},
+				{
+					["num"] = 10,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "215",
 		},
@@ -7240,6 +20700,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 10525,
 			["productid"] = 8203,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 12,
+					["id"] = 8154,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4291,
+				},
+				{
+					["num"] = 12,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "220",
 		},
@@ -7248,6 +20722,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 10529,
 			["productid"] = 8210,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8172,
+				},
+				{
+					["num"] = 1,
+					["id"] = 8153,
+				},
+				{
+					["num"] = 10,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "220",
 		},
@@ -7256,6 +20744,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 10531,
 			["productid"] = 8201,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 6,
+					["id"] = 8151,
+				},
+				{
+					["num"] = 8,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "220",
 		},
@@ -7264,6 +20766,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 10533,
 			["productid"] = 8205,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 8154,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4291,
+				},
+				{
+					["num"] = 10,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "220",
 		},
@@ -7272,6 +20788,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 10542,
 			["productid"] = 8204,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 8154,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4291,
+				},
+				{
+					["num"] = 6,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "225",
 		},
@@ -7280,6 +20810,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 10544,
 			["productid"] = 8211,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8172,
+				},
+				{
+					["num"] = 2,
+					["id"] = 8153,
+				},
+				{
+					["num"] = 12,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "225",
 		},
@@ -7288,6 +20832,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 10546,
 			["productid"] = 8214,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8172,
+				},
+				{
+					["num"] = 2,
+					["id"] = 8153,
+				},
+				{
+					["num"] = 10,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "225",
 		},
@@ -7296,6 +20854,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 10548,
 			["productid"] = 8193,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 4291,
+				},
+				{
+					["num"] = 14,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "230",
 		},
@@ -7304,6 +20872,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 10552,
 			["productid"] = 8191,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 24,
+					["id"] = 8167,
+				},
+				{
+					["num"] = 14,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "230",
 		},
@@ -7312,6 +20894,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 10554,
 			["productid"] = 8209,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 12,
+					["id"] = 8154,
+				},
+				{
+					["num"] = 6,
+					["id"] = 4291,
+				},
+				{
+					["num"] = 12,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "235",
 		},
@@ -7320,6 +20916,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 10556,
 			["productid"] = 8185,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 28,
+					["id"] = 8167,
+				},
+				{
+					["num"] = 14,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "235",
 		},
@@ -7328,6 +20938,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 10558,
 			["productid"] = 8197,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 16,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "235",
 		},
@@ -7336,6 +20956,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 10560,
 			["productid"] = 8202,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 6,
+					["id"] = 8152,
+				},
+				{
+					["num"] = 10,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "240",
 		},
@@ -7344,6 +20978,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 10562,
 			["productid"] = 8216,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 4,
+					["id"] = 8152,
+				},
+				{
+					["num"] = 14,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "240",
 		},
@@ -7352,6 +21000,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 10564,
 			["productid"] = 8207,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 16,
+					["id"] = 8154,
+				},
+				{
+					["num"] = 12,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "240",
 		},
@@ -7360,6 +21022,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 10566,
 			["productid"] = 8213,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 8172,
+				},
+				{
+					["num"] = 4,
+					["id"] = 8153,
+				},
+				{
+					["num"] = 14,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "245",
 		},
@@ -7368,6 +21044,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 10568,
 			["productid"] = 8206,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 8,
+					["id"] = 8154,
+				},
+				{
+					["num"] = 14,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "245",
 		},
@@ -7376,6 +21066,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 10570,
 			["productid"] = 8208,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 20,
+					["id"] = 8154,
+				},
+				{
+					["num"] = 10,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "250",
 		},
@@ -7384,6 +21088,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 10572,
 			["productid"] = 8212,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 8172,
+				},
+				{
+					["num"] = 6,
+					["id"] = 8153,
+				},
+				{
+					["num"] = 16,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "250",
 		},
@@ -7392,6 +21110,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 10574,
 			["productid"] = 8215,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 8172,
+				},
+				{
+					["num"] = 6,
+					["id"] = 8153,
+				},
+				{
+					["num"] = 16,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "250",
 		},
@@ -7400,6 +21132,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 10619,
 			["productid"] = 8347,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 2,
+					["id"] = 8172,
+				},
+				{
+					["num"] = 12,
+					["id"] = 8165,
+				},
+				{
+					["num"] = 24,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "225",
 		},
@@ -7408,6 +21158,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 10621,
 			["productid"] = 8345,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 2,
+					["id"] = 8368,
+				},
+				{
+					["num"] = 2,
+					["id"] = 8172,
+				},
+				{
+					["num"] = 8,
+					["id"] = 8146,
+				},
+				{
+					["num"] = 18,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "225",
 		},
@@ -7416,6 +21188,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 10630,
 			["productid"] = 8346,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7075,
+				},
+				{
+					["num"] = 1,
+					["id"] = 8172,
+				},
+				{
+					["num"] = 8,
+					["id"] = 7079,
+				},
+				{
+					["num"] = 20,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "230",
 		},
@@ -7424,6 +21218,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 10632,
 			["productid"] = 8348,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 4,
+					["id"] = 7075,
+				},
+				{
+					["num"] = 2,
+					["id"] = 8172,
+				},
+				{
+					["num"] = 8,
+					["id"] = 7077,
+				},
+				{
+					["num"] = 40,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "250",
 		},
@@ -7432,6 +21248,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 10647,
 			["productid"] = 8349,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 4,
+					["id"] = 8172,
+				},
+				{
+					["num"] = 40,
+					["id"] = 8168,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7971,
+				},
+				{
+					["num"] = 40,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "250",
 		},
@@ -7440,6 +21278,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 10650,
 			["productid"] = 8367,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 4,
+					["id"] = 8172,
+				},
+				{
+					["num"] = 30,
+					["id"] = 8165,
+				},
+				{
+					["num"] = 40,
+					["id"] = 4304,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "255",
 		},
@@ -7448,6 +21304,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19048,
 			["productid"] = 15077,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 4,
+					["id"] = 15408,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "255",
 		},
@@ -7456,6 +21326,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19049,
 			["productid"] = 15083,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2325,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "260",
 		},
@@ -7464,6 +21348,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19050,
 			["productid"] = 15045,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 20,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 25,
+					["id"] = 15412,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "260",
 		},
@@ -7472,6 +21370,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19051,
 			["productid"] = 15076,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 6,
+					["id"] = 15408,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "265",
 		},
@@ -7480,6 +21392,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19052,
 			["productid"] = 15084,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2325,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "265",
 		},
@@ -7488,6 +21414,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19053,
 			["productid"] = 15074,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 6,
+					["id"] = 15423,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "265",
 		},
@@ -7496,6 +21436,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19054,
 			["productid"] = 15047,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 40,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 30,
+					["id"] = 15414,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -7504,6 +21458,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19055,
 			["productid"] = 15091,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 6,
+					["id"] = 14047,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "270",
 		},
@@ -7512,6 +21480,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19059,
 			["productid"] = 15054,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7075,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7078,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "270",
 		},
@@ -7520,6 +21506,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19060,
 			["productid"] = 15046,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 20,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 25,
+					["id"] = 15412,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "270",
 		},
@@ -7528,6 +21528,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19061,
 			["productid"] = 15061,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 12,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12803,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "270",
 		},
@@ -7536,6 +21550,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19062,
 			["productid"] = 15067,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 24,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 2,
+					["id"] = 1529,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 80,
+					["id"] = 15420,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "270",
 		},
@@ -7544,6 +21576,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19063,
 			["productid"] = 15073,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 8,
+					["id"] = 15423,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "275",
 		},
@@ -7552,6 +21598,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19064,
 			["productid"] = 15078,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 8,
+					["id"] = 15408,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "275",
 		},
@@ -7560,6 +21620,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19065,
 			["productid"] = 15092,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 6,
+					["id"] = 14047,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7971,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "275",
 		},
@@ -7568,6 +21646,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19066,
 			["productid"] = 15071,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 6,
+					["id"] = 15422,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "275",
 		},
@@ -7576,6 +21668,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19067,
 			["productid"] = 15057,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 16,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7080,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7082,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "275",
 		},
@@ -7584,6 +21694,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19068,
 			["productid"] = 15064,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 28,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 12,
+					["id"] = 15419,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "275",
 		},
@@ -7592,6 +21716,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19070,
 			["productid"] = 15082,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 8,
+					["id"] = 15408,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "280",
 		},
@@ -7600,6 +21738,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19071,
 			["productid"] = 15086,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 12,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2325,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "280",
 		},
@@ -7608,6 +21760,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19072,
 			["productid"] = 15093,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 12,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 10,
+					["id"] = 14047,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "280",
 		},
@@ -7616,6 +21782,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19073,
 			["productid"] = 15072,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 8,
+					["id"] = 15423,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "280",
 		},
@@ -7624,6 +21804,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19074,
 			["productid"] = 15069,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 8,
+					["id"] = 15422,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "285",
 		},
@@ -7632,6 +21826,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19075,
 			["productid"] = 15079,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 12,
+					["id"] = 15408,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "285",
 		},
@@ -7640,6 +21848,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19076,
 			["productid"] = 15053,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7076,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7078,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "285",
 		},
@@ -7648,6 +21874,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19077,
 			["productid"] = 15048,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 28,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 30,
+					["id"] = 15415,
+				},
+				{
+					["num"] = 1,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "285",
 		},
@@ -7656,6 +21900,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19078,
 			["productid"] = 15060,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 16,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 1,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 6,
+					["id"] = 12803,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "285",
 		},
@@ -7664,6 +21926,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19079,
 			["productid"] = 15056,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 16,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 3,
+					["id"] = 7080,
+				},
+				{
+					["num"] = 3,
+					["id"] = 7082,
+				},
+				{
+					["num"] = 1,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "285",
 		},
@@ -7672,6 +21956,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19080,
 			["productid"] = 15065,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 24,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 14,
+					["id"] = 15419,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "285",
 		},
@@ -7680,6 +21978,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19081,
 			["productid"] = 15075,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 10,
+					["id"] = 15423,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "290",
 		},
@@ -7688,6 +22000,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19082,
 			["productid"] = 15094,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 14,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 10,
+					["id"] = 14047,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "290",
 		},
@@ -7696,6 +22022,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19083,
 			["productid"] = 15087,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 16,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 1,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 3,
+					["id"] = 2325,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "290",
 		},
@@ -7704,6 +22048,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19084,
 			["productid"] = 15063,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 30,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 8,
+					["id"] = 15417,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "290",
 		},
@@ -7712,6 +22070,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19085,
 			["productid"] = 15050,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 40,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 60,
+					["id"] = 15416,
+				},
+				{
+					["num"] = 1,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "290",
 		},
@@ -7720,6 +22096,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19086,
 			["productid"] = 15066,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 40,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 1,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 1,
+					["id"] = 1529,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 120,
+					["id"] = 15420,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "290",
 		},
@@ -7728,6 +22126,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19087,
 			["productid"] = 15070,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 10,
+					["id"] = 15422,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "295",
 		},
@@ -7736,6 +22148,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19088,
 			["productid"] = 15080,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 12,
+					["id"] = 15408,
+				},
+				{
+					["num"] = 1,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "295",
 		},
@@ -7744,6 +22174,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19089,
 			["productid"] = 15049,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 28,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 30,
+					["id"] = 15415,
+				},
+				{
+					["num"] = 1,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12810,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "295",
 		},
@@ -7752,6 +22204,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19090,
 			["productid"] = 15058,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 12,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 3,
+					["id"] = 7080,
+				},
+				{
+					["num"] = 3,
+					["id"] = 7082,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12810,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "295",
 		},
@@ -7760,6 +22234,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19091,
 			["productid"] = 15095,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 18,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 12,
+					["id"] = 14047,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12810,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -7768,6 +22260,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19092,
 			["productid"] = 15088,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 14,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2325,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -7776,6 +22282,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19093,
 			["productid"] = 15138,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 14044,
+				},
+				{
+					["num"] = 1,
+					["id"] = 15410,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -7784,6 +22304,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19094,
 			["productid"] = 15051,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 44,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 45,
+					["id"] = 15416,
+				},
+				{
+					["num"] = 1,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12810,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -7792,6 +22334,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19095,
 			["productid"] = 15059,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 16,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 1,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 8,
+					["id"] = 12803,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14342,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -7800,6 +22364,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19097,
 			["productid"] = 15062,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 30,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 14,
+					["id"] = 15417,
+				},
+				{
+					["num"] = 1,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -7808,6 +22390,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19098,
 			["productid"] = 15085,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 20,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 6,
+					["id"] = 14256,
+				},
+				{
+					["num"] = 2,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 4,
+					["id"] = 2325,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -7816,6 +22420,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19100,
 			["productid"] = 15081,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 14,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 14,
+					["id"] = 15408,
+				},
+				{
+					["num"] = 1,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -7824,6 +22446,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19101,
 			["productid"] = 15055,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7076,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7078,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -7832,6 +22472,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19102,
 			["productid"] = 15090,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 22,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 16,
+					["id"] = 14047,
+				},
+				{
+					["num"] = 1,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12810,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -7840,6 +22502,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19103,
 			["productid"] = 15096,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 16,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 18,
+					["id"] = 14047,
+				},
+				{
+					["num"] = 1,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12810,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -7848,6 +22532,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19104,
 			["productid"] = 15068,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 12,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 1,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 12,
+					["id"] = 15422,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -7856,6 +22558,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 19107,
 			["productid"] = 15052,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 40,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 60,
+					["id"] = 15416,
+				},
+				{
+					["num"] = 1,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12810,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -7864,6 +22588,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 20853,
 			["productid"] = 16982,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 20,
+					["id"] = 17012,
+				},
+				{
+					["num"] = 6,
+					["id"] = 17010,
+				},
+				{
+					["num"] = 2,
+					["id"] = 17011,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "295",
 		},
@@ -7872,6 +22614,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 20854,
 			["productid"] = 16983,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 15,
+					["id"] = 17012,
+				},
+				{
+					["num"] = 3,
+					["id"] = 17010,
+				},
+				{
+					["num"] = 6,
+					["id"] = 17011,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -7880,6 +22640,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 20855,
 			["productid"] = 16984,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 30,
+					["id"] = 15416,
+				},
+				{
+					["num"] = 3,
+					["id"] = 17011,
+				},
+				{
+					["num"] = 4,
+					["id"] = 17010,
+				},
+				{
+					["num"] = 6,
+					["id"] = 12810,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -7888,6 +22670,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 21943,
 			["productid"] = 17721,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 7067,
+				},
+				{
+					["num"] = 8,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4291,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "190",
 		},
@@ -7896,6 +22692,32 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 22711,
 			["productid"] = 18238,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 1210,
+				},
+				{
+					["num"] = 6,
+					["id"] = 4304,
+				},
+				{
+					["num"] = 1,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4236,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7971,
+				},
+				{
+					["num"] = 8,
+					["id"] = 7428,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "200",
 		},
@@ -7904,6 +22726,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 22815,
 			["productid"] = 18258,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18240,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "285",
 		},
@@ -7912,6 +22752,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 22921,
 			["productid"] = 18504,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 12,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 12,
+					["id"] = 12804,
+				},
+				{
+					["num"] = 2,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -7920,6 +22778,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 22922,
 			["productid"] = 18506,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 12,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 4,
+					["id"] = 11754,
+				},
+				{
+					["num"] = 2,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 6,
+					["id"] = 7082,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -7928,6 +22808,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 22923,
 			["productid"] = 18508,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 18512,
+				},
+				{
+					["num"] = 12,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 4,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 60,
+					["id"] = 15420,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -7936,6 +22838,32 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 22926,
 			["productid"] = 18509,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 30,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 8,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 5,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 30,
+					["id"] = 15414,
+				},
+				{
+					["num"] = 30,
+					["id"] = 15416,
+				},
+				{
+					["num"] = 12,
+					["id"] = 12607,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -7944,6 +22872,32 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 22927,
 			["productid"] = 18510,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 30,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 10,
+					["id"] = 7080,
+				},
+				{
+					["num"] = 8,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 8,
+					["id"] = 18512,
+				},
+				{
+					["num"] = 3,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 12,
+					["id"] = 12803,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -7952,6 +22906,32 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 22928,
 			["productid"] = 18511,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 30,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 12,
+					["id"] = 7082,
+				},
+				{
+					["num"] = 8,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12753,
+				},
+				{
+					["num"] = 4,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 8,
+					["id"] = 12809,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -7960,6 +22940,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 23399,
 			["productid"] = 18948,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 4236,
+				},
+				{
+					["num"] = 8,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 4,
+					["id"] = 5498,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4461,
+				},
+				{
+					["num"] = 4,
+					["id"] = 5637,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "155",
 		},
@@ -7968,6 +22970,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 23703,
 			["productid"] = 19044,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 30,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12804,
+				},
+				{
+					["num"] = 2,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12803,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "290",
 		},
@@ -7976,6 +23000,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 23704,
 			["productid"] = 19049,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 12804,
+				},
+				{
+					["num"] = 6,
+					["id"] = 12803,
+				},
+				{
+					["num"] = 2,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 8,
+					["id"] = 12810,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14227,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -7984,6 +23030,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 23705,
 			["productid"] = 19052,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 30,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 4,
+					["id"] = 7080,
+				},
+				{
+					["num"] = 2,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12809,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "290",
 		},
@@ -7992,6 +23060,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 23706,
 			["productid"] = 19058,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 12803,
+				},
+				{
+					["num"] = 2,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 8,
+					["id"] = 12810,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12809,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -8000,6 +23090,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 23707,
 			["productid"] = 19149,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 5,
+					["id"] = 17011,
+				},
+				{
+					["num"] = 4,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14227,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -8008,6 +23112,32 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 23708,
 			["productid"] = 19157,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 14227,
+				},
+				{
+					["num"] = 4,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 4,
+					["id"] = 17012,
+				},
+				{
+					["num"] = 5,
+					["id"] = 17010,
+				},
+				{
+					["num"] = 2,
+					["id"] = 17011,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12607,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -8016,6 +23146,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 23709,
 			["productid"] = 19162,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 12,
+					["id"] = 17012,
+				},
+				{
+					["num"] = 8,
+					["id"] = 17010,
+				},
+				{
+					["num"] = 4,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 10,
+					["id"] = 12810,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14227,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -8024,6 +23176,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 23710,
 			["productid"] = 19163,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 17010,
+				},
+				{
+					["num"] = 7,
+					["id"] = 17011,
+				},
+				{
+					["num"] = 4,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 6,
+					["id"] = 7076,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14227,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -8032,6 +23206,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 24121,
 			["productid"] = 19685,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 5,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12803,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 14,
+					["id"] = 19767,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -8040,6 +23232,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 24122,
 			["productid"] = 19686,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12803,
+				},
+				{
+					["num"] = 3,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 10,
+					["id"] = 19767,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -8048,6 +23258,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 24123,
 			["productid"] = 19687,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12803,
+				},
+				{
+					["num"] = 3,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 8,
+					["id"] = 19767,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -8056,6 +23284,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 24124,
 			["productid"] = 19688,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 19726,
+				},
+				{
+					["num"] = 35,
+					["id"] = 19768,
+				},
+				{
+					["num"] = 3,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 3,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -8064,6 +23310,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 24125,
 			["productid"] = 19689,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 19726,
+				},
+				{
+					["num"] = 25,
+					["id"] = 19768,
+				},
+				{
+					["num"] = 3,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 3,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -8072,6 +23336,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 24654,
 			["productid"] = 20295,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 28,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 36,
+					["id"] = 15415,
+				},
+				{
+					["num"] = 2,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "300",
 		},
@@ -8080,6 +23362,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 24655,
 			["productid"] = 20296,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 20,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 1,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 30,
+					["id"] = 15412,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "280",
 		},
@@ -8088,6 +23388,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 24703,
 			["productid"] = 20380,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 20381,
+				},
+				{
+					["num"] = 6,
+					["id"] = 14227,
+				},
+				{
+					["num"] = 4,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 12,
+					["id"] = 12810,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12803,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -8096,6 +23418,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 24846,
 			["productid"] = 20481,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 7078,
+				},
+				{
+					["num"] = 1,
+					["id"] = 20500,
+				},
+				{
+					["num"] = 20,
+					["id"] = 20498,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -8104,6 +23440,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 24847,
 			["productid"] = 20480,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 7078,
+				},
+				{
+					["num"] = 2,
+					["id"] = 20500,
+				},
+				{
+					["num"] = 1,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 30,
+					["id"] = 20498,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -8112,6 +23466,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 24848,
 			["productid"] = 20479,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 7078,
+				},
+				{
+					["num"] = 3,
+					["id"] = 20500,
+				},
+				{
+					["num"] = 2,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 40,
+					["id"] = 20498,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -8120,6 +23492,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 24849,
 			["productid"] = 20476,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 18512,
+				},
+				{
+					["num"] = 1,
+					["id"] = 20501,
+				},
+				{
+					["num"] = 20,
+					["id"] = 20498,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -8128,6 +23514,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 24850,
 			["productid"] = 20477,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 18512,
+				},
+				{
+					["num"] = 1,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 2,
+					["id"] = 20501,
+				},
+				{
+					["num"] = 30,
+					["id"] = 20498,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -8136,6 +23540,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 24851,
 			["productid"] = 20478,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 18512,
+				},
+				{
+					["num"] = 2,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 3,
+					["id"] = 20501,
+				},
+				{
+					["num"] = 40,
+					["id"] = 20498,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -8144,6 +23566,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 24940,
 			["productid"] = 20575,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 8,
+					["id"] = 7286,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4231,
+				},
+				{
+					["num"] = 8,
+					["id"] = 2319,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "100",
 		},
@@ -8152,6 +23592,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26279,
 			["productid"] = 21278,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 7080,
+				},
+				{
+					["num"] = 4,
+					["id"] = 7082,
+				},
+				{
+					["num"] = 2,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 6,
+					["id"] = 12810,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14227,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -8160,6 +23622,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 28219,
 			["productid"] = 22661,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 16,
+					["id"] = 12810,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7080,
+				},
+				{
+					["num"] = 4,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 7,
+					["id"] = 22682,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14227,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -8168,6 +23652,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 28220,
 			["productid"] = 22662,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 12,
+					["id"] = 12810,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7080,
+				},
+				{
+					["num"] = 3,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 5,
+					["id"] = 22682,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14227,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -8176,6 +23682,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 28221,
 			["productid"] = 22663,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 12,
+					["id"] = 12810,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7080,
+				},
+				{
+					["num"] = 2,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 4,
+					["id"] = 22682,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14227,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -8184,6 +23712,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 28222,
 			["productid"] = 22664,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 7080,
+				},
+				{
+					["num"] = 24,
+					["id"] = 15408,
+				},
+				{
+					["num"] = 4,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 7,
+					["id"] = 22682,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14227,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -8192,6 +23742,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 28223,
 			["productid"] = 22666,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 7080,
+				},
+				{
+					["num"] = 16,
+					["id"] = 15408,
+				},
+				{
+					["num"] = 3,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 5,
+					["id"] = 22682,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14227,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -8200,6 +23772,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 28224,
 			["productid"] = 22665,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 7080,
+				},
+				{
+					["num"] = 16,
+					["id"] = 15408,
+				},
+				{
+					["num"] = 2,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 4,
+					["id"] = 22682,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14227,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -8208,6 +23802,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 28472,
 			["productid"] = 22759,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 19726,
+				},
+				{
+					["num"] = 2,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 12,
+					["id"] = 12810,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12803,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -8216,6 +23828,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 28473,
 			["productid"] = 22760,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 18512,
+				},
+				{
+					["num"] = 2,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 6,
+					["id"] = 12810,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12803,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -8224,6 +23854,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 28474,
 			["productid"] = 22761,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 15407,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12810,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12803,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -8232,6 +23876,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 32461,
 			["productid"] = 25653,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23571,
+				},
+				{
+					["num"] = 6,
+					["id"] = 22445,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22448,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "350",
 		},
@@ -8240,6 +23902,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 32462,
 			["productid"] = 25654,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 5,
+					["id"] = 21887,
+				},
+				{
+					["num"] = 1,
+					["id"] = 25700,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "310",
 		},
@@ -8248,6 +23924,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 32463,
 			["productid"] = 25655,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 21887,
+				},
+				{
+					["num"] = 1,
+					["id"] = 25700,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "320",
 		},
@@ -8256,6 +23946,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 32464,
 			["productid"] = 25656,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 21887,
+				},
+				{
+					["num"] = 3,
+					["id"] = 25700,
+				},
+				{
+					["num"] = 3,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "320",
 		},
@@ -8264,6 +23968,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 32465,
 			["productid"] = 25657,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 14,
+					["id"] = 21887,
+				},
+				{
+					["num"] = 3,
+					["id"] = 25700,
+				},
+				{
+					["num"] = 3,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "335",
 		},
@@ -8272,6 +23990,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 32466,
 			["productid"] = 25662,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 21887,
+				},
+				{
+					["num"] = 3,
+					["id"] = 25700,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "310",
 		},
@@ -8280,6 +24012,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 32467,
 			["productid"] = 25661,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 21887,
+				},
+				{
+					["num"] = 1,
+					["id"] = 25700,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "320",
 		},
@@ -8288,6 +24034,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 32468,
 			["productid"] = 25660,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 12,
+					["id"] = 21887,
+				},
+				{
+					["num"] = 3,
+					["id"] = 25700,
+				},
+				{
+					["num"] = 3,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "325",
 		},
@@ -8296,6 +24056,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 32469,
 			["productid"] = 25659,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 12,
+					["id"] = 21887,
+				},
+				{
+					["num"] = 2,
+					["id"] = 25700,
+				},
+				{
+					["num"] = 3,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "335",
 		},
@@ -8304,6 +24078,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 32470,
 			["productid"] = 25669,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 21887,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "310",
 		},
@@ -8312,6 +24096,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 32471,
 			["productid"] = 25670,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 21887,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "325",
 		},
@@ -8320,6 +24114,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 32472,
 			["productid"] = 25668,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 21887,
+				},
+				{
+					["num"] = 3,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "320",
 		},
@@ -8328,6 +24132,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 32473,
 			["productid"] = 25671,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 14,
+					["id"] = 21887,
+				},
+				{
+					["num"] = 3,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "330",
 		},
@@ -8336,6 +24150,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 32478,
 			["productid"] = 25673,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 21887,
+				},
+				{
+					["num"] = 3,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "310",
 		},
@@ -8344,6 +24168,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 32479,
 			["productid"] = 25674,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 9,
+					["id"] = 21887,
+				},
+				{
+					["num"] = 3,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "320",
 		},
@@ -8352,6 +24186,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 32480,
 			["productid"] = 25675,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 13,
+					["id"] = 21887,
+				},
+				{
+					["num"] = 3,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "320",
 		},
@@ -8360,6 +24204,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 32481,
 			["productid"] = 25676,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 15,
+					["id"] = 21887,
+				},
+				{
+					["num"] = 3,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "330",
 		},
@@ -8368,6 +24222,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 32485,
 			["productid"] = 25680,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 2,
+					["id"] = 29539,
+				},
+				{
+					["num"] = 8,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4342,
+				},
+				{
+					["num"] = 3,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "350",
 		},
@@ -8376,6 +24252,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 32487,
 			["productid"] = 25681,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 2,
+					["id"] = 29539,
+				},
+				{
+					["num"] = 8,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 4,
+					["id"] = 2325,
+				},
+				{
+					["num"] = 3,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "350",
 		},
@@ -8384,6 +24282,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 32488,
 			["productid"] = 25683,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 2,
+					["id"] = 29539,
+				},
+				{
+					["num"] = 8,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 4,
+					["id"] = 2604,
+				},
+				{
+					["num"] = 3,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "350",
 		},
@@ -8392,6 +24312,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 32489,
 			["productid"] = 25682,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 2,
+					["id"] = 29539,
+				},
+				{
+					["num"] = 8,
+					["id"] = 22452,
+				},
+				{
+					["num"] = 3,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "350",
 		},
@@ -8400,6 +24338,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 32490,
 			["productid"] = 25685,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 6,
+					["id"] = 25707,
+				},
+				{
+					["num"] = 6,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 3,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "340",
 		},
@@ -8408,6 +24364,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 32493,
 			["productid"] = 25686,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 8,
+					["id"] = 25707,
+				},
+				{
+					["num"] = 8,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 3,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "350",
 		},
@@ -8416,6 +24390,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 32494,
 			["productid"] = 25687,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 10,
+					["id"] = 25707,
+				},
+				{
+					["num"] = 10,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 3,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "350",
 		},
@@ -8424,6 +24416,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 32495,
 			["productid"] = 25689,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 40,
+					["id"] = 25708,
+				},
+				{
+					["num"] = 4,
+					["id"] = 22452,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "360",
 		},
@@ -8432,6 +24442,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 32496,
 			["productid"] = 25690,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 34,
+					["id"] = 25708,
+				},
+				{
+					["num"] = 4,
+					["id"] = 22452,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "355",
 		},
@@ -8440,6 +24468,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 32497,
 			["productid"] = 25691,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 20,
+					["id"] = 25708,
+				},
+				{
+					["num"] = 4,
+					["id"] = 22452,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "355",
 		},
@@ -8448,6 +24494,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 32498,
 			["productid"] = 25695,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 4,
+					["id"] = 25707,
+				},
+				{
+					["num"] = 8,
+					["id"] = 25699,
+				},
+				{
+					["num"] = 6,
+					["id"] = 22451,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "350",
 		},
@@ -8456,6 +24524,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 32499,
 			["productid"] = 25697,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 6,
+					["id"] = 25707,
+				},
+				{
+					["num"] = 6,
+					["id"] = 25699,
+				},
+				{
+					["num"] = 4,
+					["id"] = 22451,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "360",
 		},
@@ -8464,6 +24554,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 32500,
 			["productid"] = 25696,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 4,
+					["id"] = 25707,
+				},
+				{
+					["num"] = 8,
+					["id"] = 25699,
+				},
+				{
+					["num"] = 8,
+					["id"] = 22451,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "360",
 		},
@@ -8472,6 +24584,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 32501,
 			["productid"] = 25694,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 8,
+					["id"] = 25699,
+				},
+				{
+					["num"] = 3,
+					["id"] = 21885,
+				},
+				{
+					["num"] = 3,
+					["id"] = 22457,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "340",
 		},
@@ -8480,6 +24614,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 32502,
 			["productid"] = 25692,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 12,
+					["id"] = 25699,
+				},
+				{
+					["num"] = 5,
+					["id"] = 21885,
+				},
+				{
+					["num"] = 5,
+					["id"] = 22457,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "340",
 		},
@@ -8488,6 +24644,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 32503,
 			["productid"] = 25693,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 10,
+					["id"] = 25699,
+				},
+				{
+					["num"] = 4,
+					["id"] = 21885,
+				},
+				{
+					["num"] = 4,
+					["id"] = 22457,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "350",
 		},
@@ -8496,6 +24674,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 35525,
 			["productid"] = 29489,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 12,
+					["id"] = 25700,
+				},
+				{
+					["num"] = 8,
+					["id"] = 22457,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "350",
 		},
@@ -8504,6 +24696,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 35526,
 			["productid"] = 29490,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 10,
+					["id"] = 25700,
+				},
+				{
+					["num"] = 6,
+					["id"] = 22457,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "350",
 		},
@@ -8512,6 +24718,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 35527,
 			["productid"] = 29491,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 10,
+					["id"] = 25700,
+				},
+				{
+					["num"] = 6,
+					["id"] = 22457,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "350",
 		},
@@ -8520,6 +24740,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 35528,
 			["productid"] = 29493,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 8,
+					["id"] = 25699,
+				},
+				{
+					["num"] = 3,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 3,
+					["id"] = 21885,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "350",
 		},
@@ -8528,6 +24766,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 35529,
 			["productid"] = 29492,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 12,
+					["id"] = 25699,
+				},
+				{
+					["num"] = 4,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 4,
+					["id"] = 21885,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "350",
 		},
@@ -8536,6 +24792,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 35531,
 			["productid"] = 29494,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 8,
+					["id"] = 25699,
+				},
+				{
+					["num"] = 3,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 3,
+					["id"] = 21885,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "350",
 		},
@@ -8544,6 +24818,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 35532,
 			["productid"] = 29495,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 24,
+					["id"] = 25708,
+				},
+				{
+					["num"] = 8,
+					["id"] = 22457,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "350",
 		},
@@ -8552,6 +24840,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 35533,
 			["productid"] = 29496,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 16,
+					["id"] = 25708,
+				},
+				{
+					["num"] = 6,
+					["id"] = 22457,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "350",
 		},
@@ -8560,6 +24862,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 35534,
 			["productid"] = 29497,
 			["type"] = "enchant",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 16,
+					["id"] = 25708,
+				},
+				{
+					["num"] = 6,
+					["id"] = 22457,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "350",
 		},
@@ -8568,6 +24884,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 35535,
 			["productid"] = 29498,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 10,
+					["id"] = 25707,
+				},
+				{
+					["num"] = 4,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 4,
+					["id"] = 21885,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "350",
 		},
@@ -8576,6 +24910,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 35536,
 			["productid"] = 29499,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 8,
+					["id"] = 25707,
+				},
+				{
+					["num"] = 3,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 3,
+					["id"] = 21885,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "350",
 		},
@@ -8584,6 +24936,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 35537,
 			["productid"] = 29500,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 6,
+					["id"] = 25707,
+				},
+				{
+					["num"] = 3,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 3,
+					["id"] = 21885,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "350",
 		},
@@ -8592,6 +24962,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 35549,
 			["productid"] = 29533,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 2,
+					["id"] = 29539,
+				},
+				{
+					["num"] = 4,
+					["id"] = 22451,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "335",
 		},
@@ -8600,6 +24984,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 35554,
 			["productid"] = 29535,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 4,
+					["id"] = 29539,
+				},
+				{
+					["num"] = 8,
+					["id"] = 22451,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -8608,6 +25010,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 35555,
 			["productid"] = 29534,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 8,
+					["id"] = 25708,
+				},
+				{
+					["num"] = 4,
+					["id"] = 22452,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "335",
 		},
@@ -8616,6 +25032,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 35557,
 			["productid"] = 29536,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 16,
+					["id"] = 25708,
+				},
+				{
+					["num"] = 8,
+					["id"] = 22452,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -8624,6 +25058,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 35558,
 			["productid"] = 29502,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 10,
+					["id"] = 29539,
+				},
+				{
+					["num"] = 15,
+					["id"] = 22451,
+				},
+				{
+					["num"] = 15,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -8632,6 +25088,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 35559,
 			["productid"] = 29503,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 8,
+					["id"] = 29539,
+				},
+				{
+					["num"] = 12,
+					["id"] = 22451,
+				},
+				{
+					["num"] = 12,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -8640,6 +25118,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 35560,
 			["productid"] = 29504,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 20,
+					["id"] = 29547,
+				},
+				{
+					["num"] = 18,
+					["id"] = 22451,
+				},
+				{
+					["num"] = 10,
+					["id"] = 22457,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -8648,6 +25148,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 35561,
 			["productid"] = 29505,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 20,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 8,
+					["id"] = 21885,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -8656,6 +25174,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 35562,
 			["productid"] = 29506,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 16,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 12,
+					["id"] = 22452,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -8664,6 +25200,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 35563,
 			["productid"] = 29507,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 12,
+					["id"] = 29547,
+				},
+				{
+					["num"] = 18,
+					["id"] = 22452,
+				},
+				{
+					["num"] = 8,
+					["id"] = 22451,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -8672,6 +25230,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 35564,
 			["productid"] = 29508,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 28,
+					["id"] = 29548,
+				},
+				{
+					["num"] = 12,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 12,
+					["id"] = 22457,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -8680,6 +25260,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 35567,
 			["productid"] = 29512,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 24,
+					["id"] = 29548,
+				},
+				{
+					["num"] = 22,
+					["id"] = 22452,
+				},
+				{
+					["num"] = 4,
+					["id"] = 22457,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -8688,6 +25290,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 35568,
 			["productid"] = 29509,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 14,
+					["id"] = 29547,
+				},
+				{
+					["num"] = 14,
+					["id"] = 22451,
+				},
+				{
+					["num"] = 10,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -8696,6 +25320,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 35572,
 			["productid"] = 29510,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 28,
+					["id"] = 29548,
+				},
+				{
+					["num"] = 18,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 12,
+					["id"] = 22457,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -8704,6 +25350,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 35573,
 			["productid"] = 29511,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 24,
+					["id"] = 29548,
+				},
+				{
+					["num"] = 14,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 10,
+					["id"] = 22457,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -8712,6 +25380,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 35574,
 			["productid"] = 29514,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 32,
+					["id"] = 29548,
+				},
+				{
+					["num"] = 20,
+					["id"] = 22452,
+				},
+				{
+					["num"] = 8,
+					["id"] = 22451,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -8720,6 +25410,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 35575,
 			["productid"] = 29515,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 30,
+					["id"] = 29548,
+				},
+				{
+					["num"] = 16,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 16,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "375",
 		},
@@ -8728,6 +25440,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 35576,
 			["productid"] = 29516,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 24,
+					["id"] = 29548,
+				},
+				{
+					["num"] = 12,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 12,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "375",
 		},
@@ -8736,6 +25470,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 35577,
 			["productid"] = 29517,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 18,
+					["id"] = 29548,
+				},
+				{
+					["num"] = 8,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 8,
+					["id"] = 22456,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "375",
 		},
@@ -8744,6 +25496,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 35580,
 			["productid"] = 29519,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 30,
+					["id"] = 29548,
+				},
+				{
+					["num"] = 16,
+					["id"] = 22457,
+				},
+				{
+					["num"] = 16,
+					["id"] = 22451,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "375",
 		},
@@ -8752,6 +25526,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 35582,
 			["productid"] = 29520,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 24,
+					["id"] = 29548,
+				},
+				{
+					["num"] = 12,
+					["id"] = 22457,
+				},
+				{
+					["num"] = 12,
+					["id"] = 22451,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "375",
 		},
@@ -8760,6 +25556,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 35584,
 			["productid"] = 29521,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 18,
+					["id"] = 29548,
+				},
+				{
+					["num"] = 8,
+					["id"] = 22457,
+				},
+				{
+					["num"] = 8,
+					["id"] = 22451,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "375",
 		},
@@ -8768,6 +25582,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 35585,
 			["productid"] = 29522,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 20,
+					["id"] = 29547,
+				},
+				{
+					["num"] = 16,
+					["id"] = 22451,
+				},
+				{
+					["num"] = 3,
+					["id"] = 23571,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "375",
 		},
@@ -8776,6 +25612,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 35587,
 			["productid"] = 29524,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 16,
+					["id"] = 29547,
+				},
+				{
+					["num"] = 12,
+					["id"] = 22451,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23571,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -8784,6 +25642,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 35588,
 			["productid"] = 29523,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 12,
+					["id"] = 29547,
+				},
+				{
+					["num"] = 8,
+					["id"] = 22451,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23571,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -8792,6 +25668,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 35589,
 			["productid"] = 29525,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 6,
+					["id"] = 23571,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "375",
 		},
@@ -8800,6 +25690,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 35590,
 			["productid"] = 29526,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 5,
+					["id"] = 23571,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "375",
 		},
@@ -8808,6 +25712,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 35591,
 			["productid"] = 29527,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 3,
+					["id"] = 23571,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "375",
 		},
@@ -8816,6 +25730,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 36074,
 			["productid"] = 29964,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 8,
+					["id"] = 7081,
+				},
+				{
+					["num"] = 2,
+					["id"] = 8172,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "260",
 		},
@@ -8824,6 +25756,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 36075,
 			["productid"] = 29970,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 40,
+					["id"] = 8168,
+				},
+				{
+					["num"] = 4,
+					["id"] = 8153,
+				},
+				{
+					["num"] = 2,
+					["id"] = 8172,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "260",
 		},
@@ -8832,6 +25786,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 36076,
 			["productid"] = 29971,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 10,
+					["id"] = 8165,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7077,
+				},
+				{
+					["num"] = 2,
+					["id"] = 8172,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "260",
 		},
@@ -8840,6 +25816,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 36077,
 			["productid"] = 29973,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 20,
+					["id"] = 21887,
+				},
+				{
+					["num"] = 2,
+					["id"] = 22451,
+				},
+				{
+					["num"] = 2,
+					["id"] = 22452,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "330",
 		},
@@ -8848,6 +25842,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 36078,
 			["productid"] = 29974,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 20,
+					["id"] = 21887,
+				},
+				{
+					["num"] = 12,
+					["id"] = 25699,
+				},
+				{
+					["num"] = 3,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "330",
 		},
@@ -8856,6 +25868,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 36079,
 			["productid"] = 29975,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 20,
+					["id"] = 21887,
+				},
+				{
+					["num"] = 8,
+					["id"] = 15416,
+				},
+				{
+					["num"] = 3,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "330",
 		},
@@ -8864,6 +25894,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 36349,
 			["productid"] = 30042,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 30183,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 10,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 10,
+					["id"] = 22451,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -8872,6 +25924,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 36351,
 			["productid"] = 30040,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 30183,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 10,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 10,
+					["id"] = 22451,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -8880,6 +25954,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 36352,
 			["productid"] = 30046,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 30183,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 10,
+					["id"] = 22451,
+				},
+				{
+					["num"] = 10,
+					["id"] = 29547,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -8888,6 +25984,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 36353,
 			["productid"] = 30044,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 30183,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 10,
+					["id"] = 21885,
+				},
+				{
+					["num"] = 6,
+					["id"] = 29547,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -8896,6 +26014,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 36355,
 			["productid"] = 30041,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 23572,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 12,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -8904,6 +26040,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 36357,
 			["productid"] = 30039,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 23572,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 12,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -8912,6 +26066,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 36358,
 			["productid"] = 30045,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 23572,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 10,
+					["id"] = 22451,
+				},
+				{
+					["num"] = 6,
+					["id"] = 29547,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -8920,6 +26096,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 36359,
 			["productid"] = 30043,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 23572,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 10,
+					["id"] = 21885,
+				},
+				{
+					["num"] = 6,
+					["id"] = 29547,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -8928,6 +26126,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 39997,
 			["productid"] = 32398,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 32428,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22450,
+				},
+				{
+					["num"] = 2,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 4,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 4,
+					["id"] = 25700,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -8936,6 +26156,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 40000,
 			["productid"] = 32399,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32428,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22450,
+				},
+				{
+					["num"] = 2,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 2,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 2,
+					["id"] = 25700,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -8944,6 +26186,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 40001,
 			["productid"] = 32400,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 32428,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22450,
+				},
+				{
+					["num"] = 4,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 6,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 3,
+					["id"] = 25700,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -8952,6 +26216,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 40002,
 			["productid"] = 32397,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 32428,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22450,
+				},
+				{
+					["num"] = 3,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 4,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 2,
+					["id"] = 25700,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -8960,6 +26246,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 40003,
 			["productid"] = 32394,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 32428,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22450,
+				},
+				{
+					["num"] = 2,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 4,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 4,
+					["id"] = 25707,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -8968,6 +26276,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 40004,
 			["productid"] = 32395,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32428,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22450,
+				},
+				{
+					["num"] = 2,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 2,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 2,
+					["id"] = 25707,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -8976,6 +26306,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 40005,
 			["productid"] = 32396,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 32428,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22450,
+				},
+				{
+					["num"] = 4,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 6,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 3,
+					["id"] = 25707,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -8984,6 +26336,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 40006,
 			["productid"] = 32393,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 32428,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22450,
+				},
+				{
+					["num"] = 3,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 4,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 2,
+					["id"] = 25707,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -8992,6 +26366,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 41156,
 			["productid"] = 32582,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 6,
+					["id"] = 22451,
+				},
+				{
+					["num"] = 6,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 4,
+					["id"] = 32428,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -9000,6 +26392,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 41157,
 			["productid"] = 32583,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 8,
+					["id"] = 22451,
+				},
+				{
+					["num"] = 8,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 2,
+					["id"] = 32428,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -9008,6 +26418,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 41158,
 			["productid"] = 32580,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 10,
+					["id"] = 22451,
+				},
+				{
+					["num"] = 4,
+					["id"] = 32428,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -9016,6 +26440,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 41160,
 			["productid"] = 32581,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 12,
+					["id"] = 22451,
+				},
+				{
+					["num"] = 2,
+					["id"] = 32428,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -9024,6 +26462,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 41161,
 			["productid"] = 32574,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 4,
+					["id"] = 22451,
+				},
+				{
+					["num"] = 4,
+					["id"] = 21885,
+				},
+				{
+					["num"] = 12,
+					["id"] = 29547,
+				},
+				{
+					["num"] = 4,
+					["id"] = 32428,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -9032,6 +26492,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 41162,
 			["productid"] = 32575,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 6,
+					["id"] = 22451,
+				},
+				{
+					["num"] = 6,
+					["id"] = 21885,
+				},
+				{
+					["num"] = 16,
+					["id"] = 29547,
+				},
+				{
+					["num"] = 2,
+					["id"] = 32428,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -9040,6 +26522,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 41163,
 			["productid"] = 32577,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 4,
+					["id"] = 22451,
+				},
+				{
+					["num"] = 4,
+					["id"] = 22452,
+				},
+				{
+					["num"] = 12,
+					["id"] = 29547,
+				},
+				{
+					["num"] = 4,
+					["id"] = 32428,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -9048,6 +26552,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 41164,
 			["productid"] = 32579,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 6,
+					["id"] = 22451,
+				},
+				{
+					["num"] = 6,
+					["id"] = 22452,
+				},
+				{
+					["num"] = 16,
+					["id"] = 29547,
+				},
+				{
+					["num"] = 2,
+					["id"] = 32428,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -9056,6 +26582,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 42546,
 			["productid"] = 33122,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 12,
+					["id"] = 21844,
+				},
+				{
+					["num"] = 12,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "360",
 		},
@@ -9064,6 +26608,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 42731,
 			["productid"] = 33204,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 16,
+					["id"] = 21844,
+				},
+				{
+					["num"] = 12,
+					["id"] = 22452,
+				},
+				{
+					["num"] = 12,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -9072,6 +26638,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 44770,
 			["productid"] = 34207,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 3,
+					["id"] = 22452,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "350",
 		},
@@ -9080,6 +26656,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 44953,
 			["productid"] = 34086,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2840,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2997,
+				},
+				{
+					["num"] = 4,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "285",
 		},
@@ -9088,6 +26682,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 46132,
 			["productid"] = 34372,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 30,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 16,
+					["id"] = 25708,
+				},
+				{
+					["num"] = 18,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 8,
+					["id"] = 23571,
+				},
+				{
+					["num"] = 6,
+					["id"] = 34664,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -9096,6 +26712,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 46133,
 			["productid"] = 34374,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 30,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 16,
+					["id"] = 29547,
+				},
+				{
+					["num"] = 18,
+					["id"] = 22451,
+				},
+				{
+					["num"] = 8,
+					["id"] = 23571,
+				},
+				{
+					["num"] = 6,
+					["id"] = 34664,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -9104,6 +26742,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 46134,
 			["productid"] = 34370,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 30,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 16,
+					["id"] = 25707,
+				},
+				{
+					["num"] = 18,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 8,
+					["id"] = 23571,
+				},
+				{
+					["num"] = 6,
+					["id"] = 34664,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -9112,6 +26772,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 46135,
 			["productid"] = 34376,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 30,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 16,
+					["id"] = 29548,
+				},
+				{
+					["num"] = 18,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 8,
+					["id"] = 23571,
+				},
+				{
+					["num"] = 6,
+					["id"] = 34664,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -9120,6 +26802,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 46136,
 			["productid"] = 34371,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 40,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 24,
+					["id"] = 25708,
+				},
+				{
+					["num"] = 6,
+					["id"] = 23571,
+				},
+				{
+					["num"] = 6,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -9128,6 +26828,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 46137,
 			["productid"] = 34373,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 40,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 24,
+					["id"] = 29547,
+				},
+				{
+					["num"] = 6,
+					["id"] = 23571,
+				},
+				{
+					["num"] = 6,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -9136,6 +26854,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 46138,
 			["productid"] = 34369,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 40,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 24,
+					["id"] = 25707,
+				},
+				{
+					["num"] = 6,
+					["id"] = 23571,
+				},
+				{
+					["num"] = 6,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -9144,6 +26880,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 46139,
 			["productid"] = 34375,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 40,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 24,
+					["id"] = 29548,
+				},
+				{
+					["num"] = 6,
+					["id"] = 23571,
+				},
+				{
+					["num"] = 6,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -9155,6 +26909,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 11459,
 			["productid"] = 9149,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 3575,
+				},
+				{
+					["num"] = 1,
+					["id"] = 9262,
+				},
+				{
+					["num"] = 4,
+					["id"] = 8831,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4625,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "225",
 		},
@@ -9163,6 +26935,36 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 17632,
 			["productid"] = 13503,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 7080,
+				},
+				{
+					["num"] = 8,
+					["id"] = 7082,
+				},
+				{
+					["num"] = 8,
+					["id"] = 7078,
+				},
+				{
+					["num"] = 2,
+					["id"] = 9262,
+				},
+				{
+					["num"] = 8,
+					["id"] = 7076,
+				},
+				{
+					["num"] = 4,
+					["id"] = 13468,
+				},
+				{
+					["num"] = 8,
+					["id"] = 12803,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -9171,6 +26973,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 47046,
 			["productid"] = 35748,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 13503,
+				},
+				{
+					["num"] = 6,
+					["id"] = 22451,
+				},
+				{
+					["num"] = 2,
+					["id"] = 30183,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -9179,6 +26995,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 47048,
 			["productid"] = 35749,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 13503,
+				},
+				{
+					["num"] = 6,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 2,
+					["id"] = 30183,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -9187,6 +27017,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 47049,
 			["productid"] = 35750,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 13503,
+				},
+				{
+					["num"] = 6,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 2,
+					["id"] = 30183,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -9195,6 +27039,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 47050,
 			["productid"] = 35751,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 13503,
+				},
+				{
+					["num"] = 6,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 2,
+					["id"] = 30183,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -9215,6 +27073,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 25280,
 			["productid"] = 20818,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2842,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "50",
 		},
@@ -9223,6 +27087,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 25283,
 			["productid"] = 20821,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 774,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2840,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "30",
 		},
@@ -9231,6 +27105,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 25284,
 			["productid"] = 20820,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 5498,
+				},
+				{
+					["num"] = 1,
+					["id"] = 20817,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2840,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "60",
 		},
@@ -9239,6 +27127,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 25287,
 			["productid"] = 20823,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 1210,
+				},
+				{
+					["num"] = 1,
+					["id"] = 20817,
+				},
+				{
+					["num"] = 2,
+					["id"] = 20816,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "70",
 		},
@@ -9247,6 +27149,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 25305,
 			["productid"] = 20826,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2842,
+				},
+				{
+					["num"] = 1,
+					["id"] = 20817,
+				},
+				{
+					["num"] = 1,
+					["id"] = 1206,
+				},
+				{
+					["num"] = 1,
+					["id"] = 1705,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "90",
 		},
@@ -9255,6 +27175,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 25317,
 			["productid"] = 20827,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2842,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "80",
 		},
@@ -9263,6 +27189,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 25318,
 			["productid"] = 20828,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 1210,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2841,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "100",
 		},
@@ -9271,6 +27207,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 25320,
 			["productid"] = 20831,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3577,
+				},
+				{
+					["num"] = 2,
+					["id"] = 1206,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3391,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "150",
 		},
@@ -9279,6 +27229,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 25321,
 			["productid"] = 20832,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 1705,
+				},
+				{
+					["num"] = 3,
+					["id"] = 5498,
+				},
+				{
+					["num"] = 4,
+					["id"] = 11083,
+				},
+				{
+					["num"] = 4,
+					["id"] = 2842,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3827,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "120",
 		},
@@ -9287,6 +27259,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 25323,
 			["productid"] = 20833,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 1705,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3824,
+				},
+				{
+					["num"] = 4,
+					["id"] = 3575,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "125",
 		},
@@ -9295,6 +27281,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 25339,
 			["productid"] = 20830,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 1705,
+				},
+				{
+					["num"] = 1,
+					["id"] = 20817,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "110",
 		},
@@ -9303,6 +27299,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 25490,
 			["productid"] = 20907,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 2841,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "50",
 		},
@@ -9311,6 +27313,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 25493,
 			["productid"] = 20906,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 20816,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "30",
 		},
@@ -9319,6 +27327,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 25498,
 			["productid"] = 20909,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 3575,
+				},
+				{
+					["num"] = 2,
+					["id"] = 5637,
+				},
+				{
+					["num"] = 2,
+					["id"] = 20817,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "110",
 		},
@@ -9327,6 +27349,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 25610,
 			["productid"] = 20950,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 1206,
+				},
+				{
+					["num"] = 1,
+					["id"] = 20817,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "120",
 		},
@@ -9335,6 +27367,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 25612,
 			["productid"] = 20954,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 3575,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3391,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "125",
 		},
@@ -9343,6 +27385,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 25613,
 			["productid"] = 20955,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 1529,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3577,
+				},
+				{
+					["num"] = 2,
+					["id"] = 20816,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "135",
 		},
@@ -9351,6 +27407,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 25615,
 			["productid"] = 20963,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 3860,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "150",
 		},
@@ -9359,6 +27421,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 25617,
 			["productid"] = 20958,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3864,
+				},
+				{
+					["num"] = 1,
+					["id"] = 20963,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "150",
 		},
@@ -9367,6 +27439,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 25618,
 			["productid"] = 20966,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 1529,
+				},
+				{
+					["num"] = 2,
+					["id"] = 20963,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "160",
 		},
@@ -9375,6 +27457,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 25619,
 			["productid"] = 20959,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 1529,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7067,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "170",
 		},
@@ -9383,6 +27475,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 25620,
 			["productid"] = 20960,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 6037,
+				},
+				{
+					["num"] = 2,
+					["id"] = 20963,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "170",
 		},
@@ -9391,6 +27493,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 25621,
 			["productid"] = 20961,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3864,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7070,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3860,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "180",
 		},
@@ -9399,6 +27515,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 25622,
 			["productid"] = 20967,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3864,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7070,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3577,
+				},
+				{
+					["num"] = 1,
+					["id"] = 20817,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "190",
 		},
@@ -9407,6 +27541,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26872,
 			["productid"] = 21748,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 1529,
+				},
+				{
+					["num"] = 2,
+					["id"] = 6037,
+				},
+				{
+					["num"] = 4,
+					["id"] = 11137,
+				},
+				{
+					["num"] = 4,
+					["id"] = 20963,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "200",
 		},
@@ -9415,6 +27567,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26873,
 			["productid"] = 21756,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 3577,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3864,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "200",
 		},
@@ -9423,6 +27585,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26874,
 			["productid"] = 20964,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 7909,
+				},
+				{
+					["num"] = 4,
+					["id"] = 8151,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "210",
 		},
@@ -9431,6 +27603,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26875,
 			["productid"] = 21758,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 7971,
+				},
+				{
+					["num"] = 4,
+					["id"] = 8151,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "215",
 		},
@@ -9439,6 +27621,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26876,
 			["productid"] = 21755,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7909,
+				},
+				{
+					["num"] = 3,
+					["id"] = 20963,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "220",
 		},
@@ -9447,6 +27639,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26878,
 			["productid"] = 20969,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 7910,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7971,
+				},
+				{
+					["num"] = 4,
+					["id"] = 6037,
+				},
+				{
+					["num"] = 4,
+					["id"] = 21752,
+				},
+				{
+					["num"] = 4,
+					["id"] = 6149,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "225",
 		},
@@ -9455,6 +27669,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26881,
 			["productid"] = 21760,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 7909,
+				},
+				{
+					["num"] = 4,
+					["id"] = 6037,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7075,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7079,
+				},
+				{
+					["num"] = 4,
+					["id"] = 8151,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "225",
 		},
@@ -9463,6 +27699,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26882,
 			["productid"] = 21763,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 7910,
+				},
+				{
+					["num"] = 4,
+					["id"] = 6037,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7077,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7081,
+				},
+				{
+					["num"] = 4,
+					["id"] = 8151,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "235",
 		},
@@ -9471,6 +27729,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26883,
 			["productid"] = 21764,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7910,
+				},
+				{
+					["num"] = 1,
+					["id"] = 21752,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "235",
 		},
@@ -9479,6 +27747,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26885,
 			["productid"] = 21765,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 6037,
+				},
+				{
+					["num"] = 2,
+					["id"] = 10286,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "240",
 		},
@@ -9487,6 +27765,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26887,
 			["productid"] = 21754,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7909,
+				},
+				{
+					["num"] = 1,
+					["id"] = 21752,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "245",
 		},
@@ -9495,6 +27783,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26896,
 			["productid"] = 21753,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 7909,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3864,
+				},
+				{
+					["num"] = 4,
+					["id"] = 21752,
+				},
+				{
+					["num"] = 2,
+					["id"] = 6037,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "250",
 		},
@@ -9503,6 +27809,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26897,
 			["productid"] = 21766,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 12799,
+				},
+				{
+					["num"] = 2,
+					["id"] = 21752,
+				},
+				{
+					["num"] = 4,
+					["id"] = 6037,
+				},
+				{
+					["num"] = 2,
+					["id"] = 11178,
+				},
+				{
+					["num"] = 2,
+					["id"] = 20963,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "250",
 		},
@@ -9511,6 +27839,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26900,
 			["productid"] = 21769,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 7910,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7078,
+				},
+				{
+					["num"] = 4,
+					["id"] = 8152,
+				},
+				{
+					["num"] = 2,
+					["id"] = 6037,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "260",
 		},
@@ -9519,6 +27865,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26902,
 			["productid"] = 21767,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 12799,
+				},
+				{
+					["num"] = 1,
+					["id"] = 21752,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "260",
 		},
@@ -9527,6 +27883,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26903,
 			["productid"] = 21768,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 12361,
+				},
+				{
+					["num"] = 2,
+					["id"] = 6037,
+				},
+				{
+					["num"] = 1,
+					["id"] = 21752,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "275",
 		},
@@ -9535,6 +27905,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26906,
 			["productid"] = 21774,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 12364,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12799,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12361,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12360,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12359,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "275",
 		},
@@ -9543,6 +27935,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26907,
 			["productid"] = 21775,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 21752,
+				},
+				{
+					["num"] = 1,
+					["id"] = 12804,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7076,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "280",
 		},
@@ -9551,6 +27957,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26908,
 			["productid"] = 21790,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 12361,
+				},
+				{
+					["num"] = 1,
+					["id"] = 12808,
+				},
+				{
+					["num"] = 1,
+					["id"] = 21752,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "280",
 		},
@@ -9559,6 +27979,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26909,
 			["productid"] = 21777,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 12364,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12360,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12359,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12804,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "285",
 		},
@@ -9567,6 +28005,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26910,
 			["productid"] = 21778,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 12363,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12808,
+				},
+				{
+					["num"] = 1,
+					["id"] = 12662,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "285",
 		},
@@ -9575,6 +28027,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26911,
 			["productid"] = 21791,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 12364,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12803,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12804,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "290",
 		},
@@ -9583,6 +28049,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26912,
 			["productid"] = 21784,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 18335,
+				},
+				{
+					["num"] = 4,
+					["id"] = 11754,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12800,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12360,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12359,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -9591,6 +28079,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26914,
 			["productid"] = 21789,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 11371,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12360,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7910,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -9599,6 +28101,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26915,
 			["productid"] = 21792,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 12800,
+				},
+				{
+					["num"] = 2,
+					["id"] = 21752,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12360,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "305",
 		},
@@ -9607,6 +28123,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26916,
 			["productid"] = 21779,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 21929,
+				},
+				{
+					["num"] = 4,
+					["id"] = 7078,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12803,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "320",
 		},
@@ -9615,6 +28145,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26920,
 			["productid"] = 21780,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 12359,
+				},
+				{
+					["num"] = 2,
+					["id"] = 11382,
+				},
+				{
+					["num"] = 4,
+					["id"] = 7910,
+				},
+				{
+					["num"] = 2,
+					["id"] = 12938,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "325",
 		},
@@ -9623,6 +28171,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26925,
 			["productid"] = 21931,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 20816,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2840,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "30",
 		},
@@ -9631,6 +28189,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26926,
 			["productid"] = 21932,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 2840,
+				},
+				{
+					["num"] = 2,
+					["id"] = 20816,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "5",
 		},
@@ -9639,6 +28207,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26927,
 			["productid"] = 21933,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2841,
+				},
+				{
+					["num"] = 1,
+					["id"] = 1210,
+				},
+				{
+					["num"] = 1,
+					["id"] = 20816,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "50",
 		},
@@ -9647,6 +28229,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 26928,
 			["productid"] = 21934,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 818,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2840,
+				},
+				{
+					["num"] = 1,
+					["id"] = 20816,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "30",
 		},
@@ -9655,6 +28251,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 28903,
 			["productid"] = 23094,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23077,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
@@ -9663,6 +28265,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 28905,
 			["productid"] = 23095,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23077,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "305",
 		},
@@ -9671,6 +28279,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 28906,
 			["productid"] = 23096,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23077,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "315",
 		},
@@ -9679,6 +28293,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 28907,
 			["productid"] = 23097,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23077,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "325",
 		},
@@ -9687,6 +28307,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31048,
 			["productid"] = 24074,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23445,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23077,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "320",
 		},
@@ -9695,6 +28325,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31049,
 			["productid"] = 24075,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23445,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23112,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "320",
 		},
@@ -9703,6 +28343,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31050,
 			["productid"] = 24076,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23445,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23117,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23079,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "330",
 		},
@@ -9711,6 +28365,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31051,
 			["productid"] = 24077,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 23446,
+				},
+				{
+					["num"] = 1,
+					["id"] = 31079,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "345",
 		},
@@ -9719,6 +28383,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31052,
 			["productid"] = 24078,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23446,
+				},
+				{
+					["num"] = 1,
+					["id"] = 31079,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "345",
 		},
@@ -9727,6 +28401,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31053,
 			["productid"] = 24079,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 23449,
+				},
+				{
+					["num"] = 3,
+					["id"] = 31079,
+				},
+				{
+					["num"] = 3,
+					["id"] = 22456,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "350",
 		},
@@ -9735,6 +28423,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31054,
 			["productid"] = 24080,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 23449,
+				},
+				{
+					["num"] = 4,
+					["id"] = 31079,
+				},
+				{
+					["num"] = 3,
+					["id"] = 21885,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "355",
 		},
@@ -9743,6 +28445,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31055,
 			["productid"] = 24082,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 23449,
+				},
+				{
+					["num"] = 4,
+					["id"] = 31079,
+				},
+				{
+					["num"] = 3,
+					["id"] = 21884,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "355",
 		},
@@ -9751,6 +28467,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31056,
 			["productid"] = 24085,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 23449,
+				},
+				{
+					["num"] = 4,
+					["id"] = 31079,
+				},
+				{
+					["num"] = 3,
+					["id"] = 21886,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "360",
 		},
@@ -9759,6 +28489,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31057,
 			["productid"] = 24086,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 23449,
+				},
+				{
+					["num"] = 4,
+					["id"] = 31079,
+				},
+				{
+					["num"] = 3,
+					["id"] = 22457,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -9767,6 +28511,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31058,
 			["productid"] = 24087,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 23448,
+				},
+				{
+					["num"] = 4,
+					["id"] = 31079,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "345",
 		},
@@ -9775,6 +28529,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31060,
 			["productid"] = 24088,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23447,
+				},
+				{
+					["num"] = 5,
+					["id"] = 31079,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "355",
 		},
@@ -9783,6 +28547,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31061,
 			["productid"] = 24089,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 23447,
+				},
+				{
+					["num"] = 4,
+					["id"] = 31079,
+				},
+				{
+					["num"] = 4,
+					["id"] = 21884,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -9791,6 +28569,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31062,
 			["productid"] = 24092,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 23448,
+				},
+				{
+					["num"] = 6,
+					["id"] = 21885,
+				},
+				{
+					["num"] = 4,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 1,
+					["id"] = 31079,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "360",
 		},
@@ -9799,6 +28595,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31063,
 			["productid"] = 24093,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 23448,
+				},
+				{
+					["num"] = 6,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 4,
+					["id"] = 21885,
+				},
+				{
+					["num"] = 1,
+					["id"] = 31079,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "360",
 		},
@@ -9807,6 +28621,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31064,
 			["productid"] = 24095,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 23448,
+				},
+				{
+					["num"] = 6,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 4,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 1,
+					["id"] = 31079,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "360",
 		},
@@ -9815,6 +28647,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31065,
 			["productid"] = 24097,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 23448,
+				},
+				{
+					["num"] = 6,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 4,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 1,
+					["id"] = 31079,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "360",
 		},
@@ -9823,6 +28673,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31066,
 			["productid"] = 24098,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 23448,
+				},
+				{
+					["num"] = 8,
+					["id"] = 22457,
+				},
+				{
+					["num"] = 1,
+					["id"] = 31079,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "360",
 		},
@@ -9831,6 +28695,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31067,
 			["productid"] = 24106,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 23448,
+				},
+				{
+					["num"] = 3,
+					["id"] = 31079,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "355",
 		},
@@ -9839,6 +28713,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31068,
 			["productid"] = 24110,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23449,
+				},
+				{
+					["num"] = 1,
+					["id"] = 31079,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23436,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "355",
 		},
@@ -9847,6 +28735,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31070,
 			["productid"] = 24114,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 23447,
+				},
+				{
+					["num"] = 3,
+					["id"] = 31079,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "360",
 		},
@@ -9855,6 +28753,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31071,
 			["productid"] = 24116,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 23573,
+				},
+				{
+					["num"] = 2,
+					["id"] = 31079,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23441,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "360",
 		},
@@ -9863,6 +28775,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31072,
 			["productid"] = 24117,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 23447,
+				},
+				{
+					["num"] = 4,
+					["id"] = 31079,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23112,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -9871,6 +28797,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31076,
 			["productid"] = 24121,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 23449,
+				},
+				{
+					["num"] = 4,
+					["id"] = 31079,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23117,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -9879,6 +28819,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31077,
 			["productid"] = 24122,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 20,
+					["id"] = 23449,
+				},
+				{
+					["num"] = 20,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23437,
+				},
+				{
+					["num"] = 5,
+					["id"] = 31079,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "370",
 		},
@@ -9887,6 +28845,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31078,
 			["productid"] = 24123,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 20,
+					["id"] = 23448,
+				},
+				{
+					["num"] = 20,
+					["id"] = 22457,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23438,
+				},
+				{
+					["num"] = 5,
+					["id"] = 31079,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "370",
 		},
@@ -9895,6 +28871,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31079,
 			["productid"] = 24124,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 23448,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23077,
+				},
+				{
+					["num"] = 4,
+					["id"] = 22452,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "370",
 		},
@@ -9903,6 +28893,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31080,
 			["productid"] = 24125,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23449,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23440,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23112,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "370",
 		},
@@ -9911,6 +28915,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31081,
 			["productid"] = 24126,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 23448,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23436,
+				},
+				{
+					["num"] = 4,
+					["id"] = 21884,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "370",
 		},
@@ -9919,6 +28937,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31082,
 			["productid"] = 24127,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 23447,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23437,
+				},
+				{
+					["num"] = 4,
+					["id"] = 22457,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "370",
 		},
@@ -9927,6 +28959,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31083,
 			["productid"] = 24128,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23573,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23441,
+				},
+				{
+					["num"] = 2,
+					["id"] = 22456,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "370",
 		},
@@ -9935,6 +28981,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 31149,
 			["productid"] = 24035,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23438,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "350",
 		},
@@ -9943,6 +28995,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 32178,
 			["productid"] = 25438,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 774,
+				},
+				{
+					["num"] = 1,
+					["id"] = 20816,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "20",
 		},
@@ -9951,6 +29013,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 32179,
 			["productid"] = 25439,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 818,
+				},
+				{
+					["num"] = 1,
+					["id"] = 20816,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "20",
 		},
@@ -9959,6 +29031,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 34069,
 			["productid"] = 28290,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23112,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "325",
 		},
@@ -9967,6 +29045,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 34590,
 			["productid"] = 28595,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23077,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "305",
 		},
@@ -9975,6 +29059,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 34955,
 			["productid"] = 29157,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 3577,
+				},
+				{
+					["num"] = 1,
+					["id"] = 1705,
+				},
+				{
+					["num"] = 1,
+					["id"] = 1529,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3864,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "180",
 		},
@@ -9983,6 +29085,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 34959,
 			["productid"] = 29158,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 6037,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7910,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3864,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "200",
 		},
@@ -9991,6 +29107,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 34960,
 			["productid"] = 29159,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 12800,
+				},
+				{
+					["num"] = 1,
+					["id"] = 21752,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "280",
 		},
@@ -9999,6 +29125,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 34961,
 			["productid"] = 29160,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 12364,
+				},
+				{
+					["num"] = 1,
+					["id"] = 21752,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "290",
 		},
@@ -10007,6 +29143,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 36523,
 			["productid"] = 30419,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 2841,
+				},
+				{
+					["num"] = 1,
+					["id"] = 20817,
+				},
+				{
+					["num"] = 1,
+					["id"] = 1206,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "75",
 		},
@@ -10015,6 +29165,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 36524,
 			["productid"] = 30420,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 1529,
+				},
+				{
+					["num"] = 1,
+					["id"] = 20817,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3575,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "105",
 		},
@@ -10023,6 +29187,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 36525,
 			["productid"] = 30421,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7910,
+				},
+				{
+					["num"] = 1,
+					["id"] = 21752,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "230",
 		},
@@ -10031,6 +29205,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 36526,
 			["productid"] = 30422,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 12800,
+				},
+				{
+					["num"] = 1,
+					["id"] = 21752,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "265",
 		},
@@ -10039,6 +29223,28 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 37818,
 			["productid"] = 30804,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2841,
+				},
+				{
+					["num"] = 1,
+					["id"] = 20817,
+				},
+				{
+					["num"] = 3,
+					["id"] = 774,
+				},
+				{
+					["num"] = 3,
+					["id"] = 818,
+				},
+				{
+					["num"] = 2,
+					["id"] = 1210,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "65",
 		},
@@ -10047,6 +29253,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 37855,
 			["productid"] = 30825,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 23447,
+				},
+				{
+					["num"] = 8,
+					["id"] = 22457,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "360",
 		},
@@ -10055,6 +29271,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 38068,
 			["productid"] = 31079,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 24243,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22452,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "325",
 		},
@@ -10063,6 +29289,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 38175,
 			["productid"] = 31154,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 2841,
+				},
+				{
+					["num"] = 1,
+					["id"] = 20817,
+				},
+				{
+					["num"] = 1,
+					["id"] = 1705,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "80",
 		},
@@ -10071,6 +29311,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 38503,
 			["productid"] = 31398,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 31079,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23449,
+				},
+				{
+					["num"] = 6,
+					["id"] = 21885,
+				},
+				{
+					["num"] = 6,
+					["id"] = 21884,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -10079,6 +29337,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 38504,
 			["productid"] = 31399,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 31079,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23448,
+				},
+				{
+					["num"] = 6,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 6,
+					["id"] = 22456,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -10087,6 +29363,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 40514,
 			["productid"] = 32508,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 22578,
+				},
+				{
+					["num"] = 10,
+					["id"] = 24478,
+				},
+				{
+					["num"] = 1,
+					["id"] = 24479,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "340",
 		},
@@ -10095,6 +29385,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 41414,
 			["productid"] = 32772,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 24478,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23447,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "335",
 		},
@@ -10103,6 +29403,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 41415,
 			["productid"] = 32774,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 24479,
+				},
+				{
+					["num"] = 4,
+					["id"] = 31079,
+				},
+			},
 			["source"] = "trainer",
 			["learnedat"] = "340",
 		},
@@ -10111,6 +29421,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 41418,
 			["productid"] = 32776,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 12,
+					["id"] = 23449,
+				},
+				{
+					["num"] = 4,
+					["id"] = 31079,
+				},
+				{
+					["num"] = 20,
+					["id"] = 24478,
+				},
+				{
+					["num"] = 3,
+					["id"] = 24479,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -10119,6 +29447,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 42558,
 			["productid"] = 33133,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23436,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "360",
 		},
@@ -10127,6 +29461,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 42588,
 			["productid"] = 33134,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23436,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "360",
 		},
@@ -10135,6 +29475,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 42589,
 			["productid"] = 33131,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23436,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "360",
 		},
@@ -10143,6 +29489,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 42590,
 			["productid"] = 33135,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23438,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "360",
 		},
@@ -10151,6 +29503,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 42591,
 			["productid"] = 33143,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23440,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "360",
 		},
@@ -10159,6 +29517,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 42592,
 			["productid"] = 33140,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23440,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "360",
 		},
@@ -10167,6 +29531,12 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 42593,
 			["productid"] = 33144,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23440,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "360",
 		},
@@ -10175,6 +29545,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 46122,
 			["productid"] = 34362,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 35128,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23571,
+				},
+				{
+					["num"] = 12,
+					["id"] = 31079,
+				},
+				{
+					["num"] = 5,
+					["id"] = 34664,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -10183,6 +29571,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 46123,
 			["productid"] = 34363,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 35128,
+				},
+				{
+					["num"] = 20,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 12,
+					["id"] = 31079,
+				},
+				{
+					["num"] = 5,
+					["id"] = 34664,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -10191,6 +29597,24 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 46124,
 			["productid"] = 34361,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 35128,
+				},
+				{
+					["num"] = 20,
+					["id"] = 22451,
+				},
+				{
+					["num"] = 12,
+					["id"] = 31079,
+				},
+				{
+					["num"] = 5,
+					["id"] = 34664,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -10199,6 +29623,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 46125,
 			["productid"] = 34359,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 12,
+					["id"] = 31079,
+				},
+				{
+					["num"] = 3,
+					["id"] = 32227,
+				},
+				{
+					["num"] = 3,
+					["id"] = 32228,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -10207,6 +29645,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 46126,
 			["productid"] = 34360,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 31079,
+				},
+				{
+					["num"] = 6,
+					["id"] = 32249,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -10215,6 +29663,16 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 46127,
 			["productid"] = 34358,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 35128,
+				},
+				{
+					["num"] = 9,
+					["id"] = 23572,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
@@ -10223,6 +29681,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 46775,
 			["productid"] = 35693,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 23449,
+				},
+				{
+					["num"] = 2,
+					["id"] = 32228,
+				},
+				{
+					["num"] = 6,
+					["id"] = 23440,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -10231,6 +29703,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 46776,
 			["productid"] = 35694,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 23449,
+				},
+				{
+					["num"] = 2,
+					["id"] = 32231,
+				},
+				{
+					["num"] = 8,
+					["id"] = 22452,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -10239,6 +29725,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 46777,
 			["productid"] = 35700,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 23447,
+				},
+				{
+					["num"] = 2,
+					["id"] = 32227,
+				},
+				{
+					["num"] = 8,
+					["id"] = 21884,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -10247,6 +29747,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 46778,
 			["productid"] = 35702,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23573,
+				},
+				{
+					["num"] = 2,
+					["id"] = 32230,
+				},
+				{
+					["num"] = 8,
+					["id"] = 22456,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
@@ -10255,6 +29769,20 @@ MakersPath.Professions.AllRecipes = {
 			["spell"] = 46779,
 			["productid"] = 35703,
 			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 23447,
+				},
+				{
+					["num"] = 2,
+					["id"] = 32249,
+				},
+				{
+					["num"] = 8,
+					["id"] = 22457,
+				},
+			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
