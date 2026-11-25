@@ -207,9 +207,7 @@ CharConfig = function()
   MakersPathDB = MakersPathDB or {}
   MakersPathDB.chars = MakersPathDB.chars or {}
 
-  local name  = UnitName("player") or "?"
-  local realm = GetRealmName() or "?"
-  local key   = name .. "-" .. realm
+  local key = MakersPath.Util.CurrentCharKey()
 
   MakersPathDB.chars[key] = MakersPathDB.chars[key] or {}
   return MakersPathDB.chars[key], key
@@ -1627,7 +1625,11 @@ local function WeaponSkillAllows(entry)
     return true
   end
   local me = UnitLevel("player") or 1
-  if me < 10 then return true end
+  local _, _, _, _, _, classID, subClassID = API.GetItemInfoInstant(entry.itemID)
+  local W = C and C.WEAPON_SUB or {}
+  local ranged = classID == (C and C.CLASS_WEAPON or 2) and (subClassID == W.BOWS or subClassID == W.GUNS
+    or subClassID == W.CROSSBOWS or subClassID == W.THROWN)
+  if me < 10 and not ranged then return true end
   if MakersPath and MakersPath.Util and MakersPath.Util.CanUseItemSubType then
     local ok = MakersPath.Util.CanUseItemSubType(itemSubType)
     if ok ~= nil then return ok end
