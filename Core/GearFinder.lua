@@ -1733,8 +1733,8 @@ local SLOT_TO_INV = {
   Trinket1Slot      = { "INVTYPE_TRINKET" },
   MainHandSlot      = { "INVTYPE_WEAPON","INVTYPE_WEAPONMAINHAND","INVTYPE_2HWEAPON" },
   SecondaryHandSlot = { "INVTYPE_WEAPON","INVTYPE_WEAPONOFFHAND","INVTYPE_SHIELD","INVTYPE_HOLDABLE" },
-  RangedSlot        = { "INVTYPE_RANGED","INVTYPE_RANGEDRIGHT","INVTYPE_RELIC" },
-  AmmoSlot          = { "INVTYPE_AMMO","INVTYPE_THROWN" },
+  RangedSlot        = { "INVTYPE_RANGED","INVTYPE_RANGEDRIGHT","INVTYPE_RELIC","INVTYPE_THROWN" },
+  AmmoSlot          = { "INVTYPE_AMMO" },
 }
 
 local function KeysForSlot(slotName) return SLOT_TO_INV[slotName] or {} end
