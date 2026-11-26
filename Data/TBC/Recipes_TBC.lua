@@ -5,6 +5,188 @@ MakersPath.Professions = MakersPath.Professions or {}
 MakersPath.Professions.AllRecipes = {
 	-- First Aid
 	[129] = {
+		[3275] = {
+			["name"] = "Linen Bandage",
+			["spell"] = 3275,
+			["productid"] = 1251,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2589,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "1",
+		},
+		[3276] = {
+			["name"] = "Heavy Linen Bandage",
+			["spell"] = 3276,
+			["productid"] = 2581,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2589,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "40",
+		},
+		[3277] = {
+			["name"] = "Wool Bandage",
+			["spell"] = 3277,
+			["productid"] = 3530,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2592,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "80",
+		},
+		[3278] = {
+			["name"] = "Heavy Wool Bandage",
+			["spell"] = 3278,
+			["productid"] = 3531,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2592,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "115",
+		},
+		[7928] = {
+			["name"] = "Silk Bandage",
+			["spell"] = 7928,
+			["productid"] = 6450,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 4306,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "150",
+		},
+		[7929] = {
+			["name"] = "Heavy Silk Bandage",
+			["spell"] = 7929,
+			["productid"] = 6451,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 4306,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "180",
+		},
+		[7934] = {
+			["name"] = "Anti-Venom",
+			["spell"] = 7934,
+			["productid"] = 6452,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 1475,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "80",
+		},
+		[7935] = {
+			["name"] = "Strong Anti-Venom",
+			["spell"] = 7935,
+			["productid"] = 6453,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 1288,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "130",
+		},
+		[10840] = {
+			["name"] = "Mageweave Bandage",
+			["spell"] = 10840,
+			["productid"] = 8544,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 4338,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "210",
+		},
+		[10841] = {
+			["name"] = "Heavy Mageweave Bandage",
+			["spell"] = 10841,
+			["productid"] = 8545,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 4338,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "240",
+		},
+		[18629] = {
+			["name"] = "Runecloth Bandage",
+			["spell"] = 18629,
+			["productid"] = 14529,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 14047,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "260",
+		},
+		[18630] = {
+			["name"] = "Heavy Runecloth Bandage",
+			["spell"] = 18630,
+			["productid"] = 14530,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 14047,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "290",
+		},
+		[23787] = {
+			["name"] = "Powerful Anti-Venom",
+			["spell"] = 23787,
+			["productid"] = 19440,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 19441,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "300",
+		},
 	},
 	-- Tailoring
 	[197] = {
@@ -321,6 +503,128 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "trainer",
 			["learnedat"] = "100",
+		},
+		[2963] = {
+			["name"] = "Bolt of Linen Cloth",
+			["spell"] = 2963,
+			["productid"] = 2996,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2589,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "1",
+		},
+		[2964] = {
+			["name"] = "Bolt of Woolen Cloth",
+			["spell"] = 2964,
+			["productid"] = 2997,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 2592,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "75",
+		},
+		[3755] = {
+			["name"] = "Linen Bag",
+			["spell"] = 3755,
+			["productid"] = 4238,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 2320,
+				},
+				{
+					["num"] = 3,
+					["id"] = 2996,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "45",
+		},
+		[3757] = {
+			["name"] = "Woolen Bag",
+			["spell"] = 3757,
+			["productid"] = 4240,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 3,
+					["id"] = 2997,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "80",
+		},
+		[3758] = {
+			["name"] = "Green Woolen Bag",
+			["spell"] = 3758,
+			["productid"] = 4241,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2605,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 4,
+					["id"] = 2997,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "95",
+		},
+		[3813] = {
+			["name"] = "Small Silk Pack",
+			["spell"] = 3813,
+			["productid"] = 4245,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 3,
+					["id"] = 4305,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "150",
+		},
+		[3839] = {
+			["name"] = "Bolt of Silk Cloth",
+			["spell"] = 3839,
+			["productid"] = 4305,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 4306,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "125",
 		},
 		[3840] = {
 			["name"] = "Heavy Linen Gloves",
@@ -828,6 +1132,20 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "worlddrop",
 			["learnedat"] = "200",
 		},
+		[3865] = {
+			["name"] = "Bolt of Mageweave",
+			["spell"] = 3865,
+			["productid"] = 4339,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 5,
+					["id"] = 4338,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "175",
+		},
 		[3866] = {
 			["name"] = "Stylish Red Shirt",
 			["spell"] = 3866,
@@ -1044,6 +1362,50 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "trainer",
 			["learnedat"] = "90",
 		},
+		[6686] = {
+			["name"] = "Red Linen Bag",
+			["spell"] = 6686,
+			["productid"] = 5762,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2604,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 4,
+					["id"] = 2996,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "70",
+		},
+		[6688] = {
+			["name"] = "Red Woolen Bag",
+			["spell"] = 6688,
+			["productid"] = 5763,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2604,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 4,
+					["id"] = 2997,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "115",
+		},
 		[6690] = {
 			["name"] = "Lesser Wizard's Robe",
 			["spell"] = 6690,
@@ -1087,6 +1449,54 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "worlddrop",
 			["learnedat"] = "150",
+		},
+		[6693] = {
+			["name"] = "Green Silk Pack",
+			["spell"] = 6693,
+			["productid"] = 5764,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2605,
+				},
+				{
+					["num"] = 3,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 3,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4305,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "175",
+		},
+		[6695] = {
+			["name"] = "Black Silk Pack",
+			["spell"] = 6695,
+			["productid"] = 5765,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2325,
+				},
+				{
+					["num"] = 5,
+					["id"] = 4305,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "185",
 		},
 		[7623] = {
 			["name"] = "Brown Linen Robe",
@@ -2210,6 +2620,24 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "undefined",
 			["learnedat"] = "220",
 		},
+		[12065] = {
+			["name"] = "Mageweave Bag",
+			["spell"] = 12065,
+			["productid"] = 10050,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 4291,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4339,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "225",
+		},
 		[12066] = {
 			["name"] = "Red Mageweave Gloves",
 			["spell"] = 12066,
@@ -2478,6 +2906,28 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "undefined",
 			["learnedat"] = "235",
 		},
+		[12079] = {
+			["name"] = "Red Mageweave Bag",
+			["spell"] = 12079,
+			["productid"] = 10051,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2604,
+				},
+				{
+					["num"] = 2,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4339,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "235",
+		},
 		[12080] = {
 			["name"] = "Pink Mageweave Shirt",
 			["spell"] = 12080,
@@ -2728,6 +3178,20 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "undefined",
 			["learnedat"] = "250",
 		},
+		[18401] = {
+			["name"] = "Bolt of Runecloth",
+			["spell"] = 18401,
+			["productid"] = 14048,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 5,
+					["id"] = 14047,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "250",
+		},
 		[18402] = {
 			["name"] = "Runecloth Belt",
 			["spell"] = 18402,
@@ -2789,6 +3253,28 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "undefined",
 			["learnedat"] = "255",
+		},
+		[18405] = {
+			["name"] = "Runecloth Bag",
+			["spell"] = 18405,
+			["productid"] = 14046,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 5,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "260",
 		},
 		[18406] = {
 			["name"] = "Runecloth Robe",
@@ -3446,6 +3932,28 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "undefined",
 			["learnedat"] = "295",
 		},
+		[18445] = {
+			["name"] = "Mooncloth Bag",
+			["spell"] = 18445,
+			["productid"] = 14155,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14342,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "300",
+		},
 		[18446] = {
 			["name"] = "Wizardweave Robe",
 			["spell"] = 18446,
@@ -3688,6 +4196,36 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
+		[18455] = {
+			["name"] = "Bottomless Bag",
+			["spell"] = 18455,
+			["productid"] = 14156,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 17012,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14344,
+				},
+				{
+					["num"] = 8,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 12,
+					["id"] = 14342,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "300",
+		},
 		[18456] = {
 			["name"] = "Truefaith Vestments",
 			["spell"] = 18456,
@@ -3789,6 +4327,20 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
+		},
+		[18560] = {
+			["name"] = "Mooncloth",
+			["spell"] = 18560,
+			["productid"] = 14342,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 14256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "250",
 		},
 		[19435] = {
 			["name"] = "Mooncloth Boots",
@@ -4466,6 +5018,88 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
+		[26085] = {
+			["name"] = "Soul Pouch",
+			["spell"] = 26085,
+			["productid"] = 21340,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 6,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7972,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "260",
+		},
+		[26086] = {
+			["name"] = "Felcloth Bag",
+			["spell"] = 26086,
+			["productid"] = 21341,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 20520,
+				},
+				{
+					["num"] = 12,
+					["id"] = 14256,
+				},
+				{
+					["num"] = 6,
+					["id"] = 12810,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14227,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "285",
+		},
+		[26087] = {
+			["name"] = "Core Felcloth Bag",
+			["spell"] = 26087,
+			["productid"] = 21342,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 16,
+					["id"] = 17012,
+				},
+				{
+					["num"] = 8,
+					["id"] = 19726,
+				},
+				{
+					["num"] = 20,
+					["id"] = 14256,
+				},
+				{
+					["num"] = 4,
+					["id"] = 7078,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14227,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "300",
+		},
 		[26403] = {
 			["name"] = "Festive Red Dress",
 			["spell"] = 26403,
@@ -4517,6 +5151,128 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "undefined",
 			["learnedat"] = "250",
+		},
+		[27658] = {
+			["name"] = "Enchanted Mageweave Pouch",
+			["spell"] = 27658,
+			["productid"] = 22246,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 11137,
+				},
+				{
+					["num"] = 2,
+					["id"] = 8343,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4339,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "225",
+		},
+		[27659] = {
+			["name"] = "Enchanted Runecloth Bag",
+			["spell"] = 27659,
+			["productid"] = 22248,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 16203,
+				},
+				{
+					["num"] = 5,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "275",
+		},
+		[27660] = {
+			["name"] = "Big Bag of Enchantment",
+			["spell"] = 27660,
+			["productid"] = 22249,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 14344,
+				},
+				{
+					["num"] = 6,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12810,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14227,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "300",
+		},
+		[27724] = {
+			["name"] = "Cenarion Herb Bag",
+			["spell"] = 27724,
+			["productid"] = 22251,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 8831,
+				},
+				{
+					["num"] = 5,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 8,
+					["id"] = 11040,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "275",
+		},
+		[27725] = {
+			["name"] = "Satchel of Cenarius",
+			["spell"] = 27725,
+			["productid"] = 22252,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 13468,
+				},
+				{
+					["num"] = 6,
+					["id"] = 14048,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14342,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14227,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "300",
 		},
 		[28205] = {
 			["name"] = "Glacial Gloves",
@@ -4752,6 +5508,118 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "undefined",
 			["learnedat"] = "275",
 		},
+		[26745] = {
+			["name"] = "Bolt of Netherweave",
+			["spell"] = 26745,
+			["productid"] = 21840,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 21877,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "300",
+		},
+		[26746] = {
+			["name"] = "Netherweave Bag",
+			["spell"] = 26746,
+			["productid"] = 21841,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 21840,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "315",
+		},
+		[26747] = {
+			["name"] = "Bolt of Imbued Netherweave",
+			["spell"] = 26747,
+			["productid"] = 21842,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 21840,
+				},
+				{
+					["num"] = 2,
+					["id"] = 22445,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "325",
+		},
+		[26749] = {
+			["name"] = "Imbued Netherweave Bag",
+			["spell"] = 26749,
+			["productid"] = 21843,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 21842,
+				},
+				{
+					["num"] = 2,
+					["id"] = 21881,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22446,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "340",
+		},
+		[26750] = {
+			["name"] = "Bolt of Soulcloth",
+			["spell"] = 26750,
+			["productid"] = 21844,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 21840,
+				},
+				{
+					["num"] = 8,
+					["id"] = 21882,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "345",
+		},
+		[26751] = {
+			["name"] = "Primal Mooncloth",
+			["spell"] = 26751,
+			["productid"] = 21845,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 21842,
+				},
+				{
+					["num"] = 1,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 1,
+					["id"] = 21885,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
 		[26752] = {
 			["name"] = "Spellfire Belt",
 			["spell"] = 26752,
@@ -4809,6 +5677,28 @@ MakersPath.Professions.AllRecipes = {
 				{
 					["num"] = 16,
 					["id"] = 21884,
+				},
+				{
+					["num"] = 4,
+					["id"] = 21881,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[26755] = {
+			["name"] = "Spellfire Bag",
+			["spell"] = 26755,
+			["productid"] = 21858,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 24271,
+				},
+				{
+					["num"] = 4,
+					["id"] = 22446,
 				},
 				{
 					["num"] = 4,
@@ -4884,6 +5774,24 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
+		[26759] = {
+			["name"] = "Ebon Shadowbag",
+			["spell"] = 26759,
+			["productid"] = 21872,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 24272,
+				},
+				{
+					["num"] = 4,
+					["id"] = 21881,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
 		[26760] = {
 			["name"] = "Primal Mooncloth Belt",
 			["spell"] = 26760,
@@ -4941,6 +5849,24 @@ MakersPath.Professions.AllRecipes = {
 				{
 					["num"] = 12,
 					["id"] = 22457,
+				},
+				{
+					["num"] = 4,
+					["id"] = 21881,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[26763] = {
+			["name"] = "Primal Mooncloth Bag",
+			["spell"] = 26763,
+			["productid"] = 21876,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 21845,
 				},
 				{
 					["num"] = 4,
@@ -5299,6 +6225,108 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "undefined",
 			["learnedat"] = "370",
+		},
+		[31373] = {
+			["name"] = "Spellcloth",
+			["spell"] = 31373,
+			["productid"] = 24271,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 21842,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22457,
+				},
+				{
+					["num"] = 1,
+					["id"] = 21884,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[31430] = {
+			["name"] = "Mystic Spellthread",
+			["spell"] = 31430,
+			["productid"] = 24273,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 5,
+					["id"] = 22457,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "335",
+		},
+		[31431] = {
+			["name"] = "Silver Spellthread",
+			["spell"] = 31431,
+			["productid"] = 24275,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 5,
+					["id"] = 21886,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "335",
+		},
+		[31432] = {
+			["name"] = "Runic Spellthread",
+			["spell"] = 31432,
+			["productid"] = 24274,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 10,
+					["id"] = 22457,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[31433] = {
+			["name"] = "Golden Spellthread",
+			["spell"] = 31433,
+			["productid"] = 24276,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 10,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
 		},
 		[31434] = {
 			["name"] = "Unyielding Bracers",
@@ -5680,6 +6708,38 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
+		[31459] = {
+			["name"] = "Bag of Jewels",
+			["spell"] = 31459,
+			["productid"] = 24270,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 21842,
+				},
+				{
+					["num"] = 4,
+					["id"] = 21887,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "340",
+		},
+		[31460] = {
+			["name"] = "Netherweave Net",
+			["spell"] = 31460,
+			["productid"] = 24268,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 21877,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "300",
+		},
 		[36315] = {
 			["name"] = "Belt of Blasting",
 			["spell"] = 36315,
@@ -5787,6 +6847,28 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
+		},
+		[36686] = {
+			["name"] = "Shadowcloth",
+			["spell"] = 36686,
+			["productid"] = 24272,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 21842,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 1,
+					["id"] = 21884,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
 		},
 		[37873] = {
 			["name"] = "Cloak of Arcane Evasion",
@@ -6292,6 +7374,24 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "undefined",
 			["learnedat"] = "250",
 		},
+		[50194] = {
+			["name"] = "Mycah's Botanical Bag",
+			["spell"] = 50194,
+			["productid"] = 38225,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 21845,
+				},
+				{
+					["num"] = 2,
+					["id"] = 22794,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
 		[50644] = {
 			["name"] = "Haliscan Jacket",
 			["spell"] = 50644,
@@ -6343,6 +7443,38 @@ MakersPath.Professions.AllRecipes = {
 	},
 	-- Engineering
 	[202] = {
+		[3918] = {
+			["name"] = "Rough Blasting Powder",
+			["spell"] = 3918,
+			["productid"] = 4357,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2835,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "1",
+		},
+		[3919] = {
+			["name"] = "Rough Dynamite",
+			["spell"] = 3919,
+			["productid"] = 4358,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 4357,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2589,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "1",
+		},
 		[3920] = {
 			["name"] = "Crafted Light Shot",
 			["spell"] = 3920,
@@ -6361,6 +7493,148 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "undefined",
 			["learnedat"] = "30",
 		},
+		[3922] = {
+			["name"] = "Handful of Copper Bolts",
+			["spell"] = 3922,
+			["productid"] = 4359,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2840,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "30",
+		},
+		[3923] = {
+			["name"] = "Rough Copper Bomb",
+			["spell"] = 3923,
+			["productid"] = 4360,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 4357,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2589,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2840,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4359,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "30",
+		},
+		[3924] = {
+			["name"] = "Copper Tube",
+			["spell"] = 3924,
+			["productid"] = 4361,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2880,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2840,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "50",
+		},
+		[3925] = {
+			["name"] = "Rough Boomstick",
+			["spell"] = 3925,
+			["productid"] = 4362,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 4399,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4361,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4359,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "50",
+		},
+		[3926] = {
+			["name"] = "Copper Modulator",
+			["spell"] = 3926,
+			["productid"] = 4363,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2589,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2840,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4359,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "65",
+		},
+		[3928] = {
+			["name"] = "Mechanical Squirrel",
+			["spell"] = 3928,
+			["productid"] = 4401,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 774,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4363,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2840,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4359,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "75",
+		},
+		[3929] = {
+			["name"] = "Coarse Blasting Powder",
+			["spell"] = 3929,
+			["productid"] = 4364,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2836,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "75",
+		},
 		[3930] = {
 			["name"] = "Crafted Heavy Shot",
 			["spell"] = 3930,
@@ -6378,6 +7652,76 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "trainer",
 			["learnedat"] = "75",
+		},
+		[3931] = {
+			["name"] = "Coarse Dynamite",
+			["spell"] = 3931,
+			["productid"] = 4365,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 4364,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2589,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "75",
+		},
+		[3932] = {
+			["name"] = "Target Dummy",
+			["spell"] = 3932,
+			["productid"] = 4366,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 4359,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4363,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2592,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2841,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "85",
+		},
+		[3933] = {
+			["name"] = "Small Seaforium Charge",
+			["spell"] = 3933,
+			["productid"] = 4367,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 159,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4364,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2318,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4363,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "100",
 		},
 		[3934] = {
 			["name"] = "Flying Tiger Goggles",
@@ -6418,6 +7762,46 @@ MakersPath.Professions.AllRecipes = {
 				{
 					["num"] = 2,
 					["id"] = 2319,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "105",
+		},
+		[3937] = {
+			["name"] = "Large Copper Bomb",
+			["spell"] = 3937,
+			["productid"] = 4370,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 4404,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4364,
+				},
+				{
+					["num"] = 3,
+					["id"] = 2840,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "105",
+		},
+		[3938] = {
+			["name"] = "Bronze Tube",
+			["spell"] = 3938,
+			["productid"] = 4371,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2880,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2841,
 				},
 			},
 			["source"] = "trainer",
@@ -6467,6 +7851,100 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "undefined",
 			["learnedat"] = "120",
 		},
+		[3941] = {
+			["name"] = "Small Bronze Bomb",
+			["spell"] = 3941,
+			["productid"] = 4374,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 4404,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4364,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2592,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2841,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "120",
+		},
+		[3942] = {
+			["name"] = "Whirring Bronze Gizmo",
+			["spell"] = 3942,
+			["productid"] = 4375,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2592,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2841,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "125",
+		},
+		[3944] = {
+			["name"] = "Flame Deflector",
+			["spell"] = 3944,
+			["productid"] = 4376,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 4402,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4375,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "125",
+		},
+		[3945] = {
+			["name"] = "Heavy Blasting Powder",
+			["spell"] = 3945,
+			["productid"] = 4377,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2838,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "125",
+		},
+		[3946] = {
+			["name"] = "Heavy Dynamite",
+			["spell"] = 3946,
+			["productid"] = 4378,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 4377,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2592,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "125",
+		},
 		[3947] = {
 			["name"] = "Crafted Solid Shot",
 			["spell"] = 3947,
@@ -6511,6 +7989,76 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "trainer",
 			["learnedat"] = "130",
 		},
+		[3950] = {
+			["name"] = "Big Bronze Bomb",
+			["spell"] = 3950,
+			["productid"] = 4380,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 4404,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4377,
+				},
+				{
+					["num"] = 3,
+					["id"] = 2841,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "140",
+		},
+		[3952] = {
+			["name"] = "Minor Recombobulator",
+			["spell"] = 3952,
+			["productid"] = 4381,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 4375,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4371,
+				},
+				{
+					["num"] = 1,
+					["id"] = 1206,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2319,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "140",
+		},
+		[3953] = {
+			["name"] = "Bronze Framework",
+			["spell"] = 3953,
+			["productid"] = 4382,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2319,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2592,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2841,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "145",
+		},
 		[3954] = {
 			["name"] = "Moonsight Rifle",
 			["spell"] = 3954,
@@ -6537,6 +8085,32 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "undefined",
 			["learnedat"] = "145",
 		},
+		[3955] = {
+			["name"] = "Explosive Sheep",
+			["spell"] = 3955,
+			["productid"] = 4384,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 4382,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4377,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2592,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4375,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "150",
+		},
 		[3956] = {
 			["name"] = "Green Tinted Goggles",
 			["spell"] = 3956,
@@ -6559,6 +8133,182 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "trainer",
 			["learnedat"] = "150",
 		},
+		[3957] = {
+			["name"] = "Ice Deflector",
+			["spell"] = 3957,
+			["productid"] = 4386,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3829,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4375,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "155",
+		},
+		[3958] = {
+			["name"] = "Iron Strut",
+			["spell"] = 3958,
+			["productid"] = 4387,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 3575,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "160",
+		},
+		[3959] = {
+			["name"] = "Discombobulator Ray",
+			["spell"] = 3959,
+			["productid"] = 4388,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 4375,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4371,
+				},
+				{
+					["num"] = 1,
+					["id"] = 1529,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4306,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "160",
+		},
+		[3960] = {
+			["name"] = "Portable Bronze Mortar",
+			["spell"] = 3960,
+			["productid"] = 4403,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 4371,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4387,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4377,
+				},
+				{
+					["num"] = 4,
+					["id"] = 2319,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "165",
+		},
+		[3961] = {
+			["name"] = "Gyrochronatom",
+			["spell"] = 3961,
+			["productid"] = 4389,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3575,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10558,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "170",
+		},
+		[3962] = {
+			["name"] = "Iron Grenade",
+			["spell"] = 3962,
+			["productid"] = 4390,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3575,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4377,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4306,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "175",
+		},
+		[3963] = {
+			["name"] = "Compact Harvest Reaper Kit",
+			["spell"] = 3963,
+			["productid"] = 4391,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 4382,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4389,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4387,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "175",
+		},
+		[3965] = {
+			["name"] = "Advanced Target Dummy",
+			["spell"] = 3965,
+			["productid"] = 4392,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 4382,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4389,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4387,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "185",
+		},
 		[3966] = {
 			["name"] = "Craftsman's Monocle",
 			["spell"] = 3966,
@@ -6576,6 +8326,540 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "undefined",
 			["learnedat"] = "185",
+		},
+		[3967] = {
+			["name"] = "Big Iron Bomb",
+			["spell"] = 3967,
+			["productid"] = 4394,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 4404,
+				},
+				{
+					["num"] = 3,
+					["id"] = 3575,
+				},
+				{
+					["num"] = 3,
+					["id"] = 4377,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "190",
+		},
+		[3968] = {
+			["name"] = "Goblin Land Mine",
+			["spell"] = 3968,
+			["productid"] = 4395,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 3575,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4389,
+				},
+				{
+					["num"] = 3,
+					["id"] = 4377,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "195",
+		},
+		[3969] = {
+			["name"] = "Mechanical Dragonling",
+			["spell"] = 3969,
+			["productid"] = 4396,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 4382,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4389,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4387,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7191,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3864,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "200",
+		},
+		[3971] = {
+			["name"] = "Gnomish Cloaking Device",
+			["spell"] = 3971,
+			["productid"] = 4397,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7191,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4389,
+				},
+				{
+					["num"] = 2,
+					["id"] = 1529,
+				},
+				{
+					["num"] = 2,
+					["id"] = 1705,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3864,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "200",
+		},
+		[3972] = {
+			["name"] = "Large Seaforium Charge",
+			["spell"] = 3972,
+			["productid"] = 4398,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 159,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 2,
+					["id"] = 10505,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "200",
+		},
+		[3973] = {
+			["name"] = "Silver Contact",
+			["spell"] = 3973,
+			["productid"] = 4404,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2842,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "90",
+		},
+		[3977] = {
+			["name"] = "Crude Scope",
+			["spell"] = 3977,
+			["productid"] = 4405,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 774,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4361,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4359,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "60",
+		},
+		[3978] = {
+			["name"] = "Standard Scope",
+			["spell"] = 3978,
+			["productid"] = 4406,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 4371,
+				},
+				{
+					["num"] = 1,
+					["id"] = 1206,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "110",
+		},
+		[3979] = {
+			["name"] = "Accurate Scope",
+			["spell"] = 3979,
+			["productid"] = 4407,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 4371,
+				},
+				{
+					["num"] = 1,
+					["id"] = 1529,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3864,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "180",
+		},
+		[6458] = {
+			["name"] = "Ornate Spyglass",
+			["spell"] = 6458,
+			["productid"] = 5507,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 4371,
+				},
+				{
+					["num"] = 1,
+					["id"] = 1206,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4363,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4375,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "135",
+		},
+		[7430] = {
+			["name"] = "Arclight Spanner",
+			["spell"] = 7430,
+			["productid"] = 6219,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 2840,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "50",
+		},
+		[8243] = {
+			["name"] = "Flash Bomb",
+			["spell"] = 8243,
+			["productid"] = 4852,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 4611,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4377,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4306,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "185",
+		},
+		[8334] = {
+			["name"] = "Practice Lock",
+			["spell"] = 8334,
+			["productid"] = 6712,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2880,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4359,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2841,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "100",
+		},
+		[8339] = {
+			["name"] = "EZ-Thro Dynamite",
+			["spell"] = 8339,
+			["productid"] = 6714,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 4364,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2592,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "100",
+		},
+		[8895] = {
+			["name"] = "Goblin Rocket Boots",
+			["spell"] = 8895,
+			["productid"] = 7189,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 10026,
+				},
+				{
+					["num"] = 2,
+					["id"] = 9061,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10560,
+				},
+				{
+					["num"] = 2,
+					["id"] = 10559,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "225",
+		},
+		[9269] = {
+			["name"] = "Gnomish Universal Remote",
+			["spell"] = 9269,
+			["productid"] = 7506,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 818,
+				},
+				{
+					["num"] = 1,
+					["id"] = 774,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4375,
+				},
+				{
+					["num"] = 2,
+					["id"] = 814,
+				},
+				{
+					["num"] = 6,
+					["id"] = 2841,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "125",
+		},
+		[9271] = {
+			["name"] = "Aquadynamic Fish Attractor",
+			["spell"] = 9271,
+			["productid"] = 6533,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 4364,
+				},
+				{
+					["num"] = 1,
+					["id"] = 6530,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2841,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "150",
+		},
+		[9273] = {
+			["name"] = "Goblin Jumper Cables",
+			["spell"] = 9273,
+			["productid"] = 7148,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 1210,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4306,
+				},
+				{
+					["num"] = 6,
+					["id"] = 3575,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7191,
+				},
+				{
+					["num"] = 2,
+					["id"] = 814,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4375,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "165",
+		},
+		[12584] = {
+			["name"] = "Gold Power Core",
+			["spell"] = 12584,
+			["productid"] = 10558,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3577,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "150",
+		},
+		[12585] = {
+			["name"] = "Solid Blasting Powder",
+			["spell"] = 12585,
+			["productid"] = 10505,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 7912,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "175",
+		},
+		[12586] = {
+			["name"] = "Solid Dynamite",
+			["spell"] = 12586,
+			["productid"] = 10507,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 10505,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4306,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "175",
+		},
+		[12587] = {
+			["name"] = "Bright-Eye Goggles",
+			["spell"] = 12587,
+			["productid"] = 10499,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3864,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "175",
+		},
+		[12589] = {
+			["name"] = "Mithril Tube",
+			["spell"] = 12589,
+			["productid"] = 10559,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 3860,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "195",
+		},
+		[12590] = {
+			["name"] = "Gyromatic Micro-Adjustor",
+			["spell"] = 12590,
+			["productid"] = 10498,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 3859,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "175",
+		},
+		[12591] = {
+			["name"] = "Unstable Trigger",
+			["spell"] = 12591,
+			["productid"] = 10560,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10505,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4338,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "200",
 		},
 		[12594] = {
 			["name"] = "Fire Goggles",
@@ -6651,6 +8935,28 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "trainer",
 			["learnedat"] = "210",
 		},
+		[12597] = {
+			["name"] = "Deadly Scope",
+			["spell"] = 12597,
+			["productid"] = 10546,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 7909,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10559,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4304,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "210",
+		},
 		[12599] = {
 			["name"] = "Mithril Casing",
 			["spell"] = 12599,
@@ -6660,6 +8966,28 @@ MakersPath.Professions.AllRecipes = {
 				{
 					["num"] = 3,
 					["id"] = 3860,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "215",
+		},
+		[12603] = {
+			["name"] = "Mithril Frag Bomb",
+			["spell"] = 12603,
+			["productid"] = 10514,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 10561,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10560,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10505,
 				},
 			},
 			["source"] = "trainer",
@@ -6809,6 +9137,50 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "trainer",
 			["learnedat"] = "230",
 		},
+		[12619] = {
+			["name"] = "Hi-Explosive Bomb",
+			["spell"] = 12619,
+			["productid"] = 10562,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 10561,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10560,
+				},
+				{
+					["num"] = 2,
+					["id"] = 10505,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "235",
+		},
+		[12620] = {
+			["name"] = "Sniper Scope",
+			["spell"] = 12620,
+			["productid"] = 10548,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7910,
+				},
+				{
+					["num"] = 2,
+					["id"] = 6037,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10559,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "240",
+		},
 		[12621] = {
 			["name"] = "Mithril Gyro-Shot",
 			["spell"] = 12621,
@@ -6826,6 +9198,118 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "trainer",
 			["learnedat"] = "245",
+		},
+		[12622] = {
+			["name"] = "Green Lens",
+			["spell"] = 12622,
+			["productid"] = 10504,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 10286,
+				},
+				{
+					["num"] = 3,
+					["id"] = 7909,
+				},
+				{
+					["num"] = 2,
+					["id"] = 8153,
+				},
+				{
+					["num"] = 3,
+					["id"] = 1529,
+				},
+				{
+					["num"] = 8,
+					["id"] = 4304,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "245",
+		},
+		[12624] = {
+			["name"] = "Mithril Mechanical Dragonling",
+			["spell"] = 12624,
+			["productid"] = 10576,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 9061,
+				},
+				{
+					["num"] = 2,
+					["id"] = 9060,
+				},
+				{
+					["num"] = 14,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 4,
+					["id"] = 7077,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7910,
+				},
+				{
+					["num"] = 4,
+					["id"] = 6037,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "250",
+		},
+		[12715] = {
+			["name"] = "Goblin Rocket Fuel Recipe",
+			["spell"] = 12715,
+			["productid"] = 10644,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 10647,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10648,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "205",
+		},
+		[12716] = {
+			["name"] = "Goblin Mortar",
+			["spell"] = 12716,
+			["productid"] = 10577,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 10559,
+				},
+				{
+					["num"] = 4,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 5,
+					["id"] = 10505,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10558,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7068,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "225",
 		},
 		[12717] = {
 			["name"] = "Goblin Mining Helmet",
@@ -6870,6 +9354,62 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "trainer",
 			["learnedat"] = "205",
+		},
+		[12754] = {
+			["name"] = "The Big One",
+			["spell"] = 12754,
+			["productid"] = 10586,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 9061,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10561,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10560,
+				},
+				{
+					["num"] = 6,
+					["id"] = 10507,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "235",
+		},
+		[12755] = {
+			["name"] = "Goblin Bomb Dispenser",
+			["spell"] = 12755,
+			["productid"] = 10587,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 10505,
+				},
+				{
+					["num"] = 2,
+					["id"] = 10561,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10560,
+				},
+				{
+					["num"] = 6,
+					["id"] = 6037,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4407,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "230",
 		},
 		[12758] = {
 			["name"] = "Goblin Rocket Helmet",
@@ -6926,6 +9466,46 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "trainer",
 			["learnedat"] = "240",
+		},
+		[12760] = {
+			["name"] = "Goblin Sapper Charge",
+			["spell"] = 12760,
+			["productid"] = 10646,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 10560,
+				},
+				{
+					["num"] = 3,
+					["id"] = 10505,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4338,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "205",
+		},
+		[12895] = {
+			["name"] = "Inlaid Mithril Cylinder Plans",
+			["spell"] = 12895,
+			["productid"] = 10713,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 10647,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10648,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "205",
 		},
 		[12897] = {
 			["name"] = "Gnomish Goggles",
@@ -7077,6 +9657,40 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "trainer",
 			["learnedat"] = "225",
 		},
+		[12906] = {
+			["name"] = "Gnomish Battle Chicken",
+			["spell"] = 12906,
+			["productid"] = 10725,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 9060,
+				},
+				{
+					["num"] = 6,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10561,
+				},
+				{
+					["num"] = 6,
+					["id"] = 6037,
+				},
+				{
+					["num"] = 2,
+					["id"] = 1529,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10558,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "230",
+		},
 		[12907] = {
 			["name"] = "Gnomish Mind Control Cap",
 			["spell"] = 12907,
@@ -7137,6 +9751,190 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "trainer",
 			["learnedat"] = "240",
 		},
+		[13240] = {
+			["name"] = "The Mortar: Reloaded",
+			["spell"] = 13240,
+			["productid"] = 10577,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 10505,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10577,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3860,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "205",
+		},
+		[15255] = {
+			["name"] = "Mechanical Repair Kit",
+			["spell"] = 15255,
+			["productid"] = 11590,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10505,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4338,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "200",
+		},
+		[15628] = {
+			["name"] = "Pet Bombling",
+			["spell"] = 15628,
+			["productid"] = 11825,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7191,
+				},
+				{
+					["num"] = 6,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4394,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7077,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "205",
+		},
+		[15633] = {
+			["name"] = "Lil' Smoky",
+			["spell"] = 15633,
+			["productid"] = 11826,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7075,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4389,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 1,
+					["id"] = 6037,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7191,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "205",
+		},
+		[19567] = {
+			["name"] = "Salt Shaker",
+			["spell"] = 19567,
+			["productid"] = 15846,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 10561,
+				},
+				{
+					["num"] = 4,
+					["id"] = 10560,
+				},
+				{
+					["num"] = 6,
+					["id"] = 12359,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10558,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "250",
+		},
+		[19788] = {
+			["name"] = "Dense Blasting Powder",
+			["spell"] = 19788,
+			["productid"] = 15992,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 12365,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "250",
+		},
+		[19790] = {
+			["name"] = "Thorium Grenade",
+			["spell"] = 19790,
+			["productid"] = 15993,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 15994,
+				},
+				{
+					["num"] = 3,
+					["id"] = 14047,
+				},
+				{
+					["num"] = 3,
+					["id"] = 12359,
+				},
+				{
+					["num"] = 3,
+					["id"] = 15992,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "260",
+		},
+		[19791] = {
+			["name"] = "Thorium Widget",
+			["spell"] = 19791,
+			["productid"] = 15994,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 14047,
+				},
+				{
+					["num"] = 3,
+					["id"] = 12359,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "260",
+		},
 		[19792] = {
 			["name"] = "Thorium Rifle",
 			["spell"] = 19792,
@@ -7167,6 +9965,32 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "undefined",
 			["learnedat"] = "260",
 		},
+		[19793] = {
+			["name"] = "Lifelike Mechanical Toad",
+			["spell"] = 19793,
+			["productid"] = 15996,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 4,
+					["id"] = 15994,
+				},
+				{
+					["num"] = 1,
+					["id"] = 12803,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10558,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "265",
+		},
 		[19794] = {
 			["name"] = "Spellpower Goggles Xtreme Plus",
 			["spell"] = 19794,
@@ -7192,6 +10016,20 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "undefined",
 			["learnedat"] = "270",
+		},
+		[19795] = {
+			["name"] = "Thorium Tube",
+			["spell"] = 19795,
+			["productid"] = 16000,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 12359,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "275",
 		},
 		[19796] = {
 			["name"] = "Dark Iron Rifle",
@@ -7227,6 +10065,32 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "undefined",
 			["learnedat"] = "275",
 		},
+		[19799] = {
+			["name"] = "Dark Iron Bomb",
+			["spell"] = 19799,
+			["productid"] = 16005,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 15994,
+				},
+				{
+					["num"] = 3,
+					["id"] = 14047,
+				},
+				{
+					["num"] = 1,
+					["id"] = 11371,
+				},
+				{
+					["num"] = 3,
+					["id"] = 15992,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "285",
+		},
 		[19800] = {
 			["name"] = "Thorium Shells",
 			["spell"] = 19800,
@@ -7244,6 +10108,84 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "undefined",
 			["learnedat"] = "285",
+		},
+		[19814] = {
+			["name"] = "Masterwork Target Dummy",
+			["spell"] = 19814,
+			["productid"] = 16023,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14047,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10561,
+				},
+				{
+					["num"] = 1,
+					["id"] = 16000,
+				},
+				{
+					["num"] = 2,
+					["id"] = 15994,
+				},
+				{
+					["num"] = 1,
+					["id"] = 6037,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "275",
+		},
+		[19815] = {
+			["name"] = "Delicate Arcanite Converter",
+			["spell"] = 19815,
+			["productid"] = 16006,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 14227,
+				},
+				{
+					["num"] = 1,
+					["id"] = 12360,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "285",
+		},
+		[19819] = {
+			["name"] = "Voice Amplification Modulator",
+			["spell"] = 19819,
+			["productid"] = 16009,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 15994,
+				},
+				{
+					["num"] = 1,
+					["id"] = 12799,
+				},
+				{
+					["num"] = 2,
+					["id"] = 16006,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10558,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "290",
 		},
 		[19825] = {
 			["name"] = "Master Engineer's Goggles",
@@ -7266,6 +10208,62 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "undefined",
 			["learnedat"] = "290",
+		},
+		[19830] = {
+			["name"] = "Arcanite Dragonling",
+			["spell"] = 19830,
+			["productid"] = 16022,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 12655,
+				},
+				{
+					["num"] = 8,
+					["id"] = 16006,
+				},
+				{
+					["num"] = 6,
+					["id"] = 12810,
+				},
+				{
+					["num"] = 6,
+					["id"] = 15994,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10576,
+				},
+				{
+					["num"] = 4,
+					["id"] = 10558,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "300",
+		},
+		[19831] = {
+			["name"] = "Arcane Bomb",
+			["spell"] = 19831,
+			["productid"] = 16040,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 14047,
+				},
+				{
+					["num"] = 1,
+					["id"] = 16006,
+				},
+				{
+					["num"] = 3,
+					["id"] = 12359,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "300",
 		},
 		[19833] = {
 			["name"] = "Flawless Arcanite Rifle",
@@ -7301,6 +10299,92 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
+		[21940] = {
+			["name"] = "SnowMaster 9000",
+			["spell"] = 21940,
+			["productid"] = 17716,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 17202,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4389,
+				},
+				{
+					["num"] = 8,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3829,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "190",
+		},
+		[22704] = {
+			["name"] = "Field Repair Bot 74A",
+			["spell"] = 22704,
+			["productid"] = 18232,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7067,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7191,
+				},
+				{
+					["num"] = 12,
+					["id"] = 12359,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7068,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "300",
+		},
+		[22793] = {
+			["name"] = "Biznicks 247x128 Accurascope",
+			["spell"] = 22793,
+			["productid"] = 18283,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 16006,
+				},
+				{
+					["num"] = 1,
+					["id"] = 16000,
+				},
+				{
+					["num"] = 2,
+					["id"] = 17011,
+				},
+				{
+					["num"] = 6,
+					["id"] = 11371,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7076,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "300",
+		},
 		[22795] = {
 			["name"] = "Core Marksman Rifle",
 			["spell"] = 22795,
@@ -7330,6 +10414,118 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
+		},
+		[23066] = {
+			["name"] = "Red Firework",
+			["spell"] = 23066,
+			["productid"] = 9318,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4377,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "150",
+		},
+		[23067] = {
+			["name"] = "Blue Firework",
+			["spell"] = 23067,
+			["productid"] = 9312,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4377,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "150",
+		},
+		[23068] = {
+			["name"] = "Green Firework",
+			["spell"] = 23068,
+			["productid"] = 9313,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4377,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "150",
+		},
+		[23069] = {
+			["name"] = "EZ-Thro Dynamite II",
+			["spell"] = 23069,
+			["productid"] = 18588,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 10505,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4338,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "200",
+		},
+		[23070] = {
+			["name"] = "Dense Dynamite",
+			["spell"] = 23070,
+			["productid"] = 18641,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 14047,
+				},
+				{
+					["num"] = 2,
+					["id"] = 15992,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "250",
+		},
+		[23071] = {
+			["name"] = "Truesilver Transformer",
+			["spell"] = 23071,
+			["productid"] = 18631,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 7067,
+				},
+				{
+					["num"] = 2,
+					["id"] = 6037,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7069,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "260",
 		},
 		[23077] = {
 			["name"] = "Gyrofreeze Ice Reflector",
@@ -7417,6 +10613,32 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "undefined",
 			["learnedat"] = "275",
 		},
+		[23080] = {
+			["name"] = "Powerful Seaforium Charge",
+			["spell"] = 23080,
+			["productid"] = 18594,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 2,
+					["id"] = 15994,
+				},
+				{
+					["num"] = 1,
+					["id"] = 159,
+				},
+				{
+					["num"] = 3,
+					["id"] = 15992,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "275",
+		},
 		[23081] = {
 			["name"] = "Hyper-Radiant Flame Reflector",
 			["spell"] = 23081,
@@ -7481,6 +10703,66 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
+		[23096] = {
+			["name"] = "Alarm-O-Bot",
+			["spell"] = 23096,
+			["productid"] = 18645,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 2,
+					["id"] = 15994,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7191,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7910,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12359,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "265",
+		},
+		[23129] = {
+			["name"] = "World Enlarger",
+			["spell"] = 23129,
+			["productid"] = 18660,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 15994,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10561,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10560,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10558,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3864,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "260",
+		},
 		[23486] = {
 			["name"] = "Dimensional Ripper - Everlook",
 			["spell"] = 23486,
@@ -7544,6 +10826,28 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "undefined",
 			["learnedat"] = "285",
+		},
+		[23507] = {
+			["name"] = "Snake Burst Firework",
+			["spell"] = 23507,
+			["productid"] = 19026,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 14047,
+				},
+				{
+					["num"] = 1,
+					["id"] = 8150,
+				},
+				{
+					["num"] = 2,
+					["id"] = 15992,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "250",
 		},
 		[24356] = {
 			["name"] = "Bloodvine Goggles",
@@ -7635,6 +10939,296 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "undefined",
 			["learnedat"] = "250",
 		},
+		[26416] = {
+			["name"] = "Small Blue Rocket",
+			["spell"] = 26416,
+			["productid"] = 21558,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 4364,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2319,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "125",
+		},
+		[26417] = {
+			["name"] = "Small Green Rocket",
+			["spell"] = 26417,
+			["productid"] = 21559,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 4364,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2319,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "125",
+		},
+		[26418] = {
+			["name"] = "Small Red Rocket",
+			["spell"] = 26418,
+			["productid"] = 21557,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 4364,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2319,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "125",
+		},
+		[26420] = {
+			["name"] = "Large Blue Rocket",
+			["spell"] = 26420,
+			["productid"] = 21589,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4377,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "175",
+		},
+		[26421] = {
+			["name"] = "Large Green Rocket",
+			["spell"] = 26421,
+			["productid"] = 21590,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4377,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "175",
+		},
+		[26422] = {
+			["name"] = "Large Red Rocket",
+			["spell"] = 26422,
+			["productid"] = 21592,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4377,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "175",
+		},
+		[26423] = {
+			["name"] = "Blue Rocket Cluster",
+			["spell"] = 26423,
+			["productid"] = 21571,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 10505,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4304,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "225",
+		},
+		[26424] = {
+			["name"] = "Green Rocket Cluster",
+			["spell"] = 26424,
+			["productid"] = 21574,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 10505,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4304,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "225",
+		},
+		[26425] = {
+			["name"] = "Red Rocket Cluster",
+			["spell"] = 26425,
+			["productid"] = 21576,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 10505,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4304,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "225",
+		},
+		[26426] = {
+			["name"] = "Large Blue Rocket Cluster",
+			["spell"] = 26426,
+			["productid"] = 21714,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 1,
+					["id"] = 15992,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "275",
+		},
+		[26427] = {
+			["name"] = "Large Green Rocket Cluster",
+			["spell"] = 26427,
+			["productid"] = 21716,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 1,
+					["id"] = 15992,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "275",
+		},
+		[26428] = {
+			["name"] = "Large Red Rocket Cluster",
+			["spell"] = 26428,
+			["productid"] = 21718,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 1,
+					["id"] = 15992,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "275",
+		},
+		[26442] = {
+			["name"] = "Firework Launcher",
+			["spell"] = 26442,
+			["productid"] = 21569,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 9061,
+				},
+				{
+					["num"] = 1,
+					["id"] = 9060,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10561,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10560,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "225",
+		},
+		[26443] = {
+			["name"] = "Firework Cluster Launcher",
+			["spell"] = 26443,
+			["productid"] = 21570,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 9061,
+				},
+				{
+					["num"] = 4,
+					["id"] = 9060,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10561,
+				},
+				{
+					["num"] = 2,
+					["id"] = 18631,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "275",
+		},
+		[28327] = {
+			["name"] = "Steam Tonk Controller",
+			["spell"] = 28327,
+			["productid"] = 22728,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 15994,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10561,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10558,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "275",
+		},
 		[22797] = {
 			["name"] = "Force Reactive Disk",
 			["spell"] = 22797,
@@ -7664,6 +11258,160 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
+		},
+		[30303] = {
+			["name"] = "Elemental Blasting Powder",
+			["spell"] = 30303,
+			["productid"] = 23781,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 22574,
+				},
+				{
+					["num"] = 2,
+					["id"] = 22573,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "300",
+		},
+		[30304] = {
+			["name"] = "Fel Iron Casing",
+			["spell"] = 30304,
+			["productid"] = 23782,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 23445,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "300",
+		},
+		[30305] = {
+			["name"] = "Handful of Fel Iron Bolts",
+			["spell"] = 30305,
+			["productid"] = 23783,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23445,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "300",
+		},
+		[30306] = {
+			["name"] = "Adamantite Frame",
+			["spell"] = 30306,
+			["productid"] = 23784,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23446,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22452,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "325",
+		},
+		[30307] = {
+			["name"] = "Hardened Adamantite Tube",
+			["spell"] = 30307,
+			["productid"] = 23785,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 23573,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "340",
+		},
+		[30308] = {
+			["name"] = "Khorium Power Core",
+			["spell"] = 30308,
+			["productid"] = 23786,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 23449,
+				},
+				{
+					["num"] = 1,
+					["id"] = 21884,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "340",
+		},
+		[30309] = {
+			["name"] = "Felsteel Stabilizer",
+			["spell"] = 30309,
+			["productid"] = 23787,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 23448,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "340",
+		},
+		[30310] = {
+			["name"] = "Fel Iron Bomb",
+			["spell"] = 30310,
+			["productid"] = 23736,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23782,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23783,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23781,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "300",
+		},
+		[30311] = {
+			["name"] = "Adamantite Grenade",
+			["spell"] = 30311,
+			["productid"] = 23737,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23446,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23783,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23781,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "325",
 		},
 		[30312] = {
 			["name"] = "Fel Iron Musket",
@@ -7853,6 +11601,134 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "undefined",
 			["learnedat"] = "360",
 		},
+		[30329] = {
+			["name"] = "Adamantite Scope",
+			["spell"] = 30329,
+			["productid"] = 23764,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 23446,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23112,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "335",
+		},
+		[30332] = {
+			["name"] = "Khorium Scope",
+			["spell"] = 30332,
+			["productid"] = 23765,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23785,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23449,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23440,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "360",
+		},
+		[30334] = {
+			["name"] = "Stabilized Eternium Scope",
+			["spell"] = 30334,
+			["productid"] = 23766,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 23785,
+				},
+				{
+					["num"] = 6,
+					["id"] = 23787,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23438,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[30337] = {
+			["name"] = "Crashin' Thrashin' Robot",
+			["spell"] = 30337,
+			["productid"] = 23767,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23784,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23782,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10558,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23783,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "325",
+		},
+		[30341] = {
+			["name"] = "White Smoke Flare",
+			["spell"] = 30341,
+			["productid"] = 23768,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23781,
+				},
+				{
+					["num"] = 1,
+					["id"] = 21877,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "335",
+		},
+		[30344] = {
+			["name"] = "Green Smoke Flare",
+			["spell"] = 30344,
+			["productid"] = 23771,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23781,
+				},
+				{
+					["num"] = 1,
+					["id"] = 21877,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2605,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "335",
+		},
 		[30346] = {
 			["name"] = "Fel Iron Shells",
 			["spell"] = 30346,
@@ -7870,6 +11746,172 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "undefined",
 			["learnedat"] = "310",
+		},
+		[30347] = {
+			["name"] = "Adamantite Shell Machine",
+			["spell"] = 30347,
+			["productid"] = 34504,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23446,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23781,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4470,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "335",
+		},
+		[30348] = {
+			["name"] = "Fel Iron Toolbox",
+			["spell"] = 30348,
+			["productid"] = 23774,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23782,
+				},
+				{
+					["num"] = 5,
+					["id"] = 23445,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23783,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "325",
+		},
+		[30349] = {
+			["name"] = "Khorium Toolbox",
+			["spell"] = 30349,
+			["productid"] = 23775,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23782,
+				},
+				{
+					["num"] = 5,
+					["id"] = 23449,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23783,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[30547] = {
+			["name"] = "Elemental Seaforium Charge",
+			["spell"] = 30547,
+			["productid"] = 23819,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 23781,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23782,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23783,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[30548] = {
+			["name"] = "Zapthrottle Mote Extractor",
+			["spell"] = 30548,
+			["productid"] = 23821,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 23782,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23783,
+				},
+				{
+					["num"] = 4,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 1,
+					["id"] = 16006,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "305",
+		},
+		[30551] = {
+			["name"] = "Healing Potion Injector",
+			["spell"] = 30551,
+			["productid"] = 33092,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23782,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23783,
+				},
+				{
+					["num"] = 2,
+					["id"] = 21887,
+				},
+				{
+					["num"] = 20,
+					["id"] = 22829,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "330",
+		},
+		[30552] = {
+			["name"] = "Mana Potion Injector",
+			["spell"] = 30552,
+			["productid"] = 33093,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23782,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23783,
+				},
+				{
+					["num"] = 2,
+					["id"] = 21887,
+				},
+				{
+					["num"] = 20,
+					["id"] = 22832,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "345",
 		},
 		[30556] = {
 			["name"] = "Rocket Boots Xtreme",
@@ -7896,6 +11938,88 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "undefined",
 			["learnedat"] = "355",
+		},
+		[30558] = {
+			["name"] = "The Bigger One",
+			["spell"] = 30558,
+			["productid"] = 23826,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 23782,
+				},
+				{
+					["num"] = 6,
+					["id"] = 23781,
+				},
+				{
+					["num"] = 3,
+					["id"] = 17020,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23783,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "325",
+		},
+		[30560] = {
+			["name"] = "Super Sapper Charge",
+			["spell"] = 30560,
+			["productid"] = 23827,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 21877,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23781,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22457,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "340",
+		},
+		[30563] = {
+			["name"] = "Goblin Rocket Launcher",
+			["spell"] = 30563,
+			["productid"] = 23836,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 23785,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23786,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23787,
+				},
+				{
+					["num"] = 6,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 6,
+					["id"] = 22452,
+				},
+				{
+					["num"] = 2,
+					["id"] = 16006,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
 		},
 		[30565] = {
 			["name"] = "Foreman's Enchanted Helmet",
@@ -7941,6 +12065,58 @@ MakersPath.Professions.AllRecipes = {
 
 			["source"] = "trainer",
 			["learnedat"] = "375",
+		},
+		[30568] = {
+			["name"] = "Gnomish Flame Turret",
+			["spell"] = 30568,
+			["productid"] = 23841,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23784,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23783,
+				},
+				{
+					["num"] = 3,
+					["id"] = 23781,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23782,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "325",
+		},
+		[30569] = {
+			["name"] = "Gnomish Poultryizer",
+			["spell"] = 30569,
+			["productid"] = 23835,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 23785,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23786,
+				},
+				{
+					["num"] = 10,
+					["id"] = 22445,
+				},
+				{
+					["num"] = 2,
+					["id"] = 22449,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "340",
 		},
 		[30570] = {
 			["name"] = "Nigh-Invulnerability Belt",
@@ -8036,6 +12212,150 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "trainer",
 			["learnedat"] = "375",
 		},
+		[32814] = {
+			["name"] = "Purple Smoke Flare",
+			["spell"] = 32814,
+			["productid"] = 25886,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23781,
+				},
+				{
+					["num"] = 1,
+					["id"] = 21877,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4342,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "335",
+		},
+		[36954] = {
+			["name"] = "Dimensional Ripper - Area 52",
+			["spell"] = 36954,
+			["productid"] = 30542,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23784,
+				},
+				{
+					["num"] = 2,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23826,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23783,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23786,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[36955] = {
+			["name"] = "Ultrasafe Transporter - Toshley's Station",
+			["spell"] = 36955,
+			["productid"] = 30544,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23784,
+				},
+				{
+					["num"] = 2,
+					["id"] = 22451,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23787,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23783,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23786,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[39895] = {
+			["name"] = "Fused Wiring",
+			["spell"] = 39895,
+			["productid"] = 7191,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 20816,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7078,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "275",
+		},
+		[39971] = {
+			["name"] = "Icy Blasting Primers",
+			["spell"] = 39971,
+			["productid"] = 32423,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 21885,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23781,
+				},
+				{
+					["num"] = 2,
+					["id"] = 21877,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "335",
+		},
+		[39973] = {
+			["name"] = "Frost Grenades",
+			["spell"] = 39973,
+			["productid"] = 32413,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32423,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23782,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23783,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "335",
+		},
 		[40274] = {
 			["name"] = "Furious Gizmatic Goggles",
 			["spell"] = 40274,
@@ -8103,6 +12423,40 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
+		},
+		[41311] = {
+			["name"] = "Justicebringer 2000 Specs",
+			["spell"] = 41311,
+			["productid"] = 32472,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23786,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23785,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23787,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23440,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "370",
 		},
 		[41312] = {
 			["name"] = "Tankatronic Goggles",
@@ -8206,6 +12560,40 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "trainer",
 			["learnedat"] = "370",
 		},
+		[41316] = {
+			["name"] = "Living Replicator Specs",
+			["spell"] = 41316,
+			["productid"] = 32475,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23786,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23785,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23787,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23439,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "370",
+		},
 		[41317] = {
 			["name"] = "Deathblow X11 Goggles",
 			["spell"] = 41317,
@@ -8274,6 +12662,40 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "trainer",
 			["learnedat"] = "370",
 		},
+		[41319] = {
+			["name"] = "Magnified Moon Specs",
+			["spell"] = 41319,
+			["productid"] = 32480,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23786,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23785,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23787,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23437,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "370",
+		},
 		[41320] = {
 			["name"] = "Destruction Holo-gogs",
 			["spell"] = 41320,
@@ -8308,6 +12730,144 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "trainer",
 			["learnedat"] = "370",
 		},
+		[41321] = {
+			["name"] = "Powerheal 4000 Lens",
+			["spell"] = 41321,
+			["productid"] = 32495,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23786,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23785,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23787,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23439,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "370",
+		},
+		[43676] = {
+			["name"] = "Adamantite Arrow Maker",
+			["spell"] = 43676,
+			["productid"] = 20475,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23446,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4470,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23783,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "335",
+		},
+		[44155] = {
+			["name"] = "Flying Machine",
+			["spell"] = 44155,
+			["productid"] = 34060,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 23784,
+				},
+				{
+					["num"] = 30,
+					["id"] = 23445,
+				},
+				{
+					["num"] = 8,
+					["id"] = 23783,
+				},
+				{
+					["num"] = 8,
+					["id"] = 11291,
+				},
+				{
+					["num"] = 5,
+					["id"] = 23446,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23819,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[44157] = {
+			["name"] = "Turbo-Charged Flying Machine",
+			["spell"] = 44157,
+			["productid"] = 34061,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 34060,
+				},
+				{
+					["num"] = 8,
+					["id"] = 23786,
+				},
+				{
+					["num"] = 8,
+					["id"] = 23787,
+				},
+				{
+					["num"] = 1,
+					["id"] = 34249,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "385",
+		},
+		[44391] = {
+			["name"] = "Field Repair Bot 110G",
+			["spell"] = 44391,
+			["productid"] = 34113,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 23446,
+				},
+				{
+					["num"] = 8,
+					["id"] = 23783,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23786,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "360",
+		},
 		[46106] = {
 			["name"] = "Wonderheal XT68 Shades",
 			["spell"] = 46106,
@@ -8325,6 +12885,88 @@ MakersPath.Professions.AllRecipes = {
 				{
 					["num"] = 8,
 					["id"] = 22457,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23572,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[46107] = {
+			["name"] = "Justicebringer 3000 Specs",
+			["spell"] = 46107,
+			["productid"] = 35185,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32472,
+				},
+				{
+					["num"] = 8,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 8,
+					["id"] = 22457,
+				},
+				{
+					["num"] = 8,
+					["id"] = 22452,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23572,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[46108] = {
+			["name"] = "Powerheal 9000 Lens",
+			["spell"] = 46108,
+			["productid"] = 35181,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32495,
+				},
+				{
+					["num"] = 8,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 8,
+					["id"] = 22457,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23572,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[46109] = {
+			["name"] = "Hyper-Magnified Moon Specs",
+			["spell"] = 46109,
+			["productid"] = 35182,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32480,
+				},
+				{
+					["num"] = 6,
+					["id"] = 21885,
+				},
+				{
+					["num"] = 12,
+					["id"] = 21886,
 				},
 				{
 					["num"] = 4,
@@ -8385,6 +13027,32 @@ MakersPath.Professions.AllRecipes = {
 				{
 					["num"] = 4,
 					["id"] = 22457,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23572,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[46112] = {
+			["name"] = "Lightning Etched Specs",
+			["spell"] = 46112,
+			["productid"] = 34355,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32476,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23571,
+				},
+				{
+					["num"] = 2,
+					["id"] = 22451,
 				},
 				{
 					["num"] = 4,
@@ -8542,6 +13210,28 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "trainer",
 			["learnedat"] = "15",
+		},
+		[7421] = {
+			["name"] = "Runed Copper Rod",
+			["spell"] = 7421,
+			["productid"] = 6218,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 6217,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10940,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10938,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "1",
 		},
 		[7426] = {
 			["name"] = "Enchant Chest - Minor Absorption",
@@ -8795,6 +13485,32 @@ MakersPath.Professions.AllRecipes = {
 				},
 			},
 			["source"] = "undefined",
+			["learnedat"] = "100",
+		},
+		[7795] = {
+			["name"] = "Runed Silver Rod",
+			["spell"] = 7795,
+			["productid"] = 6339,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 10940,
+				},
+				{
+					["num"] = 1,
+					["id"] = 1210,
+				},
+				{
+					["num"] = 1,
+					["id"] = 6338,
+				},
+				{
+					["num"] = 3,
+					["id"] = 10939,
+				},
+			},
+			["source"] = "trainer",
 			["learnedat"] = "100",
 		},
 		[7857] = {
@@ -9199,6 +13915,32 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "trainer",
 			["learnedat"] = "150",
 		},
+		[13628] = {
+			["name"] = "Runed Golden Rod",
+			["spell"] = 13628,
+			["productid"] = 11130,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 11128,
+				},
+				{
+					["num"] = 2,
+					["id"] = 11082,
+				},
+				{
+					["num"] = 2,
+					["id"] = 11083,
+				},
+				{
+					["num"] = 1,
+					["id"] = 5500,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "150",
+		},
 		[13631] = {
 			["name"] = "Enchant Shield - Lesser Stamina",
 			["spell"] = 13631,
@@ -9546,6 +14288,32 @@ MakersPath.Professions.AllRecipes = {
 				{
 					["num"] = 1,
 					["id"] = 11139,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "200",
+		},
+		[13702] = {
+			["name"] = "Runed Truesilver Rod",
+			["spell"] = 13702,
+			["productid"] = 11145,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 11137,
+				},
+				{
+					["num"] = 1,
+					["id"] = 11144,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7971,
+				},
+				{
+					["num"] = 2,
+					["id"] = 11135,
 				},
 			},
 			["source"] = "trainer",
@@ -10013,6 +14781,86 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "trainer",
 			["learnedat"] = "250",
 		},
+		[14293] = {
+			["name"] = "Lesser Magic Wand",
+			["spell"] = 14293,
+			["productid"] = 11287,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 4470,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10938,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "10",
+		},
+		[14807] = {
+			["name"] = "Greater Magic Wand",
+			["spell"] = 14807,
+			["productid"] = 11288,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 4470,
+				},
+				{
+					["num"] = 1,
+					["id"] = 10939,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "70",
+		},
+		[14809] = {
+			["name"] = "Lesser Mystic Wand",
+			["spell"] = 14809,
+			["productid"] = 11289,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 11083,
+				},
+				{
+					["num"] = 1,
+					["id"] = 11291,
+				},
+				{
+					["num"] = 1,
+					["id"] = 11134,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "155",
+		},
+		[14810] = {
+			["name"] = "Greater Mystic Wand",
+			["spell"] = 14810,
+			["productid"] = 11290,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 11137,
+				},
+				{
+					["num"] = 1,
+					["id"] = 11135,
+				},
+				{
+					["num"] = 1,
+					["id"] = 11291,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "175",
+		},
 		[15596] = {
 			["name"] = "Smoking Heart of the Mountain",
 			["spell"] = 15596,
@@ -10034,6 +14882,42 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "undefined",
 			["learnedat"] = "265",
+		},
+		[17180] = {
+			["name"] = "Enchanted Thorium",
+			["spell"] = 17180,
+			["productid"] = 12655,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 12359,
+				},
+				{
+					["num"] = 3,
+					["id"] = 11176,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "250",
+		},
+		[17181] = {
+			["name"] = "Enchanted Leather",
+			["spell"] = 17181,
+			["productid"] = 12810,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8170,
+				},
+				{
+					["num"] = 1,
+					["id"] = 16202,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "250",
 		},
 		[20008] = {
 			["name"] = "Enchant Bracer - Greater Intellect",
@@ -10474,6 +15358,40 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
+		},
+		[20051] = {
+			["name"] = "Runed Arcanite Rod",
+			["spell"] = 20051,
+			["productid"] = 16207,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 14344,
+				},
+				{
+					["num"] = 10,
+					["id"] = 16204,
+				},
+				{
+					["num"] = 1,
+					["id"] = 16206,
+				},
+				{
+					["num"] = 4,
+					["id"] = 16203,
+				},
+				{
+					["num"] = 1,
+					["id"] = 13926,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14343,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "290",
 		},
 		[21931] = {
 			["name"] = "Enchant Weapon - Winter's Might",
@@ -10949,6 +15867,160 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
+		[25124] = {
+			["name"] = "Minor Wizard Oil",
+			["spell"] = 25124,
+			["productid"] = 20744,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 10940,
+				},
+				{
+					["num"] = 1,
+					["id"] = 17034,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3371,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "45",
+		},
+		[25125] = {
+			["name"] = "Minor Mana Oil",
+			["spell"] = 25125,
+			["productid"] = 20745,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 11083,
+				},
+				{
+					["num"] = 2,
+					["id"] = 17034,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3372,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "150",
+		},
+		[25126] = {
+			["name"] = "Lesser Wizard Oil",
+			["spell"] = 25126,
+			["productid"] = 20746,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 11137,
+				},
+				{
+					["num"] = 2,
+					["id"] = 17035,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3372,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "200",
+		},
+		[25127] = {
+			["name"] = "Lesser Mana Oil",
+			["spell"] = 25127,
+			["productid"] = 20747,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+				{
+					["num"] = 2,
+					["id"] = 8831,
+				},
+				{
+					["num"] = 3,
+					["id"] = 11176,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "250",
+		},
+		[25128] = {
+			["name"] = "Wizard Oil",
+			["spell"] = 25128,
+			["productid"] = 20750,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+				{
+					["num"] = 3,
+					["id"] = 16204,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4625,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "275",
+		},
+		[25129] = {
+			["name"] = "Brilliant Wizard Oil",
+			["spell"] = 25129,
+			["productid"] = 20749,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 14344,
+				},
+				{
+					["num"] = 3,
+					["id"] = 4625,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "300",
+		},
+		[25130] = {
+			["name"] = "Brilliant Mana Oil",
+			["spell"] = 25130,
+			["productid"] = 20748,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 14344,
+				},
+				{
+					["num"] = 3,
+					["id"] = 8831,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "300",
+		},
 		[27837] = {
 			["name"] = "Enchant 2H Weapon - Agility",
 			["spell"] = 27837,
@@ -10975,9 +16047,237 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "undefined",
 			["learnedat"] = "290",
 		},
+		[28016] = {
+			["name"] = "Superior Mana Oil",
+			["spell"] = 28016,
+			["productid"] = 22521,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 22445,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22791,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "310",
+		},
+		[28019] = {
+			["name"] = "Superior Wizard Oil",
+			["spell"] = 28019,
+			["productid"] = 22522,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 22445,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22792,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "340",
+		},
+		[28022] = {
+			["name"] = "Large Prismatic Shard",
+			["spell"] = 28022,
+			["productid"] = 22449,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 22448,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "335",
+		},
+		[28027] = {
+			["name"] = "Prismatic Sphere",
+			["spell"] = 28027,
+			["productid"] = 22460,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 22449,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "325",
+		},
+		[28028] = {
+			["name"] = "Void Sphere",
+			["spell"] = 28028,
+			["productid"] = 22459,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 22450,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[32664] = {
+			["name"] = "Runed Fel Iron Rod",
+			["spell"] = 32664,
+			["productid"] = 22461,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 25843,
+				},
+				{
+					["num"] = 4,
+					["id"] = 16203,
+				},
+				{
+					["num"] = 6,
+					["id"] = 14344,
+				},
+				{
+					["num"] = 1,
+					["id"] = 16207,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "300",
+		},
+		[32665] = {
+			["name"] = "Runed Adamantite Rod",
+			["spell"] = 32665,
+			["productid"] = 22462,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 25844,
+				},
+				{
+					["num"] = 8,
+					["id"] = 22446,
+				},
+				{
+					["num"] = 8,
+					["id"] = 22449,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23571,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22461,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[32667] = {
+			["name"] = "Runed Eternium Rod",
+			["spell"] = 32667,
+			["productid"] = 22463,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 25845,
+				},
+				{
+					["num"] = 12,
+					["id"] = 22446,
+				},
+				{
+					["num"] = 2,
+					["id"] = 22450,
+				},
+				{
+					["num"] = 4,
+					["id"] = 23571,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22462,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[42613] = {
+			["name"] = "Nexus Transformation",
+			["spell"] = 42613,
+			["productid"] = 22448,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 20725,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "300",
+		},
+		[42615] = {
+			["name"] = "Small Prismatic Shard",
+			["spell"] = 42615,
+			["productid"] = 22448,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 22449,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "335",
+		},
+		[45765] = {
+			["name"] = "Void Shatter",
+			["spell"] = 45765,
+			["productid"] = 22449,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 22450,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
 	},
 	-- Blacksmithing
 	[164] = {
+		[2660] = {
+			["name"] = "Rough Sharpening Stone",
+			["spell"] = 2660,
+			["productid"] = 2862,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2835,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "1",
+		},
 		[2661] = {
 			["name"] = "Copper Chain Belt",
 			["spell"] = 2661,
@@ -11037,6 +16337,20 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "trainer",
 			["learnedat"] = "90",
+		},
+		[2665] = {
+			["name"] = "Coarse Sharpening Stone",
+			["spell"] = 2665,
+			["productid"] = 2863,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2836,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "65",
 		},
 		[2666] = {
 			["name"] = "Runed Copper Belt",
@@ -11145,6 +16459,20 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "undefined",
 			["learnedat"] = "130",
+		},
+		[2674] = {
+			["name"] = "Heavy Sharpening Stone",
+			["spell"] = 2674,
+			["productid"] = 2871,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2838,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "125",
 		},
 		[2675] = {
 			["name"] = "Shining Silver Breastplate",
@@ -11307,6 +16635,60 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "trainer",
 			["learnedat"] = "120",
+		},
+		[3115] = {
+			["name"] = "Rough Weightstone",
+			["spell"] = 3115,
+			["productid"] = 3239,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2835,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2589,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "1",
+		},
+		[3116] = {
+			["name"] = "Coarse Weightstone",
+			["spell"] = 3116,
+			["productid"] = 3240,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2836,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2592,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "65",
+		},
+		[3117] = {
+			["name"] = "Heavy Weightstone",
+			["spell"] = 3117,
+			["productid"] = 3241,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2592,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2838,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "125",
 		},
 		[3292] = {
 			["name"] = "Heavy Copper Broadsword",
@@ -11510,6 +16892,20 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "trainer",
 			["learnedat"] = "20",
 		},
+		[3320] = {
+			["name"] = "Rough Grinding Stone",
+			["spell"] = 3320,
+			["productid"] = 3470,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2835,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "25",
+		},
 		[3321] = {
 			["name"] = "Copper Chain Vest",
 			["spell"] = 3321,
@@ -11593,6 +16989,20 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "undefined",
 			["learnedat"] = "60",
+		},
+		[3326] = {
+			["name"] = "Coarse Grinding Stone",
+			["spell"] = 3326,
+			["productid"] = 3478,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2836,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "75",
 		},
 		[3328] = {
 			["name"] = "Rough Bronze Shoulders",
@@ -11733,6 +17143,20 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "undefined",
 			["learnedat"] = "150",
+		},
+		[3337] = {
+			["name"] = "Heavy Grinding Stone",
+			["spell"] = 3337,
+			["productid"] = 3486,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 2838,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "125",
 		},
 		[3491] = {
 			["name"] = "Big Bronze Knife",
@@ -12330,6 +17754,46 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "undefined",
 			["learnedat"] = "140",
 		},
+		[7221] = {
+			["name"] = "Iron Shield Spike",
+			["spell"] = 7221,
+			["productid"] = 6042,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 3575,
+				},
+				{
+					["num"] = 4,
+					["id"] = 3478,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "150",
+		},
+		[7222] = {
+			["name"] = "Iron Counterweight",
+			["spell"] = 7222,
+			["productid"] = 6043,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 3575,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3478,
+				},
+				{
+					["num"] = 1,
+					["id"] = 1705,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "165",
+		},
 		[7223] = {
 			["name"] = "Golden Scale Bracers",
 			["spell"] = 7223,
@@ -12347,6 +17811,28 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "trainer",
 			["learnedat"] = "185",
+		},
+		[7224] = {
+			["name"] = "Steel Weapon Chain",
+			["spell"] = 7224,
+			["productid"] = 6041,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 3486,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4234,
+				},
+				{
+					["num"] = 8,
+					["id"] = 3859,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "190",
 		},
 		[7408] = {
 			["name"] = "Heavy Copper Maul",
@@ -12388,6 +17874,24 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "trainer",
 			["learnedat"] = "95",
 		},
+		[7818] = {
+			["name"] = "Silver Rod",
+			["spell"] = 7818,
+			["productid"] = 6338,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 3470,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2842,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "100",
+		},
 		[8367] = {
 			["name"] = "Ironforge Breastplate",
 			["spell"] = 8367,
@@ -12409,6 +17913,20 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "undefined",
 			["learnedat"] = "100",
+		},
+		[8768] = {
+			["name"] = "Iron Buckle",
+			["spell"] = 8768,
+			["productid"] = 7071,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3575,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "150",
 		},
 		[8880] = {
 			["name"] = "Copper Dagger",
@@ -12568,6 +18086,52 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "trainer",
 			["learnedat"] = "200",
 		},
+		[9918] = {
+			["name"] = "Solid Sharpening Stone",
+			["spell"] = 9918,
+			["productid"] = 7964,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7912,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "200",
+		},
+		[9920] = {
+			["name"] = "Solid Grinding Stone",
+			["spell"] = 9920,
+			["productid"] = 7966,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 7912,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "200",
+		},
+		[9921] = {
+			["name"] = "Solid Weightstone",
+			["spell"] = 9921,
+			["productid"] = 7965,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7912,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4306,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "200",
+		},
 		[9926] = {
 			["name"] = "Heavy Mithril Shoulder",
 			["spell"] = 9926,
@@ -12667,6 +18231,28 @@ MakersPath.Professions.AllRecipes = {
 				{
 					["num"] = 2,
 					["id"] = 3864,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "215",
+		},
+		[9939] = {
+			["name"] = "Mithril Shield Spike",
+			["spell"] = 9939,
+			["productid"] = 7967,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 2,
+					["id"] = 6037,
+				},
+				{
+					["num"] = 4,
+					["id"] = 7966,
 				},
 			},
 			["source"] = "undefined",
@@ -13448,6 +19034,28 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "trainer",
 			["learnedat"] = "260",
 		},
+		[11454] = {
+			["name"] = "Inlaid Mithril Cylinder",
+			["spell"] = 11454,
+			["productid"] = 9060,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3577,
+				},
+				{
+					["num"] = 5,
+					["id"] = 3860,
+				},
+				{
+					["num"] = 1,
+					["id"] = 6037,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "200",
+		},
 		[11643] = {
 			["name"] = "Golden Scale Gauntlets",
 			["spell"] = 11643,
@@ -13509,6 +19117,42 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "undefined",
 			["learnedat"] = "1",
+		},
+		[14379] = {
+			["name"] = "Golden Rod",
+			["spell"] = 14379,
+			["productid"] = 11128,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3577,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3478,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "150",
+		},
+		[14380] = {
+			["name"] = "Truesilver Rod",
+			["spell"] = 14380,
+			["productid"] = 11144,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 6037,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3486,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "200",
 		},
 		[15292] = {
 			["name"] = "Dark Iron Pulverizer",
@@ -13655,6 +19299,52 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "undefined",
 			["learnedat"] = "190",
+		},
+		[16639] = {
+			["name"] = "Dense Grinding Stone",
+			["spell"] = 16639,
+			["productid"] = 12644,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 12365,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "250",
+		},
+		[16640] = {
+			["name"] = "Dense Weightstone",
+			["spell"] = 16640,
+			["productid"] = 12643,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 12365,
+				},
+				{
+					["num"] = 1,
+					["id"] = 14047,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "250",
+		},
+		[16641] = {
+			["name"] = "Dense Sharpening Stone",
+			["spell"] = 16641,
+			["productid"] = 12404,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 12365,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "250",
 		},
 		[16642] = {
 			["name"] = "Thorium Armor",
@@ -13845,6 +19535,28 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "undefined",
 			["learnedat"] = "270",
+		},
+		[16651] = {
+			["name"] = "Thorium Shield Spike",
+			["spell"] = 16651,
+			["productid"] = 12645,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 12359,
+				},
+				{
+					["num"] = 4,
+					["id"] = 12644,
+				},
+				{
+					["num"] = 2,
+					["id"] = 7076,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "275",
 		},
 		[16652] = {
 			["name"] = "Thorium Boots",
@@ -14976,6 +20688,96 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
+		[19666] = {
+			["name"] = "Silver Skeleton Key",
+			["spell"] = 19666,
+			["productid"] = 15869,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3470,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2842,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "100",
+		},
+		[19667] = {
+			["name"] = "Golden Skeleton Key",
+			["spell"] = 19667,
+			["productid"] = 15870,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3577,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3486,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "150",
+		},
+		[19668] = {
+			["name"] = "Truesilver Skeleton Key",
+			["spell"] = 19668,
+			["productid"] = 15871,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7966,
+				},
+				{
+					["num"] = 1,
+					["id"] = 6037,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "200",
+		},
+		[19669] = {
+			["name"] = "Arcanite Skeleton Key",
+			["spell"] = 19669,
+			["productid"] = 15872,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 12644,
+				},
+				{
+					["num"] = 1,
+					["id"] = 12360,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "275",
+		},
+		[20201] = {
+			["name"] = "Arcanite Rod",
+			["spell"] = 20201,
+			["productid"] = 16206,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 12644,
+				},
+				{
+					["num"] = 3,
+					["id"] = 12360,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "275",
+		},
 		[20872] = {
 			["name"] = "Fiery Chain Girdle",
 			["spell"] = 20872,
@@ -15183,6 +20985,24 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "undefined",
 			["learnedat"] = "190",
+		},
+		[22757] = {
+			["name"] = "Elemental Sharpening Stone",
+			["spell"] = 22757,
+			["productid"] = 18262,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 7067,
+				},
+				{
+					["num"] = 3,
+					["id"] = 12365,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "300",
 		},
 		[23628] = {
 			["name"] = "Heavy Timbermaw Belt",
@@ -16830,6 +22650,64 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "undefined",
 			["learnedat"] = "370",
 		},
+		[29654] = {
+			["name"] = "Fel Sharpening Stone",
+			["spell"] = 29654,
+			["productid"] = 23528,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23445,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22573,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "300",
+		},
+		[29656] = {
+			["name"] = "Adamantite Sharpening Stone",
+			["spell"] = 29656,
+			["productid"] = 23529,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23446,
+				},
+				{
+					["num"] = 2,
+					["id"] = 22573,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[29657] = {
+			["name"] = "Felsteel Shield Spike",
+			["spell"] = 29657,
+			["productid"] = 23530,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23448,
+				},
+				{
+					["num"] = 4,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 4,
+					["id"] = 22452,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "360",
+		},
 		[29658] = {
 			["name"] = "Felfury Gauntlets",
 			["spell"] = 29658,
@@ -17264,6 +23142,104 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
+		[29728] = {
+			["name"] = "Lesser Ward of Shielding",
+			["spell"] = 29728,
+			["productid"] = 23575,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23446,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "340",
+		},
+		[29729] = {
+			["name"] = "Greater Ward of Shielding",
+			["spell"] = 29729,
+			["productid"] = 23576,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23447,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[32284] = {
+			["name"] = "Lesser Rune of Warding",
+			["spell"] = 32284,
+			["productid"] = 23559,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23446,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "325",
+		},
+		[32285] = {
+			["name"] = "Greater Rune of Warding",
+			["spell"] = 32285,
+			["productid"] = 25521,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23449,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[32655] = {
+			["name"] = "Fel Iron Rod",
+			["spell"] = 32655,
+			["productid"] = 25843,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23445,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "300",
+		},
+		[32656] = {
+			["name"] = "Adamantite Rod",
+			["spell"] = 32656,
+			["productid"] = 25844,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 23446,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[32657] = {
+			["name"] = "Eternium Rod",
+			["spell"] = 32657,
+			["productid"] = 25845,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23447,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
 		[34529] = {
 			["name"] = "Nether Chain Shirt",
 			["spell"] = 34529,
@@ -17643,6 +23619,42 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "trainer",
 			["learnedat"] = "375",
+		},
+		[34607] = {
+			["name"] = "Fel Weightstone",
+			["spell"] = 34607,
+			["productid"] = 28420,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23445,
+				},
+				{
+					["num"] = 1,
+					["id"] = 21877,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "300",
+		},
+		[34608] = {
+			["name"] = "Adamantite Weightstone",
+			["spell"] = 34608,
+			["productid"] = 28421,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23446,
+				},
+				{
+					["num"] = 2,
+					["id"] = 21877,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
 		},
 		[34979] = {
 			["name"] = "Thick Bronze Darts",
@@ -18624,6 +24636,24 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
+		[42688] = {
+			["name"] = "Adamantite Weapon Chain",
+			["spell"] = 42688,
+			["productid"] = 33185,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 23573,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23449,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "335",
+		},
 		[43549] = {
 			["name"] = "Heavy Copper Longsword",
 			["spell"] = 43549,
@@ -18975,6 +25005,24 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "undefined",
 			["learnedat"] = "75",
 		},
+		[2165] = {
+			["name"] = "Medium Armor Kit",
+			["spell"] = 2165,
+			["productid"] = 2313,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2320,
+				},
+				{
+					["num"] = 4,
+					["id"] = 2319,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "100",
+		},
 		[2166] = {
 			["name"] = "Toughened Leather Armor",
 			["spell"] = 2166,
@@ -19062,6 +25110,20 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "undefined",
 			["learnedat"] = "100",
+		},
+		[2881] = {
+			["name"] = "Light Leather",
+			["spell"] = 2881,
+			["productid"] = 2318,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 2934,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "1",
 		},
 		[3753] = {
 			["name"] = "Handstitched Leather Belt",
@@ -19609,6 +25671,78 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "undefined",
 			["learnedat"] = "200",
 		},
+		[3780] = {
+			["name"] = "Heavy Armor Kit",
+			["spell"] = 3780,
+			["productid"] = 4265,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 5,
+					["id"] = 4234,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "150",
+		},
+		[3816] = {
+			["name"] = "Cured Light Hide",
+			["spell"] = 3816,
+			["productid"] = 4231,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 4289,
+				},
+				{
+					["num"] = 1,
+					["id"] = 783,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "35",
+		},
+		[3817] = {
+			["name"] = "Cured Medium Hide",
+			["spell"] = 3817,
+			["productid"] = 4233,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 4289,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4232,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "100",
+		},
+		[3818] = {
+			["name"] = "Cured Heavy Hide",
+			["spell"] = 3818,
+			["productid"] = 4236,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 4235,
+				},
+				{
+					["num"] = 3,
+					["id"] = 4289,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "150",
+		},
 		[4096] = {
 			["name"] = "Raptor Hide Harness",
 			["spell"] = 4096,
@@ -19652,6 +25786,28 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "undefined",
 			["learnedat"] = "165",
+		},
+		[5244] = {
+			["name"] = "Kodo Hide Bag",
+			["spell"] = 5244,
+			["productid"] = 5081,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 5082,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2320,
+				},
+				{
+					["num"] = 4,
+					["id"] = 2318,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "40",
 		},
 		[6661] = {
 			["name"] = "Barbaric Harness",
@@ -20075,6 +26231,42 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "undefined",
 			["learnedat"] = "1",
 		},
+		[9060] = {
+			["name"] = "Light Leather Quiver",
+			["spell"] = 9060,
+			["productid"] = 7278,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2320,
+				},
+				{
+					["num"] = 4,
+					["id"] = 2318,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "30",
+		},
+		[9062] = {
+			["name"] = "Small Leather Ammo Pouch",
+			["spell"] = 9062,
+			["productid"] = 7279,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 2320,
+				},
+				{
+					["num"] = 3,
+					["id"] = 2318,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "30",
+		},
 		[9064] = {
 			["name"] = "Rugged Leather Pants",
 			["spell"] = 9064,
@@ -20313,6 +26505,42 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "undefined",
 			["learnedat"] = "145",
 		},
+		[9193] = {
+			["name"] = "Heavy Quiver",
+			["spell"] = 9193,
+			["productid"] = 7371,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 8,
+					["id"] = 4234,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "150",
+		},
+		[9194] = {
+			["name"] = "Heavy Leather Ammo Pouch",
+			["spell"] = 9194,
+			["productid"] = 7372,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 8,
+					["id"] = 4234,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "150",
+		},
 		[9195] = {
 			["name"] = "Dusky Leather Leggings",
 			["spell"] = 9195,
@@ -20525,6 +26753,42 @@ MakersPath.Professions.AllRecipes = {
 				},
 			},
 			["source"] = "undefined",
+			["learnedat"] = "200",
+		},
+		[10482] = {
+			["name"] = "Cured Thick Hide",
+			["spell"] = 10482,
+			["productid"] = 8172,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8169,
+				},
+				{
+					["num"] = 1,
+					["id"] = 8150,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "200",
+		},
+		[10487] = {
+			["name"] = "Thick Armor Kit",
+			["spell"] = 10487,
+			["productid"] = 8173,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 4291,
+				},
+				{
+					["num"] = 5,
+					["id"] = 4304,
+				},
+			},
+			["source"] = "trainer",
 			["learnedat"] = "200",
 		},
 		[10490] = {
@@ -21299,6 +27563,76 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "trainer",
 			["learnedat"] = "255",
 		},
+		[14930] = {
+			["name"] = "Quickdraw Quiver",
+			["spell"] = 14930,
+			["productid"] = 8217,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8949,
+				},
+				{
+					["num"] = 1,
+					["id"] = 8172,
+				},
+				{
+					["num"] = 4,
+					["id"] = 4291,
+				},
+				{
+					["num"] = 12,
+					["id"] = 4304,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "225",
+		},
+		[14932] = {
+			["name"] = "Thick Leather Ammo Pouch",
+			["spell"] = 14932,
+			["productid"] = 8218,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8172,
+				},
+				{
+					["num"] = 1,
+					["id"] = 8951,
+				},
+				{
+					["num"] = 6,
+					["id"] = 4291,
+				},
+				{
+					["num"] = 10,
+					["id"] = 4304,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "225",
+		},
+		[19047] = {
+			["name"] = "Cured Rugged Hide",
+			["spell"] = 19047,
+			["productid"] = 15407,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8171,
+				},
+				{
+					["num"] = 1,
+					["id"] = 15409,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "250",
+		},
 		[19048] = {
 			["name"] = "Heavy Scorpid Bracers",
 			["spell"] = 19048,
@@ -21474,6 +27808,20 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "undefined",
 			["learnedat"] = "270",
+		},
+		[19058] = {
+			["name"] = "Rugged Armor Kit",
+			["spell"] = 19058,
+			["productid"] = 15564,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 5,
+					["id"] = 8170,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "250",
 		},
 		[19059] = {
 			["name"] = "Volcanic Leggings",
@@ -22583,6 +28931,48 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
+		[20648] = {
+			["name"] = "Medium Leather",
+			["spell"] = 20648,
+			["productid"] = 2319,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 2318,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "100",
+		},
+		[20649] = {
+			["name"] = "Heavy Leather",
+			["spell"] = 20649,
+			["productid"] = 4234,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 5,
+					["id"] = 2319,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "150",
+		},
+		[20650] = {
+			["name"] = "Thick Leather",
+			["spell"] = 20650,
+			["productid"] = 4304,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 4234,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "200",
+		},
 		[20853] = {
 			["name"] = "Corehound Boots",
 			["spell"] = 20853,
@@ -22687,6 +29077,20 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "undefined",
 			["learnedat"] = "190",
 		},
+		[22331] = {
+			["name"] = "Rugged Leather",
+			["spell"] = 22331,
+			["productid"] = 8170,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 4304,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "250",
+		},
 		[22711] = {
 			["name"] = "Shadowskin Gloves",
 			["spell"] = 22711,
@@ -22720,6 +29124,24 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "undefined",
 			["learnedat"] = "200",
+		},
+		[22727] = {
+			["name"] = "Core Armor Kit",
+			["spell"] = 22727,
+			["productid"] = 18251,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 17012,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "300",
 		},
 		[22815] = {
 			["name"] = "Gordok Ogre Suit",
@@ -22934,6 +29356,24 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
+		},
+		[23190] = {
+			["name"] = "Heavy Leather Ball",
+			["spell"] = 23190,
+			["productid"] = 18662,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2321,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4234,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "150",
 		},
 		[23399] = {
 			["name"] = "Barbaric Bracers",
@@ -23871,6 +30311,84 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "undefined",
 			["learnedat"] = "300",
 		},
+		[32454] = {
+			["name"] = "Knothide Leather",
+			["spell"] = 32454,
+			["productid"] = 21887,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 5,
+					["id"] = 25649,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "300",
+		},
+		[32455] = {
+			["name"] = "Heavy Knothide Leather",
+			["spell"] = 32455,
+			["productid"] = 23793,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 5,
+					["id"] = 21887,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "325",
+		},
+		[32456] = {
+			["name"] = "Knothide Armor Kit",
+			["spell"] = 32456,
+			["productid"] = 25650,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 21887,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "310",
+		},
+		[32457] = {
+			["name"] = "Vindicator's Armor Kit",
+			["spell"] = 32457,
+			["productid"] = 25651,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22452,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "325",
+		},
+		[32458] = {
+			["name"] = "Magister's Armor Kit",
+			["spell"] = 32458,
+			["productid"] = 25652,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22457,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "325",
+		},
 		[32461] = {
 			["name"] = "Riding Crop",
 			["spell"] = 32461,
@@ -24216,6 +30734,20 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "trainer",
 			["learnedat"] = "330",
+		},
+		[32482] = {
+			["name"] = "Comfortable Insoles",
+			["spell"] = 32482,
+			["productid"] = 25679,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 21887,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "300",
 		},
 		[32485] = {
 			["name"] = "Stylin' Purple Hat",
@@ -24669,6 +31201,96 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "undefined",
 			["learnedat"] = "350",
 		},
+		[35520] = {
+			["name"] = "Shadow Armor Kit",
+			["spell"] = 35520,
+			["productid"] = 29483,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 4,
+					["id"] = 21886,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "340",
+		},
+		[35521] = {
+			["name"] = "Flame Armor Kit",
+			["spell"] = 35521,
+			["productid"] = 29485,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 4,
+					["id"] = 21885,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "340",
+		},
+		[35522] = {
+			["name"] = "Frost Armor Kit",
+			["spell"] = 35522,
+			["productid"] = 29486,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 4,
+					["id"] = 21884,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "340",
+		},
+		[35523] = {
+			["name"] = "Nature Armor Kit",
+			["spell"] = 35523,
+			["productid"] = 29487,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 4,
+					["id"] = 22456,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "340",
+		},
+		[35524] = {
+			["name"] = "Arcane Armor Kit",
+			["spell"] = 35524,
+			["productid"] = 29488,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 4,
+					["id"] = 22457,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "340",
+		},
 		[35525] = {
 			["name"] = "Enchanted Felscale Leggings",
 			["spell"] = 35525,
@@ -24786,6 +31408,24 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "undefined",
 			["learnedat"] = "350",
+		},
+		[35530] = {
+			["name"] = "Reinforced Mining Bag",
+			["spell"] = 35530,
+			["productid"] = 29540,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 4,
+					["id"] = 22452,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "325",
 		},
 		[35531] = {
 			["name"] = "Flamescale Belt",
@@ -24956,6 +31596,96 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "undefined",
 			["learnedat"] = "350",
+		},
+		[35538] = {
+			["name"] = "Drums of Panic",
+			["spell"] = 35538,
+			["productid"] = 29532,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 4,
+					["id"] = 25707,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "370",
+		},
+		[35539] = {
+			["name"] = "Drums of Restoration",
+			["spell"] = 35539,
+			["productid"] = 29531,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 4,
+					["id"] = 29548,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[35540] = {
+			["name"] = "Drums of War",
+			["spell"] = 35540,
+			["productid"] = 29528,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 3,
+					["id"] = 25700,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "340",
+		},
+		[35543] = {
+			["name"] = "Drums of Battle",
+			["spell"] = 35543,
+			["productid"] = 29529,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 4,
+					["id"] = 25708,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "365",
+		},
+		[35544] = {
+			["name"] = "Drums of Speed",
+			["spell"] = 35544,
+			["productid"] = 29530,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 4,
+					["id"] = 29547,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "345",
 		},
 		[35549] = {
 			["name"] = "Cobrahide Leg Armor",
@@ -26633,6 +33363,102 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
+		[44343] = {
+			["name"] = "Knothide Ammo Pouch",
+			["spell"] = 44343,
+			["productid"] = 34099,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 24,
+					["id"] = 21887,
+				},
+				{
+					["num"] = 4,
+					["id"] = 14341,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22451,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "325",
+		},
+		[44344] = {
+			["name"] = "Knothide Quiver",
+			["spell"] = 44344,
+			["productid"] = 34100,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 20,
+					["id"] = 21887,
+				},
+				{
+					["num"] = 30,
+					["id"] = 25719,
+				},
+				{
+					["num"] = 2,
+					["id"] = 14341,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "325",
+		},
+		[44359] = {
+			["name"] = "Quiver of a Thousand Feathers",
+			["spell"] = 44359,
+			["productid"] = 34105,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 99,
+					["id"] = 17056,
+				},
+				{
+					["num"] = 2,
+					["id"] = 22451,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[44768] = {
+			["name"] = "Netherscale Ammo Pouch",
+			["spell"] = 44768,
+			["productid"] = 34106,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 12,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 12,
+					["id"] = 29548,
+				},
+				{
+					["num"] = 4,
+					["id"] = 22452,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23572,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
 		[44770] = {
 			["name"] = "Glove Reinforcements",
 			["spell"] = 44770,
@@ -26676,6 +33502,80 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "undefined",
 			["learnedat"] = "285",
+		},
+		[44970] = {
+			["name"] = "Heavy Knothide Armor Kit",
+			["spell"] = 44970,
+			["productid"] = 34330,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 23793,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[45100] = {
+			["name"] = "Leatherworker's Satchel",
+			["spell"] = 45100,
+			["productid"] = 34482,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 20,
+					["id"] = 21887,
+				},
+				{
+					["num"] = 4,
+					["id"] = 25700,
+				},
+				{
+					["num"] = 4,
+					["id"] = 25707,
+				},
+				{
+					["num"] = 3,
+					["id"] = 14341,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "310",
+		},
+		[45117] = {
+			["name"] = "Bag of Many Hides",
+			["spell"] = 45117,
+			["productid"] = 34490,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 15,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 5,
+					["id"] = 29547,
+				},
+				{
+					["num"] = 5,
+					["id"] = 25707,
+				},
+				{
+					["num"] = 5,
+					["id"] = 29548,
+				},
+				{
+					["num"] = 5,
+					["id"] = 25708,
+				},
+				{
+					["num"] = 3,
+					["id"] = 14341,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "360",
 		},
 		[46132] = {
 			["name"] = "Leather Gauntlets of the Sun",
@@ -26901,9 +33801,1249 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
+		[351766] = {
+			["name"] = "Greater Drums of War",
+			["spell"] = 351766,
+			["productid"] = 185852,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 3,
+					["id"] = 25700,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[351768] = {
+			["name"] = "Greater Drums of Speed",
+			["spell"] = 351768,
+			["productid"] = 185851,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 4,
+					["id"] = 29547,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "345",
+		},
+		[351769] = {
+			["name"] = "Greater Drums of Restoration",
+			["spell"] = 351769,
+			["productid"] = 29531,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 4,
+					["id"] = 29548,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[351770] = {
+			["name"] = "Greater Drums of Panic",
+			["spell"] = 351770,
+			["productid"] = 185849,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 4,
+					["id"] = 25707,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "370",
+		},
+		[351771] = {
+			["name"] = "Greater Drums of Battle",
+			["spell"] = 351771,
+			["productid"] = 185848,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 6,
+					["id"] = 23793,
+				},
+				{
+					["num"] = 4,
+					["id"] = 25708,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "365",
+		},
 	},
 	-- Alchemy
 	[171] = {
+		[2329] = {
+			["name"] = "Elixir of Lion's Strength",
+			["spell"] = 2329,
+			["productid"] = 2454,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2449,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3371,
+				},
+				{
+					["num"] = 1,
+					["id"] = 765,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "1",
+		},
+		[2330] = {
+			["name"] = "Minor Healing Potion",
+			["spell"] = 2330,
+			["productid"] = 118,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2447,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3371,
+				},
+				{
+					["num"] = 1,
+					["id"] = 765,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "1",
+		},
+		[2331] = {
+			["name"] = "Minor Mana Potion",
+			["spell"] = 2331,
+			["productid"] = 2455,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 785,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3371,
+				},
+				{
+					["num"] = 1,
+					["id"] = 765,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "25",
+		},
+		[2332] = {
+			["name"] = "Minor Rejuvenation Potion",
+			["spell"] = 2332,
+			["productid"] = 2456,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 785,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2447,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3371,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "40",
+		},
+		[2333] = {
+			["name"] = "Elixir of Lesser Agility",
+			["spell"] = 2333,
+			["productid"] = 3390,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3355,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3372,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2452,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "140",
+		},
+		[2334] = {
+			["name"] = "Elixir of Minor Fortitude",
+			["spell"] = 2334,
+			["productid"] = 2458,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2449,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2447,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3371,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "50",
+		},
+		[2335] = {
+			["name"] = "Swiftness Potion",
+			["spell"] = 2335,
+			["productid"] = 2459,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2450,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3371,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2452,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "60",
+		},
+		[2337] = {
+			["name"] = "Lesser Healing Potion",
+			["spell"] = 2337,
+			["productid"] = 858,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2450,
+				},
+				{
+					["num"] = 1,
+					["id"] = 118,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "55",
+		},
+		[3170] = {
+			["name"] = "Weak Troll's Blood Potion",
+			["spell"] = 3170,
+			["productid"] = 3382,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2449,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2447,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3371,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "15",
+		},
+		[3171] = {
+			["name"] = "Elixir of Wisdom",
+			["spell"] = 3171,
+			["productid"] = 3383,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 785,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2450,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3371,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "90",
+		},
+		[3172] = {
+			["name"] = "Minor Magic Resistance Potion",
+			["spell"] = 3172,
+			["productid"] = 3384,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3355,
+				},
+				{
+					["num"] = 3,
+					["id"] = 785,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3371,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "110",
+		},
+		[3173] = {
+			["name"] = "Lesser Mana Potion",
+			["spell"] = 3173,
+			["productid"] = 3385,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 785,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3371,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3820,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "120",
+		},
+		[3174] = {
+			["name"] = "Elixir of Poison Resistance",
+			["spell"] = 3174,
+			["productid"] = 3386,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 1288,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2453,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3372,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "120",
+		},
+		[3175] = {
+			["name"] = "Limited Invulnerability Potion",
+			["spell"] = 3175,
+			["productid"] = 3387,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+				{
+					["num"] = 2,
+					["id"] = 8839,
+				},
+				{
+					["num"] = 1,
+					["id"] = 8845,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "250",
+		},
+		[3176] = {
+			["name"] = "Strong Troll's Blood Potion",
+			["spell"] = 3176,
+			["productid"] = 3388,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2450,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2453,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3372,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "125",
+		},
+		[3177] = {
+			["name"] = "Elixir of Defense",
+			["spell"] = 3177,
+			["productid"] = 3389,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3355,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3372,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3820,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "130",
+		},
+		[3188] = {
+			["name"] = "Elixir of Ogre's Strength",
+			["spell"] = 3188,
+			["productid"] = 3391,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2449,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3372,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3356,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "150",
+		},
+		[3230] = {
+			["name"] = "Elixir of Minor Agility",
+			["spell"] = 3230,
+			["productid"] = 2457,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 765,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3371,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2452,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "50",
+		},
+		[3447] = {
+			["name"] = "Healing Potion",
+			["spell"] = 3447,
+			["productid"] = 929,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2450,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2453,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3372,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "110",
+		},
+		[3448] = {
+			["name"] = "Lesser Invisibility Potion",
+			["spell"] = 3448,
+			["productid"] = 3823,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3355,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3818,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3372,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "165",
+		},
+		[3449] = {
+			["name"] = "Shadow Oil",
+			["spell"] = 3449,
+			["productid"] = 3824,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 3818,
+				},
+				{
+					["num"] = 4,
+					["id"] = 3369,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3372,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "165",
+		},
+		[3450] = {
+			["name"] = "Elixir of Fortitude",
+			["spell"] = 3450,
+			["productid"] = 3825,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3355,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3821,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3372,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "175",
+		},
+		[3451] = {
+			["name"] = "Mighty Troll's Blood Potion",
+			["spell"] = 3451,
+			["productid"] = 3826,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3357,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3372,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2453,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "180",
+		},
+		[3452] = {
+			["name"] = "Mana Potion",
+			["spell"] = 3452,
+			["productid"] = 3827,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3356,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3372,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3820,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "160",
+		},
+		[3453] = {
+			["name"] = "Elixir of Detect Lesser Invisibility",
+			["spell"] = 3453,
+			["productid"] = 3828,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3818,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3372,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3358,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "195",
+		},
+		[3454] = {
+			["name"] = "Frost Oil",
+			["spell"] = 3454,
+			["productid"] = 3829,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 3819,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3372,
+				},
+				{
+					["num"] = 4,
+					["id"] = 3358,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "200",
+		},
+		[4508] = {
+			["name"] = "Discolored Healing Potion",
+			["spell"] = 4508,
+			["productid"] = 4596,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3164,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2447,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3371,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "50",
+		},
+		[4942] = {
+			["name"] = "Lesser Stoneshield Potion",
+			["spell"] = 4942,
+			["productid"] = 4623,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3821,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3372,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3858,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "215",
+		},
+		[6617] = {
+			["name"] = "Rage Potion",
+			["spell"] = 6617,
+			["productid"] = 5631,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 5635,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2450,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3371,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "60",
+		},
+		[6618] = {
+			["name"] = "Great Rage Potion",
+			["spell"] = 6618,
+			["productid"] = 5633,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3356,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3372,
+				},
+				{
+					["num"] = 1,
+					["id"] = 5637,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "175",
+		},
+		[6624] = {
+			["name"] = "Free Action Potion",
+			["spell"] = 6624,
+			["productid"] = 5634,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 6370,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3372,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3820,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "150",
+		},
+		[7179] = {
+			["name"] = "Elixir of Water Breathing",
+			["spell"] = 7179,
+			["productid"] = 5996,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 6370,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3371,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3820,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "90",
+		},
+		[7181] = {
+			["name"] = "Greater Healing Potion",
+			["spell"] = 7181,
+			["productid"] = 1710,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3357,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3356,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3372,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "155",
+		},
+		[7183] = {
+			["name"] = "Elixir of Minor Defense",
+			["spell"] = 7183,
+			["productid"] = 5997,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3371,
+				},
+				{
+					["num"] = 2,
+					["id"] = 765,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "1",
+		},
+		[7255] = {
+			["name"] = "Holy Protection Potion",
+			["spell"] = 7255,
+			["productid"] = 6051,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2453,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3371,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2452,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "100",
+		},
+		[7256] = {
+			["name"] = "Shadow Protection Potion",
+			["spell"] = 7256,
+			["productid"] = 6048,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3356,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3369,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3372,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "135",
+		},
+		[7257] = {
+			["name"] = "Fire Protection Potion",
+			["spell"] = 7257,
+			["productid"] = 6049,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 6371,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3372,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4402,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "165",
+		},
+		[7258] = {
+			["name"] = "Frost Protection Potion",
+			["spell"] = 7258,
+			["productid"] = 6050,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3819,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3372,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3821,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "190",
+		},
+		[7259] = {
+			["name"] = "Nature Protection Potion",
+			["spell"] = 7259,
+			["productid"] = 6052,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3357,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3372,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3820,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "190",
+		},
+		[7836] = {
+			["name"] = "Blackmouth Oil",
+			["spell"] = 7836,
+			["productid"] = 6370,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 6358,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3371,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "80",
+		},
+		[7837] = {
+			["name"] = "Fire Oil",
+			["spell"] = 7837,
+			["productid"] = 6371,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3371,
+				},
+				{
+					["num"] = 2,
+					["id"] = 6359,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "130",
+		},
+		[7841] = {
+			["name"] = "Swim Speed Potion",
+			["spell"] = 7841,
+			["productid"] = 6372,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 6370,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3371,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2452,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "100",
+		},
+		[7845] = {
+			["name"] = "Elixir of Firepower",
+			["spell"] = 7845,
+			["productid"] = 6373,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 6371,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3356,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3372,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "140",
+		},
+		[8240] = {
+			["name"] = "Elixir of Giant Growth",
+			["spell"] = 8240,
+			["productid"] = 6662,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 6522,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2449,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3371,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "90",
+		},
+		[11448] = {
+			["name"] = "Greater Mana Potion",
+			["spell"] = 11448,
+			["productid"] = 6149,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3372,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3821,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3358,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "205",
+		},
+		[11449] = {
+			["name"] = "Elixir of Agility",
+			["spell"] = 11449,
+			["productid"] = 8949,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3372,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3821,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3820,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "185",
+		},
+		[11450] = {
+			["name"] = "Elixir of Greater Defense",
+			["spell"] = 11450,
+			["productid"] = 8951,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3355,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3372,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3821,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "195",
+		},
+		[11451] = {
+			["name"] = "Oil of Immolation",
+			["spell"] = 11451,
+			["productid"] = 8956,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4625,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3821,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "205",
+		},
+		[11452] = {
+			["name"] = "Restorative Potion",
+			["spell"] = 11452,
+			["productid"] = 9030,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7067,
+				},
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3821,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "215",
+		},
+		[11453] = {
+			["name"] = "Magic Resistance Potion",
+			["spell"] = 11453,
+			["productid"] = 9036,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+				{
+					["num"] = 1,
+					["id"] = 8831,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3358,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "210",
+		},
+		[11456] = {
+			["name"] = "Goblin Rocket Fuel",
+			["spell"] = 11456,
+			["productid"] = 9061,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 9260,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4625,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3372,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "210",
+		},
+		[11457] = {
+			["name"] = "Superior Healing Potion",
+			["spell"] = 11457,
+			["productid"] = 3928,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3358,
+				},
+				{
+					["num"] = 1,
+					["id"] = 8838,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "215",
+		},
+		[11458] = {
+			["name"] = "Wildvine Potion",
+			["spell"] = 11458,
+			["productid"] = 9144,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+				{
+					["num"] = 1,
+					["id"] = 8831,
+				},
+				{
+					["num"] = 1,
+					["id"] = 8153,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "225",
+		},
 		[11459] = {
 			["name"] = "Philosophers' Stone",
 			["spell"] = 11459,
@@ -26929,6 +35069,818 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "undefined",
 			["learnedat"] = "225",
+		},
+		[11460] = {
+			["name"] = "Elixir of Detect Undead",
+			["spell"] = 11460,
+			["productid"] = 9154,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+				{
+					["num"] = 1,
+					["id"] = 8836,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "230",
+		},
+		[11461] = {
+			["name"] = "Arcane Elixir",
+			["spell"] = 11461,
+			["productid"] = 9155,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+				{
+					["num"] = 1,
+					["id"] = 8839,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3821,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "235",
+		},
+		[11464] = {
+			["name"] = "Invisibility Potion",
+			["spell"] = 11464,
+			["productid"] = 9172,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+				{
+					["num"] = 1,
+					["id"] = 8845,
+				},
+				{
+					["num"] = 1,
+					["id"] = 8838,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "235",
+		},
+		[11465] = {
+			["name"] = "Elixir of Greater Intellect",
+			["spell"] = 11465,
+			["productid"] = 9179,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+				{
+					["num"] = 1,
+					["id"] = 8839,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3358,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "235",
+		},
+		[11466] = {
+			["name"] = "Gift of Arthas",
+			["spell"] = 11466,
+			["productid"] = 9088,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+				{
+					["num"] = 1,
+					["id"] = 8836,
+				},
+				{
+					["num"] = 1,
+					["id"] = 8839,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "240",
+		},
+		[11467] = {
+			["name"] = "Elixir of Greater Agility",
+			["spell"] = 11467,
+			["productid"] = 9187,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+				{
+					["num"] = 1,
+					["id"] = 8838,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3821,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "240",
+		},
+		[11468] = {
+			["name"] = "Elixir of Dream Vision",
+			["spell"] = 11468,
+			["productid"] = 9197,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+				{
+					["num"] = 3,
+					["id"] = 8831,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "240",
+		},
+		[11472] = {
+			["name"] = "Elixir of Giants",
+			["spell"] = 11472,
+			["productid"] = 9206,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+				{
+					["num"] = 1,
+					["id"] = 8838,
+				},
+				{
+					["num"] = 1,
+					["id"] = 8846,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "245",
+		},
+		[11473] = {
+			["name"] = "Ghost Dye",
+			["spell"] = 11473,
+			["productid"] = 9210,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+				{
+					["num"] = 2,
+					["id"] = 8845,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4342,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "245",
+		},
+		[11476] = {
+			["name"] = "Elixir of Shadow Power",
+			["spell"] = 11476,
+			["productid"] = 9264,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+				{
+					["num"] = 3,
+					["id"] = 8845,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "250",
+		},
+		[11477] = {
+			["name"] = "Elixir of Demonslaying",
+			["spell"] = 11477,
+			["productid"] = 9224,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+				{
+					["num"] = 1,
+					["id"] = 8845,
+				},
+				{
+					["num"] = 1,
+					["id"] = 8846,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "250",
+		},
+		[11478] = {
+			["name"] = "Elixir of Detect Demon",
+			["spell"] = 11478,
+			["productid"] = 9233,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+				{
+					["num"] = 2,
+					["id"] = 8846,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "250",
+		},
+		[11479] = {
+			["name"] = "Transmute: Iron to Gold",
+			["spell"] = 11479,
+			["productid"] = 3577,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3575,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "225",
+		},
+		[11480] = {
+			["name"] = "Transmute: Mithril to Truesilver",
+			["spell"] = 11480,
+			["productid"] = 6037,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3860,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "225",
+		},
+		[12609] = {
+			["name"] = "Catseye Elixir",
+			["spell"] = 12609,
+			["productid"] = 10592,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3818,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3372,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3821,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "200",
+		},
+		[15833] = {
+			["name"] = "Dreamless Sleep Potion",
+			["spell"] = 15833,
+			["productid"] = 12190,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+				{
+					["num"] = 3,
+					["id"] = 8831,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "230",
+		},
+		[17187] = {
+			["name"] = "Transmute: Arcanite",
+			["spell"] = 17187,
+			["productid"] = 12360,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 12359,
+				},
+				{
+					["num"] = 1,
+					["id"] = 12363,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "275",
+		},
+		[17551] = {
+			["name"] = "Stonescale Oil",
+			["spell"] = 17551,
+			["productid"] = 13423,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3372,
+				},
+				{
+					["num"] = 1,
+					["id"] = 13422,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "250",
+		},
+		[17552] = {
+			["name"] = "Mighty Rage Potion",
+			["spell"] = 17552,
+			["productid"] = 13442,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 8846,
+				},
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "255",
+		},
+		[17553] = {
+			["name"] = "Superior Mana Potion",
+			["spell"] = 17553,
+			["productid"] = 13443,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+				{
+					["num"] = 2,
+					["id"] = 8839,
+				},
+				{
+					["num"] = 2,
+					["id"] = 8838,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "260",
+		},
+		[17554] = {
+			["name"] = "Elixir of Superior Defense",
+			["spell"] = 17554,
+			["productid"] = 13445,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+				{
+					["num"] = 2,
+					["id"] = 13423,
+				},
+				{
+					["num"] = 1,
+					["id"] = 8838,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "265",
+		},
+		[17555] = {
+			["name"] = "Elixir of the Sages",
+			["spell"] = 17555,
+			["productid"] = 13447,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 13463,
+				},
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+				{
+					["num"] = 2,
+					["id"] = 13466,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "270",
+		},
+		[17556] = {
+			["name"] = "Major Healing Potion",
+			["spell"] = 17556,
+			["productid"] = 13446,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+				{
+					["num"] = 1,
+					["id"] = 13465,
+				},
+				{
+					["num"] = 2,
+					["id"] = 13464,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "275",
+		},
+		[17557] = {
+			["name"] = "Elixir of Brute Force",
+			["spell"] = 17557,
+			["productid"] = 13453,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+				{
+					["num"] = 2,
+					["id"] = 13466,
+				},
+				{
+					["num"] = 2,
+					["id"] = 8846,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "275",
+		},
+		[17559] = {
+			["name"] = "Transmute: Air to Fire",
+			["spell"] = 17559,
+			["productid"] = 7078,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7082,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "275",
+		},
+		[17560] = {
+			["name"] = "Transmute: Fire to Earth",
+			["spell"] = 17560,
+			["productid"] = 7076,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7078,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "275",
+		},
+		[17561] = {
+			["name"] = "Transmute: Earth to Water",
+			["spell"] = 17561,
+			["productid"] = 7080,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7076,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "275",
+		},
+		[17562] = {
+			["name"] = "Transmute: Water to Air",
+			["spell"] = 17562,
+			["productid"] = 7082,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7080,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "275",
+		},
+		[17563] = {
+			["name"] = "Transmute: Undeath to Water",
+			["spell"] = 17563,
+			["productid"] = 7080,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 12808,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "275",
+		},
+		[17564] = {
+			["name"] = "Transmute: Water to Undeath",
+			["spell"] = 17564,
+			["productid"] = 12808,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7080,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "275",
+		},
+		[17565] = {
+			["name"] = "Transmute: Life to Earth",
+			["spell"] = 17565,
+			["productid"] = 7076,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 12803,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "275",
+		},
+		[17566] = {
+			["name"] = "Transmute: Earth to Life",
+			["spell"] = 17566,
+			["productid"] = 12803,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7076,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "275",
+		},
+		[17570] = {
+			["name"] = "Greater Stoneshield Potion",
+			["spell"] = 17570,
+			["productid"] = 13455,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 10620,
+				},
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+				{
+					["num"] = 3,
+					["id"] = 13423,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "280",
+		},
+		[17571] = {
+			["name"] = "Elixir of the Mongoose",
+			["spell"] = 17571,
+			["productid"] = 13452,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+				{
+					["num"] = 2,
+					["id"] = 13466,
+				},
+				{
+					["num"] = 2,
+					["id"] = 13465,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "280",
+		},
+		[17572] = {
+			["name"] = "Purification Potion",
+			["spell"] = 17572,
+			["productid"] = 13462,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+				{
+					["num"] = 2,
+					["id"] = 13467,
+				},
+				{
+					["num"] = 2,
+					["id"] = 13466,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "285",
+		},
+		[17573] = {
+			["name"] = "Greater Arcane Elixir",
+			["spell"] = 17573,
+			["productid"] = 13454,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 13463,
+				},
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+				{
+					["num"] = 1,
+					["id"] = 13465,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "285",
+		},
+		[17574] = {
+			["name"] = "Greater Fire Protection Potion",
+			["spell"] = 17574,
+			["productid"] = 13457,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 13463,
+				},
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7068,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "290",
+		},
+		[17575] = {
+			["name"] = "Greater Frost Protection Potion",
+			["spell"] = 17575,
+			["productid"] = 13456,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 13463,
+				},
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7070,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "290",
+		},
+		[17576] = {
+			["name"] = "Greater Nature Protection Potion",
+			["spell"] = 17576,
+			["productid"] = 13458,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7067,
+				},
+				{
+					["num"] = 1,
+					["id"] = 13463,
+				},
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "290",
+		},
+		[17577] = {
+			["name"] = "Greater Arcane Protection Potion",
+			["spell"] = 17577,
+			["productid"] = 13461,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 13463,
+				},
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+				{
+					["num"] = 1,
+					["id"] = 11176,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "290",
+		},
+		[17578] = {
+			["name"] = "Greater Shadow Protection Potion",
+			["spell"] = 17578,
+			["productid"] = 13459,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 13463,
+				},
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3824,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "290",
+		},
+		[17580] = {
+			["name"] = "Major Mana Potion",
+			["spell"] = 17580,
+			["productid"] = 13444,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 13463,
+				},
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+				{
+					["num"] = 2,
+					["id"] = 13467,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "295",
 		},
 		[17632] = {
 			["name"] = "Alchemist's Stone",
@@ -26967,6 +35919,1776 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "undefined",
 			["learnedat"] = "300",
+		},
+		[17634] = {
+			["name"] = "Flask of Petrification",
+			["spell"] = 17634,
+			["productid"] = 13506,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+				{
+					["num"] = 1,
+					["id"] = 13468,
+				},
+				{
+					["num"] = 30,
+					["id"] = 13423,
+				},
+				{
+					["num"] = 10,
+					["id"] = 13465,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "300",
+		},
+		[17635] = {
+			["name"] = "Flask of the Titans",
+			["spell"] = 17635,
+			["productid"] = 13510,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+				{
+					["num"] = 1,
+					["id"] = 13468,
+				},
+				{
+					["num"] = 10,
+					["id"] = 13423,
+				},
+				{
+					["num"] = 30,
+					["id"] = 8846,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "300",
+		},
+		[17636] = {
+			["name"] = "Flask of Distilled Wisdom",
+			["spell"] = 17636,
+			["productid"] = 13511,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 30,
+					["id"] = 13463,
+				},
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+				{
+					["num"] = 1,
+					["id"] = 13468,
+				},
+				{
+					["num"] = 10,
+					["id"] = 13467,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "300",
+		},
+		[17637] = {
+			["name"] = "Flask of Supreme Power",
+			["spell"] = 17637,
+			["productid"] = 13512,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 30,
+					["id"] = 13463,
+				},
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+				{
+					["num"] = 1,
+					["id"] = 13468,
+				},
+				{
+					["num"] = 10,
+					["id"] = 13465,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "300",
+		},
+		[17638] = {
+			["name"] = "Flask of Chromatic Resistance",
+			["spell"] = 17638,
+			["productid"] = 13513,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+				{
+					["num"] = 1,
+					["id"] = 13468,
+				},
+				{
+					["num"] = 30,
+					["id"] = 13467,
+				},
+				{
+					["num"] = 10,
+					["id"] = 13465,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "300",
+		},
+		[21923] = {
+			["name"] = "Elixir of Frost Power",
+			["spell"] = 21923,
+			["productid"] = 17708,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 3819,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3372,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3358,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "190",
+		},
+		[22732] = {
+			["name"] = "Major Rejuvenation Potion",
+			["spell"] = 22732,
+			["productid"] = 18253,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 10286,
+				},
+				{
+					["num"] = 4,
+					["id"] = 13463,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18256,
+				},
+				{
+					["num"] = 4,
+					["id"] = 13464,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "300",
+		},
+		[22808] = {
+			["name"] = "Elixir of Greater Water Breathing",
+			["spell"] = 22808,
+			["productid"] = 18294,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+				{
+					["num"] = 2,
+					["id"] = 8831,
+				},
+				{
+					["num"] = 1,
+					["id"] = 7972,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "215",
+		},
+		[24266] = {
+			["name"] = "Gurubashi Mojo Madness",
+			["spell"] = 24266,
+			["productid"] = 19931,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 12938,
+				},
+				{
+					["num"] = 1,
+					["id"] = 13468,
+				},
+				{
+					["num"] = 6,
+					["id"] = 12804,
+				},
+				{
+					["num"] = 1,
+					["id"] = 19943,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "315",
+		},
+		[24365] = {
+			["name"] = "Mageblood Potion",
+			["spell"] = 24365,
+			["productid"] = 20007,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 13463,
+				},
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+				{
+					["num"] = 2,
+					["id"] = 13466,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "275",
+		},
+		[24366] = {
+			["name"] = "Greater Dreamless Sleep Potion",
+			["spell"] = 24366,
+			["productid"] = 20002,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 13463,
+				},
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+				{
+					["num"] = 1,
+					["id"] = 13464,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "275",
+		},
+		[24367] = {
+			["name"] = "Living Action Potion",
+			["spell"] = 24367,
+			["productid"] = 20008,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 10286,
+				},
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+				{
+					["num"] = 2,
+					["id"] = 13467,
+				},
+				{
+					["num"] = 2,
+					["id"] = 13465,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "285",
+		},
+		[24368] = {
+			["name"] = "Major Troll's Blood Potion",
+			["spell"] = 24368,
+			["productid"] = 20004,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+				{
+					["num"] = 2,
+					["id"] = 13466,
+				},
+				{
+					["num"] = 1,
+					["id"] = 8846,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "290",
+		},
+		[25146] = {
+			["name"] = "Transmute: Elemental Fire",
+			["spell"] = 25146,
+			["productid"] = 7068,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7077,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "300",
+		},
+		[26277] = {
+			["name"] = "Elixir of Greater Firepower",
+			["spell"] = 26277,
+			["productid"] = 21546,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 6371,
+				},
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+				{
+					["num"] = 3,
+					["id"] = 4625,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "250",
+		},
+		[28543] = {
+			["name"] = "Elixir of Camouflage",
+			["spell"] = 28543,
+			["productid"] = 22823,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 22787,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22785,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "305",
+		},
+		[28544] = {
+			["name"] = "Elixir of Major Strength",
+			["spell"] = 28544,
+			["productid"] = 22824,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 13465,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22785,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "305",
+		},
+		[28545] = {
+			["name"] = "Elixir of Healing Power",
+			["spell"] = 28545,
+			["productid"] = 22825,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 13464,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22786,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "310",
+		},
+		[28546] = {
+			["name"] = "Sneaking Potion",
+			["spell"] = 28546,
+			["productid"] = 22826,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 22787,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22785,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "315",
+		},
+		[28549] = {
+			["name"] = "Elixir of Major Frost Power",
+			["spell"] = 28549,
+			["productid"] = 22827,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 22578,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22790,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "320",
+		},
+		[28550] = {
+			["name"] = "Insane Strength Potion",
+			["spell"] = 28550,
+			["productid"] = 22828,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 22789,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "320",
+		},
+		[28551] = {
+			["name"] = "Super Healing Potion",
+			["spell"] = 28551,
+			["productid"] = 22829,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 22791,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22785,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "325",
+		},
+		[28552] = {
+			["name"] = "Elixir of the Searching Eye",
+			["spell"] = 28552,
+			["productid"] = 22830,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 22787,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22789,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "325",
+		},
+		[28553] = {
+			["name"] = "Elixir of Major Agility",
+			["spell"] = 28553,
+			["productid"] = 22831,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 22789,
+				},
+				{
+					["num"] = 2,
+					["id"] = 22785,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "330",
+		},
+		[28554] = {
+			["name"] = "Shrouding Potion",
+			["spell"] = 28554,
+			["productid"] = 22871,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 22787,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22791,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "335",
+		},
+		[28555] = {
+			["name"] = "Super Mana Potion",
+			["spell"] = 28555,
+			["productid"] = 22832,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 22786,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22785,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "340",
+		},
+		[28556] = {
+			["name"] = "Elixir of Major Firepower",
+			["spell"] = 28556,
+			["productid"] = 22833,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 22574,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22790,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "345",
+		},
+		[28557] = {
+			["name"] = "Elixir of Major Defense",
+			["spell"] = 28557,
+			["productid"] = 22834,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 22790,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22789,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "345",
+		},
+		[28558] = {
+			["name"] = "Elixir of Major Shadow Power",
+			["spell"] = 28558,
+			["productid"] = 22835,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 22790,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22792,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[28562] = {
+			["name"] = "Major Dreamless Sleep Potion",
+			["spell"] = 28562,
+			["productid"] = 22836,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 22786,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22792,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[28563] = {
+			["name"] = "Heroic Potion",
+			["spell"] = 28563,
+			["productid"] = 22837,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 22789,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22790,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[28564] = {
+			["name"] = "Haste Potion",
+			["spell"] = 28564,
+			["productid"] = 22838,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 22789,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22791,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[28565] = {
+			["name"] = "Destruction Potion",
+			["spell"] = 28565,
+			["productid"] = 22839,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 22792,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22791,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[28566] = {
+			["name"] = "Transmute: Primal Air to Fire",
+			["spell"] = 28566,
+			["productid"] = 21884,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 22451,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[28567] = {
+			["name"] = "Transmute: Primal Earth to Water",
+			["spell"] = 28567,
+			["productid"] = 21885,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 22452,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[28568] = {
+			["name"] = "Transmute: Primal Fire to Earth",
+			["spell"] = 28568,
+			["productid"] = 22452,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 21884,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[28569] = {
+			["name"] = "Transmute: Primal Water to Air",
+			["spell"] = 28569,
+			["productid"] = 22451,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 21885,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[28570] = {
+			["name"] = "Elixir of Major Mageblood",
+			["spell"] = 28570,
+			["productid"] = 22840,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 22790,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22791,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "355",
+		},
+		[28571] = {
+			["name"] = "Major Fire Protection Potion",
+			["spell"] = 28571,
+			["productid"] = 22841,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 3,
+					["id"] = 22793,
+				},
+				{
+					["num"] = 5,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "360",
+		},
+		[28572] = {
+			["name"] = "Major Frost Protection Potion",
+			["spell"] = 28572,
+			["productid"] = 22842,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 21885,
+				},
+				{
+					["num"] = 3,
+					["id"] = 22793,
+				},
+				{
+					["num"] = 5,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "360",
+		},
+		[28573] = {
+			["name"] = "Major Nature Protection Potion",
+			["spell"] = 28573,
+			["productid"] = 22844,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 3,
+					["id"] = 22793,
+				},
+				{
+					["num"] = 5,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "360",
+		},
+		[28575] = {
+			["name"] = "Major Arcane Protection Potion",
+			["spell"] = 28575,
+			["productid"] = 22845,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 22457,
+				},
+				{
+					["num"] = 3,
+					["id"] = 22793,
+				},
+				{
+					["num"] = 5,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "360",
+		},
+		[28576] = {
+			["name"] = "Major Shadow Protection Potion",
+			["spell"] = 28576,
+			["productid"] = 22846,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 3,
+					["id"] = 22793,
+				},
+				{
+					["num"] = 5,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "360",
+		},
+		[28577] = {
+			["name"] = "Major Holy Protection Potion",
+			["spell"] = 28577,
+			["productid"] = 22847,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 3,
+					["id"] = 22793,
+				},
+				{
+					["num"] = 5,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "360",
+		},
+		[28578] = {
+			["name"] = "Elixir of Empowerment",
+			["spell"] = 28578,
+			["productid"] = 22848,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 22791,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22793,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "365",
+		},
+		[28579] = {
+			["name"] = "Ironshield Potion",
+			["spell"] = 28579,
+			["productid"] = 22849,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 22790,
+				},
+				{
+					["num"] = 3,
+					["id"] = 22573,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "365",
+		},
+		[28580] = {
+			["name"] = "Transmute: Primal Shadow to Water",
+			["spell"] = 28580,
+			["productid"] = 21885,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 22456,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "385",
+		},
+		[28581] = {
+			["name"] = "Transmute: Primal Water to Shadow",
+			["spell"] = 28581,
+			["productid"] = 22456,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 21885,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "385",
+		},
+		[28582] = {
+			["name"] = "Transmute: Primal Mana to Fire",
+			["spell"] = 28582,
+			["productid"] = 21884,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 22457,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "385",
+		},
+		[28583] = {
+			["name"] = "Transmute: Primal Fire to Mana",
+			["spell"] = 28583,
+			["productid"] = 22457,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 21884,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "385",
+		},
+		[28584] = {
+			["name"] = "Transmute: Primal Life to Earth",
+			["spell"] = 28584,
+			["productid"] = 22452,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 21886,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "385",
+		},
+		[28585] = {
+			["name"] = "Transmute: Primal Earth to Life",
+			["spell"] = 28585,
+			["productid"] = 21886,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 22452,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "385",
+		},
+		[28586] = {
+			["name"] = "Super Rejuvenation Potion",
+			["spell"] = 28586,
+			["productid"] = 22850,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 22793,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22786,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22791,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "390",
+		},
+		[28587] = {
+			["name"] = "Flask of Fortification",
+			["spell"] = 28587,
+			["productid"] = 22851,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 22794,
+				},
+				{
+					["num"] = 3,
+					["id"] = 22793,
+				},
+				{
+					["num"] = 7,
+					["id"] = 22790,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "390",
+		},
+		[28588] = {
+			["name"] = "Flask of Mighty Restoration",
+			["spell"] = 28588,
+			["productid"] = 22853,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 22794,
+				},
+				{
+					["num"] = 3,
+					["id"] = 22793,
+				},
+				{
+					["num"] = 7,
+					["id"] = 22786,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "390",
+		},
+		[28589] = {
+			["name"] = "Flask of Relentless Assault",
+			["spell"] = 28589,
+			["productid"] = 22854,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 22794,
+				},
+				{
+					["num"] = 3,
+					["id"] = 22793,
+				},
+				{
+					["num"] = 7,
+					["id"] = 22789,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "390",
+		},
+		[28590] = {
+			["name"] = "Flask of Blinding Light",
+			["spell"] = 28590,
+			["productid"] = 22861,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 22794,
+				},
+				{
+					["num"] = 3,
+					["id"] = 22793,
+				},
+				{
+					["num"] = 7,
+					["id"] = 22791,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "390",
+		},
+		[28591] = {
+			["name"] = "Flask of Pure Death",
+			["spell"] = 28591,
+			["productid"] = 22866,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 22794,
+				},
+				{
+					["num"] = 3,
+					["id"] = 22793,
+				},
+				{
+					["num"] = 7,
+					["id"] = 22792,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "390",
+		},
+		[29688] = {
+			["name"] = "Transmute: Primal Might",
+			["spell"] = 29688,
+			["productid"] = 23571,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 22452,
+				},
+				{
+					["num"] = 1,
+					["id"] = 21885,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22451,
+				},
+				{
+					["num"] = 1,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22457,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[32765] = {
+			["name"] = "Transmute: Earthstorm Diamond",
+			["spell"] = 32765,
+			["productid"] = 25867,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 23079,
+				},
+				{
+					["num"] = 3,
+					["id"] = 23107,
+				},
+				{
+					["num"] = 3,
+					["id"] = 23112,
+				},
+				{
+					["num"] = 2,
+					["id"] = 22452,
+				},
+				{
+					["num"] = 2,
+					["id"] = 21885,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[32766] = {
+			["name"] = "Transmute: Skyfire Diamond",
+			["spell"] = 32766,
+			["productid"] = 25868,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 23077,
+				},
+				{
+					["num"] = 3,
+					["id"] = 21929,
+				},
+				{
+					["num"] = 3,
+					["id"] = 23117,
+				},
+				{
+					["num"] = 2,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 2,
+					["id"] = 22451,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[33732] = {
+			["name"] = "Volatile Healing Potion",
+			["spell"] = 33732,
+			["productid"] = 28100,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 13464,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22785,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "300",
+		},
+		[33733] = {
+			["name"] = "Unstable Mana Potion",
+			["spell"] = 33733,
+			["productid"] = 28101,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 22787,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22785,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "310",
+		},
+		[33738] = {
+			["name"] = "Onslaught Elixir",
+			["spell"] = 33738,
+			["productid"] = 28102,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 13465,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22785,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "300",
+		},
+		[33740] = {
+			["name"] = "Adept's Elixir",
+			["spell"] = 33740,
+			["productid"] = 28103,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 13463,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22785,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "300",
+		},
+		[33741] = {
+			["name"] = "Elixir of Mastery",
+			["spell"] = 33741,
+			["productid"] = 28104,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 22789,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22785,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "315",
+		},
+		[38070] = {
+			["name"] = "Mercurial Stone",
+			["spell"] = 38070,
+			["productid"] = 31080,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 22452,
+				},
+				{
+					["num"] = 1,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22457,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "325",
+		},
+		[38960] = {
+			["name"] = "Fel Strength Elixir",
+			["spell"] = 38960,
+			["productid"] = 31679,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 22789,
+				},
+				{
+					["num"] = 2,
+					["id"] = 22792,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "335",
+		},
+		[38961] = {
+			["name"] = "Fel Mana Potion",
+			["spell"] = 38961,
+			["productid"] = 31677,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 22793,
+				},
+				{
+					["num"] = 2,
+					["id"] = 22792,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "360",
+		},
+		[38962] = {
+			["name"] = "Fel Regeneration Potion",
+			["spell"] = 38962,
+			["productid"] = 31676,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 22785,
+				},
+				{
+					["num"] = 3,
+					["id"] = 22792,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "345",
+		},
+		[39636] = {
+			["name"] = "Elixir of Major Fortitude",
+			["spell"] = 39636,
+			["productid"] = 32062,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 22787,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22785,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "310",
+		},
+		[39637] = {
+			["name"] = "Earthen Elixir",
+			["spell"] = 39637,
+			["productid"] = 32063,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 22786,
+				},
+				{
+					["num"] = 2,
+					["id"] = 22787,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "320",
+		},
+		[39638] = {
+			["name"] = "Elixir of Draenic Wisdom",
+			["spell"] = 39638,
+			["productid"] = 32067,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 22785,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22789,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "320",
+		},
+		[39639] = {
+			["name"] = "Elixir of Ironskin",
+			["spell"] = 39639,
+			["productid"] = 32068,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 22790,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22787,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "330",
+		},
+		[41458] = {
+			["name"] = "Cauldron of Major Arcane Protection",
+			["spell"] = 41458,
+			["productid"] = 32839,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 22457,
+				},
+				{
+					["num"] = 7,
+					["id"] = 22793,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23782,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "360",
+		},
+		[41500] = {
+			["name"] = "Cauldron of Major Fire Protection",
+			["spell"] = 41500,
+			["productid"] = 32849,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 21884,
+				},
+				{
+					["num"] = 7,
+					["id"] = 22793,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23782,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "360",
+		},
+		[41501] = {
+			["name"] = "Cauldron of Major Frost Protection",
+			["spell"] = 41501,
+			["productid"] = 32850,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 21885,
+				},
+				{
+					["num"] = 7,
+					["id"] = 22793,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23782,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "360",
+		},
+		[41502] = {
+			["name"] = "Cauldron of Major Nature Protection",
+			["spell"] = 41502,
+			["productid"] = 32851,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 21886,
+				},
+				{
+					["num"] = 7,
+					["id"] = 22793,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23782,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "360",
+		},
+		[41503] = {
+			["name"] = "Cauldron of Major Shadow Protection",
+			["spell"] = 41503,
+			["productid"] = 32852,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 22456,
+				},
+				{
+					["num"] = 7,
+					["id"] = 22793,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23782,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "360",
+		},
+		[42736] = {
+			["name"] = "Flask of Chromatic Wonder",
+			["spell"] = 42736,
+			["productid"] = 33208,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 7,
+					["id"] = 22786,
+				},
+				{
+					["num"] = 3,
+					["id"] = 22791,
+				},
+				{
+					["num"] = 1,
+					["id"] = 22794,
+				},
+				{
+					["num"] = 1,
+					["id"] = 18256,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[45061] = {
+			["name"] = "Mad Alchemist's Potion",
+			["spell"] = 45061,
+			["productid"] = 34440,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8925,
+				},
+				{
+					["num"] = 2,
+					["id"] = 22787,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "325",
 		},
 		[47046] = {
 			["name"] = "Guardian's Alchemist Stone",
@@ -27062,12 +37784,1796 @@ MakersPath.Professions.AllRecipes = {
 	},
 	-- Cooking
 	[185] = {
+		[2538] = {
+			["name"] = "Charred Wolf Meat",
+			["spell"] = 2538,
+			["productid"] = 2679,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2672,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "0",
+		},
+		[2539] = {
+			["name"] = "Spiced Wolf Meat",
+			["spell"] = 2539,
+			["productid"] = 2680,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2678,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2672,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "10",
+		},
+		[2540] = {
+			["name"] = "Roasted Boar Meat",
+			["spell"] = 2540,
+			["productid"] = 2681,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 769,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "0",
+		},
+		[2541] = {
+			["name"] = "Coyote Steak",
+			["spell"] = 2541,
+			["productid"] = 2684,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2673,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "50",
+		},
+		[2542] = {
+			["name"] = "Goretusk Liver Pie",
+			["spell"] = 2542,
+			["productid"] = 724,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2678,
+				},
+				{
+					["num"] = 1,
+					["id"] = 723,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "50",
+		},
+		[2543] = {
+			["name"] = "Westfall Stew",
+			["spell"] = 2543,
+			["productid"] = 733,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 731,
+				},
+				{
+					["num"] = 1,
+					["id"] = 730,
+				},
+				{
+					["num"] = 1,
+					["id"] = 729,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "75",
+		},
+		[2544] = {
+			["name"] = "Crab Cake",
+			["spell"] = 2544,
+			["productid"] = 2683,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2678,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2674,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "75",
+		},
+		[2545] = {
+			["name"] = "Cooked Crab Claw",
+			["spell"] = 2545,
+			["productid"] = 2682,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2678,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2675,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "85",
+		},
+		[2546] = {
+			["name"] = "Dry Pork Ribs",
+			["spell"] = 2546,
+			["productid"] = 2687,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2678,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2677,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "80",
+		},
+		[2547] = {
+			["name"] = "Redridge Goulash",
+			["spell"] = 2547,
+			["productid"] = 1082,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 1081,
+				},
+				{
+					["num"] = 1,
+					["id"] = 1080,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "100",
+		},
+		[2548] = {
+			["name"] = "Succulent Pork Ribs",
+			["spell"] = 2548,
+			["productid"] = 2685,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2692,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2677,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "110",
+		},
+		[2549] = {
+			["name"] = "Seasoned Wolf Kabob",
+			["spell"] = 2549,
+			["productid"] = 1017,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 1015,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2665,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "100",
+		},
+		[2795] = {
+			["name"] = "Beer Basted Boar Ribs",
+			["spell"] = 2795,
+			["productid"] = 2888,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2894,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2886,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "25",
+		},
+		[3370] = {
+			["name"] = "Crocolisk Steak",
+			["spell"] = 3370,
+			["productid"] = 3662,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2678,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2924,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "80",
+		},
+		[3371] = {
+			["name"] = "Blood Sausage",
+			["spell"] = 3371,
+			["productid"] = 3220,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3173,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3172,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3174,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "60",
+		},
+		[3372] = {
+			["name"] = "Murloc Fin Soup",
+			["spell"] = 3372,
+			["productid"] = 3663,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2692,
+				},
+				{
+					["num"] = 2,
+					["id"] = 1468,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "90",
+		},
+		[3373] = {
+			["name"] = "Crocolisk Gumbo",
+			["spell"] = 3373,
+			["productid"] = 3664,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3667,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2692,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "120",
+		},
+		[3376] = {
+			["name"] = "Curiously Tasty Omelet",
+			["spell"] = 3376,
+			["productid"] = 3665,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2692,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3685,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "130",
+		},
+		[3377] = {
+			["name"] = "Gooey Spider Cake",
+			["spell"] = 3377,
+			["productid"] = 3666,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2692,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2251,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "110",
+		},
+		[3397] = {
+			["name"] = "Big Bear Steak",
+			["spell"] = 3397,
+			["productid"] = 3726,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2692,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3730,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "110",
+		},
+		[3398] = {
+			["name"] = "Hot Lion Chops",
+			["spell"] = 3398,
+			["productid"] = 3727,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2692,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3731,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "125",
+		},
+		[3399] = {
+			["name"] = "Tasty Lion Steak",
+			["spell"] = 3399,
+			["productid"] = 3728,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 3731,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3713,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "150",
+		},
+		[3400] = {
+			["name"] = "Soothing Turtle Bisque",
+			["spell"] = 3400,
+			["productid"] = 3729,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3713,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3712,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "175",
+		},
+		[4094] = {
+			["name"] = "Barbecued Buzzard Wing",
+			["spell"] = 4094,
+			["productid"] = 4457,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2692,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3404,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "175",
+		},
+		[6412] = {
+			["name"] = "Kaldorei Spider Kabob",
+			["spell"] = 6412,
+			["productid"] = 5472,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 5465,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "10",
+		},
+		[6413] = {
+			["name"] = "Scorpid Surprise",
+			["spell"] = 6413,
+			["productid"] = 5473,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 5466,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "20",
+		},
+		[6414] = {
+			["name"] = "Roasted Kodo Meat",
+			["spell"] = 6414,
+			["productid"] = 5474,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2678,
+				},
+				{
+					["num"] = 1,
+					["id"] = 5467,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "35",
+		},
+		[6415] = {
+			["name"] = "Fillet of Frenzy",
+			["spell"] = 6415,
+			["productid"] = 5476,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 5468,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2678,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "50",
+		},
+		[6416] = {
+			["name"] = "Strider Stew",
+			["spell"] = 6416,
+			["productid"] = 5477,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 5469,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4536,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "50",
+		},
+		[6417] = {
+			["name"] = "Dig Rat Stew",
+			["spell"] = 6417,
+			["productid"] = 5478,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 5051,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "90",
+		},
+		[6418] = {
+			["name"] = "Crispy Lizard Tail",
+			["spell"] = 6418,
+			["productid"] = 5479,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2692,
+				},
+				{
+					["num"] = 1,
+					["id"] = 5470,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "100",
+		},
+		[6419] = {
+			["name"] = "Lean Venison",
+			["spell"] = 6419,
+			["productid"] = 5480,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 2678,
+				},
+				{
+					["num"] = 1,
+					["id"] = 5471,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "110",
+		},
+		[6499] = {
+			["name"] = "Boiled Clams",
+			["spell"] = 6499,
+			["productid"] = 5525,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 159,
+				},
+				{
+					["num"] = 1,
+					["id"] = 5503,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "50",
+		},
+		[6500] = {
+			["name"] = "Goblin Deviled Clams",
+			["spell"] = 6500,
+			["productid"] = 5527,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 5504,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2692,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "125",
+		},
+		[6501] = {
+			["name"] = "Clam Chowder",
+			["spell"] = 6501,
+			["productid"] = 5526,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2678,
+				},
+				{
+					["num"] = 1,
+					["id"] = 5503,
+				},
+				{
+					["num"] = 1,
+					["id"] = 1179,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "90",
+		},
+		[7213] = {
+			["name"] = "Giant Clam Scorcho",
+			["spell"] = 7213,
+			["productid"] = 6038,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 4655,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2692,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "175",
+		},
+		[7751] = {
+			["name"] = "Brilliant Smallfish",
+			["spell"] = 7751,
+			["productid"] = 6290,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 6291,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "1",
+		},
+		[7752] = {
+			["name"] = "Slitherskin Mackerel",
+			["spell"] = 7752,
+			["productid"] = 787,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 6303,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "1",
+		},
+		[7753] = {
+			["name"] = "Longjaw Mud Snapper",
+			["spell"] = 7753,
+			["productid"] = 4592,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 6289,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "50",
+		},
+		[7754] = {
+			["name"] = "Loch Frenzy Delight",
+			["spell"] = 7754,
+			["productid"] = 6316,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2678,
+				},
+				{
+					["num"] = 1,
+					["id"] = 6317,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "50",
+		},
+		[7755] = {
+			["name"] = "Bristle Whisker Catfish",
+			["spell"] = 7755,
+			["productid"] = 4593,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 6308,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "100",
+		},
+		[7827] = {
+			["name"] = "Rainbow Fin Albacore",
+			["spell"] = 7827,
+			["productid"] = 5095,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 6361,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "50",
+		},
+		[7828] = {
+			["name"] = "Rockscale Cod",
+			["spell"] = 7828,
+			["productid"] = 4594,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 6362,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "175",
+		},
+		[8238] = {
+			["name"] = "Savory Deviate Delight",
+			["spell"] = 8238,
+			["productid"] = 6657,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2678,
+				},
+				{
+					["num"] = 1,
+					["id"] = 6522,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "85",
+		},
+		[8604] = {
+			["name"] = "Herb Baked Egg",
+			["spell"] = 8604,
+			["productid"] = 6888,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2678,
+				},
+				{
+					["num"] = 1,
+					["id"] = 6889,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "1",
+		},
+		[8607] = {
+			["name"] = "Smoked Bear Meat",
+			["spell"] = 8607,
+			["productid"] = 6890,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3173,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "40",
+		},
+		[9513] = {
+			["name"] = "Thistle Tea",
+			["spell"] = 9513,
+			["productid"] = 7676,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 159,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2452,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "60",
+		},
+		[13028] = {
+			["name"] = "Goldthorn Tea",
+			["spell"] = 13028,
+			["productid"] = 10841,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 159,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3821,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "175",
+		},
+		[15853] = {
+			["name"] = "Lean Wolf Steak",
+			["spell"] = 15853,
+			["productid"] = 12209,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2678,
+				},
+				{
+					["num"] = 1,
+					["id"] = 1015,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "125",
+		},
+		[15855] = {
+			["name"] = "Roast Raptor",
+			["spell"] = 15855,
+			["productid"] = 12210,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 12184,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2692,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "175",
+		},
+		[15856] = {
+			["name"] = "Hot Wolf Ribs",
+			["spell"] = 15856,
+			["productid"] = 13851,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2692,
+				},
+				{
+					["num"] = 1,
+					["id"] = 12203,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "175",
+		},
+		[15861] = {
+			["name"] = "Jungle Stew",
+			["spell"] = 15861,
+			["productid"] = 12212,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 159,
+				},
+				{
+					["num"] = 2,
+					["id"] = 4536,
+				},
+				{
+					["num"] = 1,
+					["id"] = 12202,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "175",
+		},
+		[15863] = {
+			["name"] = "Carrion Surprise",
+			["spell"] = 15863,
+			["productid"] = 12213,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 12037,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2692,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "175",
+		},
+		[15865] = {
+			["name"] = "Mystery Stew",
+			["spell"] = 15865,
+			["productid"] = 12214,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2596,
+				},
+				{
+					["num"] = 1,
+					["id"] = 12037,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "175",
+		},
+		[15906] = {
+			["name"] = "Dragonbreath Chili",
+			["spell"] = 15906,
+			["productid"] = 12217,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 12037,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2692,
+				},
+				{
+					["num"] = 1,
+					["id"] = 4402,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "200",
+		},
+		[15910] = {
+			["name"] = "Heavy Kodo Stew",
+			["spell"] = 15910,
+			["productid"] = 12215,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 12204,
+				},
+				{
+					["num"] = 1,
+					["id"] = 159,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3713,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "200",
+		},
+		[15915] = {
+			["name"] = "Spiced Chili Crab",
+			["spell"] = 15915,
+			["productid"] = 12216,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 12206,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2692,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "225",
+		},
+		[15933] = {
+			["name"] = "Monster Omelet",
+			["spell"] = 15933,
+			["productid"] = 12218,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 12207,
+				},
+				{
+					["num"] = 2,
+					["id"] = 3713,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "225",
+		},
+		[15935] = {
+			["name"] = "Crispy Bat Wing",
+			["spell"] = 15935,
+			["productid"] = 12224,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2678,
+				},
+				{
+					["num"] = 1,
+					["id"] = 12223,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "1",
+		},
+		[18238] = {
+			["name"] = "Spotted Yellowtail",
+			["spell"] = 18238,
+			["productid"] = 6887,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 4603,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "225",
+		},
+		[18239] = {
+			["name"] = "Cooked Glossy Mightfish",
+			["spell"] = 18239,
+			["productid"] = 13927,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 13754,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3713,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "225",
+		},
+		[18240] = {
+			["name"] = "Grilled Squid",
+			["spell"] = 18240,
+			["productid"] = 13928,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 13755,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3713,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "240",
+		},
+		[18241] = {
+			["name"] = "Filet of Redgill",
+			["spell"] = 18241,
+			["productid"] = 13930,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 13758,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "225",
+		},
+		[18242] = {
+			["name"] = "Hot Smoked Bass",
+			["spell"] = 18242,
+			["productid"] = 13929,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 13756,
+				},
+				{
+					["num"] = 2,
+					["id"] = 2692,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "240",
+		},
+		[18243] = {
+			["name"] = "Nightfin Soup",
+			["spell"] = 18243,
+			["productid"] = 13931,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 159,
+				},
+				{
+					["num"] = 1,
+					["id"] = 13759,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "250",
+		},
+		[18244] = {
+			["name"] = "Poached Sunscale Salmon",
+			["spell"] = 18244,
+			["productid"] = 13932,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 13760,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "250",
+		},
+		[18245] = {
+			["name"] = "Lobster Stew",
+			["spell"] = 18245,
+			["productid"] = 13933,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 159,
+				},
+				{
+					["num"] = 1,
+					["id"] = 13888,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "275",
+		},
+		[18246] = {
+			["name"] = "Mightfish Steak",
+			["spell"] = 18246,
+			["productid"] = 13934,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2692,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3713,
+				},
+				{
+					["num"] = 1,
+					["id"] = 13893,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "275",
+		},
+		[18247] = {
+			["name"] = "Baked Salmon",
+			["spell"] = 18247,
+			["productid"] = 13935,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 13889,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3713,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "275",
+		},
+		[20626] = {
+			["name"] = "Undermine Clam Chowder",
+			["spell"] = 20626,
+			["productid"] = 16766,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 7974,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2692,
+				},
+				{
+					["num"] = 1,
+					["id"] = 1179,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "225",
+		},
+		[20916] = {
+			["name"] = "Mithril Headed Trout",
+			["spell"] = 20916,
+			["productid"] = 8364,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 8365,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "175",
+		},
+		[21143] = {
+			["name"] = "Gingerbread Cookie",
+			["spell"] = 21143,
+			["productid"] = 17197,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 17194,
+				},
+				{
+					["num"] = 1,
+					["id"] = 6889,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "1",
+		},
+		[21144] = {
+			["name"] = "Egg Nog",
+			["spell"] = 21144,
+			["productid"] = 17198,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 17196,
+				},
+				{
+					["num"] = 1,
+					["id"] = 17194,
+				},
+				{
+					["num"] = 1,
+					["id"] = 1179,
+				},
+				{
+					["num"] = 1,
+					["id"] = 6889,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "35",
+		},
+		[21175] = {
+			["name"] = "Spider Sausage",
+			["spell"] = 21175,
+			["productid"] = 17222,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 12205,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "200",
+		},
+		[22480] = {
+			["name"] = "Tender Wolf Steak",
+			["spell"] = 22480,
+			["productid"] = 18045,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 12208,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3713,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "225",
+		},
+		[22761] = {
+			["name"] = "Runn Tum Tuber Surprise",
+			["spell"] = 22761,
+			["productid"] = 18254,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 18255,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3713,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "275",
+		},
+		[24418] = {
+			["name"] = "Heavy Crocolisk Stew",
+			["spell"] = 24418,
+			["productid"] = 20074,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 3667,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3713,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "150",
+		},
+		[24801] = {
+			["name"] = "Smoked Desert Dumplings",
+			["spell"] = 24801,
+			["productid"] = 20452,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 20424,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3713,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "285",
+		},
+		[25659] = {
+			["name"] = "Dirge's Kickin' Chimaerok Chops",
+			["spell"] = 25659,
+			["productid"] = 21023,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 9061,
+				},
+				{
+					["num"] = 1,
+					["id"] = 8150,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2692,
+				},
+				{
+					["num"] = 1,
+					["id"] = 21024,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "300",
+		},
+		[25704] = {
+			["name"] = "Smoked Sagefish",
+			["spell"] = 25704,
+			["productid"] = 21072,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2678,
+				},
+				{
+					["num"] = 1,
+					["id"] = 21071,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "80",
+		},
+		[25954] = {
+			["name"] = "Sagefish Delight",
+			["spell"] = 25954,
+			["productid"] = 21217,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 21153,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2692,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "175",
+		},
 	},
 	-- Mining
 	[186] = {
+		[2657] = {
+			["name"] = "Smelt Copper",
+			["spell"] = 2657,
+			["productid"] = 2840,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2770,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "25",
+		},
+		[2658] = {
+			["name"] = "Smelt Silver",
+			["spell"] = 2658,
+			["productid"] = 2842,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2775,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "75",
+		},
+		[2659] = {
+			["name"] = "Smelt Bronze",
+			["spell"] = 2659,
+			["productid"] = 2841,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3576,
+				},
+				{
+					["num"] = 1,
+					["id"] = 2840,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "65",
+		},
+		[3304] = {
+			["name"] = "Smelt Tin",
+			["spell"] = 3304,
+			["productid"] = 3576,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2771,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "65",
+		},
+		[3307] = {
+			["name"] = "Smelt Iron",
+			["spell"] = 3307,
+			["productid"] = 3575,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2772,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "125",
+		},
+		[3308] = {
+			["name"] = "Smelt Gold",
+			["spell"] = 3308,
+			["productid"] = 3577,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 2776,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "155",
+		},
+		[3569] = {
+			["name"] = "Smelt Steel",
+			["spell"] = 3569,
+			["productid"] = 3859,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3575,
+				},
+				{
+					["num"] = 1,
+					["id"] = 3857,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "165",
+		},
+		[10097] = {
+			["name"] = "Smelt Mithril",
+			["spell"] = 10097,
+			["productid"] = 3860,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 3858,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "175",
+		},
+		[10098] = {
+			["name"] = "Smelt Truesilver",
+			["spell"] = 10098,
+			["productid"] = 6037,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 7911,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "230",
+		},
+		[14891] = {
+			["name"] = "Smelt Dark Iron",
+			["spell"] = 14891,
+			["productid"] = 11371,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 11370,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "230",
+		},
+		[16153] = {
+			["name"] = "Smelt Thorium",
+			["spell"] = 16153,
+			["productid"] = 12359,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 10620,
+				},
+			},
+			["source"] = "trainer",
+			["learnedat"] = "250",
+		},
+		[22967] = {
+			["name"] = "Smelt Elementium",
+			["spell"] = 22967,
+			["productid"] = 17771,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 18562,
+				},
+				{
+					["num"] = 1,
+					["id"] = 17010,
+				},
+				{
+					["num"] = 3,
+					["id"] = 18567,
+				},
+				{
+					["num"] = 10,
+					["id"] = 12360,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "310",
+		},
+		[29356] = {
+			["name"] = "Smelt Fel Iron",
+			["spell"] = 29356,
+			["productid"] = 23445,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 23424,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "300",
+		},
+		[29358] = {
+			["name"] = "Smelt Adamantite",
+			["spell"] = 29358,
+			["productid"] = 23446,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 23425,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "325",
+		},
+		[29359] = {
+			["name"] = "Smelt Eternium",
+			["spell"] = 29359,
+			["productid"] = 23447,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 23427,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[29360] = {
+			["name"] = "Smelt Felsteel",
+			["spell"] = 29360,
+			["productid"] = 23448,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 23445,
+				},
+				{
+					["num"] = 2,
+					["id"] = 23447,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[29361] = {
+			["name"] = "Smelt Khorium",
+			["spell"] = 29361,
+			["productid"] = 23449,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 23426,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[29686] = {
+			["name"] = "Smelt Hardened Adamantite",
+			["spell"] = 29686,
+			["productid"] = 23573,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 23446,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[35750] = {
+			["name"] = "Earth Shatter",
+			["spell"] = 35750,
+			["productid"] = 22573,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 22452,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "300",
+		},
+		[35751] = {
+			["name"] = "Fire Sunder",
+			["spell"] = 35751,
+			["productid"] = 22574,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 21884,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "300",
+		},
+		[46353] = {
+			["name"] = "Smelt Hardened Khorium",
+			["spell"] = 46353,
+			["productid"] = 35128,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 23449,
+				},
+				{
+					["num"] = 1,
+					["id"] = 23573,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
 	},
 	-- Jewelcrafting
 	[755] = {
+		[25255] = {
+			["name"] = "Delicate Copper Wire",
+			["spell"] = 25255,
+			["productid"] = 20816,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2840,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "20",
+		},
+		[25278] = {
+			["name"] = "Bronze Setting",
+			["spell"] = 25278,
+			["productid"] = 20817,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 2,
+					["id"] = 2841,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "50",
+		},
 		[25280] = {
 			["name"] = "Elegant Silver Ring",
 			["spell"] = 25280,
@@ -27664,6 +40170,20 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "undefined",
 			["learnedat"] = "225",
 		},
+		[26880] = {
+			["name"] = "Thorium Setting",
+			["spell"] = 26880,
+			["productid"] = 21752,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 12359,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "225",
+		},
 		[26881] = {
 			["name"] = "Figurine - Truesilver Crab",
 			["spell"] = 26881,
@@ -28140,6 +40660,28 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "trainer",
 			["learnedat"] = "320",
 		},
+		[26918] = {
+			["name"] = "Arcanite Sword Pendant",
+			["spell"] = 26918,
+			["productid"] = 21793,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 4,
+					["id"] = 12360,
+				},
+				{
+					["num"] = 4,
+					["id"] = 7076,
+				},
+				{
+					["num"] = 4,
+					["id"] = 7082,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "315",
+		},
 		[26920] = {
 			["name"] = "Blood Crown",
 			["spell"] = 26920,
@@ -28297,6 +40839,286 @@ MakersPath.Professions.AllRecipes = {
 				{
 					["num"] = 1,
 					["id"] = 23077,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "325",
+		},
+		[28910] = {
+			["name"] = "Inscribed Flame Spessarite",
+			["spell"] = 28910,
+			["productid"] = 23098,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 21929,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "300",
+		},
+		[28912] = {
+			["name"] = "Luminous Flame Spessarite",
+			["spell"] = 28912,
+			["productid"] = 23099,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 21929,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "305",
+		},
+		[28914] = {
+			["name"] = "Glinting Flame Spessarite",
+			["spell"] = 28914,
+			["productid"] = 23100,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 21929,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "315",
+		},
+		[28915] = {
+			["name"] = "Potent Flame Spessarite",
+			["spell"] = 28915,
+			["productid"] = 23101,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 21929,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "325",
+		},
+		[28916] = {
+			["name"] = "Radiant Deep Peridot",
+			["spell"] = 28916,
+			["productid"] = 23103,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23079,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "300",
+		},
+		[28917] = {
+			["name"] = "Jagged Deep Peridot",
+			["spell"] = 28917,
+			["productid"] = 23104,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23079,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "305",
+		},
+		[28918] = {
+			["name"] = "Enduring Deep Peridot",
+			["spell"] = 28918,
+			["productid"] = 23105,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23079,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "315",
+		},
+		[28924] = {
+			["name"] = "Dazzling Deep Peridot",
+			["spell"] = 28924,
+			["productid"] = 23106,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23079,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "325",
+		},
+		[28925] = {
+			["name"] = "Glowing Shadow Draenite",
+			["spell"] = 28925,
+			["productid"] = 23108,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23107,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "300",
+		},
+		[28927] = {
+			["name"] = "Royal Shadow Draenite",
+			["spell"] = 28927,
+			["productid"] = 23109,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23107,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "305",
+		},
+		[28933] = {
+			["name"] = "Shifting Shadow Draenite",
+			["spell"] = 28933,
+			["productid"] = 23110,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23107,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "315",
+		},
+		[28936] = {
+			["name"] = "Sovereign Shadow Draenite",
+			["spell"] = 28936,
+			["productid"] = 23111,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23107,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "325",
+		},
+		[28938] = {
+			["name"] = "Brilliant Golden Draenite",
+			["spell"] = 28938,
+			["productid"] = 23113,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23112,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "300",
+		},
+		[28944] = {
+			["name"] = "Gleaming Golden Draenite",
+			["spell"] = 28944,
+			["productid"] = 23114,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23112,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "305",
+		},
+		[28947] = {
+			["name"] = "Thick Golden Draenite",
+			["spell"] = 28947,
+			["productid"] = 23115,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23112,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "315",
+		},
+		[28948] = {
+			["name"] = "Rigid Golden Draenite",
+			["spell"] = 28948,
+			["productid"] = 23116,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23112,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "325",
+		},
+		[28950] = {
+			["name"] = "Solid Azure Moonstone",
+			["spell"] = 28950,
+			["productid"] = 23118,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23117,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "300",
+		},
+		[28953] = {
+			["name"] = "Sparkling Azure Moonstone",
+			["spell"] = 28953,
+			["productid"] = 23119,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23117,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "305",
+		},
+		[28955] = {
+			["name"] = "Stormy Azure Moonstone",
+			["spell"] = 28955,
+			["productid"] = 23120,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23117,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "315",
+		},
+		[28957] = {
+			["name"] = "Lustrous Azure Moonstone",
+			["spell"] = 28957,
+			["productid"] = 23121,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23117,
 				},
 			},
 			["source"] = "undefined",
@@ -28976,6 +41798,398 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "undefined",
 			["learnedat"] = "370",
 		},
+		[31084] = {
+			["name"] = "Bold Living Ruby",
+			["spell"] = 31084,
+			["productid"] = 24027,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23436,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[31085] = {
+			["name"] = "Delicate Living Ruby",
+			["spell"] = 31085,
+			["productid"] = 24028,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23436,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[31087] = {
+			["name"] = "Teardrop Living Ruby",
+			["spell"] = 31087,
+			["productid"] = 24029,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23436,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[31088] = {
+			["name"] = "Runed Living Ruby",
+			["spell"] = 31088,
+			["productid"] = 24030,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23436,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[31089] = {
+			["name"] = "Bright Living Ruby",
+			["spell"] = 31089,
+			["productid"] = 24031,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23436,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[31090] = {
+			["name"] = "Subtle Living Ruby",
+			["spell"] = 31090,
+			["productid"] = 24032,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23436,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[31091] = {
+			["name"] = "Flashing Living Ruby",
+			["spell"] = 31091,
+			["productid"] = 24036,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23436,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[31092] = {
+			["name"] = "Solid Star of Elune",
+			["spell"] = 31092,
+			["productid"] = 24033,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23438,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[31094] = {
+			["name"] = "Lustrous Star of Elune",
+			["spell"] = 31094,
+			["productid"] = 24037,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23438,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[31095] = {
+			["name"] = "Stormy Star of Elune",
+			["spell"] = 31095,
+			["productid"] = 24039,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23438,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[31096] = {
+			["name"] = "Brilliant Dawnstone",
+			["spell"] = 31096,
+			["productid"] = 24047,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23440,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[31097] = {
+			["name"] = "Smooth Dawnstone",
+			["spell"] = 31097,
+			["productid"] = 24048,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23440,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[31098] = {
+			["name"] = "Rigid Dawnstone",
+			["spell"] = 31098,
+			["productid"] = 24051,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23440,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[31099] = {
+			["name"] = "Gleaming Dawnstone",
+			["spell"] = 31099,
+			["productid"] = 24050,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23440,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[31100] = {
+			["name"] = "Thick Dawnstone",
+			["spell"] = 31100,
+			["productid"] = 24052,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23440,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[31101] = {
+			["name"] = "Mystic Dawnstone",
+			["spell"] = 31101,
+			["productid"] = 24053,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23440,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[31102] = {
+			["name"] = "Sovereign Nightseye",
+			["spell"] = 31102,
+			["productid"] = 24054,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23441,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[31103] = {
+			["name"] = "Shifting Nightseye",
+			["spell"] = 31103,
+			["productid"] = 24055,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23441,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[31104] = {
+			["name"] = "Glowing Nightseye",
+			["spell"] = 31104,
+			["productid"] = 24056,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23441,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[31105] = {
+			["name"] = "Royal Nightseye",
+			["spell"] = 31105,
+			["productid"] = 24057,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23441,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[31106] = {
+			["name"] = "Inscribed Noble Topaz",
+			["spell"] = 31106,
+			["productid"] = 24058,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23439,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[31107] = {
+			["name"] = "Potent Noble Topaz",
+			["spell"] = 31107,
+			["productid"] = 24059,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23439,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[31108] = {
+			["name"] = "Luminous Noble Topaz",
+			["spell"] = 31108,
+			["productid"] = 24060,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23439,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[31109] = {
+			["name"] = "Glinting Noble Topaz",
+			["spell"] = 31109,
+			["productid"] = 24061,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23439,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[31110] = {
+			["name"] = "Enduring Talasite",
+			["spell"] = 31110,
+			["productid"] = 24062,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23437,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[31111] = {
+			["name"] = "Radiant Talasite",
+			["spell"] = 31111,
+			["productid"] = 24066,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23437,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[31112] = {
+			["name"] = "Dazzling Talasite",
+			["spell"] = 31112,
+			["productid"] = 24065,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23437,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[31113] = {
+			["name"] = "Jagged Talasite",
+			["spell"] = 31113,
+			["productid"] = 24067,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23437,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
 		[31149] = {
 			["name"] = "Sparkling Star of Elune",
 			["spell"] = 31149,
@@ -29025,6 +42239,202 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "trainer",
 			["learnedat"] = "20",
+		},
+		[32259] = {
+			["name"] = "Rough Stone Statue",
+			["spell"] = 32259,
+			["productid"] = 25498,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 2835,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "30",
+		},
+		[32801] = {
+			["name"] = "Coarse Stone Statue",
+			["spell"] = 32801,
+			["productid"] = 25880,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 2836,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "50",
+		},
+		[32807] = {
+			["name"] = "Heavy Stone Statue",
+			["spell"] = 32807,
+			["productid"] = 25881,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 8,
+					["id"] = 2838,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "110",
+		},
+		[32808] = {
+			["name"] = "Solid Stone Statue",
+			["spell"] = 32808,
+			["productid"] = 25882,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 7912,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "175",
+		},
+		[32809] = {
+			["name"] = "Dense Stone Statue",
+			["spell"] = 32809,
+			["productid"] = 25883,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 10,
+					["id"] = 12365,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "225",
+		},
+		[32866] = {
+			["name"] = "Powerful Earthstorm Diamond",
+			["spell"] = 32866,
+			["productid"] = 25896,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 25867,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "365",
+		},
+		[32867] = {
+			["name"] = "Bracing Earthstorm Diamond",
+			["spell"] = 32867,
+			["productid"] = 25897,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 25867,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "365",
+		},
+		[32868] = {
+			["name"] = "Tenacious Earthstorm Diamond",
+			["spell"] = 32868,
+			["productid"] = 25898,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 25867,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "365",
+		},
+		[32869] = {
+			["name"] = "Brutal Earthstorm Diamond",
+			["spell"] = 32869,
+			["productid"] = 25899,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 25867,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "365",
+		},
+		[32870] = {
+			["name"] = "Insightful Earthstorm Diamond",
+			["spell"] = 32870,
+			["productid"] = 25901,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 25867,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "365",
+		},
+		[32871] = {
+			["name"] = "Destructive Skyfire Diamond",
+			["spell"] = 32871,
+			["productid"] = 25890,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 25868,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "365",
+		},
+		[32872] = {
+			["name"] = "Mystical Skyfire Diamond",
+			["spell"] = 32872,
+			["productid"] = 25893,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 25868,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "365",
+		},
+		[32873] = {
+			["name"] = "Swift Skyfire Diamond",
+			["spell"] = 32873,
+			["productid"] = 25894,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 25868,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "365",
+		},
+		[32874] = {
+			["name"] = "Enigmatic Skyfire Diamond",
+			["spell"] = 32874,
+			["productid"] = 25895,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 25868,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "365",
 		},
 		[34069] = {
 			["name"] = "Smooth Golden Draenite",
@@ -29358,6 +42768,650 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
+		[39451] = {
+			["name"] = "Great Golden Draenite",
+			["spell"] = 39451,
+			["productid"] = 31860,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23112,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "325",
+		},
+		[39452] = {
+			["name"] = "Great Dawnstone",
+			["spell"] = 39452,
+			["productid"] = 31861,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23440,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[39455] = {
+			["name"] = "Balanced Shadow Draenite",
+			["spell"] = 39455,
+			["productid"] = 31862,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23107,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "325",
+		},
+		[39458] = {
+			["name"] = "Infused Shadow Draenite",
+			["spell"] = 39458,
+			["productid"] = 31864,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23107,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "325",
+		},
+		[39462] = {
+			["name"] = "Infused Nightseye",
+			["spell"] = 39462,
+			["productid"] = 31865,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23441,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[39463] = {
+			["name"] = "Balanced Nightseye",
+			["spell"] = 39463,
+			["productid"] = 31863,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23441,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[39466] = {
+			["name"] = "Veiled Flame Spessarite",
+			["spell"] = 39466,
+			["productid"] = 31866,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 21929,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "325",
+		},
+		[39467] = {
+			["name"] = "Wicked Flame Spessarite",
+			["spell"] = 39467,
+			["productid"] = 31869,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 21929,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "325",
+		},
+		[39470] = {
+			["name"] = "Veiled Noble Topaz",
+			["spell"] = 39470,
+			["productid"] = 31867,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23439,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[39471] = {
+			["name"] = "Wicked Noble Topaz",
+			["spell"] = 39471,
+			["productid"] = 31868,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23439,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[39705] = {
+			["name"] = "Bold Crimson Spinel",
+			["spell"] = 39705,
+			["productid"] = 32193,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32227,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[39706] = {
+			["name"] = "Delicate Crimson Spinel",
+			["spell"] = 39706,
+			["productid"] = 32194,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32227,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[39710] = {
+			["name"] = "Teardrop Crimson Spinel",
+			["spell"] = 39710,
+			["productid"] = 32195,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32227,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[39711] = {
+			["name"] = "Runed Crimson Spinel",
+			["spell"] = 39711,
+			["productid"] = 32196,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32227,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[39712] = {
+			["name"] = "Bright Crimson Spinel",
+			["spell"] = 39712,
+			["productid"] = 32197,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32227,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[39713] = {
+			["name"] = "Subtle Crimson Spinel",
+			["spell"] = 39713,
+			["productid"] = 32198,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32227,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[39714] = {
+			["name"] = "Flashing Crimson Spinel",
+			["spell"] = 39714,
+			["productid"] = 32199,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32227,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[39715] = {
+			["name"] = "Solid Empyrean Sapphire",
+			["spell"] = 39715,
+			["productid"] = 32200,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32228,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[39716] = {
+			["name"] = "Sparkling Empyrean Sapphire",
+			["spell"] = 39716,
+			["productid"] = 32201,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32228,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[39717] = {
+			["name"] = "Lustrous Empyrean Sapphire",
+			["spell"] = 39717,
+			["productid"] = 32202,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32228,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[39718] = {
+			["name"] = "Stormy Empyrean Sapphire",
+			["spell"] = 39718,
+			["productid"] = 32203,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32228,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[39719] = {
+			["name"] = "Brilliant Lionseye",
+			["spell"] = 39719,
+			["productid"] = 32204,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32229,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[39720] = {
+			["name"] = "Smooth Lionseye",
+			["spell"] = 39720,
+			["productid"] = 32205,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32229,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[39721] = {
+			["name"] = "Rigid Lionseye",
+			["spell"] = 39721,
+			["productid"] = 32206,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32229,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[39722] = {
+			["name"] = "Gleaming Lionseye",
+			["spell"] = 39722,
+			["productid"] = 32207,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32229,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[39723] = {
+			["name"] = "Thick Lionseye",
+			["spell"] = 39723,
+			["productid"] = 32208,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32229,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[39724] = {
+			["name"] = "Mystic Lionseye",
+			["spell"] = 39724,
+			["productid"] = 32209,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32229,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[39725] = {
+			["name"] = "Great Lionseye",
+			["spell"] = 39725,
+			["productid"] = 32210,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32229,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[39727] = {
+			["name"] = "Sovereign Shadowsong Amethyst",
+			["spell"] = 39727,
+			["productid"] = 32211,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32230,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[39728] = {
+			["name"] = "Shifting Shadowsong Amethyst",
+			["spell"] = 39728,
+			["productid"] = 32212,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32230,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[39729] = {
+			["name"] = "Balanced Shadowsong Amethyst",
+			["spell"] = 39729,
+			["productid"] = 32213,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32230,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[39730] = {
+			["name"] = "Infused Shadowsong Amethyst",
+			["spell"] = 39730,
+			["productid"] = 32214,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32230,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[39731] = {
+			["name"] = "Glowing Shadowsong Amethyst",
+			["spell"] = 39731,
+			["productid"] = 32215,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32230,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[39732] = {
+			["name"] = "Royal Shadowsong Amethyst",
+			["spell"] = 39732,
+			["productid"] = 32216,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32230,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[39733] = {
+			["name"] = "Inscribed Pyrestone",
+			["spell"] = 39733,
+			["productid"] = 32217,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32231,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[39734] = {
+			["name"] = "Potent Pyrestone",
+			["spell"] = 39734,
+			["productid"] = 32218,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32231,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[39735] = {
+			["name"] = "Luminous Pyrestone",
+			["spell"] = 39735,
+			["productid"] = 32219,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32231,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[39736] = {
+			["name"] = "Glinting Pyrestone",
+			["spell"] = 39736,
+			["productid"] = 32220,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32231,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[39737] = {
+			["name"] = "Veiled Pyrestone",
+			["spell"] = 39737,
+			["productid"] = 32221,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32231,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[39738] = {
+			["name"] = "Wicked Pyrestone",
+			["spell"] = 39738,
+			["productid"] = 32222,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32231,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[39739] = {
+			["name"] = "Enduring Seaspray Emerald",
+			["spell"] = 39739,
+			["productid"] = 32223,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32249,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[39740] = {
+			["name"] = "Radiant Seaspray Emerald",
+			["spell"] = 39740,
+			["productid"] = 32224,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32249,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[39741] = {
+			["name"] = "Dazzling Seaspray Emerald",
+			["spell"] = 39741,
+			["productid"] = 32225,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32249,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[39742] = {
+			["name"] = "Jagged Seaspray Emerald",
+			["spell"] = 39742,
+			["productid"] = 32226,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32249,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[39961] = {
+			["name"] = "Relentless Earthstorm Diamond",
+			["spell"] = 39961,
+			["productid"] = 32409,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 25867,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "365",
+		},
+		[39963] = {
+			["name"] = "Thundering Skyfire Diamond",
+			["spell"] = 39963,
+			["productid"] = 32410,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 25868,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "365",
+		},
 		[40514] = {
 			["name"] = "Necklace of the Deep",
 			["spell"] = 40514,
@@ -29441,6 +43495,42 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "undefined",
 			["learnedat"] = "375",
+		},
+		[41420] = {
+			["name"] = "Purified Jaggal Pearl",
+			["spell"] = 41420,
+			["productid"] = 32833,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 24478,
+				},
+				{
+					["num"] = 1,
+					["id"] = 27860,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "325",
+		},
+		[41429] = {
+			["name"] = "Purified Shadow Pearl",
+			["spell"] = 41429,
+			["productid"] = 32836,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 24479,
+				},
+				{
+					["num"] = 1,
+					["id"] = 27860,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
 		},
 		[42558] = {
 			["name"] = "Don Julio's Heart",
@@ -29539,6 +43629,34 @@ MakersPath.Professions.AllRecipes = {
 			},
 			["source"] = "undefined",
 			["learnedat"] = "360",
+		},
+		[43493] = {
+			["name"] = "Steady Talasite",
+			["spell"] = 43493,
+			["productid"] = 33782,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23437,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[44794] = {
+			["name"] = "Chaotic Skyfire Diamond",
+			["spell"] = 44794,
+			["productid"] = 34220,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 25868,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "365",
 		},
 		[46122] = {
 			["name"] = "Loop of Forged Power",
@@ -29676,6 +43794,76 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "undefined",
 			["learnedat"] = "365",
 		},
+		[46403] = {
+			["name"] = "Quick Dawnstone",
+			["spell"] = 46403,
+			["productid"] = 35315,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23440,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[46404] = {
+			["name"] = "Reckless Noble Topaz",
+			["spell"] = 46404,
+			["productid"] = 35316,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23439,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[46405] = {
+			["name"] = "Forceful Talasite",
+			["spell"] = 46405,
+			["productid"] = 35318,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23437,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[46597] = {
+			["name"] = "Eternal Earthstorm Diamond",
+			["spell"] = 46597,
+			["productid"] = 35501,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 25867,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "370",
+		},
+		[46601] = {
+			["name"] = "Ember Skyfire Diamond",
+			["spell"] = 46601,
+			["productid"] = 35503,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 25868,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "370",
+		},
 		[46775] = {
 			["name"] = "Figurine - Empyrean Tortoise",
 			["spell"] = 46775,
@@ -29786,11 +43974,139 @@ MakersPath.Professions.AllRecipes = {
 			["source"] = "undefined",
 			["learnedat"] = "375",
 		},
+		[46803] = {
+			["name"] = "Regal Nightseye",
+			["spell"] = 46803,
+			["productid"] = 35707,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 23441,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[47053] = {
+			["name"] = "Forceful Seaspray Emerald",
+			["spell"] = 47053,
+			["productid"] = 35759,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32249,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[47054] = {
+			["name"] = "Steady Seaspray Emerald",
+			["spell"] = 47054,
+			["productid"] = 35758,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32249,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[47055] = {
+			["name"] = "Reckless Pyrestone",
+			["spell"] = 47055,
+			["productid"] = 35760,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32231,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[47056] = {
+			["name"] = "Quick Lionseye",
+			["spell"] = 47056,
+			["productid"] = 35761,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32229,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
+		[47280] = {
+			["name"] = "Brilliant Glass",
+			["spell"] = 47280,
+			["productid"] = 35945,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 3,
+					["id"] = 23117,
+				},
+				{
+					["num"] = 3,
+					["id"] = 23077,
+				},
+				{
+					["num"] = 3,
+					["id"] = 23079,
+				},
+				{
+					["num"] = 3,
+					["id"] = 21929,
+				},
+				{
+					["num"] = 3,
+					["id"] = 23112,
+				},
+				{
+					["num"] = 3,
+					["id"] = 23107,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "350",
+		},
+		[48789] = {
+			["name"] = "Purified Shadowsong Amethyst",
+			["spell"] = 48789,
+			["productid"] = 37503,
+			["type"] = "item",
+			["reagents"] = {
+				{
+					["num"] = 1,
+					["id"] = 32230,
+				},
+			},
+			["source"] = "undefined",
+			["learnedat"] = "375",
+		},
 	}
 }
 
 
 MakersPath.Professions.ItemToSpell = {
+	[118] = 2330,
+	[724] = 2542,
+	[733] = 2543,
+	[787] = 7752,
+	[858] = 2337,
+	[929] = 3447,
+	[1017] = 2549,
+	[1082] = 2547,
+	[1251] = 3275,
+	[1710] = 7181,
 	[2300] = 2160,
 	[2302] = 2149,
 	[2303] = 2153,
@@ -29801,10 +44117,19 @@ MakersPath.Professions.ItemToSpell = {
 	[2310] = 2162,
 	[2311] = 2163,
 	[2312] = 2164,
+	[2313] = 2165,
 	[2314] = 2166,
 	[2315] = 2167,
 	[2316] = 2168,
 	[2317] = 2169,
+	[2318] = 2881,
+	[2319] = 20648,
+	[2454] = 2329,
+	[2455] = 2331,
+	[2456] = 2332,
+	[2457] = 3230,
+	[2458] = 2334,
+	[2459] = 2335,
 	[2568] = 2385,
 	[2569] = 2386,
 	[2570] = 2387,
@@ -29815,11 +44140,23 @@ MakersPath.Professions.ItemToSpell = {
 	[2578] = 2395,
 	[2579] = 2396,
 	[2580] = 2397,
+	[2581] = 3276,
 	[2582] = 2399,
 	[2583] = 2401,
 	[2584] = 2402,
 	[2585] = 2403,
 	[2587] = 2406,
+	[2679] = 2538,
+	[2680] = 2539,
+	[2681] = 2540,
+	[2682] = 2545,
+	[2683] = 2544,
+	[2684] = 2541,
+	[2685] = 2548,
+	[2687] = 2546,
+	[2840] = 2657,
+	[2841] = 2659,
+	[2842] = 2658,
 	[2844] = 2737,
 	[2845] = 2738,
 	[2847] = 2739,
@@ -29831,30 +44168,75 @@ MakersPath.Professions.ItemToSpell = {
 	[2853] = 2663,
 	[2854] = 2664,
 	[2857] = 2666,
+	[2862] = 2660,
+	[2863] = 2665,
 	[2864] = 2667,
 	[2865] = 2668,
 	[2866] = 2670,
 	[2868] = 2672,
 	[2869] = 2673,
 	[2870] = 2675,
+	[2871] = 2674,
+	[2888] = 2795,
+	[2996] = 2963,
+	[2997] = 2964,
+	[3220] = 3371,
+	[3239] = 3115,
+	[3240] = 3116,
+	[3241] = 3117,
+	[3382] = 3170,
+	[3383] = 3171,
+	[3384] = 3172,
+	[3385] = 3173,
+	[3386] = 3174,
+	[3387] = 3175,
+	[3388] = 3176,
+	[3389] = 3177,
+	[3390] = 2333,
+	[3391] = 3188,
 	[3469] = 3319,
+	[3470] = 3320,
 	[3471] = 3321,
 	[3472] = 3323,
 	[3473] = 3324,
 	[3474] = 3325,
+	[3478] = 3326,
 	[3480] = 3328,
 	[3481] = 3330,
 	[3482] = 3331,
 	[3483] = 3333,
 	[3484] = 3334,
 	[3485] = 3336,
+	[3486] = 3337,
 	[3487] = 3292,
 	[3488] = 3293,
 	[3489] = 3294,
 	[3490] = 3295,
 	[3491] = 3296,
 	[3492] = 3297,
+	[3530] = 3277,
+	[3531] = 3278,
+	[3575] = 3307,
+	[3576] = 3304,
+	[3577] = 3308,
+	[3577] = 11479,
+	[3662] = 3370,
+	[3663] = 3372,
+	[3664] = 3373,
+	[3665] = 3376,
+	[3666] = 3377,
 	[3719] = 3760,
+	[3726] = 3397,
+	[3727] = 3398,
+	[3728] = 3399,
+	[3729] = 3400,
+	[3823] = 3448,
+	[3824] = 3449,
+	[3825] = 3450,
+	[3826] = 3451,
+	[3827] = 3452,
+	[3828] = 3453,
+	[3829] = 3454,
 	[3835] = 3501,
 	[3836] = 3502,
 	[3837] = 3503,
@@ -29875,11 +44257,22 @@ MakersPath.Professions.ItemToSpell = {
 	[3854] = 3497,
 	[3855] = 3498,
 	[3856] = 3500,
+	[3859] = 3569,
+	[3860] = 10097,
+	[3928] = 11457,
+	[4231] = 3816,
+	[4233] = 3817,
+	[4234] = 20649,
+	[4236] = 3818,
 	[4237] = 3753,
+	[4238] = 3755,
 	[4239] = 3756,
+	[4240] = 3757,
+	[4241] = 3758,
 	[4242] = 3759,
 	[4243] = 3761,
 	[4244] = 3762,
+	[4245] = 3813,
 	[4246] = 3763,
 	[4247] = 3764,
 	[4248] = 3765,
@@ -29897,6 +44290,9 @@ MakersPath.Professions.ItemToSpell = {
 	[4260] = 3777,
 	[4262] = 3778,
 	[4264] = 3779,
+	[4265] = 3780,
+	[4304] = 20650,
+	[4305] = 3839,
 	[4307] = 3840,
 	[4308] = 3841,
 	[4309] = 3842,
@@ -29927,22 +44323,91 @@ MakersPath.Professions.ItemToSpell = {
 	[4334] = 3871,
 	[4335] = 3872,
 	[4336] = 3873,
+	[4339] = 3865,
 	[4343] = 3914,
 	[4344] = 3915,
+	[4357] = 3918,
+	[4358] = 3919,
+	[4359] = 3922,
+	[4360] = 3923,
+	[4361] = 3924,
+	[4362] = 3925,
+	[4363] = 3926,
+	[4364] = 3929,
+	[4365] = 3931,
+	[4366] = 3932,
+	[4367] = 3933,
 	[4368] = 3934,
 	[4369] = 3936,
+	[4370] = 3937,
+	[4371] = 3938,
 	[4372] = 3939,
 	[4373] = 3940,
+	[4374] = 3941,
+	[4375] = 3942,
+	[4376] = 3944,
+	[4377] = 3945,
+	[4378] = 3946,
 	[4379] = 3949,
+	[4380] = 3950,
+	[4381] = 3952,
+	[4382] = 3953,
 	[4383] = 3954,
+	[4384] = 3955,
 	[4385] = 3956,
+	[4386] = 3957,
+	[4387] = 3958,
+	[4388] = 3959,
+	[4389] = 3961,
+	[4390] = 3962,
+	[4391] = 3963,
+	[4392] = 3965,
 	[4393] = 3966,
+	[4394] = 3967,
+	[4395] = 3968,
+	[4396] = 3969,
+	[4397] = 3971,
+	[4398] = 3972,
+	[4401] = 3928,
+	[4403] = 3960,
+	[4404] = 3973,
+	[4405] = 3977,
+	[4406] = 3978,
+	[4407] = 3979,
 	[4455] = 4096,
 	[4456] = 4097,
+	[4457] = 4094,
+	[4592] = 7753,
+	[4593] = 7755,
+	[4594] = 7828,
+	[4596] = 4508,
+	[4623] = 4942,
+	[4852] = 8243,
+	[5081] = 5244,
+	[5095] = 7827,
+	[5472] = 6412,
+	[5473] = 6413,
+	[5474] = 6414,
+	[5476] = 6415,
+	[5477] = 6416,
+	[5478] = 6417,
+	[5479] = 6418,
+	[5480] = 6419,
+	[5507] = 6458,
+	[5525] = 6499,
+	[5526] = 6501,
+	[5527] = 6500,
 	[5540] = 6517,
 	[5541] = 6518,
 	[5542] = 6521,
+	[5631] = 6617,
+	[5633] = 6618,
+	[5634] = 6624,
 	[5739] = 6661,
+	[5762] = 6686,
+	[5763] = 6688,
+	[5764] = 6693,
+	[5765] = 6695,
 	[5766] = 6690,
 	[5770] = 6692,
 	[5780] = 6702,
@@ -29957,8 +44422,24 @@ MakersPath.Professions.ItemToSpell = {
 	[5964] = 7151,
 	[5965] = 7153,
 	[5966] = 7156,
+	[5996] = 7179,
+	[5997] = 7183,
+	[6037] = 10098,
+	[6037] = 11480,
+	[6038] = 7213,
 	[6040] = 7223,
+	[6041] = 7224,
+	[6042] = 7221,
+	[6043] = 7222,
+	[6048] = 7256,
+	[6049] = 7257,
+	[6050] = 7258,
+	[6051] = 7255,
+	[6052] = 7259,
+	[6149] = 11448,
 	[6214] = 7408,
+	[6218] = 7421,
+	[6219] = 7430,
 	[6238] = 7623,
 	[6239] = 7629,
 	[6240] = 7630,
@@ -29966,7 +44447,15 @@ MakersPath.Professions.ItemToSpell = {
 	[6242] = 7633,
 	[6263] = 7639,
 	[6264] = 7643,
+	[6290] = 7751,
+	[6316] = 7754,
+	[6338] = 7818,
+	[6339] = 7795,
 	[6350] = 7817,
+	[6370] = 7836,
+	[6371] = 7837,
+	[6372] = 7841,
+	[6373] = 7845,
 	[6384] = 7892,
 	[6385] = 7893,
 	[6450] = 7928,
@@ -29976,13 +44465,20 @@ MakersPath.Professions.ItemToSpell = {
 	[6466] = 7953,
 	[6467] = 7954,
 	[6468] = 7955,
+	[6533] = 9271,
+	[6657] = 8238,
+	[6662] = 8240,
 	[6709] = 8322,
+	[6712] = 8334,
+	[6714] = 8339,
 	[6731] = 8367,
 	[6786] = 8465,
 	[6787] = 8467,
 	[6795] = 8483,
 	[6796] = 8489,
 	[6887] = 18238,
+	[6888] = 8604,
+	[6890] = 8607,
 	[7026] = 8776,
 	[7046] = 8758,
 	[7047] = 8780,
@@ -30004,10 +44500,21 @@ MakersPath.Professions.ItemToSpell = {
 	[7063] = 8802,
 	[7064] = 8804,
 	[7065] = 8784,
+	[7068] = 25146,
+	[7071] = 8768,
+	[7076] = 17560,
+	[7076] = 17565,
+	[7078] = 17559,
+	[7080] = 17561,
+	[7080] = 17563,
+	[7082] = 17562,
+	[7148] = 9273,
 	[7166] = 8880,
+	[7189] = 8895,
 	[7276] = 9058,
 	[7277] = 9059,
 	[7278] = 9060,
+	[7279] = 9062,
 	[7280] = 9064,
 	[7281] = 9065,
 	[7282] = 9068,
@@ -30019,6 +44526,8 @@ MakersPath.Professions.ItemToSpell = {
 	[7352] = 9147,
 	[7358] = 9148,
 	[7359] = 9149,
+	[7371] = 9193,
+	[7372] = 9194,
 	[7373] = 9195,
 	[7374] = 9196,
 	[7375] = 9197,
@@ -30035,6 +44544,8 @@ MakersPath.Professions.ItemToSpell = {
 	[7443] = 7443,
 	[7454] = 7454,
 	[7457] = 7457,
+	[7506] = 9269,
+	[7676] = 9513,
 	[7745] = 7745,
 	[7748] = 7748,
 	[7766] = 7766,
@@ -30091,10 +44602,17 @@ MakersPath.Professions.ItemToSpell = {
 	[7960] = 10015,
 	[7961] = 10007,
 	[7963] = 9916,
+	[7964] = 9918,
+	[7965] = 9921,
+	[7966] = 9920,
+	[7967] = 9939,
 	[7969] = 9964,
 	[8067] = 3920,
 	[8068] = 3930,
 	[8069] = 3947,
+	[8170] = 22331,
+	[8172] = 10482,
+	[8173] = 10487,
 	[8174] = 10490,
 	[8175] = 10499,
 	[8176] = 10507,
@@ -30123,13 +44641,41 @@ MakersPath.Professions.ItemToSpell = {
 	[8214] = 10546,
 	[8215] = 10574,
 	[8216] = 10562,
+	[8217] = 14930,
+	[8218] = 14932,
 	[8345] = 10621,
 	[8346] = 10630,
 	[8347] = 10619,
 	[8348] = 10632,
 	[8349] = 10647,
+	[8364] = 20916,
 	[8367] = 10650,
+	[8544] = 10840,
+	[8545] = 10841,
+	[8949] = 11449,
+	[8951] = 11450,
+	[8956] = 11451,
+	[9030] = 11452,
+	[9036] = 11453,
+	[9060] = 11454,
+	[9061] = 11456,
+	[9088] = 11466,
+	[9144] = 11458,
 	[9149] = 11459,
+	[9154] = 11460,
+	[9155] = 11461,
+	[9172] = 11464,
+	[9179] = 11465,
+	[9187] = 11467,
+	[9197] = 11468,
+	[9206] = 11472,
+	[9210] = 11473,
+	[9224] = 11477,
+	[9233] = 11478,
+	[9264] = 11476,
+	[9312] = 23067,
+	[9313] = 23068,
+	[9318] = 23066,
 	[9366] = 11643,
 	[9998] = 12048,
 	[9999] = 12049,
@@ -30165,6 +44711,7 @@ MakersPath.Professions.ItemToSpell = {
 	[10047] = 12046,
 	[10048] = 12047,
 	[10050] = 12065,
+	[10051] = 12079,
 	[10052] = 12064,
 	[10053] = 12077,
 	[10054] = 12075,
@@ -30172,39 +44719,85 @@ MakersPath.Professions.ItemToSpell = {
 	[10056] = 12061,
 	[10421] = 12260,
 	[10423] = 12259,
+	[10498] = 12590,
+	[10499] = 12587,
 	[10500] = 12594,
 	[10501] = 12607,
 	[10502] = 12615,
 	[10503] = 12618,
+	[10504] = 12622,
+	[10505] = 12585,
 	[10506] = 12617,
+	[10507] = 12586,
 	[10508] = 12595,
 	[10510] = 12614,
 	[10512] = 12596,
 	[10513] = 12621,
+	[10514] = 12603,
 	[10518] = 12616,
 	[10542] = 12717,
 	[10543] = 12718,
 	[10545] = 12897,
+	[10546] = 12597,
 	[10548] = 12620,
+	[10558] = 12584,
+	[10559] = 12589,
+	[10560] = 12591,
 	[10561] = 12599,
 	[10562] = 12619,
 	[10576] = 12624,
+	[10577] = 12716,
+	[10577] = 13240,
+	[10586] = 12754,
+	[10587] = 12755,
 	[10588] = 12758,
+	[10592] = 12609,
+	[10644] = 12715,
 	[10645] = 12759,
+	[10646] = 12760,
+	[10713] = 12895,
 	[10716] = 12899,
 	[10720] = 12902,
 	[10721] = 12903,
 	[10724] = 12905,
+	[10725] = 12906,
 	[10726] = 12907,
 	[10727] = 12908,
+	[10841] = 13028,
+	[11128] = 14379,
+	[11130] = 13628,
+	[11144] = 14380,
+	[11145] = 13702,
+	[11287] = 14293,
+	[11288] = 14807,
+	[11289] = 14809,
+	[11290] = 14810,
+	[11371] = 14891,
+	[11590] = 15255,
 	[11604] = 15296,
 	[11605] = 15295,
 	[11606] = 15293,
 	[11607] = 15294,
 	[11608] = 15292,
 	[11811] = 15596,
+	[11825] = 15628,
+	[11826] = 15633,
+	[12190] = 15833,
+	[12209] = 15853,
+	[12210] = 15855,
+	[12212] = 15861,
+	[12213] = 15863,
+	[12214] = 15865,
+	[12215] = 15910,
+	[12216] = 15915,
+	[12217] = 15906,
+	[12218] = 15933,
+	[12224] = 15935,
 	[12259] = 15972,
 	[12260] = 15973,
+	[12359] = 16153,
+	[12360] = 17187,
+	[12404] = 16641,
 	[12405] = 16642,
 	[12406] = 16643,
 	[12408] = 16644,
@@ -30242,6 +44835,10 @@ MakersPath.Professions.ItemToSpell = {
 	[12639] = 16741,
 	[12640] = 16729,
 	[12641] = 16746,
+	[12643] = 16640,
+	[12644] = 16639,
+	[12645] = 16651,
+	[12655] = 17180,
 	[12773] = 16969,
 	[12774] = 16970,
 	[12775] = 16971,
@@ -30257,15 +44854,40 @@ MakersPath.Professions.ItemToSpell = {
 	[12796] = 16988,
 	[12797] = 16992,
 	[12798] = 16991,
+	[12803] = 17566,
+	[12808] = 17564,
+	[12810] = 17181,
 	[13378] = 13378,
 	[13380] = 13380,
 	[13419] = 13419,
 	[13421] = 13421,
+	[13423] = 17551,
+	[13442] = 17552,
+	[13443] = 17553,
+	[13444] = 17580,
+	[13445] = 17554,
+	[13446] = 17556,
+	[13447] = 17555,
+	[13452] = 17571,
+	[13453] = 17557,
+	[13454] = 17573,
+	[13455] = 17570,
+	[13456] = 17575,
+	[13457] = 17574,
+	[13458] = 17576,
+	[13459] = 17578,
+	[13461] = 17577,
+	[13462] = 17572,
 	[13464] = 13464,
 	[13485] = 13485,
 	[13501] = 13501,
 	[13503] = 13503,
 	[13503] = 17632,
+	[13506] = 17634,
+	[13510] = 17635,
+	[13511] = 17636,
+	[13512] = 17637,
+	[13513] = 17638,
 	[13522] = 13522,
 	[13529] = 13529,
 	[13536] = 13536,
@@ -30304,6 +44926,7 @@ MakersPath.Professions.ItemToSpell = {
 	[13836] = 13836,
 	[13841] = 13841,
 	[13846] = 13846,
+	[13851] = 15856,
 	[13856] = 18402,
 	[13857] = 18407,
 	[13858] = 13858,
@@ -30326,8 +44949,14 @@ MakersPath.Professions.ItemToSpell = {
 	[13905] = 13905,
 	[13915] = 13915,
 	[13917] = 13917,
+	[13927] = 18239,
+	[13928] = 18240,
+	[13929] = 18242,
+	[13930] = 18241,
 	[13931] = 13931,
+	[13932] = 18244,
 	[13933] = 13933,
+	[13934] = 18246,
 	[13935] = 13935,
 	[13937] = 13937,
 	[13939] = 13939,
@@ -30341,6 +44970,7 @@ MakersPath.Professions.ItemToSpell = {
 	[14044] = 18418,
 	[14045] = 18434,
 	[14046] = 18405,
+	[14048] = 18401,
 	[14100] = 18414,
 	[14101] = 18415,
 	[14103] = 18420,
@@ -30367,6 +44997,11 @@ MakersPath.Professions.ItemToSpell = {
 	[14152] = 18457,
 	[14153] = 18458,
 	[14154] = 18456,
+	[14155] = 18445,
+	[14156] = 18455,
+	[14342] = 18560,
+	[14529] = 18629,
+	[14530] = 18630,
 	[15045] = 19050,
 	[15046] = 19060,
 	[15047] = 19054,
@@ -30422,12 +45057,31 @@ MakersPath.Professions.ItemToSpell = {
 	[15407] = 19047,
 	[15564] = 19058,
 	[15802] = 19435,
+	[15846] = 19567,
+	[15869] = 19666,
+	[15870] = 19667,
+	[15871] = 19668,
+	[15872] = 19669,
+	[15992] = 19788,
+	[15993] = 19790,
+	[15994] = 19791,
 	[15995] = 19792,
+	[15996] = 19793,
 	[15997] = 19800,
 	[15999] = 19794,
+	[16000] = 19795,
 	[16004] = 19796,
+	[16005] = 19799,
+	[16006] = 19815,
 	[16007] = 19833,
 	[16008] = 19825,
+	[16009] = 19819,
+	[16022] = 19830,
+	[16023] = 19814,
+	[16040] = 19831,
+	[16206] = 20201,
+	[16207] = 20051,
+	[16766] = 20626,
 	[16979] = 20849,
 	[16980] = 20848,
 	[16982] = 20853,
@@ -30440,17 +45094,29 @@ MakersPath.Professions.ItemToSpell = {
 	[17015] = 20890,
 	[17016] = 20897,
 	[17193] = 21161,
+	[17197] = 21143,
+	[17198] = 21144,
+	[17222] = 21175,
 	[17704] = 21913,
+	[17708] = 21923,
+	[17716] = 21940,
 	[17721] = 21943,
 	[17723] = 21945,
+	[17771] = 22967,
+	[18045] = 22480,
 	[18168] = 22797,
+	[18232] = 22704,
 	[18238] = 22711,
+	[18251] = 22727,
+	[18253] = 22732,
 	[18254] = 22761,
 	[18258] = 22813,
 	[18258] = 22815,
 	[18262] = 22757,
 	[18263] = 22759,
 	[18282] = 22795,
+	[18283] = 22793,
+	[18294] = 22808,
 	[18405] = 22866,
 	[18407] = 22867,
 	[18408] = 22868,
@@ -30464,11 +45130,17 @@ MakersPath.Professions.ItemToSpell = {
 	[18510] = 22927,
 	[18511] = 22928,
 	[18587] = 23078,
+	[18588] = 23069,
+	[18594] = 23080,
+	[18631] = 23071,
 	[18634] = 23077,
 	[18637] = 23079,
 	[18638] = 23081,
 	[18639] = 23082,
+	[18641] = 23070,
 	[18645] = 23096,
+	[18660] = 23129,
+	[18662] = 23190,
 	[18948] = 23399,
 	[18984] = 23486,
 	[18986] = 23489,
@@ -30498,6 +45170,7 @@ MakersPath.Professions.ItemToSpell = {
 	[19168] = 23652,
 	[19169] = 23653,
 	[19170] = 23650,
+	[19440] = 23787,
 	[19682] = 24091,
 	[19683] = 24092,
 	[19684] = 24093,
@@ -30515,6 +45188,9 @@ MakersPath.Professions.ItemToSpell = {
 	[19931] = 24266,
 	[19998] = 24357,
 	[19999] = 24356,
+	[20002] = 24366,
+	[20004] = 24368,
+	[20007] = 24365,
 	[20008] = 20008,
 	[20009] = 20009,
 	[20010] = 20010,
@@ -30540,9 +45216,11 @@ MakersPath.Professions.ItemToSpell = {
 	[20035] = 20035,
 	[20036] = 20036,
 	[20039] = 24399,
+	[20074] = 24418,
 	[20295] = 24654,
 	[20296] = 24655,
 	[20380] = 24703,
+	[20452] = 24801,
 	[20476] = 24849,
 	[20477] = 24850,
 	[20478] = 24851,
@@ -30556,11 +45234,38 @@ MakersPath.Professions.ItemToSpell = {
 	[20550] = 24914,
 	[20551] = 24913,
 	[20575] = 24940,
+	[20744] = 25124,
+	[20745] = 25125,
+	[20746] = 25126,
+	[20747] = 25127,
+	[20748] = 25130,
+	[20749] = 25129,
+	[20750] = 25128,
 	[21023] = 25659,
+	[21072] = 25704,
 	[21154] = 26403,
+	[21217] = 25954,
 	[21277] = 26011,
 	[21278] = 26279,
+	[21340] = 26085,
+	[21341] = 26086,
+	[21342] = 26087,
 	[21542] = 26407,
+	[21546] = 26277,
+	[21557] = 26418,
+	[21558] = 26416,
+	[21559] = 26417,
+	[21569] = 26442,
+	[21570] = 26443,
+	[21571] = 26423,
+	[21574] = 26424,
+	[21576] = 26425,
+	[21589] = 26420,
+	[21590] = 26421,
+	[21592] = 26422,
+	[21714] = 26426,
+	[21716] = 26427,
+	[21718] = 26428,
 	[21931] = 21931,
 	[22191] = 27590,
 	[22194] = 27589,
@@ -30568,6 +45273,11 @@ MakersPath.Professions.ItemToSpell = {
 	[22196] = 27587,
 	[22197] = 27585,
 	[22198] = 27586,
+	[22246] = 27658,
+	[22248] = 27659,
+	[22249] = 27660,
+	[22251] = 27724,
+	[22252] = 27725,
 	[22383] = 27832,
 	[22384] = 27830,
 	[22385] = 27829,
@@ -30585,6 +45295,9 @@ MakersPath.Professions.ItemToSpell = {
 	[22658] = 28208,
 	[22670] = 28243,
 	[22671] = 28244,
+	[22728] = 28327,
+	[3825] = 3450,
+	[13442] = 17552,
 	[22749] = 22749,
 	[22750] = 22750,
 	[22756] = 28480,
@@ -30596,6 +45309,50 @@ MakersPath.Professions.ItemToSpell = {
 	[22762] = 28461,
 	[22763] = 28462,
 	[22764] = 28463,
+	[22823] = 28543,
+	[22824] = 28544,
+	[22825] = 28545,
+	[22826] = 28546,
+	[22827] = 28549,
+	[22828] = 28550,
+	[22829] = 28551,
+	[22830] = 28552,
+	[22831] = 28553,
+	[22871] = 28554,
+	[22832] = 28555,
+	[22833] = 28556,
+	[22834] = 28557,
+	[22835] = 28558,
+	[22836] = 28562,
+	[22837] = 28563,
+	[22838] = 28564,
+	[22839] = 28565,
+	[21884] = 28566,
+	[21885] = 28567,
+	[22452] = 28568,
+	[22451] = 28569,
+	[22840] = 28570,
+	[22841] = 28571,
+	[22842] = 28572,
+	[22844] = 28573,
+	[22845] = 28575,
+	[22846] = 28576,
+	[22847] = 28577,
+	[22848] = 28578,
+	[22849] = 28579,
+	[21885] = 28580,
+	[22456] = 28581,
+	[21884] = 28582,
+	[22457] = 28583,
+	[22452] = 28584,
+	[21886] = 28585,
+	[22850] = 28586,
+	[22851] = 28587,
+	[22853] = 28588,
+	[22854] = 28589,
+	[22861] = 28590,
+	[22866] = 28591,
+	[23571] = 29688,
 	[23799] = 23799,
 	[23800] = 23800,
 	[23801] = 23801,
@@ -30613,7 +45370,229 @@ MakersPath.Professions.ItemToSpell = {
 	[25083] = 25083,
 	[25084] = 25084,
 	[25086] = 25086,
+	[25867] = 32765,
+	[25868] = 32766,
 	[27837] = 27837,
+	[28100] = 33732,
+	[28101] = 33733,
+	[28102] = 33738,
+	[28103] = 33740,
+	[28104] = 33741,
+	[31080] = 38070,
+	[31679] = 38960,
+	[31677] = 38961,
+	[31676] = 38962,
+	[32062] = 39636,
+	[32063] = 39637,
+	[32067] = 39638,
+	[32068] = 39639,
+	[32839] = 41458,
+	[32849] = 41500,
+	[32850] = 41501,
+	[32851] = 41502,
+	[32852] = 41503,
+	[33208] = 42736,
+	[34440] = 45061,
+	[7967] = 9939,
+	[12645] = 16651,
+	[23528] = 29654,
+	[23529] = 29656,
+	[23530] = 29657,
+	[23575] = 29728,
+	[23576] = 29729,
+	[23559] = 32284,
+	[25521] = 32285,
+	[25843] = 32655,
+	[25844] = 32656,
+	[25845] = 32657,
+	[28420] = 34607,
+	[28421] = 34608,
+	[33185] = 42688,
+	[22521] = 28016,
+	[22522] = 28019,
+	[22449] = 28022,
+	[22460] = 28027,
+	[22459] = 28028,
+	[22461] = 32664,
+	[22462] = 32665,
+	[22463] = 32667,
+	[22448] = 42613,
+	[22448] = 42615,
+	[22449] = 45765,
+	[23781] = 30303,
+	[23782] = 30304,
+	[23783] = 30305,
+	[23784] = 30306,
+	[23785] = 30307,
+	[23786] = 30308,
+	[23787] = 30309,
+	[23736] = 30310,
+	[23737] = 30311,
+	[23764] = 30329,
+	[23765] = 30332,
+	[23766] = 30334,
+	[23767] = 30337,
+	[23768] = 30341,
+	[23771] = 30344,
+	[34504] = 30347,
+	[23774] = 30348,
+	[23775] = 30349,
+	[23819] = 30547,
+	[23821] = 30548,
+	[33092] = 30551,
+	[33093] = 30552,
+	[23826] = 30558,
+	[23827] = 30560,
+	[23836] = 30563,
+	[23841] = 30568,
+	[23835] = 30569,
+	[25886] = 32814,
+	[30542] = 36954,
+	[30544] = 36955,
+	[7191] = 39895,
+	[32423] = 39971,
+	[32413] = 39973,
+	[32472] = 41311,
+	[32475] = 41316,
+	[32480] = 41319,
+	[32495] = 41321,
+	[20475] = 43676,
+	[34060] = 44155,
+	[34061] = 44157,
+	[34113] = 44391,
+	[35185] = 46107,
+	[35181] = 46108,
+	[35182] = 46109,
+	[34355] = 46112,
+	[23841] = 30568,
+	[23835] = 30569,
+	[30544] = 36955,
+	[23826] = 30558,
+	[23827] = 30560,
+	[23836] = 30563,
+	[30542] = 36954,
+	[20816] = 25255,
+	[20817] = 25278,
+	[21752] = 26880,
+	[21793] = 26918,
+	[23098] = 28910,
+	[23099] = 28912,
+	[23100] = 28914,
+	[23101] = 28915,
+	[23103] = 28916,
+	[23104] = 28917,
+	[23105] = 28918,
+	[23106] = 28924,
+	[23108] = 28925,
+	[23109] = 28927,
+	[23110] = 28933,
+	[23111] = 28936,
+	[23113] = 28938,
+	[23114] = 28944,
+	[23115] = 28947,
+	[23116] = 28948,
+	[23118] = 28950,
+	[23119] = 28953,
+	[23120] = 28955,
+	[23121] = 28957,
+	[24027] = 31084,
+	[24028] = 31085,
+	[24029] = 31087,
+	[24030] = 31088,
+	[24031] = 31089,
+	[24032] = 31090,
+	[24036] = 31091,
+	[24033] = 31092,
+	[24037] = 31094,
+	[24039] = 31095,
+	[24047] = 31096,
+	[24048] = 31097,
+	[24051] = 31098,
+	[24050] = 31099,
+	[24052] = 31100,
+	[24053] = 31101,
+	[24054] = 31102,
+	[24055] = 31103,
+	[24056] = 31104,
+	[24057] = 31105,
+	[24058] = 31106,
+	[24059] = 31107,
+	[24060] = 31108,
+	[24061] = 31109,
+	[24062] = 31110,
+	[24066] = 31111,
+	[24065] = 31112,
+	[24067] = 31113,
+	[25498] = 32259,
+	[25880] = 32801,
+	[25881] = 32807,
+	[25882] = 32808,
+	[25883] = 32809,
+	[25896] = 32866,
+	[25897] = 32867,
+	[25898] = 32868,
+	[25899] = 32869,
+	[25901] = 32870,
+	[25890] = 32871,
+	[25893] = 32872,
+	[25894] = 32873,
+	[25895] = 32874,
+	[31860] = 39451,
+	[31861] = 39452,
+	[31862] = 39455,
+	[31864] = 39458,
+	[31865] = 39462,
+	[31863] = 39463,
+	[31866] = 39466,
+	[31869] = 39467,
+	[31867] = 39470,
+	[31868] = 39471,
+	[32193] = 39705,
+	[32194] = 39706,
+	[32195] = 39710,
+	[32196] = 39711,
+	[32197] = 39712,
+	[32198] = 39713,
+	[32199] = 39714,
+	[32200] = 39715,
+	[32201] = 39716,
+	[32202] = 39717,
+	[32203] = 39718,
+	[32204] = 39719,
+	[32205] = 39720,
+	[32206] = 39721,
+	[32207] = 39722,
+	[32208] = 39723,
+	[32209] = 39724,
+	[32210] = 39725,
+	[32211] = 39727,
+	[32212] = 39728,
+	[32213] = 39729,
+	[32214] = 39730,
+	[32215] = 39731,
+	[32216] = 39732,
+	[32217] = 39733,
+	[32218] = 39734,
+	[32219] = 39735,
+	[32220] = 39736,
+	[32221] = 39737,
+	[32222] = 39738,
+	[32223] = 39739,
+	[32224] = 39740,
+	[32225] = 39741,
+	[32226] = 39742,
+	[32409] = 39961,
+	[32410] = 39963,
+	[32833] = 41420,
+	[32836] = 41429,
+	[33782] = 43493,
+	[34220] = 44794,
+	[35315] = 46403,
+	[35316] = 46404,
+	[35318] = 46405,
+	[35501] = 46597,
+	[35503] = 46601,
+	[35707] = 46803,
 	[35748] = 47046,
 	[35749] = 47048,
 	[35750] = 47049,
@@ -31087,8 +46066,68 @@ MakersPath.Professions.ItemToSpell = {
 	[34364] = 46130,
 	[34365] = 46131,
 	[6836] = 49677,
+	[35759] = 47053,
+	[35758] = 47054,
+	[35760] = 47055,
+	[35761] = 47056,
+	[35945] = 47280,
+	[37503] = 48789,
+	[21887] = 32454,
+	[23793] = 32455,
+	[25650] = 32456,
+	[25651] = 32457,
+	[25652] = 32458,
+	[25679] = 32482,
+	[29483] = 35520,
+	[29485] = 35521,
+	[29486] = 35522,
+	[29487] = 35523,
+	[29488] = 35524,
+	[29540] = 35530,
+	[29532] = 35538,
+	[29531] = 35539,
+	[29528] = 35540,
+	[29529] = 35543,
+	[29530] = 35544,
+	[34099] = 44343,
+	[34100] = 44344,
+	[34105] = 44359,
+	[34106] = 44768,
+	[34330] = 44970,
+	[34482] = 45100,
+	[34490] = 45117,
 	[38277] = 50644,
 	[38278] = 50647,
+	[185852] = 351766,
+	[185851] = 351768,
+	[29531] = 351769,
+	[185849] = 351770,
+	[185848] = 351771,
+	[23445] = 29356,
+	[23446] = 29358,
+	[23447] = 29359,
+	[23448] = 29360,
+	[23449] = 29361,
+	[23573] = 29686,
+	[35128] = 46353,
+	[21840] = 26745,
+	[21841] = 26746,
+	[21842] = 26747,
+	[21843] = 26749,
+	[21844] = 26750,
+	[21845] = 26751,
+	[21858] = 26755,
+	[21872] = 26759,
+	[21876] = 26763,
+	[24271] = 31373,
+	[24273] = 31430,
+	[24275] = 31431,
+	[24274] = 31432,
+	[24276] = 31433,
+	[24270] = 31459,
+	[24268] = 31460,
+	[24272] = 36686,
+	[38225] = 50194,
 }
 
 MakersPath.Professions.SpellToItem = {}
