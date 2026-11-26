@@ -229,10 +229,38 @@ local function CollectModernTrade()
   return profName, ids
 end
 
-local function ScanCurrentTrade()
-  local profName, ids = CollectClassicTrade()
-  if not profName then profName, ids = CollectModernTrade() end
-  if not profName or not ids or #ids == 0 then return end
+local function CollectCraft()
+  if not (GetNumCrafts and GetCraftInfo and GetCraftItemLink and GetCraftDisplaySkillLine) then return end
+
+  local profName = GetCraftDisplaySkillLine()
+  if not profName or profName == "" then return end
+
+  local num = GetNumCrafts() or 0
+  if type(num) ~= "number" or num <= 0 then return end
+
+  local all = MakersPath.Professions and MakersPath.Professions.AllRecipes
+  local list = all and all[PROF_SKILLLINE_BY_NAME[profName]]
+
+  local ids = {}
+  for i = 1, num do
+    local _, _, craftType = GetCraftInfo(i)
+    if craftType ~= "header" then
+      local link = GetCraftItemLink(i)
+      local itemID = link and tonumber(link:match("|Hitem:(%d+)"))
+      if not itemID and link and list then
+        local spellID = tonumber(link:match("|Henchant:(%d+)") or link:match("|Hspell:(%d+)"))
+        local rec = spellID and list[spellID]
+        local product = rec and tonumber(rec.productid or rec.productId)
+        if product and rec.type ~= "enchant" and product ~= spellID then itemID = product end
+      end
+      if itemID then ids[#ids+1] = itemID end
+    end
+  end
+  return profName, ids
+end
+
+local function RecordScan(profName, ids)
+  if not profName or not ids then return end
 
   EnsureGlobals()
   for _, itemID in ipairs(ids) do
@@ -246,6 +274,16 @@ local function ScanCurrentTrade()
       MakersPath.UI.QueueRedraw()
     end
   end
+end
+
+local function ScanCurrentTrade()
+  local profName, ids = CollectClassicTrade()
+  if not profName then profName, ids = CollectModernTrade() end
+  RecordScan(profName, ids)
+end
+
+local function ScanCurrentCraft()
+  RecordScan(CollectCraft())
 end
 
 -- =====================================================================
@@ -282,6 +320,8 @@ f:RegisterEvent("GET_ITEM_INFO_RECEIVED")
 -- Modern clients fill the recipe list after TRADE_SKILL_SHOW. pcall because
 -- registering an event a client doesn't know is an error on some builds.
 pcall(f.RegisterEvent, f, "TRADE_SKILL_LIST_UPDATE")
+pcall(f.RegisterEvent, f, "CRAFT_SHOW")
+pcall(f.RegisterEvent, f, "CRAFT_UPDATE")
 
 local scanQueued = false
 local function QueueTradeScan(delay)
@@ -290,6 +330,16 @@ local function QueueTradeScan(delay)
   C_Timer.After(delay or 0.05, function()
     scanQueued = false
     ScanCurrentTrade()
+  end)
+end
+
+local craftQueued = false
+local function QueueCraftScan(delay)
+  if craftQueued then return end
+  craftQueued = true
+  C_Timer.After(delay or 0.05, function()
+    craftQueued = false
+    ScanCurrentCraft()
   end)
 end
 
@@ -308,6 +358,11 @@ f:SetScript("OnEvent", function(_, event, arg1)
     QueueTradeScan(0.05)
   elseif event == "TRADE_SKILL_LIST_UPDATE" then
     QueueTradeScan(0.25)
+  elseif event == "CRAFT_SHOW" then
+    EnsureGlobals()
+    QueueCraftScan(0.05)
+  elseif event == "CRAFT_UPDATE" then
+    QueueCraftScan(0.25)
   elseif event == "GET_ITEM_INFO_RECEIVED" then
   end
 end)
