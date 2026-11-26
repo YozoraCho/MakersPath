@@ -1440,6 +1440,31 @@ local function ApplyEquipLines(s, eq)
   end
 end
 
+function GearFinder.StatsForLink(link)
+  if not link then return {} end
+  local s = {}
+  for k, v in pairs(API.GetItemStats(link) or {}) do s[k] = v end
+  local iid = tonumber(link:match("item:(%d+)"))
+  local tip = iid and ParseTooltipStatsToTable(iid)
+  if tip then
+    for k, v in pairs(tip) do
+      if s[k] == nil or s[k] == 0 then s[k] = v end
+    end
+  end
+  if MakersPath.client and MakersPath.client.isEra then
+    local eq = ParseEquipLines(link)
+    if eq then ApplyEquipLines(s, eq) end
+  end
+  if tip and (tip.SPELL_DMG_HOLY or tip.SPELL_DMG_FIRE or tip.SPELL_DMG_NATURE
+    or tip.SPELL_DMG_FROST or tip.SPELL_DMG_SHADOW or tip.SPELL_DMG_ARCANE) then
+    s.ITEM_MOD_SPELL_DAMAGE_DONE = nil
+    s.ITEM_MOD_SPELL_DAMAGE_DONE_SHORT = nil
+    s.ITEM_MOD_SPELL_POWER = nil
+    s.ITEM_MOD_SPELL_POWER_SHORT = nil
+  end
+  return NormalizeToMaker(s)
+end
+
 local function GetItemStatsTable(iid)
   if not iid then return nil end
   local cached = StatsCache[iid]

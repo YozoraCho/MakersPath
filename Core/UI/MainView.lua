@@ -1365,7 +1365,37 @@ local function AltRow(parent, i)
   return r
 end
 
-local DPS_KEY = "ITEM_MOD_DAMAGE_PER_SECOND_SHORT"
+local STAT_LABELS = {
+  STRENGTH = "ITEM_MOD_STRENGTH_SHORT", AGILITY = "ITEM_MOD_AGILITY_SHORT",
+  STAMINA = "ITEM_MOD_STAMINA_SHORT", INTELLECT = "ITEM_MOD_INTELLECT_SHORT",
+  SPIRIT = "ITEM_MOD_SPIRIT_SHORT", ARMOR = "RESISTANCE0_NAME",
+  ATTACK_POWER = "ITEM_MOD_ATTACK_POWER_SHORT", RANGED_ATTACK_POWER = "ITEM_MOD_RANGED_ATTACK_POWER_SHORT",
+  FERAL_ATTACK_POWER = "ITEM_MOD_FERAL_ATTACK_POWER_SHORT", DAMAGE_PER_SECOND = "ITEM_MOD_DAMAGE_PER_SECOND_SHORT",
+  CRIT = "ITEM_MOD_CRIT_RATING_SHORT", CRIT_SPELL = "ITEM_MOD_CRIT_SPELL_RATING_SHORT",
+  HIT = "ITEM_MOD_HIT_RATING_SHORT", HIT_SPELL = "ITEM_MOD_HIT_SPELL_RATING_SHORT",
+  HASTE = "ITEM_MOD_HASTE_RATING_SHORT", HASTE_SPELL = "ITEM_MOD_HASTE_SPELL_RATING_SHORT",
+  EXPERTISE = "ITEM_MOD_EXPERTISE_RATING_SHORT", ARMOR_PENETRATION = "ITEM_MOD_ARMOR_PENETRATION_RATING_SHORT",
+  SPELL_PENETRATION = "ITEM_MOD_SPELL_PENETRATION_SHORT", RESILIENCE = "ITEM_MOD_RESILIENCE_RATING_SHORT",
+  DODGE = "ITEM_MOD_DODGE_RATING_SHORT", PARRY = "ITEM_MOD_PARRY_RATING_SHORT",
+  BLOCK = "ITEM_MOD_BLOCK_RATING_SHORT", BLOCK_VALUE = "ITEM_MOD_BLOCK_VALUE_SHORT",
+  DEFENSE_SKILL = "ITEM_MOD_DEFENSE_SKILL_RATING_SHORT", MANA_REGENERATION = "ITEM_MOD_MANA_REGENERATION_SHORT",
+  HEALTH = "ITEM_MOD_HEALTH_SHORT", MANA = "ITEM_MOD_MANA_SHORT",
+  HEALTH_REGENERATION = "ITEM_MOD_HEALTH_REGENERATION_SHORT",
+  SPELL_DAMAGE_DONE = "ITEM_MOD_SPELL_DAMAGE_DONE_SHORT", SPELL_HEALING_DONE = "ITEM_MOD_SPELL_HEALING_DONE_SHORT",
+  FIRE_RESISTANCE = "RESISTANCE2_NAME", NATURE_RESISTANCE = "RESISTANCE3_NAME",
+  FROST_RESISTANCE = "RESISTANCE4_NAME", SHADOW_RESISTANCE = "RESISTANCE5_NAME",
+  ARCANE_RESISTANCE = "RESISTANCE6_NAME",
+}
+local SCHOOL_INDEX = {
+  SPELL_DAMAGE_DONE_HOLY = 1, SPELL_DAMAGE_DONE_FIRE = 2, SPELL_DAMAGE_DONE_NATURE = 3,
+  SPELL_DAMAGE_DONE_FROST = 4, SPELL_DAMAGE_DONE_SHADOW = 5, SPELL_DAMAGE_DONE_ARCANE = 6,
+}
+local ERA_PCT = {
+  HIT = { 10, "STAT_HIT", "Hit" }, CRIT = { 14, "STAT_CRIT", "Crit" },
+  HIT_SPELL = { 10, "STAT_SPELL_HIT", "Spell hit" }, CRIT_SPELL = { 14, "STAT_SPELL_CRIT", "Spell crit" },
+  DODGE = { 12, "STAT_DODGE", "Dodge" }, PARRY = { 20, "STAT_PARRY", "Parry" },
+  BLOCK = { 5, "STAT_BLOCK", "Block" }, DEFENSE_SKILL = { 1.5, "STAT_DEFENSE", "Defense", true },
+}
 
 local function FmtStat(v, decimals)
   if decimals then return string.format("%.1f", v) end
@@ -1374,24 +1404,53 @@ local function FmtStat(v, decimals)
   return string.format("%.1f", v)
 end
 
+local function StatLabel(k)
+  local school = SCHOOL_INDEX[k]
+  if school then
+    local name = _G["SPELL_SCHOOL" .. school .. "_CAP"]
+    local sp = _G.ITEM_MOD_SPELL_DAMAGE_DONE_SHORT
+    return name and sp and (name .. " " .. sp) or nil
+  end
+  local g = STAT_LABELS[k]
+  local label = g and _G[g]
+  if type(label) == "string" and label ~= "" then return label end
+end
+
 local function StatDiffs(eqLink, crLink)
-  local a = eqLink and API.GetItemStats(eqLink) or {}
-  local b = crLink and API.GetItemStats(crLink) or {}
+  local GF = MakersPath.GearFinder
+  local read = GF and GF.StatsForLink
+  local a = (eqLink and read and read(eqLink)) or {}
+  local b = (crLink and read and read(crLink)) or {}
+  local era = MakersPath.client and MakersPath.client.isEra
+  local RT = MakersPath.WeightsRT
   local keys, out = {}, {}
   for k in pairs(a) do keys[k] = true end
   for k in pairs(b) do keys[k] = true end
   for k in pairs(keys) do
     local va, vb = tonumber(a[k]) or 0, tonumber(b[k]) or 0
-    local label = _G[k]
-    local dec = (k == DPS_KEY)
+    local pct = era and ERA_PCT[k]
+    local label, unit, dec = nil, "", (k == "DAMAGE_PER_SECOND")
+    if pct then
+      va, vb = va / pct[1], vb / pct[1]
+      label = Lx(pct[2], pct[3])
+      unit = pct[4] and "" or "%"
+    else
+      label = StatLabel(k)
+    end
     local sa, sb = FmtStat(va, dec), FmtStat(vb, dec)
-    if sa ~= sb and type(label) == "string" and label ~= "" then
-      out[#out + 1] = { label = label, a = sa, b = sb, d = vb - va, sd = FmtStat(math.abs(vb - va), dec) }
+    if sa ~= sb and label then
+      local w = RT and RT.GetWeight and tonumber(RT.GetWeight(k)) or 0
+      local rawDelta = (tonumber(b[k]) or 0) - (tonumber(a[k]) or 0)
+      out[#out + 1] = {
+        label = label, a = sa .. unit, b = sb .. unit, d = vb - va,
+        sd = FmtStat(math.abs(vb - va), dec) .. unit,
+        rank = math.abs(rawDelta) * math.max(w, 0.001),
+      }
     end
   end
-  table.sort(out, function(x, y) return math.abs(x.d) > math.abs(y.d) end)
+  table.sort(out, function(x, y) return x.rank > y.rank end)
   local parts = {}
-  for i = 1, math.min(4, #out) do
+  for i = 1, math.min(6, #out) do
     local s = out[i]
     local delta = T.Wrap(s.d > 0 and "gain" or "loss", "(" .. (s.d > 0 and "+" or "-") .. s.sd .. ")")
     parts[#parts + 1] = string.format("%s %s %s", s.label, T.Wrap("bone", s.a .. " -> " .. s.b), delta)
