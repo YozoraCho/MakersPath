@@ -48,7 +48,7 @@ for _, grp in ipairs(RT.GROUPS) do
 end
 
 RT.MIN_WEIGHT = 0.00
-RT.MAX_WEIGHT = 5.00
+RT.MAX_WEIGHT = 10.00
 
 -- =====================================================================
 -- DB accessors
@@ -100,6 +100,10 @@ function RT.NormalizeSpecKey(class, spec)
   if not spec or spec == "" then return nil end
   local key = spec:upper()
   if class == "WARRIOR" and key == "PROT" then key = "PROTECTION" end
+  if class == "WARRIOR" and key == "FURYPROT" then
+    local w = MakersPath.Weights and MakersPath.Weights.WARRIOR
+    if w and not w.FURYPROT then key = "PROTECTION" end
+  end
   return key
 end
 
