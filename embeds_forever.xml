@@ -24,7 +24,7 @@
   <Script file="Data/Recipes_Classic.lua" />
   <Script file="Data/Forever/Recipes_Forever.lua" />
   <Script file="Data/Static.lua" />
-  <Script file="Data/Weights.lua" />
+  <Script file="Data/Forever/Weights.lua" />
   <Script file="Data/Jewelry.lua" />
 
   <!-- Systems -->
