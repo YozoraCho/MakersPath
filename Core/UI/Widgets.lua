@@ -521,6 +521,159 @@ function W.ScrollBar(scroll, onScrolled)
   return bar
 end
 
+-- =================== Inputs ===================
+local function paintInput(b)
+  local edge = b:HasFocus() and C.brassDark or b._over and C.brassDark or C.buttonEdge
+  for _, e in ipairs(b.edges) do W.SetColor(e, edge) end
+end
+
+function W.Input(parent, width, opts)
+  opts = opts or {}
+  local b = CreateFrame("EditBox", nil, parent)
+  b:SetSize(width or 120, opts.height or 22)
+  b:SetAutoFocus(false)
+  b:SetFontObject(T.Font[opts.font or "body"])
+  b:SetTextColor(C.bone[1], C.bone[2], C.bone[3])
+  b:SetJustifyH(opts.justify or "LEFT")
+  b:SetTextInsets(6, 6, 0, 0)
+  if opts.maxLetters then b:SetMaxLetters(opts.maxLetters) end
+  b.bg = W.Fill(b, "well", "BACKGROUND"); b.bg:SetAllPoints()
+  b.edges = frameEdges(b)
+  b:SetScript("OnEditFocusGained", paintInput)
+  b:SetScript("OnEditFocusLost", function(self) self:HighlightText(0, 0); paintInput(self) end)
+  b:SetScript("OnEnter", function(self) self._over = true; paintInput(self) end)
+  b:SetScript("OnLeave", function(self) self._over = false; paintInput(self) end)
+  b:SetScript("OnEscapePressed", function(self) self:ClearFocus() end)
+  paintInput(b)
+  return b
+end
+
+function W.Slider(parent, width)
+  local s = CreateFrame("Slider", nil, parent)
+  s:SetSize(width or 140, 16)
+  s:SetOrientation("HORIZONTAL")
+  if s.SetObeyStepOnDrag then s:SetObeyStepOnDrag(true) end
+  s:EnableMouseWheel(false)
+  s.track = W.Fill(s, "well", "BACKGROUND")
+  s.track:SetPoint("LEFT"); s.track:SetPoint("RIGHT"); s.track:SetHeight(4)
+  local top = W.Line(s, "ruleDark", "BORDER"); top:SetPoint("BOTTOMLEFT", s.track, "TOPLEFT"); top:SetPoint("BOTTOMRIGHT", s.track, "TOPRIGHT")
+  local bot = W.Line(s, "ruleLight", "BORDER"); bot:SetPoint("TOPLEFT", s.track, "BOTTOMLEFT"); bot:SetPoint("TOPRIGHT", s.track, "BOTTOMRIGHT")
+  s.thumb = s:CreateTexture(nil, "OVERLAY")
+  s.thumb:SetColorTexture(C.brass[1], C.brass[2], C.brass[3], 1)
+  s.thumb:SetSize(6, 14)
+  s:SetThumbTexture(s.thumb)
+  s.fill = W.Fill(s, "trailOn", "ARTWORK")
+  s.fill:SetHeight(4)
+  s.fill:SetPoint("LEFT", s.track, "LEFT")
+  s.fill:SetPoint("RIGHT", s.thumb, "CENTER")
+  s:SetScript("OnEnter", function(self) self.thumb:SetColorTexture(C.brassLight[1], C.brassLight[2], C.brassLight[3], 1) end)
+  s:SetScript("OnLeave", function(self) self.thumb:SetColorTexture(C.brass[1], C.brass[2], C.brass[3], 1) end)
+  return s
+end
+
+-- =================== Dialog ===================
+local dialog
+
+local function buildDialog()
+  local f = CreateFrame("Frame", "MakersPathDialog", UIParent)
+  f:SetSize(360, 160)
+  f:SetPoint("CENTER", 0, 120)
+  f:SetFrameStrata("FULLSCREEN_DIALOG")
+  f:SetToplevel(true)
+  f:EnableMouse(true)
+  f:Hide()
+  table.insert(UISpecialFrames, "MakersPathDialog")
+  local page = W.Window(f)
+  f.header = W.Header(page, "", function() f:Hide() end)
+  W.MakeMovable(f, f.header)
+
+  f.text = W.Text(page, "body", "secondary")
+  f.text:SetPoint("TOPLEFT", f.header, "BOTTOMLEFT", 14, -12)
+  f.text:SetWordWrap(true)
+  f.text:SetJustifyV("TOP")
+
+  f.input = W.Input(page, 300)
+  f.input:SetPoint("LEFT", page, "LEFT", 14, 0)
+  f.input:SetPoint("RIGHT", page, "RIGHT", -14, 0)
+
+  f.hint = W.Text(page, "small", "muted")
+  f.hint:SetPoint("TOPLEFT", f.input, "BOTTOMLEFT", 0, -4)
+
+  f.cancel = W.Button(page, "", function() f:Hide() end, { minWidth = 70 })
+  f.cancel:SetPoint("BOTTOMRIGHT", page, "BOTTOMRIGHT", -10, 10)
+  f.accept = W.Button(page, "", nil, { primary = true, minWidth = 70 })
+  f.accept:SetPoint("RIGHT", f.cancel, "LEFT", -6, 0)
+
+  local function accept()
+    local cb = f.onAccept
+    local text = f.input:IsShown() and f.input:GetText() or nil
+    f:Hide()
+    if cb then cb(text) end
+  end
+  f.accept:SetScript("OnClick", accept)
+  f.input:SetScript("OnEnterPressed", function()
+    if f.copyText then f:Hide() elseif f.accept:IsShown() then accept() end
+  end)
+  f.input:SetScript("OnEscapePressed", function() f:Hide() end)
+  f.input:SetScript("OnTextChanged", function(self, user)
+    if user and f.copyText then
+      self:SetText(f.copyText)
+      self:HighlightText()
+    end
+  end)
+  f.input:SetScript("OnKeyDown", function(_, key)
+    if f.copyText and key == "C" and IsControlKeyDown() and f.copiedHint then
+      f.hint:SetText(f.copiedHint)
+      W.TextColor(f.hint, "brass")
+    end
+  end)
+  f.input:SetScript("OnMouseUp", function(self) if f.copyText then self:HighlightText() end end)
+  f:SetScript("OnHide", function(self) self.onAccept = nil; self.copyText = nil; self.input:ClearFocus() end)
+  return f
+end
+
+function W.Dialog(opts)
+  dialog = dialog or buildDialog()
+  local f = dialog
+  f:Hide()
+  f.header.title:SetText(opts.title or "")
+  f.text:SetText(opts.text or "")
+  f.onAccept = opts.onAccept
+  f.copyText = opts.copy
+  f.copiedHint = opts.copiedHint
+  f:SetWidth(opts.width or 360)
+  f.text:SetWidth((opts.width or 360) - S.pad * 2 - 28)
+
+  local textH = math.ceil(f.text:GetStringHeight() or 14)
+  if (opts.text or "") == "" then textH = 0 end
+  local hasInput = opts.copy ~= nil or opts.input ~= nil
+  f.input:SetShown(hasInput)
+  f.hint:SetText(opts.hint or "")
+  W.TextColor(f.hint, "muted")
+  f.hint:SetShown(hasInput and (opts.hint or "") ~= "")
+  local y = S.header + 12 + textH + (textH > 0 and 10 or 0)
+  if hasInput then
+    f.input:ClearAllPoints()
+    f.input:SetPoint("TOPLEFT", f.header, "BOTTOMLEFT", 14, -(12 + textH + (textH > 0 and 10 or 0)))
+    f.input:SetPoint("RIGHT", f.input:GetParent(), "RIGHT", -14, 0)
+    f.input:SetMaxLetters(opts.maxLetters or 0)
+    f.input:SetText(opts.copy or opts.input or "")
+    y = y + 22 + (f.hint:IsShown() and 20 or 8)
+  end
+
+  f.accept:SetShown(opts.accept ~= nil)
+  if opts.accept then f.accept:SetText(opts.accept) end
+  f.cancel:SetText(opts.cancel or CLOSE or "Close")
+  f:SetHeight(y + 12 + 22 + 10 + S.pad * 2)
+  f:Show()
+  f:Raise()
+  if hasInput then
+    f.input:SetFocus()
+    f.input:HighlightText()
+  end
+  return f
+end
+
 -- =================== Readiness ===================
 function W.Pip(parent, size)
   local t = parent:CreateTexture(nil, "ARTWORK")

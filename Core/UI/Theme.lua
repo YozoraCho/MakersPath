@@ -132,6 +132,7 @@ T.Tex = {
   markMats  = T.ART .. "mark_mats",
   markNeed  = T.ART .. "mark_need",
   markLevel = T.ART .. "mark_level",
+  heart     = T.ART .. "heart",
   question  = "Interface\\Icons\\INV_Misc_QuestionMark",
 }
 

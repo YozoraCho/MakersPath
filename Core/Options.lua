@@ -109,6 +109,13 @@ local function BuildGeneralPanel(parent)
     end,
     function(v) return string.format("%.2f", v) end,
     0.7, 1.4, 0.05))
+  st:Add(W.Check(p, LT("OPT_SHOW_KOFI", "Show Ko-fi button"),
+    LT("OPT_SHOW_KOFI_DESC", "A small link in the header for anyone who wants to support the addon"),
+    function() return ConfigDB().SHOW_KOFI ~= false end,
+    function(v)
+      ConfigDB().SHOW_KOFI = (v == true)
+      if MakersPath.UI.UpdateKofi then MakersPath.UI.UpdateKofi() end
+    end))
   return p
 end
 

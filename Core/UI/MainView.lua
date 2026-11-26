@@ -1613,6 +1613,48 @@ do
   if panel.charsBtn then h.charLine:SetPoint("RIGHT", panel.charsBtn, "LEFT", -10, 0) end
 end
 
+MV.KOFI_URL = "https://ko-fi.com/yozoracho"
+
+do
+  local h = panel.header
+  local k = W.LinkButton(h, Lx("KOFI_BUTTON", "Ko-fi"), Tex.heart, function()
+    W.TipHide()
+    W.Dialog({
+      title = Lx("KOFI_TIP_TITLE", "Support Maker's Path"),
+      text = Lx("KOFI_DIALOG_TEXT", "WoW can't open web pages, so copy this link into your browser. Thank you for the support!"),
+      copy = MV.KOFI_URL,
+      hint = Lx("DIALOG_COPY_HINT", "Press Ctrl+C to copy"),
+      copiedHint = Lx("DIALOG_COPIED", "Copied"),
+    })
+  end)
+  if k.icon then k.icon:SetSize(11, 11) end
+  k:SetWidth(k.label:GetStringWidth() + 15)
+  if panel.charsBtn then k:SetPoint("RIGHT", panel.charsBtn, "LEFT", -12, 0) else k:SetPoint("RIGHT", h.right, "LEFT", -12, 0) end
+  local enter, leave = k:GetScript("OnEnter"), k:GetScript("OnLeave")
+  k:SetScript("OnEnter", function(self)
+    enter(self)
+    W.TipBegin(self, "ANCHOR_BOTTOM", 240)
+    W.TipLine(Lx("KOFI_TIP_TITLE", "Support Maker's Path"), "tipGold")
+    W.TipLine(Lx("KOFI_TIP_TEXT", "Maker's Path is free. If it's helped you, you can buy me a coffee on Ko-fi."), "secondary")
+    W.TipFoot(Lx("KOFI_TIP_FOOT", "Click for the link. You can hide this in Options."))
+    GameTooltip:Show()
+  end)
+  k:SetScript("OnLeave", function(self) leave(self); W.TipHide() end)
+  h.kofi = k
+end
+
+function MakersPath.UI.UpdateKofi()
+  local h = panel.header
+  local cfg = MakersPathDB and MakersPathDB.config
+  local show = not (cfg and cfg.SHOW_KOFI == false)
+  h.kofi:SetShown(show)
+  h.charLine:ClearAllPoints()
+  h.charLine:SetPoint("LEFT", h.charName, "RIGHT", 8, -1)
+  local anchor = show and h.kofi or panel.charsBtn
+  if anchor then h.charLine:SetPoint("RIGHT", anchor, "LEFT", -10, 0) end
+end
+panel:HookScript("OnShow", MakersPath.UI.UpdateKofi)
+
 function MV.UpdateHeader(ctx)
   local h = panel.header
   h.charName:SetText(ctx.name or "")
