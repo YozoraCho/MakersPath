@@ -86,10 +86,12 @@ local BOOK_MIN_SCALE, BOOK_MAX_SCALE, BOOK_STEP = 0.7, 1.4, 0.05
 
 local function ApplyBookScale(scale)
   scale = tonumber(scale) or 1.0
+  scale = math.floor(scale / BOOK_STEP + 0.5) * BOOK_STEP
   scale = math.max(BOOK_MIN_SCALE, math.min(scale, BOOK_MAX_SCALE))
   frame:SetScale(scale)
   MakersPathDB = MakersPathDB or {}; MakersPathDB.ui = MakersPathDB.ui or {}
   MakersPathDB.ui.profbookScale = scale
+  return scale
 end
 
 local function RestoreBookScale()
@@ -112,8 +114,7 @@ frame:EnableMouseWheel(true)
 frame:SetScript("OnMouseWheel", function(self, delta)
   if IsControlKeyDown() then
     local cur = (MakersPathDB and MakersPathDB.ui and MakersPathDB.ui.profbookScale) or self:GetScale() or 1.0
-    local new = cur + (delta > 0 and BOOK_STEP or -BOOK_STEP)
-    ApplyBookScale(new)
+    local new = ApplyBookScale(cur + (delta > 0 and BOOK_STEP or -BOOK_STEP))
     UIErrorsFrame:AddMessage(string.format(L["BOOK_SCALE_CHANGED"], new), 0.2, 0.8, 1.0)
     return
   end
@@ -361,12 +362,11 @@ SlashCmdList["MPBOOK"] = function() MakersPath.UI.ToggleProfBook() end
 
 SLASH_MPBOOKSCALE1 = "/mpbookscale"
 SlashCmdList["MPBOOKSCALE"] = function(msg)
-  local v = tonumber(msg)
+  local v = tonumber((tostring(msg or ""):gsub(",", ".")))
   if not v then
     local cur = (MakersPathDB and MakersPathDB.ui and MakersPathDB.ui.profbookScale) or (frame:GetScale() or 1.0)
     print(string.format(L["BOOK_SCALE_USAGE"], 0.70, 1.40, cur))
     return
   end
-  ApplyBookScale(v)
-  print(string.format(L["BOOK_SCALE_SET"], v))
+  print(string.format(L["BOOK_SCALE_SET"], ApplyBookScale(v)))
 end
