@@ -56,7 +56,7 @@ A check is **outlined** when met, **amber** when not met, and **dashed** when it
 
 ### Inspection View
 Click any upgrade to see:
-- What you’re wearing vs what you’d craft, with item levels and stat changes (gains in green, losses in red)
+- What you’re wearing vs what you’d craft, with item levels and stat changes (gains in green, losses in red), ordered by what matters most for your spec
 - What’s needed **to craft** (skill, recipe and where it comes from) and **to equip** (level), kept separate
 - Materials in your bags
 - Crafters on your account who could make it
@@ -65,7 +65,7 @@ Click any upgrade to see:
 ### Recipes & Materials
 - **Recipe tracking** — opening a profession window records which recipes that character knows.
 - **Bag counts** — materials are counted against each recipe, and the materials you need for everything you’ve learned are totalled at the bottom of the Path.
-- Works on Classic Era, TBC Anniversary and Forever.
+- Works on Classic Era, TBC Anniversary and Forever, including Enchanting’s separate window on Classic Era and TBC.
 
 ### Profession Book
 - Every character on your account, with level and class.
@@ -79,7 +79,9 @@ Click any upgrade to see:
 
 ### Smart Suggestions
 - **Upgrade scoring** compares crafted gear to what you’re wearing, using stat weights tuned per class and spec.
-- **Gear-aware** — respects your armor type, known weapon skills, and the ammo your ranged weapon uses.
+- **Weights for each game version** — Classic Era, TBC Anniversary and Forever each have their own weights, built from established class guides and stat conversions.
+- **Every stat counts on Classic Era** — “Equip:” bonuses such as hit, crit, attack power, defense and mana per 5 are read from the tooltip and scored.
+- **Gear-aware** — respects your armor type, known weapon skills, and the ammo your ranged weapon uses. Thrown weapons are compared against your ranged slot.
 - **Paired slots done right** — rings and trinkets are compared against the weaker of your two, and a 2H weapon is weighed against main hand + off hand together.
 - **Saved per character** and shown instantly, even after a `/reload`. Only recalculated when something that affects them changes.
 
@@ -124,6 +126,8 @@ English, German, Spanish and French.
 
 ### Known Limitations
 - **Bags** can only be read on the character you’re playing, so materials for other characters show as not known.
+- **WoW Forever weights** follow early level-60 guides and will be updated as the guides settle.
+- **Weapon skill** bonuses on WoW Forever items aren’t scored yet.
 
 ---
 
