@@ -969,6 +969,9 @@ function NormalizeToMaker(stats)
     if v > 0 then t[row[1]] = (t[row[1]] or 0) + v end
   end
 
+  local melee = _max2(stats.ITEM_MOD_MELEE_ATTACK_POWER, stats.ITEM_MOD_MELEE_ATTACK_POWER_SHORT)
+  if melee > (t.ATTACK_POWER or 0) then t.ATTACK_POWER = melee end
+
   -- Armor: best of three sources, plus the separate bonus field
   local armor = _max2(_max2(stats.ITEM_MOD_ARMOR, stats.ITEM_MOD_ARMOR_SHORT), stats.RESISTANCE0_NAME)
   if armor > 0 then t.ARMOR = (t.ARMOR or 0) + armor end
@@ -1148,8 +1151,10 @@ local function ScoreFromStats(statsRaw, iid)
   local weights = GetClassWeights()
   if not weights then return 0 end
 
-  if iid then
-    local cached = ScoreCache[iid]
+  local skipDps = OnlyStatsWeapons()
+  local ck = iid and (skipDps and -iid or iid)
+  if ck then
+    local cached = ScoreCache[ck]
     if cached ~= nil then return cached end
   end
 
@@ -1158,12 +1163,12 @@ local function ScoreFromStats(statsRaw, iid)
   local total = 0
   for k, w in pairs(weights) do
     local v = mstats[k]
-    if v and w and v > 0 then
+    if v and w and v > 0 and not (skipDps and k == "DAMAGE_PER_SECOND") then
       total = total + (v * w)
     end
   end
 
-  if iid then ScoreCache[iid] = total end
+  if ck then ScoreCache[ck] = total end
   return total
 end
 
@@ -1286,6 +1291,155 @@ local function StatFromStats(stats, key)
   return tonumber((stats and stats[key]) or 0) or 0
 end
 
+-- =================== Classic equip lines ===================
+local EQUIP_RULES = {
+  enUS = {
+    { false, 0, { "when fighting" } },
+    { "FERAL_AP", 1, { "attack power", "forms only" } },
+    { "ITEM_MOD_RANGED_ATTACK_POWER", 1,   { "ranged attack power" } },
+    { "ITEM_MOD_ATTACK_POWER",        1,   { "attack power" } },
+    { "ITEM_MOD_CRIT_SPELL_RATING",   14,  { "critical strike", "spells" } },
+    { "ITEM_MOD_CRIT_RATING",         14,  { "critical strike" } },
+    { "ITEM_MOD_HIT_SPELL_RATING",    10,  { "chance to hit with spells" } },
+    { "ITEM_MOD_HIT_RATING",          10,  { "chance to hit" } },
+    { "ITEM_MOD_DODGE_RATING",        12,  { "chance to dodge" } },
+    { "ITEM_MOD_PARRY_RATING",        20,  { "chance to parry" } },
+    { "ITEM_MOD_BLOCK_RATING",        5,   { "chance to block" } },
+    { "ITEM_MOD_BLOCK_VALUE",         1,   { "block value" } },
+    { "ITEM_MOD_DEFENSE_SKILL_RATING", 1.5, { "increased defense" } },
+    { "ITEM_MOD_MANA_REGENERATION",   1,   { "mana per 5" }, "per 5 sec" },
+    { "SPELL_BOTH",                   1,   { "damage and healing done by magical spells" } },
+    { "ITEM_MOD_SPELL_HEALING_DONE",  1,   { "healing done by spells" } },
+  },
+  deDE = {
+    { false, 0, { "im kampf gegen" } },
+    { "FERAL_AP", 1, { "angriffskraft", "gestalt" } },
+    { "ITEM_MOD_RANGED_ATTACK_POWER", 1,   { "distanzangriffskraft" } },
+    { "ITEM_MOD_ATTACK_POWER",        1,   { "angriffskraft" } },
+    { "ITEM_MOD_CRIT_SPELL_RATING",   14,  { "kritischen treffer", "zauber" } },
+    { "ITEM_MOD_CRIT_RATING",         14,  { "kritischen treffer" } },
+    { "ITEM_MOD_HIT_SPELL_RATING",    10,  { "mit zaubern zu treffen" } },
+    { "ITEM_MOD_HIT_RATING",          10,  { "trefferchance" } },
+    { "ITEM_MOD_DODGE_RATING",        12,  { "auszuweichen" } },
+    { "ITEM_MOD_PARRY_RATING",        20,  { "zu parieren" } },
+    { "ITEM_MOD_BLOCK_RATING",        5,   { "schild zu blocken" } },
+    { "ITEM_MOD_BLOCK_VALUE",         1,   { "blockwert" } },
+    { "ITEM_MOD_DEFENSE_SKILL_RATING", 1.5, { "verteidigung +" } },
+    { "ITEM_MOD_MANA_REGENERATION",   1,   { "mana wieder her" }, "alle 5 sek" },
+    { "SPELL_BOTH",                   1,   { "schaden und heilung" } },
+    { "ITEM_MOD_SPELL_HEALING_DONE",  1,   { "verursachte heilung" } },
+  },
+  esES = {
+    { false, 0, { "al luchar contra" } },
+    { "FERAL_AP", 1, { "poder de ataque", "forma" } },
+    { "ITEM_MOD_RANGED_ATTACK_POWER", 1,   { "poder de ataque a distancia" } },
+    { "ITEM_MOD_ATTACK_POWER",        1,   { "poder de ataque" } },
+    { "ITEM_MOD_CRIT_SPELL_RATING",   14,  { "golpe crítico", "hechizos" } },
+    { "ITEM_MOD_CRIT_RATING",         14,  { "golpe crítico" } },
+    { "ITEM_MOD_HIT_SPELL_RATING",    10,  { "alcanzar el objetivo con hechizos" } },
+    { "ITEM_MOD_HIT_RATING",          10,  { "alcanzar el objetivo" } },
+    { "ITEM_MOD_DODGE_RATING",        12,  { "de esquivar" } },
+    { "ITEM_MOD_PARRY_RATING",        20,  { "de parar" } },
+    { "ITEM_MOD_BLOCK_RATING",        5,   { "bloquear ataques" } },
+    { "ITEM_MOD_BLOCK_VALUE",         1,   { "valor de bloqueo" } },
+    { "ITEM_MOD_DEFENSE_SKILL_RATING", 1.5, { "defensa aumentada" } },
+    { "ITEM_MOD_MANA_REGENERATION",   1,   { "maná cada 5" }, "cada 5 s" },
+    { "SPELL_BOTH",                   1,   { "el daño y la curación" } },
+    { "ITEM_MOD_SPELL_HEALING_DONE",  1,   { "la curación de los hechizos" } },
+  },
+  frFR = {
+    { false, 0, { "en combattant" } },
+    { "FERAL_AP", 1, { "puissance d'attaque", "forme" } },
+    { "ITEM_MOD_RANGED_ATTACK_POWER", 1,   { "attaques à distance" } },
+    { "ITEM_MOD_ATTACK_POWER",        1,   { "puissance d'attaque" } },
+    { "ITEM_MOD_CRIT_SPELL_RATING",   14,  { "coup critique", "sorts" } },
+    { "ITEM_MOD_CRIT_RATING",         14,  { "coup critique" } },
+    { "ITEM_MOD_HIT_SPELL_RATING",    10,  { "toucher avec des sorts" } },
+    { "ITEM_MOD_HIT_RATING",          10,  { "chances de toucher" } },
+    { "ITEM_MOD_DODGE_RATING",        12,  { "d'esquiver" } },
+    { "ITEM_MOD_PARRY_RATING",        20,  { "de parer" } },
+    { "ITEM_MOD_BLOCK_RATING",        5,   { "bloquer les attaques" } },
+    { "ITEM_MOD_BLOCK_VALUE",         1,   { "score de blocage" } },
+    { "ITEM_MOD_DEFENSE_SKILL_RATING", 1.5, { "défense augmentée" } },
+    { "ITEM_MOD_MANA_REGENERATION",   1,   { "toutes les 5 secondes" }, "toutes les 5 secondes" },
+    { "SPELL_BOTH",                   1,   { "dégâts et les soins" } },
+    { "ITEM_MOD_SPELL_HEALING_DONE",  1,   { "soins prodigués" } },
+  },
+}
+EQUIP_RULES.enGB = EQUIP_RULES.enUS
+EQUIP_RULES.esMX = EQUIP_RULES.esES
+
+local AP_KEYS = {
+  "ITEM_MOD_ATTACK_POWER", "ITEM_MOD_ATTACK_POWER_SHORT",
+  "ITEM_MOD_MELEE_ATTACK_POWER", "ITEM_MOD_MELEE_ATTACK_POWER_SHORT",
+  "ITEM_MOD_RANGED_ATTACK_POWER", "ITEM_MOD_RANGED_ATTACK_POWER_SHORT",
+}
+
+local function MatchEquipRule(rules, line)
+  for _, r in ipairs(rules) do
+    local ok = true
+    for _, kw in ipairs(r[3]) do
+      if not line:find(kw, 1, true) then ok = false; break end
+    end
+    if ok then
+      if not r[1] then return nil end
+      local text = r[4] and line:gsub(r[4], "", 1) or line
+      local num = text:match("(%d+[%.,]?%d*)")
+      num = num and tonumber((num:gsub(",", ".")))
+      if num and num > 0 then return r[1], num * r[2] end
+      return nil
+    end
+  end
+end
+
+local function ParseEquipLines(link)
+  local rules = EQUIP_RULES[GetLocale and GetLocale() or "enUS"]
+  local prefix = _G.ITEM_SPELL_TRIGGER_ONEQUIP
+  if not rules or not prefix or prefix == "" then return nil end
+  MPGFTT:ClearLines()
+  MPGFTT:SetOwner(UIParent, "ANCHOR_NONE")
+  MPGFTT:SetHyperlink(link)
+  local out
+  for i = 2, MPGFTT:NumLines() do
+    local fs = _G["MPGFTTTextLeft" .. i]
+    local txt = fs and fs:GetText()
+    if txt and txt:sub(1, #prefix) == prefix then
+      local key, val = MatchEquipRule(rules, txt:sub(#prefix + 1):lower())
+      if key then
+        out = out or {}
+        out[key] = (out[key] or 0) + val
+      end
+    end
+  end
+  return out
+end
+
+local function ApplyEquipLines(s, eq)
+  if eq.ITEM_MOD_ATTACK_POWER or eq.ITEM_MOD_RANGED_ATTACK_POWER or eq.FERAL_AP then
+    for _, k in ipairs(AP_KEYS) do s[k] = nil end
+  end
+  local function absent(...)
+    for i = 1, select("#", ...) do
+      if (tonumber(s[select(i, ...)]) or 0) > 0 then return false end
+    end
+    return true
+  end
+  for k, v in pairs(eq) do
+    if k == "SPELL_BOTH" then
+      if absent("ITEM_MOD_SPELL_DAMAGE_DONE", "ITEM_MOD_SPELL_DAMAGE_DONE_SHORT", "ITEM_MOD_SPELL_POWER", "ITEM_MOD_SPELL_POWER_SHORT") then
+        s.ITEM_MOD_SPELL_DAMAGE_DONE = v
+      end
+      if absent("ITEM_MOD_SPELL_HEALING_DONE", "ITEM_MOD_SPELL_HEALING_DONE_SHORT") then
+        s.ITEM_MOD_SPELL_HEALING_DONE = v
+      end
+    elseif k == "ITEM_MOD_SPELL_HEALING_DONE" then
+      if absent("ITEM_MOD_SPELL_HEALING_DONE", "ITEM_MOD_SPELL_HEALING_DONE_SHORT") then s[k] = v end
+    else
+      s[k] = v
+    end
+  end
+end
+
 local function GetItemStatsTable(iid)
   if not iid then return nil end
   local cached = StatsCache[iid]
@@ -1303,6 +1457,7 @@ local function GetItemStatsTable(iid)
 
   local s = API.GetItemStats(link) or {}
   local tip = ParseTooltipStatsToTable(iid)
+  local eq = MakersPath.client and MakersPath.client.isEra and ParseEquipLines(link) or nil
 
   if tip then
     for k, v in pairs(tip) do
@@ -1310,6 +1465,7 @@ local function GetItemStatsTable(iid)
         s[k] = v
       end
     end
+    if eq then ApplyEquipLines(s, eq); eq = nil end
     if tip.SPELL_DMG_HOLY or tip.SPELL_DMG_FIRE or tip.SPELL_DMG_NATURE
       or tip.SPELL_DMG_FROST or tip.SPELL_DMG_SHADOW or tip.SPELL_DMG_ARCANE then
       s.ITEM_MOD_SPELL_DAMAGE_DONE = nil
@@ -1318,6 +1474,8 @@ local function GetItemStatsTable(iid)
       s.ITEM_MOD_SPELL_POWER_SHORT = nil
     end
   end
+
+  if eq then ApplyEquipLines(s, eq) end
 
   if StatsAreEmpty(s) then
     s = nil
