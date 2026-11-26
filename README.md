@@ -122,7 +122,6 @@ English, German, Spanish and French.
 - **Characters menu** in the header lets you view the Path for your other characters.
 
 ### Known Limitations
-- **Enchanting** uses a separate window on Classic Era and TBC, so Enchanting recipes aren’t recorded yet.
 - **Bags** can only be read on the character you’re playing, so materials for other characters show as not known.
 
 ---
