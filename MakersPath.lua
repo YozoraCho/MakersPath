@@ -857,7 +857,6 @@ MakersPath.Spec.CHOICES = {
     { text= Ls("WARRIOR_ARMS"),       value="ARMS" },
     { text= Ls("WARRIOR_FURY"),       value="FURY" },
     { text= Ls("WARRIOR_PROTECTION"), value="PROTECTION" },
-    { text= Ls("WARRIOR_FURYPROT"),  value="FURYPROT" },
   },
   PALADIN = {
     { text= Ls("SPEC_AUTO_NO_OVERRIDE"), value="" },
@@ -897,6 +896,9 @@ MakersPath.Spec.CHOICES = {
     { text= Ls("ROGUE_SUBTLETY"),      value="SUBTLETY" },
   },
 }
+if MakersPath.client and MakersPath.client.isEra then
+  table.insert(MakersPath.Spec.CHOICES.WARRIOR, { text = Ls("WARRIOR_FURYPROT"), value = "FURYPROT" })
+end
 
 -- ===== Spec Dropdown UI =====
 MakersPath.SpecUI = MakersPath.SpecUI or {}
