@@ -56,7 +56,7 @@ A check is **outlined** when met, **amber** when not met, and **dashed** when it
 
 ### Inspection View
 Click any upgrade to see:
-- What you’re wearing vs what you’d craft, with item levels and stat changes
+- What you’re wearing vs what you’d craft, with item levels and stat changes (gains in green, losses in red)
 - What’s needed **to craft** (skill, recipe and where it comes from) and **to equip** (level), kept separate
 - Materials in your bags
 - Crafters on your account who could make it
@@ -73,7 +73,8 @@ Click any upgrade to see:
 - Collapse or expand each character; Shift + Right-Click to remove one.
 
 ### Options & Stat Weights
-- **General:** Prefer my class’s armor type, Trainer recipes only, Ignore class and weapon checks, Score weapons on stats only, Look ahead (levels), Hide minimap button, Scale.
+- **General:** Prefer my class’s armor type, Trainer recipes only, Ignore class and weapon checks, Score weapons on stats only, Look ahead (levels), Hide minimap icon, Scale, Show Ko-fi button.
+- **Look ahead** and **Scale** can be typed in directly, nudged with the mouse wheel, or stepped with the − / + buttons.
 - **Stat Weights editor** — adjust how much each stat counts, save presets, and import or export a setup as a single string.
 
 ### Smart Suggestions
@@ -95,11 +96,11 @@ English, German, Spanish and French.
 | `/mpbook` | Open the Profession Book |
 | `/mpoptions` or `/mpsettings` | Open the Options window |
 | `/mpweights` | Open the Stat Weights editor |
-| `/mpcap <levels>` or `/mpcap max` | Set how many future levels to look ahead (also in Options) |
+| `/mpcap <levels>` or `/mpcap max` | Set how many future levels to look ahead, up to 60 (also in Options) |
 | `/mptrainer [on\|off]` | Only suggest trainer-taught recipes |
 | `/mpignorefilters [on\|off]` | Skip the class, weapon, and ammo restriction checks |
 | `/mpreset` | Reset the window position and size |
-| `/mpscale <value>` | Set the window scale (or use Ctrl + ScrollWheel) |
+| `/mpscale <value>` | Set the window scale (0.70–1.40), or use Ctrl + ScrollWheel |
 | `/mpbookscale <value>` | Set the Profession Book scale (0.70–1.40) |
 
 ### Troubleshooting
@@ -123,6 +124,13 @@ English, German, Spanish and French.
 
 ### Known Limitations
 - **Bags** can only be read on the character you’re playing, so materials for other characters show as not known.
+
+---
+
+## Support
+
+Maker’s Path is free. If it’s helped you, you can support it on [Ko-fi](https://ko-fi.com/yozoracho).  
+There’s also a small Ko-fi link in the window header, which you can hide in Options.
 
 ---
 
@@ -150,6 +158,7 @@ See [`LICENSE.txt`](./LICENSE.txt) for details.
 - 🔗 [CurseForge Addon Page](https://www.curseforge.com/wow/addons/makers-path)
 - 💡 [Issue Tracker](../../issues)
 - 📦 [Releases](../../releases)
+- ☕ [Ko-fi](https://ko-fi.com/yozoracho)
 
 ---
 
