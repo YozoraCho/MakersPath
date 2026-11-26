@@ -42,7 +42,8 @@ T.C = {
   muted      = rgb("#a99d86"),
   faint      = rgb("#6e6455"),
   amber      = rgb("#e8a85c"),
-  loss       = rgb("#d98a7e"),
+  gain       = rgb("#66e054"),
+  loss       = rgb("#ff5c48"),
   tipGold    = rgb("#ffd100"),
   tipGrey    = rgb("#8f8fa3"),
 }

@@ -1254,6 +1254,11 @@ insp.scoreCap:SetText(Lx("INSP_SCORE", "upgrade score"))
 insp.stats = W.Text(insp, "body", "secondary")
 insp.stats:SetPoint("TOPLEFT", insp.cmp, "BOTTOMLEFT", 2, -7)
 insp.stats:SetPoint("RIGHT")
+insp.stats:SetWordWrap(true)
+insp.stats:SetSpacing(3)
+insp.statMeasure = W.Text(insp, "body", "secondary")
+insp.statMeasure:SetPoint("TOPLEFT", UIParent, "BOTTOMRIGHT", 100, -100)
+insp.statMeasure:Hide()
 
 local function ReqList(parent, title)
   local f = CreateFrame("Frame", nil, parent)
@@ -1300,6 +1305,10 @@ insp.mats.pip:SetPoint("LEFT")
 insp.mats.head.label:ClearAllPoints()
 insp.mats.head.label:SetPoint("LEFT", insp.mats.pip, "RIGHT", 6, 0)
 insp.crafters = RowList(insp, Lx("INSP_CRAFTERS", "Crafters on this account"))
+insp.crafters.empty = W.Text(insp.crafters, "body", "muted")
+insp.crafters.empty:SetPoint("TOPLEFT", 0, -24)
+insp.crafters.empty:SetWordWrap(true)
+insp.crafters.empty:SetJustifyV("TOP")
 insp.note = W.Text(insp, "small", "muted")
 insp.note:SetText(Lx("INSP_RECIPES_NOTE", "Known recipes are read from each character's profession window the last time it was opened."))
 insp.alts = RowList(insp, "")
@@ -1356,6 +1365,15 @@ local function AltRow(parent, i)
   return r
 end
 
+local DPS_KEY = "ITEM_MOD_DAMAGE_PER_SECOND_SHORT"
+
+local function FmtStat(v, decimals)
+  if decimals then return string.format("%.1f", v) end
+  local r = math.floor(v + 0.5)
+  if math.abs(v - r) < 0.05 then return tostring(r) end
+  return string.format("%.1f", v)
+end
+
 local function StatDiffs(eqLink, crLink)
   local a = eqLink and API.GetItemStats(eqLink) or {}
   local b = crLink and API.GetItemStats(crLink) or {}
@@ -1365,18 +1383,43 @@ local function StatDiffs(eqLink, crLink)
   for k in pairs(keys) do
     local va, vb = tonumber(a[k]) or 0, tonumber(b[k]) or 0
     local label = _G[k]
-    if va ~= vb and type(label) == "string" and label ~= "" then
-      out[#out + 1] = { label = label, a = va, b = vb, d = vb - va }
+    local dec = (k == DPS_KEY)
+    local sa, sb = FmtStat(va, dec), FmtStat(vb, dec)
+    if sa ~= sb and type(label) == "string" and label ~= "" then
+      out[#out + 1] = { label = label, a = sa, b = sb, d = vb - va, sd = FmtStat(math.abs(vb - va), dec) }
     end
   end
   table.sort(out, function(x, y) return math.abs(x.d) > math.abs(y.d) end)
   local parts = {}
   for i = 1, math.min(4, #out) do
     local s = out[i]
-    local dd = (s.d > 0 and "+" or "") .. s.d
-    parts[#parts + 1] = string.format("%s %s %s", s.label, T.Wrap("bone", s.a .. " -> " .. s.b), T.Wrap(s.d >= 0 and "bone" or "loss", dd))
+    local delta = T.Wrap(s.d > 0 and "gain" or "loss", "(" .. (s.d > 0 and "+" or "-") .. s.sd .. ")")
+    parts[#parts + 1] = string.format("%s %s %s", s.label, T.Wrap("bone", s.a .. " -> " .. s.b), delta)
   end
-  return table.concat(parts, "    ")
+  return parts
+end
+
+local function LayoutStats(parts)
+  local fs, m = insp.stats, insp.statMeasure
+  local width = fs:GetWidth() or 0
+  if width <= 0 then width = 400 end
+  local gap = "     "
+  local lines, line = {}, nil
+  for _, p in ipairs(parts) do
+    if not line then
+      line = p
+    else
+      m:SetText(line .. gap .. p)
+      if (m:GetStringWidth() or 0) > width then
+        lines[#lines + 1] = line
+        line = p
+      else
+        line = line .. gap .. p
+      end
+    end
+  end
+  if line then lines[#lines + 1] = line end
+  fs:SetText(table.concat(lines, "\n"))
 end
 
 local function RenderInspect(slot)
@@ -1417,7 +1460,7 @@ local function RenderInspect(slot)
   insp.cr.link = cLink
   insp.score:SetText(fmtGain(it.gain))
 
-  insp.stats:SetText(StatDiffs(eLink, cLink))
+  LayoutStats(StatDiffs(eLink, cLink))
 
   local c = it.checks
   local craft = {}
@@ -1477,11 +1520,9 @@ local function RenderInspect(slot)
     end
   end
   table.sort(list, function(a, b) return a.rank > b.rank end)
+  insp.crafters.empty:SetShown(#list == 0)
   if #list == 0 then
-    local r = CrafterRow(insp.crafters, 1)
-    r.name:SetText("")
-    r.state:SetText(T.Wrap("muted", string.format(Lx("TIP_NOBODY_HAS_FMT", "No other character on this account has %s"), ProfName(it.line))))
-    r:ClearAllPoints(); r:SetPoint("TOPLEFT", 0, -20); r:SetPoint("RIGHT"); r:Show()
+    insp.crafters.empty:SetText(string.format(Lx("TIP_NOBODY_HAS_FMT", "No other character on this account has %s"), ProfName(it.line)))
   end
   for i, e in ipairs(list) do
     if i > 4 then break end
@@ -1544,6 +1585,10 @@ local function RenderInspect(slot)
   local reqH = math.max(insp.craft:GetHeight(), insp.equip:GetHeight())
   insp.mats:ClearAllPoints(); insp.mats:SetPoint("TOPLEFT", insp.craft, "TOPLEFT", 0, -(reqH + 8)); insp.mats:SetWidth(colB + 20)
   insp.crafters:ClearAllPoints(); insp.crafters:SetPoint("TOPLEFT", insp.mats, "TOPRIGHT", gap, 0); insp.crafters:SetPoint("RIGHT", insp, "RIGHT")
+  if insp.crafters.empty:IsShown() then
+    insp.crafters.empty:SetWidth(math.max(60, W2 - (colB + 20) - gap))
+    insp.crafters:SetHeight(24 + math.ceil(insp.crafters.empty:GetStringHeight() or 14) + 4)
+  end
   local mh = math.max(insp.mats:GetHeight(), insp.crafters:GetHeight())
   insp.note:ClearAllPoints(); insp.note:SetPoint("TOPLEFT", insp.mats, "TOPLEFT", 0, -(mh + 2)); insp.note:SetPoint("RIGHT", insp, "RIGHT")
   insp.alts:ClearAllPoints(); insp.alts:SetPoint("TOPLEFT", insp.note, "BOTTOMLEFT", 0, -8); insp.alts:SetPoint("RIGHT", insp, "RIGHT")
