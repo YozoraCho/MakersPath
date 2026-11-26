@@ -233,9 +233,11 @@ end
 
 local function ApplyPanelScale(scale)
   scale = tonumber(scale) or 1.0
+  scale = math.floor(scale / SCALE_STEP + 0.5) * SCALE_STEP
   scale = math.max(MIN_SCALE, math.min(scale, MAX_SCALE))
   panel:SetScale(scale)
   if DB then DB.scale = scale end
+  return scale
 end
 
 local function RestoreMainScale()
@@ -288,8 +290,7 @@ panel:EnableMouseWheel(true)
 panel:HookScript("OnMouseWheel", function(self, delta)
   if not IsControlKeyDown() then return end
   local cur = (DB and DB.scale) or self:GetScale() or 1.0
-  local new = cur + (delta > 0 and SCALE_STEP or -SCALE_STEP)
-  ApplyPanelScale(new)
+  local new = ApplyPanelScale(cur + (delta > 0 and SCALE_STEP or -SCALE_STEP))
   UIErrorsFrame:AddMessage(L["MAIN_SCALE_FMT"]:format(new), 0.2, 0.8, 1.0)
 end)
 
@@ -297,7 +298,7 @@ end)
 local function RestorePanelPosition()
   if not DB then return end
   ApplyPanelSize()
-  ApplyPanelScale()
+  RestoreMainScale()
   if not DB.pos then return end
   local point = DB.pos.point or "CENTER"
   local relPt = DB.pos.relativePoint or point
@@ -315,7 +316,7 @@ local function ResetPanelPosition()
   panel:ClearAllPoints()
   panel:SetPoint("CENTER")
   ApplyPanelSize()
-  ApplyPanelScale()
+  RestoreMainScale()
 end
 
 -- ===================== List UI =====================
@@ -981,12 +982,10 @@ SlashCmdList["MAKERSPATHRESET"] = function() ResetPanelPosition() end
 
 SLASH_MAKERSPATHSCALE1 = "/mpscale"
 SlashCmdList["MAKERSPATHSCALE"] = function(msg)
-  local s = tonumber(msg)
+  local s = tonumber((tostring(msg or ""):gsub(",", ".")))
   if not DB then return end
   if not s or s <= 0 then return end
-  s = math.max(MIN_SCALE, math.min(s, MAX_SCALE))
-  DB.scale = s
-  panel:SetScale(s)
+  ApplyPanelScale(s)
 end
 -- Change Future Look
 SLASH_MPCAP1 = "/mpcap"
@@ -999,7 +998,7 @@ SlashCmdList["MPCAP"] = function(msg)
   if isMax then
     MakersPath.FutureWindow = 60
   elseif v then
-    MakersPath.FutureWindow = math.max(0, math.floor(v))
+    MakersPath.FutureWindow = math.max(0, math.min(60, math.floor(v)))
   else
     print("|cff66ccff["..Ls("ADDON_NAME").."]|r "..Ls("USAGE_MPCAP"))
     return
