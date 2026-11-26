@@ -245,8 +245,9 @@ function W.Button(parent, text, onClick, opts)
   b.bg = W.Fill(b, "button", "BACKGROUND"); b.bg:SetAllPoints()
   b.edges = frameEdges(b)
   b.shine = W.Line(b, "edgeLight", "ARTWORK"); b.shine:SetPoint("TOPLEFT", 1, -1); b.shine:SetPoint("TOPRIGHT", -1, -1)
+  local pad = opts.pad or 8
   b.label = W.Text(b, "body", "bone")
-  b.label:SetPoint("LEFT", 8, 0)
+  b.label:SetPoint("LEFT", pad, 0)
   if opts.dropdown then
     b.chev = b:CreateTexture(nil, "ARTWORK")
     b.chev:SetTexture(Tex.chevron)
@@ -254,14 +255,14 @@ function W.Button(parent, text, onClick, opts)
     b.chev:SetPoint("RIGHT", -7, 0)
     b.label:SetPoint("RIGHT", b.chev, "LEFT", -5, 0)
   else
-    b.label:SetPoint("RIGHT", -8, 0)
+    b.label:SetPoint("RIGHT", -pad, 0)
     b.label:SetJustifyH("CENTER")
   end
   b._fixedW = opts.width
   function b:SetText(t)
     self.label:SetText(t or "")
     if not self._fixedW then
-      local w = self.label:GetStringWidth() + 16 + (self.chev and 14 or 0)
+      local w = self.label:GetStringWidth() + pad * 2 + (self.chev and 14 or 0)
       self:SetWidth(math.max(opts.minWidth or 0, math.ceil(w)))
     end
   end
@@ -376,30 +377,82 @@ function W.Stepper(parent, label, desc, getter, setter, format, minV, maxV, step
   f.desc = W.Text(f, "small", "muted")
   f.desc:SetPoint("TOPLEFT", f.label, "BOTTOMLEFT", 0, -1)
   f.desc:SetText(desc or "")
-  f.plus = W.Button(f, "+", nil, { width = 22 })
+  f.plus = W.Button(f, "+", nil, { width = 22, pad = 2 })
   f.plus:SetPoint("RIGHT", 0, 0)
-  f.value = W.Text(f, "body", "bone")
-  f.value:SetJustifyH("CENTER")
-  f.value:SetWidth(64)
+  f.value = W.Input(f, 64, { justify = "CENTER", maxLetters = 8 })
   f.value:SetPoint("RIGHT", f.plus, "LEFT", -2, 0)
-  f.minus = W.Button(f, "-", nil, { width = 22 })
+  f.shown = W.Text(f.value, "body", "bone")
+  f.shown:SetPoint("LEFT", 2, 0)
+  f.shown:SetPoint("RIGHT", -2, 0)
+  f.shown:SetJustifyH("CENTER")
+  f.minus = W.Button(f, "-", nil, { width = 22, pad = 2 })
   f.minus:SetPoint("RIGHT", f.value, "LEFT", -2, 0)
   f.desc:SetPoint("RIGHT", f.minus, "LEFT", -8, 0)
+
+  local decimals = 0
+  local s = tostring(step)
+  if s:find("%.") then decimals = #s:match("%.(%d+)") end
+  if decimals == 0 and minV >= 0 then f.value:SetNumeric(true) end
+  local function raw(v)
+    if decimals == 0 then return tostring(math.floor(v + 0.5)) end
+    return string.format("%." .. decimals .. "f", v)
+  end
+
   function f:Sync()
     local v = getter()
-    self.value:SetText(format(v))
+    if self.value:HasFocus() then
+      self.value:SetText(raw(v))
+      self.shown:Hide()
+    else
+      self.value:SetText("")
+      self.shown:SetText(format(v))
+      self.shown:Show()
+    end
     self.minus:SetEnabled(v > minV + 1e-6)
     self.plus:SetEnabled(v < maxV - 1e-6)
   end
-  local function bump(d)
-    local v = getter() + d
+  local function apply(v)
     v = math.max(minV, math.min(maxV, v))
     v = math.floor(v / step + 0.5) * step
-    setter(v)
+    v = math.max(minV, math.min(maxV, v))
+    if math.abs(v - getter()) > 1e-6 then setter(v) end
     f:Sync()
   end
-  f.minus:SetScript("OnClick", function() bump(-step) end)
-  f.plus:SetScript("OnClick", function() bump(step) end)
+  local function bump(d) apply(getter() + d) end
+  local function commit(box)
+    local text = (box:GetText() or ""):gsub(",", "."):match("^%s*(-?[%d%.]+)")
+    local v = tonumber(text)
+    if v then apply(v) end
+  end
+
+  f.minus:SetScript("OnClick", function() f.value:ClearFocus(); bump(-step) end)
+  f.plus:SetScript("OnClick", function() f.value:ClearFocus(); bump(step) end)
+
+  local gained = f.value:GetScript("OnEditFocusGained")
+  local lost = f.value:GetScript("OnEditFocusLost")
+  f.value:SetScript("OnEditFocusGained", function(self)
+    gained(self)
+    f.shown:Hide()
+    self:SetText(raw(getter()))
+    self:HighlightText()
+  end)
+  f.value:SetScript("OnEditFocusLost", function(self)
+    lost(self)
+    commit(self)
+    f:Sync()
+  end)
+  f.value:SetScript("OnEnterPressed", function(self) self:ClearFocus() end)
+  f.value:SetScript("OnEscapePressed", function(self)
+    self:SetText(raw(getter()))
+    self:ClearFocus()
+  end)
+  f.value:EnableMouseWheel(true)
+  f.value:SetScript("OnMouseWheel", function(self, delta)
+    if self:HasFocus() then commit(self) end
+    bump(delta > 0 and step or -step)
+    if self:HasFocus() then self:SetText(raw(getter())); self:HighlightText() end
+  end)
+
   f:SetScript("OnShow", f.Sync)
   f:Sync()
   return f
